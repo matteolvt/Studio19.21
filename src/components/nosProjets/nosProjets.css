@@ -1,0 +1,284 @@
+:root {
+  --bg-color: #FFF6E4;
+  --blue-primary: #031FD0;
+  --text-dark: #000000;
+  --text-grey: #666666;
+  --line-color: #000000;
+  --btn-radius: 50px;
+}
+
+/* --- ANIMATION D'APPARITION --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects-section {
+  background-color: var(--bg-color);
+  padding-top: 180px;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--blue-primary);
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+/* --- FILTRES --- */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--text-dark);
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-dark);
+}
+
+.filter-btn:hover {
+  background-color: rgba(3, 31, 208, 0.05);
+  color: var(--blue-primary);
+  border-color: var(--blue-primary);
+}
+
+.filter-btn.active {
+  background-color: var(--blue-primary);
+  color: #fff;
+  border-color: var(--blue-primary);
+}
+
+/* --- LA GRILLE --- */
+.projects-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line-color);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* --- LA CARTE --- */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  
+  padding: 80px 60px;
+  
+  border-bottom: 1px solid var(--line-color);
+  cursor: pointer;
+  
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-color);
+  
+  /* L'animation d'apparition se lance ici */
+  /* 'both' permet de garder l'élément invisible (opacity 0) avant le début de l'anim */
+  opacity: 0; 
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Effet cascade : chaque carte arrive un tout petit peu après l'autre */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Bordure verticale */
+.project-card:nth-child(odd) {
+  border-right: 1px solid var(--line-color);
+}
+
+/* --- EFFETS HOVER --- */
+.project-card:hover {
+  background-color: var(--bg-color); /* Reste beige */
+  box-shadow: 0 10px 40px rgba(3, 31, 208, 0.1); 
+  z-index: 2;
+}
+
+/* --- IMAGE --- */
+.project-image-container {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.03); /* Zoom léger premium */
+}
+
+/* --- INFOS --- */
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.info-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.project-year {
+  font-family: monospace;
+  border: 1px solid var(--text-dark);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--blue-primary);
+}
+
+.project-description {
+  font-size: 1.1rem;
+  color: var(--text-grey);
+  max-width: 450px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* --- PARTIE BASSE --- */
+.info-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tag {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-dark);
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  border: 1px solid var(--blue-primary);
+  border-radius: var(--btn-radius);
+  color: var(--blue-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-btn {
+  background-color: var(--blue-primary);
+  color: #ffffff;
+}
+
+.project-card:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    border-top: none; 
+  }
+  
+  .project-card:nth-child(odd) {
+    border-right: none;
+  }
+
+  .project-card {
+    padding: 60px 20px;
+    border-bottom: none; 
+    margin-bottom: 40px; 
+  }
+  
+  .project-image-container {
+    height: 300px;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .filter-container {
+    padding: 0 20px;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
