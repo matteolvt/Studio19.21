@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; 
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo {
+    justify-self: center;
+}
+
+.logo img {
+    height: 120px;
+    width: 120px;
+    color: #031FD0;
+}
+
+.nav-links {
+    justify-self: center;
+    font-weight: bold;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+/* Cible explicitement les Link de react-router */
+.nav-links ul li a,
+.nav-links ul li a:visited {
+    color: black;
+    text-decoration: none;
+    font-size: 19px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover,
+.nav-links ul li a.active {
+    color: #031FD0;
+}
+
+.devis {
+    justify-self: center;
+}
+
+#devis-button {
+    background-color: #FFF6E4;
+    border: none;
+    color: #031FD0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 10px 20px;
+    height: 61px;
+    width: 227px;
+    font-size: 19px;
+}
