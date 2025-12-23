@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "./heroSection.css";
 import heroMac from "../../assets/macbook.png";
 

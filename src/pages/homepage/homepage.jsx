@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "./homepage.css";
 import Navbar from "../../components/navbar/navbar.jsx";
 import HeroSection from "../../components/heroSection/heroSection.jsx";
