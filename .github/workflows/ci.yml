@@ -1,0 +1,14 @@
+name: Code Quality (Lint)
+on:
+  pull_request:
+    branches: [develop, preprod, main] # Se lance sur chaque PR vers ces branches
+
+jobs:
+  check-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # Copie ton code sur le serveur GitHub
+      - name: Install dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npm run lint # Lance ton script de nettoyage
