@@ -1,17 +1,45 @@
-# React + Vite
+# 🚀 Studio 19.21 - Agence Digitale
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur le dépôt officiel du site de l'agence **Studio 19.21**. Ce projet est développé en **ReactJS** avec une architecture robuste et un déploiement continu.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Stack Technique
 
-## React Compiler
+- **Framework:** [React](https://reactjs.org/) (via Vite)
+- **Hébergement:** [Vercel](https://vercel.com)
+- **CI/CD:** GitHub Actions & Vercel Integration
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🏗 Workflow du Projet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Studio19.21
+Pour garantir une stabilité maximale, nous utilisons un flux de travail structuré :
+
+- **`main`** : Branche de production. Reflète le site en ligne.
+- **`preprod`** : Branche de staging. Utilisée pour la validation client avant mise en ligne.
+- **`develop`** : Branche d'intégration. Toutes les nouvelles fonctionnalités y sont regroupées.
+- **`feature/*`** : Branches éphémères pour le développement de nouvelles fonctionnalités.
+
+---
+
+## 🚀 Installation Locale
+
+1.  **Cloner le projet**
+    ```bash
+    git clone [https://github.com/matteolvt/Studio19.21.git](https://github.com/matteolvt/Studio19.21.git)
+    ```
+2.  **Installer les dépendances**
+    ```bash
+    npm install
+    ```
+3.  **Lancer le serveur de développement**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 📮 Déploiement
+
+Chaque Pull Request génère automatiquement un lien de **Preview** via Vercel pour tester les modifications en conditions réelles avant le merge.
