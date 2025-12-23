@@ -1,20 +1,11 @@
 .hero-section {
-    /* --- 1. LE FOND --- */
-    /* Le dégradé part du beige, coupe à 60% de l'écran, et passe au bleu */
     background: linear-gradient(105deg, #FFF6E4 60%, #031FD0 60%);
-    
-    /* --- 2. DIMENSIONS --- */
-    min-height: 100vh; /* Force la section à faire 100% de la hauteur de fenêtre */
+    min-height: 100vh; 
     width: 100%;
-    
-    /* --- 3. DISPOSITION (FLEX) --- */
     display: flex;
-    align-items: center; /* Centre le contenu verticalement */
-    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
-    
-    /* --- 4. MARGES INTÉRIEURES --- */
-    /* IMPORTANT : Padding-top pour que le contenu ne soit pas collé sous la navbar */
     padding-top: 120px; 
     padding-left: 5%;
     padding-right: 5%;
