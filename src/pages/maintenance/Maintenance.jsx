@@ -33,7 +33,7 @@ const Maintenance = () => {
       <div style={styles.logo}>STUDIO 19.21</div>
       <div style={styles.line}></div>
       <h1>LANCEMENT PROCHAIN</h1>
-      <p>Nous préparons quelque chose de spécial. Restez à l'écoute.</p>
+      <p>Nous préparons quelque chose de spécial. Restez à l&apos;écoute.</p>
       <p style={{ marginTop: "40px", fontSize: "0.8rem", opacity: 0.6 }}>
         © 2025 Studio 19.21 - Agence Créative
       </p>
