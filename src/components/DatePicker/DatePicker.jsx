@@ -1,5 +1,7 @@
-import "./DatePicker.css";
 import React from "react";
+import PropTypes from "prop-types";
+import "./DatePicker.css";
+
 export default function DatePicker({ value, onChange }) {
   return (
     <label className="appointment-label">
@@ -14,3 +16,8 @@ export default function DatePicker({ value, onChange }) {
     </label>
   );
 }
+
+DatePicker.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

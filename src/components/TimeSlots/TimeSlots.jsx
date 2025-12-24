@@ -1,4 +1,12 @@
 import "./TimeSlots.css";
+import React from "react";
+import PropTypes from "prop-types";
+
+TimeSlots.propTypes = {
+  slots: PropTypes.array.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default function TimeSlots({ slots = [], value, onChange }) {
   return (

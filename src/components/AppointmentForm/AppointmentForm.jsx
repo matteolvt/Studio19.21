@@ -1,7 +1,8 @@
+import React from "react";
+import PropTypes from "prop-types";
 import DatePicker from "../DatePicker/DatePicker";
 import TimeSlots from "../TimeSlots/TimeSlots";
 import "./AppointmentForm.css";
-import React from "react";
 
 export default function AppointmentForm({
   date,
@@ -52,3 +53,16 @@ export default function AppointmentForm({
     </form>
   );
 }
+
+AppointmentForm.propTypes = {
+  date: PropTypes.string.isRequired,
+  setDate: PropTypes.func.isRequired,
+  time: PropTypes.string.isRequired,
+  setTime: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  setName: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  setEmail: PropTypes.func.isRequired,
+  slots: PropTypes.array.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
