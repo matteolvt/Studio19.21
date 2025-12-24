@@ -35,7 +35,7 @@ const Maintenance = () => {
       <h1>LANCEMENT PROCHAIN</h1>
       <p>Nous préparons quelque chose de spécial. Restez à l&apos;écoute.</p>
       <p style={{ marginTop: "40px", fontSize: "0.8rem", opacity: 0.6 }}>
-        © 2025 Studio 19.21 - Agence Créative
+        © 2025 Studio 19.21 - Agence Web / Création de site web
       </p>
     </div>
   );
