@@ -1,0 +1,14 @@
+.appointment-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.appointment-input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  margin-top: 0.3rem;
+}
