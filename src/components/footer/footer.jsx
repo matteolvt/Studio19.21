@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-cta">
           <h2>Un projet digital en tête ?</h2>
           <p>Discutons de vos besoins et voyons comment vous aider.</p>
-          <a href="#contact" className="footer-button">
+          <a href="/rdv" className="footer-button">
             Prendre rendez-vous
           </a>
           <span className="footer-note">

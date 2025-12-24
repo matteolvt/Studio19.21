@@ -1,0 +1,8 @@
+.appointment-page {
+  background-color: #FFF6E4;
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
