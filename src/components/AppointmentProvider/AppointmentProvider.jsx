@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import "./AppointmentProvider.css";
+import React from "react";
 
 export default function AppointmentProvider({ children }) {
   const [date, setDate] = useState("");

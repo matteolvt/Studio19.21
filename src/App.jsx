@@ -3,7 +3,7 @@ import Snowfall from "react-snowfall";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage/homepage";
 import Projets from "./pages/projets/projets";
-import Appointment from "./pages/Appointment/Appointment";
+import Appointment from "./pages/appointment/appointment"
 
 function App() {
   return (

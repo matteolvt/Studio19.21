@@ -13,9 +13,9 @@ export default function TimeSlots({ slots = [], value, onChange }) {
         <option value="">Sélectionner un créneau</option>
             {slots.length > 0 ? (
             slots.map(slot => <option key={slot} value={slot}>{slot}</option>)
-            
+
         ) : (
-            
+
         <option value="" disabled>Aucun créneau disponible</option>
         )}
         </select>

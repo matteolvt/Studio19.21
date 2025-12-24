@@ -1,4 +1,5 @@
 import "./HeroAppointment.css";
+import React from "react";
 
 const HeroAppointment = () => (
   <section className="hero-appointment">

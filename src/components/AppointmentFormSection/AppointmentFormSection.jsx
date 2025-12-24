@@ -1,5 +1,6 @@
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
 import "./AppointmentFormSection.css";
+import React from "react";
 
 export default function AppointmentFormSection(props) {
     return (

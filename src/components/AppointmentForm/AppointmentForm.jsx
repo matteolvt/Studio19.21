@@ -1,6 +1,7 @@
 import DatePicker from "../DatePicker/DatePicker";
 import TimeSlots from "../TimeSlots/TimeSlots";
 import "./AppointmentForm.css";
+import React from "react";
 
 export default function AppointmentForm({
   date,
