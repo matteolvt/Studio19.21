@@ -42,10 +42,7 @@ export default function Portfolio() {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-
-      // Progression seulement quand le portfolio est visible
-      const start = viewportHeight / 2 - rect.height / 2;
-      const end = viewportHeight / 2 + rect.height / 2;
+      
       const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
 
       if (visibleHeight > 0) {
