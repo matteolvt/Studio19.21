@@ -1,70 +1,202 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 .navbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent; 
-    z-index: 1000;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    padding: 20px 40px;
-}
-
-.logo {
-    justify-self: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  z-index: 1000;
+  background-color: transparent;
 }
 
 .logo img {
-    height: 120px;
-    width: 120px;
-    color: #031FD0;
+  width: 120px;
 }
 
 .nav-links {
-    justify-self: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  transition: transform 0.4s ease;
 }
 
-.nav-links ul {
-    list-style: none;
+.nav-links a {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #031FD0;
+}
+
+.devis-btn {
+  background: #FFF6E4;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #031FD0;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.devis-btn:hover {
+  background: #031FD0;
+  color: #FFF6E4;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.burger span {
+  width: 30px;
+  height: 3px;
+  background: #031FD0;
+  transition: all 0.4s ease;
+}
+
+/* Burger blanc sur home */
+.navbar.home .burger span {
+  background: white;
+}
+
+/* Croix bleue sur home */
+.navbar.home .burger.open span:nth-child(1),
+.navbar.home .burger.open span:nth-child(3) {
+  background: #031FD0;
+}
+
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: inline-block;
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 20px 40px;
+  }
+
+  .nav-links {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
     display: flex;
-    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFF6E4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    padding: 0 20px;
+    z-index: 1500;
+    overflow-y: auto;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .nav-links a {
+    font-size: 22px;
+  }
+
+  .devis-btn {
+    font-size: 16px;
+    padding: 12px 26px;
+  }
+
+  .logo img {
+    width: 90px;
+  }
 }
 
-/* Cible explicitement les Link de react-router */
-.nav-links ul li a,
-.nav-links ul li a:visited {
-    color: black;
-    text-decoration: none;
-    font-size: 19px;
-    transition: color 0.3s ease;
-}
+@media (max-width: 600px) {
+  .nav-links a {
+    font-size: 20px;
+  }
 
-.nav-links ul li a:hover,
-.nav-links ul li a.active {
-    color: #031FD0;
-}
+  .devis-btn {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
 
-.devis {
-    justify-self: center;
-}
-
-#devis-button {
-    background-color: #FFF6E4;
-    border: none;
-    color: #031FD0;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 50px;
-    padding: 10px 20px;
-    height: 61px;
-    width: 227px;
-    font-size: 19px;
+  .logo img {
+    width: 80px;
+  }
 }
