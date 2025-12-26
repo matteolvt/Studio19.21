@@ -31,11 +31,18 @@ const projectsData = [
     categoryIds: ["vitrine"],
     link: "#",
   },
-  // Ajoute d'autres projets ici pour tester...
 ];
 
 const NosProjets = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+
+  // --- LOGIQUE DES COMPTEURS ---
+  const getProjectCount = (categoryId) => {
+    if (categoryId === "all") return projectsData.length;
+    return projectsData.filter((project) =>
+      project.categoryIds.includes(categoryId)
+    ).length;
+  };
 
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === "all") return true;
@@ -44,9 +51,6 @@ const NosProjets = () => {
 
   return (
     <section className="projects-section">
-      <h2 className="section-title">NOS PROJETS</h2>
-
-      {/* --- MENU DE FILTRES --- */}
       <div className="filter-container">
         {categories.map((cat) => (
           <button
@@ -55,14 +59,13 @@ const NosProjets = () => {
             onClick={() => setActiveFilter(cat.id)}
           >
             {cat.label}
+            {/* Ajout du compteur ici */}
+            <span className="filter-count">{getProjectCount(cat.id)}</span>
           </button>
         ))}
       </div>
 
-      {/* L'astuce est ici : key={activeFilter} 
-         Quand la clé change, React "détruit" et "recrée" la grille,
-         ce qui relance l'animation CSS "fadeInUp".
-      */}
+      {/* Reste du composant inchangé */}
       <div className="projects-container" key={activeFilter}>
         {filteredProjects.map((project) => {
           const projectTags = categories.filter(

@@ -21,19 +21,9 @@
 
 .projects-section {
   background-color: var(--bg-color);
-  padding-top: 180px;
+  padding-top: 50px;
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
-}
-
-.section-title {
-  text-align: center;
-  color: var(--blue-primary);
-  font-weight: 900;
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-  letter-spacing: -1px;
 }
 
 /* --- FILTRES --- */
@@ -240,6 +230,36 @@
 
 .project-card:hover .arrow {
   transform: translateX(5px);
+}
+
+/* --- COMPTEUR DANS LES FILTRES --- */
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espace entre le texte et le chiffre */
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+/* Changement d'apparence quand le filtre est actif */
+.filter-btn.active .filter-count {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.8); /* Chiffre blanc un peu transparent sur fond bleu */
+}
+
+/* Changement au hover */
+.filter-btn:hover .filter-count {
+  opacity: 1;
+  color: var(--blue-primary);
+}
+
+.filter-btn.active:hover .filter-count {
+  color: #fff;
 }
 
 /* --- RESPONSIVE MOBILE --- */
