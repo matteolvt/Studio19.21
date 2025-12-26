@@ -92,7 +92,7 @@ const About = () => {
             <span className="italic">mémorables</span>.
           </h1>
           <p className="hero-subtitle">
-            Studio 19.21 est né de la conviction qu'un site web ne devrait
+            Studio 19.21 est né de la conviction qu&apos;un site web ne devrait
             jamais être simplement fonctionnel, mais véritablement remarquable.
           </p>
         </div>
@@ -106,8 +106,8 @@ const About = () => {
             <p>
               Tout a commencé en 2021, avec une simple idée : créer des sites
               web qui se démarquent vraiment. Dans un monde saturé de templates
-              et de solutions standardisées, nous avons voulu ramener l'approche
-              artisanale dans le développement web.
+              et de solutions standardisées, nous avons voulu ramener
+              l&apos;approche artisanale dans le développement web.
             </p>
             <p>
               Chaque ligne de code, chaque pixel est pensé pour servir un
@@ -117,9 +117,9 @@ const About = () => {
               empreinte durable.
             </p>
             <p>
-              Aujourd'hui, Studio 19.21 c'est une équipe passionnée qui combine
-              expertise technique et sensibilité design pour transformer vos
-              ambitions en réalité digitale.
+              Aujourd&apos;hui, Studio 19.21 c&apos;est une équipe passionnée
+              qui combine expertise technique et sensibilité design pour
+              transformer vos ambitions en réalité digitale.
             </p>
           </div>
         </div>
@@ -144,17 +144,18 @@ const About = () => {
       {/* Équipe */}
       <section className="team-section">
         <div className="container-narrow">
-          <h2>L'Équipe</h2>
+          <h2>L&apos;Équipe</h2>
           <div className="team-card">
             <div className="team-image">👨‍💻</div>
             <div className="team-info">
               <h3>Alexandre Rousseau</h3>
               <p className="role">Fondateur & Développeur Full-Stack</p>
               <p className="bio">
-                Développeur passionné depuis plus de 5 ans, j'ai fondé Studio
-                19.21 pour allier excellence technique et créativité. Spécialisé
-                en React, Node.js et design d'interfaces, je transforme des
-                idées complexes en solutions élégantes et performantes.
+                Développeur passionné depuis plus de 5 ans, j&apos;ai fondé
+                Studio 19.21 pour allier excellence technique et créativité.
+                Spécialisé en React, Node.js et design d&apos;interfaces, je
+                transforme des idées complexes en solutions élégantes et
+                performantes.
               </p>
               <p className="fun-fact">
                 <strong>Fun fact :</strong> Je code toujours avec un café bien
@@ -258,7 +259,7 @@ const About = () => {
       <section className="cta-section">
         <div className="container">
           <h2>Prêt à Transformer Votre Présence Digitale ?</h2>
-          <p>Parlons de vos ambitions autour d'un café.</p>
+          <p>Parlons de vos ambitions autour d&apos;un café.</p>
           <div className="cta-buttons">
             <button className="btn-primary-large">
               Commencer la Discussion →
