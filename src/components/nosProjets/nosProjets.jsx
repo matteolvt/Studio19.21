@@ -59,13 +59,11 @@ const NosProjets = () => {
             onClick={() => setActiveFilter(cat.id)}
           >
             {cat.label}
-            {/* Ajout du compteur ici */}
             <span className="filter-count">{getProjectCount(cat.id)}</span>
           </button>
         ))}
       </div>
 
-      {/* Reste du composant inchangé */}
       <div className="projects-container" key={activeFilter}>
         {filteredProjects.map((project) => {
           const projectTags = categories.filter(
