@@ -9,8 +9,8 @@ const FaqSection = () => {
         <div className="faq-item">
           <h5>Combien de temps pour créer un site ?</h5>
           <p>
-            Pour l'offre Essentielle, comptez environ 2 semaines. L'offre
-            Signature nécessite 4 à 6 semaines.
+            Pour l&apos;offre Essentielle, comptez environ 2 semaines.
+            L&apos;offre Signature nécessite 4 à 6 semaines.
           </p>
         </div>
         <div className="faq-item">
