@@ -94,7 +94,6 @@ const Portfolio = () => {
           behavior: scrollBehavior
         });
         setIsInView(true);
-        isInPortfolioRef.current = true;
         window.dispatchEvent(new CustomEvent('portfolioActive', { detail: { active: true } }));
       } else if (!shouldSnap && hasSnappedRef.current) {
         if (distanceFromCenter > windowHeight * 0.7) {
