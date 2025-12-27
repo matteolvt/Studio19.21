@@ -8,6 +8,10 @@ export default function AppointmentProvider({ children }) {
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  const [projectType, setProjectType] = useState("");
+  const [description, setDescription] = useState("");
+
   const allSlots = [
     "09:00",
     "10:00",
@@ -39,21 +43,41 @@ export default function AppointmentProvider({ children }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!date || !time || !name || !email)
-      return alert("Veuillez remplir tous les champs !");
+
+    if (!date || !time || !name || !email || !projectType || !description)
+      return alert(
+        "Veuillez remplir tous les champs pour valider votre demande !"
+      );
+
     if (availableSlots.length === 0) return alert("Aucun créneau disponible !");
+
     try {
-      await addDoc(collection(db, "appointments"), { date, time, name, email });
-      alert(`RDV réservé ✅ ${name} - ${date} à ${time}`);
+      await addDoc(collection(db, "appointments"), {
+        date,
+        time,
+        name,
+        email,
+        projectType,
+        description,
+        createdAt: new Date(),
+      });
+
+      alert(
+        `Demande envoyée ✅ Merci ${name}, nous avons bien reçu votre projet de type "${projectType}".`
+      );
+
       setDate("");
       setTime("");
       setName("");
       setEmail("");
+      setProjectType("");
+      setDescription("");
     } catch (e) {
       console.error(e);
       alert("Erreur lors de la réservation");
     }
   };
+
   return children({
     date,
     setDate,
@@ -63,6 +87,11 @@ export default function AppointmentProvider({ children }) {
     setName,
     email,
     setEmail,
+    projectType,
+    setProjectType,
+    description,
+    setDescription,
+    slots: availableSlots,
     availableSlots,
     handleSubmit,
   });
