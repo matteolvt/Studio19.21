@@ -13,16 +13,17 @@ body {
 }
 
 /* =========================
-   NAVBAR
+   NAVBAR - FULL WIDTH avec contenu limité
 ========================= */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 20px 60px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  right: 0;
+  width: 100vw;
+  padding: 20px calc((100vw - 1500px) / 2 + 80px);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   z-index: 1000;
   background: transparent;
@@ -30,17 +31,35 @@ body {
   will-change: transform;
 }
 
+/* Sur petits écrans, padding normal */
+@media (max-width: 1660px) {
+  .navbar {
+    padding: 20px 80px;
+  }
+}
+
 .navbar-visible {
   transform: translateY(0);
 }
 
 .navbar-hidden {
-  transform: translateY(-120px);
+  transform: translateY(-100%);
+}
+
+/* Background beige pour pages Services et Projets */
+.services-page .navbar,
+.projets-page .navbar {
+  background: #fff6e4;
 }
 
 /* =========================
    LOGO
 ========================= */
+.logo {
+  flex-shrink: 0;
+  z-index: 10;
+}
+
 .logo img {
   width: 120px;
 }
@@ -63,8 +82,12 @@ body {
 .nav-links {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 60px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   transition: transform 0.35s ease, opacity 0.35s ease;
+  z-index: 10;
 }
 
 .nav-links a {
@@ -73,6 +96,7 @@ body {
   text-decoration: none;
   color: black;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -92,6 +116,9 @@ body {
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  text-decoration: none;
 }
 
 /* Mobile bouton devis */
@@ -148,13 +175,18 @@ body {
   background: #031fd0;
 }
 
+.services-page .navbar,
+.projets .navbar,
+.about-page .navbar,
+.appointment-page .navbar {
+  background: #fff6e4;
+}
+
 /* =========================
    MOBILE
 ========================= */
 @media (max-width: 900px) {
   .navbar {
-    display: flex;
-    justify-content: space-between;
     padding: 15px 30px;
   }
 
@@ -207,10 +239,6 @@ body {
 
   .mobile-menu-logo {
     display: block;
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    z-index: 1600;
   }
 
   .logo img {

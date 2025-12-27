@@ -1,0 +1,42 @@
+.story-section {
+  padding: 80px 20px;
+  background-color: #FFFFFF;
+}
+
+.story-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.story-content h2 {
+  font-family: 'Playfair Display', serif; /* Titre élégant */
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: #1A1A1A;
+  position: relative;
+}
+
+.story-content h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #031FD0;
+  margin-top: 20px;
+}
+
+.story-text p {
+  font-family: 'Public Sans', sans-serif; /* Texte moderne */
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4A4A4A;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .story-content { grid-template-columns: 1fr; gap: 30px; }
+}

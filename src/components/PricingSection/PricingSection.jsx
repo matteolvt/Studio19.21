@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./PricingSection.css";
 
 const PricingSection = () => {
@@ -73,7 +74,9 @@ const PricingSection = () => {
               ))}
             </ul>
 
-            <button className="cta-button">Demander un devis</button>
+            <Link to="/contact" className="cta-button">
+              Demander un devis
+            </Link>
           </div>
         ))}
       </div>

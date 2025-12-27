@@ -131,6 +131,10 @@
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s ease;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .pricing-card.featured .cta-button {

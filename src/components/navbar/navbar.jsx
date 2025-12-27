@@ -68,7 +68,9 @@ const Navbar = () => {
     isOpen ? "navbar-visible" : isVisible ? "navbar-visible" : "navbar-hidden"
   }`;
 
-  const burgerClass = `burger ${isOpen ? "open" : ""} ${isHome ? "white-burger" : ""}`;
+  const burgerClass = `burger ${isOpen ? "open" : ""} ${
+    isHome ? "white-burger" : ""
+  }`;
 
   return (
     <nav className={navbarClass}>
@@ -80,25 +82,39 @@ const Navbar = () => {
       {/* Menu links */}
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         {/* Mobile logo */}
-        <Link to="/" className="mobile-menu-logo" onClick={() => setIsOpen(false)}>
+        <Link
+          to="/"
+          className="mobile-menu-logo"
+          onClick={() => setIsOpen(false)}
+        >
           <img src={logo} alt="Logo" />
         </Link>
 
-        <Link to="/projets" onClick={() => setIsOpen(false)}>Projets</Link>
-        <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
-        <Link to="#">À propos</Link>
+        <Link to="/projets" onClick={() => setIsOpen(false)}>
+          Projets
+        </Link>
+        <Link to="/services" onClick={() => setIsOpen(false)}>
+          Services
+        </Link>
+        <Link to="/about" onClick={() => setIsOpen(false)}>
+          À propos
+        </Link>
 
         {/* Mobile bouton devis */}
-        <button className="devis-btn mobile-only" onClick={() => setIsOpen(false)}>
+        <Link
+          to="/contact" // La direction
+          className="devis-btn mobile-only"
+          onClick={() => setIsOpen(false)}
+        >
           Demander un devis
-        </button>
+        </Link>
       </div>
 
       {/* Burger menu */}
       {!isPortfolio && (
         <button
           className={burgerClass}
-          onClick={() => setIsOpen(prev => !prev)}
+          onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Menu"
         >
           <span />
@@ -109,9 +125,9 @@ const Navbar = () => {
 
       {/* Desktop bouton devis */}
       {!isPortfolio && (
-        <button className="devis-btn desktop-only">
+        <Link to="/contact" className="devis-btn desktop-only">
           Demander un devis
-        </button>
+        </Link>
       )}
     </nav>
   );

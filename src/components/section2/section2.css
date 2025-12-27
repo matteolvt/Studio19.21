@@ -1,33 +1,31 @@
 /* section2.css */
 
 .section2 {
-    position: relative; /* Indispensable pour le logo en fond */
-    background-color: #323232; /* Le gris foncé */
+    position: relative;
+    background-color: #323232;
     color: #D9D9D9;
-    
-    /* Centrage du bloc de texte */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 450px; /* Hauteur minimum pour que ça respire */
-    
-    overflow: hidden; /* Coupe le logo s'il dépasse sur les côtés */
+    min-height: 450px;
+    padding: 80px 40px;
+    overflow: hidden;
 }
 
 /* LE TEXTE */
 .section2-content {
     position: relative;
-    z-index: 2; /* Le texte passe AU-DESSUS du logo */
-    max-width: 1200px; /* Limite la largeur pour la lisibilité */
+    z-index: 2;
+    max-width: 1200px;
     width: 100%;
-    text-align: left; /* Alignement à gauche comme sur ta capture */
+    text-align: left;
 }
 
 .section2-content h2 {
     font-family: 'Public Sans', sans-serif;
-    font-size: 40px; /* Taille du texte */
-    font-weight: 700; /* Gras */
-    line-height: 1.4; /* Espacement des lignes */
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
     color: #FFFFFF;
     margin: 0;
 }
@@ -35,17 +33,94 @@
 /* LE LOGO FANTÔME (Fond) */
 .section2-bg-logo {
     position: absolute;
-    z-index: 1; /* Le logo passe EN-DESSOUS du texte */
+    z-index: 1;
     transform: rotate(45deg);
     right: -155px; 
-    bottom: -14Opx; 
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
     filter: grayscale(1) brightness(0) invert(1);
     opacity: 0.05;
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .section2-bg-logo img {
     width: 700px;
     height: auto;
-    transform: rotate(15deg); /* Petite rotation stylée */
+    transform: rotate(15deg);
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (768px - 1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+    .section2 {
+        min-height: 400px;
+        padding: 60px 32px;
+    }
+
+    .section2-content h2 {
+        font-size: 32px;
+        line-height: 1.5;
+    }
+
+    .section2-bg-logo {
+        right: -180px;
+    }
+
+    .section2-bg-logo img {
+        width: 600px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (jusqu'à 767px)
+   ======================================== */
+@media (max-width: 767px) {
+    .section2 {
+        min-height: 350px;
+        padding: 50px 24px;
+    }
+
+    .section2-content {
+        text-align: left;
+    }
+
+    .section2-content h2 {
+        font-size: 24px;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+
+    .section2-bg-logo {
+        right: -70px !important ;
+        opacity: 0.03;
+
+    }
+
+    .section2-bg-logo img {
+        width: 400px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - PETITS MOBILES (jusqu'à 480px)
+   ======================================== */
+@media (max-width: 480px) {
+    .section2 {
+        min-height: 300px;
+        padding: 40px 20px;
+    }
+
+    .section2-content h2 {
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .section2-bg-logo {
+        right: -100px;
+    }
+
+    .section2-bg-logo img {
+        width: 320px;
+    }
 }
