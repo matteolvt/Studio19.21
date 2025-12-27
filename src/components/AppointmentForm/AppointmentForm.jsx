@@ -154,8 +154,8 @@ export default function AppointmentForm({
 AppointmentForm.propTypes = {
   firstName: PropTypes.string,
   setFirstName: PropTypes.func,
-  lastName: PropTypes.string,
-  setLastName: PropTypes.func,
+  name: PropTypes.string,
+  setName: PropTypes.func,
   email: PropTypes.string,
   setEmail: PropTypes.func,
   phone: PropTypes.string,

@@ -1,12 +1,10 @@
-// portfolio.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import './portfolio.css';
 
 const Portfolio = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
-  const [scrollAccumulator, setScrollAccumulator] = useState(0);
-  const isInPortfolioRef = useRef(false);
+  const scrollAccumulatorRef = useRef(0);
   const [isInView, setIsInView] = useState(false);
   const hasSnappedRef = useRef(false);
   const [parallaxOffset, setParallaxOffset] = useState(0);
@@ -102,7 +100,6 @@ const Portfolio = () => {
         if (distanceFromCenter > windowHeight * 0.7) {
           hasSnappedRef.current = false;
           setIsInView(false);
-          isInPortfolioRef.current = false;
           window.dispatchEvent(new CustomEvent('portfolioActive', { detail: { active: false } }));
         }
       }
@@ -110,16 +107,14 @@ const Portfolio = () => {
       // Activer l'interactivité dans une zone plus large
       if (distanceFromCenter < windowHeight * 0.3) {
         setIsInView(true);
-        isInPortfolioRef.current = true;
       }
       
       // Réinitialiser si complètement au-dessus
       if (rect.top > windowHeight * 1.2) {
         setActiveIndex(0);
-        setScrollAccumulator(0);
+        scrollAccumulatorRef.current = 0;
         hasSnappedRef.current = false;
         setIsInView(false);
-        isInPortfolioRef.current = false;
       }
     };
     
@@ -152,20 +147,18 @@ const Portfolio = () => {
       
       e.preventDefault();
       
-      setScrollAccumulator(prev => {
-        const newValue = prev + e.deltaY;
-        const threshold = 300;
-        
-        if (newValue > threshold && activeIndex < items.length - 1) {
-          setActiveIndex(current => current + 1);
-          return 0;
-        } else if (newValue < -threshold && activeIndex > 0) {
-          setActiveIndex(current => current - 1);
-          return 0;
-        }
-        
-        return newValue;
-      });
+      const newValue = scrollAccumulatorRef.current + e.deltaY;
+      const threshold = 300;
+      
+      if (newValue > threshold && activeIndex < items.length - 1) {
+        setActiveIndex(current => current + 1);
+        scrollAccumulatorRef.current = 0;
+      } else if (newValue < -threshold && activeIndex > 0) {
+        setActiveIndex(current => current - 1);
+        scrollAccumulatorRef.current = 0;
+      } else {
+        scrollAccumulatorRef.current = newValue;
+      }
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
