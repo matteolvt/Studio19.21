@@ -8,6 +8,8 @@ export default function AppointmentProvider({ children }) {
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const [projectType, setProjectType] = useState("");
   const [description, setDescription] = useState("");
@@ -56,7 +58,9 @@ export default function AppointmentProvider({ children }) {
         date,
         time,
         name,
+        firstName,
         email,
+        phone,
         projectType,
         description,
         createdAt: new Date(),
@@ -69,7 +73,9 @@ export default function AppointmentProvider({ children }) {
       setDate("");
       setTime("");
       setName("");
+      setFirstName("");
       setEmail("");
+      setPhone("");
       setProjectType("");
       setDescription("");
     } catch (e) {
@@ -79,20 +85,24 @@ export default function AppointmentProvider({ children }) {
   };
 
   return children({
-    date,
-    setDate,
-    time,
-    setTime,
-    name,
-    setName,
-    email,
-    setEmail,
-    projectType,
-    setProjectType,
-    description,
-    setDescription,
-    slots: availableSlots,
-    availableSlots,
-    handleSubmit,
-  });
+  date,
+  setDate,
+  time,
+  setTime,
+  name,
+  setName,
+  firstName,
+  setFirstName,
+  email,
+  setEmail,
+  phone,
+  setPhone,
+  projectType,
+  setProjectType,
+  description,
+  setDescription,
+  slots: availableSlots,
+  availableSlots,
+  handleSubmit,
+});
 }

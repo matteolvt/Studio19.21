@@ -10,16 +10,29 @@ const Navbar = () => {
 
   const isHome = location.pathname === "/";
   const isPortfolio = location.pathname === "/portfolio";
+  const [isPortfolioActive, setIsPortfolioActive] = useState(false);
 
   // Navbar visible par défaut sauf sur portfolio
   const [isVisible, setIsVisible] = useState(!isPortfolio);
+
+  // Écouter les événements du portfolio
+  useEffect(() => {
+    const handlePortfolioActive = (e) => {
+      setIsPortfolioActive(e.detail.active);
+    };
+
+    window.addEventListener('portfolioActive', handlePortfolioActive);
+    
+    return () => {
+      window.removeEventListener('portfolioActive', handlePortfolioActive);
+    };
+  }, []);
 
   // Mettre à jour la visibilité si la page change
   useEffect(() => {
     if (isPortfolio) {
       setIsVisible(false);
-      setIsOpen(false); // Fermer menu si on arrive sur portfolio
-      // Réinitialiser scroll lock au cas où
+      setIsOpen(false);
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
@@ -47,7 +60,7 @@ const Navbar = () => {
   // Hide/show navbar au scroll (sauf portfolio)
   useEffect(() => {
     const onScroll = () => {
-      if (isOpen || isPortfolio) return;
+      if (isOpen || isPortfolio || isPortfolioActive) return;
 
       const currentScroll = window.scrollY;
       if (currentScroll < 50) {
@@ -62,11 +75,11 @@ const Navbar = () => {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isOpen, isPortfolio]);
+  }, [isOpen, isPortfolio, isPortfolioActive]);
 
   const navbarClass = `navbar ${isHome ? "home" : ""} ${
     isOpen ? "navbar-visible" : isVisible ? "navbar-visible" : "navbar-hidden"
-  }`;
+  } ${isPortfolioActive ? "navbar-portfolio-hidden" : ""}`;
 
   const burgerClass = `burger ${isOpen ? "open" : ""} ${
     isHome ? "white-burger" : ""
@@ -102,7 +115,7 @@ const Navbar = () => {
 
         {/* Mobile bouton devis */}
         <Link
-          to="/contact" // La direction
+          to="/contact"
           className="devis-btn mobile-only"
           onClick={() => setIsOpen(false)}
         >
