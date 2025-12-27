@@ -1,0 +1,94 @@
+.stats-section {
+  padding: 80px 20px;
+  background-color: #031FD0;
+  border: none;
+}
+
+.stats-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+  align-items: start; 
+}
+
+.stat-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Les séparateurs */
+.stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: rgba(255, 246, 228, 0.2);
+}
+
+/* 1. FORCE L'ALIGNEMENT DES CHIFFRES */
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #FFF6E4;
+  line-height: 1;
+  height: 70px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.stat-label {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+  height: 50px; 
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.stat-sub {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 220px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 20px;
+  }
+  .stat-item:not(:last-child)::after {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 600px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .stat-number, .stat-label {
+    height: auto;
+    margin-bottom: 10px;
+  }
+}

@@ -22,8 +22,7 @@
 .projects-section {
   background-color: var(--bg-color);
   padding-top: 50px;
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
+  font-weight: 300;
 }
 
 /* --- FILTRES --- */
@@ -40,7 +39,6 @@
   border: 1px solid var(--text-dark);
   border-radius: 50px;
   padding: 10px 24px;
-  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -70,26 +68,18 @@
   max-width: none;
   margin: 0;
 }
-
-/* --- LA CARTE --- */
 .project-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-decoration: none;
-  
   padding: 80px 60px;
-  
   border-bottom: 1px solid var(--line-color);
   cursor: pointer;
-  
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
   background-color: var(--bg-color);
-  
-  /* L'animation d'apparition se lance ici */
-  /* 'both' permet de garder l'élément invisible (opacity 0) avant le début de l'anim */
   opacity: 0; 
   animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
@@ -106,11 +96,11 @@
 }
 
 /* --- EFFETS HOVER --- */
-.project-card:hover {
-  background-color: var(--bg-color); /* Reste beige */
+/* .project-card:hover {
+  background-color: var(--bg-color);
   box-shadow: 0 10px 40px rgba(3, 31, 208, 0.1); 
   z-index: 2;
-}
+} */
 
 /* --- IMAGE --- */
 .project-image-container {
@@ -129,7 +119,7 @@
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.03); /* Zoom léger premium */
+  transform: scale(1.03);
 }
 
 /* --- INFOS --- */
@@ -242,14 +232,14 @@
 .filter-count {
   font-size: 0.75rem;
   opacity: 0.5;
-  font-weight: 400;
+  font-weight: 6projects-section00;
   transition: all 0.3s ease;
 }
 
 /* Changement d'apparence quand le filtre est actif */
 .filter-btn.active .filter-count {
   opacity: 1;
-  color: rgba(255, 255, 255, 0.8); /* Chiffre blanc un peu transparent sur fond bleu */
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Changement au hover */

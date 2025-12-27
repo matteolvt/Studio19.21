@@ -26,7 +26,6 @@
   font-family: "Playfair Display", serif;
   font-weight: 400;
   max-width: 800px;
-  /* On enlève les marges auto qui centraient le titre */
   margin-left: 0; 
   margin-right: 0;
 }
@@ -34,6 +33,7 @@
 .projects-hero .italic {
   font-style: italic;
   font-family: "Playfair Display", serif;
+  color: #031FD0;
 }
 
 .projects-hero .hero-text {
@@ -41,13 +41,12 @@
   font-size: 1.2rem;
   line-height: 1.6;
   max-width: 600px;
-  /* On enlève les marges auto ici aussi */
   margin-left: 0;
   margin-right: 0;
   font-family: "Inter", sans-serif;
 }
 
-/* Responsive : On garde un texte un peu plus petit sur mobile mais aligné à gauche */
+/* Responsive */
 @media (max-width: 768px) {
   .projects-hero {
     padding: 80px 20px 60px;

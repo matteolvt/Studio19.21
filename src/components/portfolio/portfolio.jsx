@@ -1,275 +1,298 @@
-import React, { useRef, useEffect } from "react";
-import "./portfolio.css";
+import React, { useState, useEffect, useRef } from 'react';
+import './portfolio.css';
 
-const projects = [
-  {
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2666&auto=format&fit=crop",
-    title: "100% Human-grade ingredients",
-    icon: "🥩",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=2666&auto=format&fit=crop",
-    title: "Nutritionist formulated & vet approved",
-    icon: "🐾",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2666&auto=format&fit=crop",
-    title: "Delivered fresh to your door",
-    icon: "🚚",
-  },
-];
-
-export default function Portfolio() {
+const Portfolio = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
-  const imageRef = useRef(null);
-  const textRef = useRef(null);
-  const slidesRef = useRef(null);
+  const scrollAccumulatorRef = useRef(0);
+  const [isInView, setIsInView] = useState(false);
+  const hasSnappedRef = useRef(false);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
+  const scrollDirectionRef = useRef('down');
+  const lastScrollY = useRef(0);
 
-  const progressRef = useRef(0);
-  const slideProgressRef = useRef(0);
-  const isLockedRef = useRef(false);
+  const items = [
+    { 
+      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2666&auto=format&fit=crop", 
+      title: "100% Human-grade ingredients", 
+      icon: "🥩",
+    },
+    { 
+      image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=2666&auto=format&fit=crop", 
+      title: "Nutritionist formulated & vet approved", 
+      icon: "🐾",
+    },
+    { 
+      image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2666&auto=format&fit=crop", 
+      title: "Delivered fresh to your door", 
+      icon: "🚚",
+    },
+  ];
 
-  // On stocke le facteur d'échelle max calculé
-  const maxScaleRef = useRef(1);
-
+  // Effet parallaxe
   useEffect(() => {
-    const el = containerRef.current;
-    const imgEl = imageRef.current;
-    const txtEl = textRef.current;
-    const slidesEl = slidesRef.current;
-
-    if (!el || !imgEl || !txtEl || !slidesEl) return;
-
-    let touchStartY = 0;
-    let isPointerDown = false;
-    const MAX_PROGRESS = 1 + projects.length;
-
-    // ============================================
-    // 0. CALCUL DU SCALE FACTOR (Nouveau !)
-    // ============================================
-    const calculateMaxScale = () => {
-      // On récupère la taille initiale de la boîte image
-      const rect = imgEl.getBoundingClientRect();
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      // On calcule le ratio nécessaire en largeur et en hauteur
-      const scaleX = viewportWidth / rect.width;
-      const scaleY = viewportHeight / rect.height;
-
-      // Pour couvrir tout l'écran (comme object-fit: cover),
-      // il faut prendre le plus grand des deux ratios.
-      // On ajoute un tout petit epsilon (1.01) pour éviter tout filet blanc.
-      maxScaleRef.current = Math.max(scaleX, scaleY) * 1.01;
+    const handleParallax = () => {
+      if (!containerRef.current || !isInView) return;
+      
+      const rect = containerRef.current.getBoundingClientRect();
+      const scrollProgress = -rect.top / window.innerHeight;
+      setParallaxOffset(scrollProgress * 50); // Déplacement de 50px max
     };
 
-    // Calcul initial
-    calculateMaxScale();
-    // Recalcul si la fenêtre change de taille
-    window.addEventListener("resize", calculateMaxScale);
+    window.addEventListener('scroll', handleParallax, { passive: true });
+    return () => window.removeEventListener('scroll', handleParallax);
+  }, [isInView]);
 
-    // ============================================
-    // 1. VISUEL (Corrigé)
-    // ============================================
-    const applyTransforms = (prog, slideProg) => {
-      requestAnimationFrame(() => {
-        // --- CORRECTION ICI ---
-        // Au lieu de `scale = 1 + prog`, on utilise le scale calculé sur mesure.
-        // Quand prog = 0 -> scale = 1 (taille initiale)
-        // Quand prog = 1 -> scale = maxScaleRef.current (plein écran parfait)
-        const currentScale = 1 + prog * (maxScaleRef.current - 1);
-
-        const borderRadius = Math.max(0, 24 - prog * 24);
-        const textOpacity = Math.max(0, 1 - prog / 0.2);
-        const textTranslate = (-prog / 0.2) * 20;
-
-        imgEl.style.transform = `scale(${currentScale})`;
-        imgEl.style.borderRadius = `${borderRadius}px`;
-        txtEl.style.opacity = textOpacity;
-        txtEl.style.transform = `translateY(${textTranslate}%)`;
-
-        if (prog >= 0.95) {
-          const transitionProgress = Math.min(slideProg * 1.5, 1);
-          imgEl.parentElement.style.opacity = Math.max(
-            0,
-            1 - transitionProgress
-          );
-
-          slidesEl.style.opacity = 1;
-          slidesEl.style.pointerEvents = "auto";
-
-          const slides = slidesEl.querySelectorAll(".portfolio-slide");
-          slides.forEach((slide, index) => {
-            const clipValue = Math.max(0, 100 - (slideProg - index) * 100);
-            if (index <= Math.ceil(slideProg)) {
-              slide.style.clipPath = `polygon(0% ${clipValue}%, 100% ${clipValue}%, 100% 100%, 0% 100%)`;
-              slide.style.zIndex = index + 10;
-            } else {
-              slide.style.clipPath =
-                "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
-            }
-          });
-        } else {
-          imgEl.parentElement.style.opacity = 1;
-          slidesEl.style.opacity = 0;
-          slidesEl.style.pointerEvents = "none";
-        }
-      });
-    };
-
-    // ============================================
-    // 2. PROGRESSION (Inchangé)
-    // ============================================
-    const updateProgress = (deltaY) => {
-      const totalProgress = progressRef.current + slideProgressRef.current;
-      const sensitivity = 1500;
-      const newTotal = totalProgress + deltaY / sensitivity;
-
-      if (newTotal <= 1) {
-        progressRef.current = Math.max(0, Math.min(1, newTotal));
-        slideProgressRef.current = 0;
+  // Détection et snap au centre - ULTRA OPTIMISÉ
+  useEffect(() => {
+    const checkPosition = () => {
+      if (!containerRef.current) return;
+      
+      const container = containerRef.current;
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const currentScrollY = window.scrollY;
+      
+      // Déterminer la direction du scroll
+      if (currentScrollY > lastScrollY.current) {
+        scrollDirectionRef.current = 'down';
+      } else if (currentScrollY < lastScrollY.current) {
+        scrollDirectionRef.current = 'up';
+      }
+      lastScrollY.current = currentScrollY;
+      
+      const containerCenter = rect.top + rect.height / 2;
+      const screenCenter = windowHeight / 2;
+      const distanceFromCenter = Math.abs(containerCenter - screenCenter);
+      
+      // Détection super agressive en descente
+      const isComingFromTop = rect.top > 0 && rect.top < windowHeight;
+      const isAlmostVisible = rect.top < windowHeight * 0.6;
+      const isInCenterZone = distanceFromCenter < windowHeight * 0.4;
+      
+      // Condition de snap différente selon la direction
+      let shouldSnap = false;
+      if (scrollDirectionRef.current === 'down') {
+        // En descendant : snap dès que le portfolio entre dans la zone supérieure
+        shouldSnap = (isComingFromTop && isAlmostVisible) || isInCenterZone;
       } else {
-        progressRef.current = 1;
-        slideProgressRef.current = Math.max(
-          0,
-          Math.min(projects.length, newTotal - 1)
-        );
+        // En montant : comportement normal
+        shouldSnap = isInCenterZone;
       }
-
-      applyTransforms(progressRef.current, slideProgressRef.current);
-      return progressRef.current + slideProgressRef.current;
-    };
-
-    // ============================================
-    // 3. LOGIQUE DE BLOCAGE (Inchangé)
-    // ============================================
-    const handleScroll = (e, deltaY) => {
-      const sectionTop = el.offsetTop;
-      const currentScroll = window.scrollY;
-      const diff = currentScroll - sectionTop;
-
-      const totalProgress = progressRef.current + slideProgressRef.current;
-      const direction = deltaY > 0 ? "DOWN" : "UP";
-
-      const isAtSection = diff >= -10 && diff <= 10;
-      const isPastSection = diff > 10;
-
-      // SCROLL DOWN
-      if (direction === "DOWN") {
-        if (
-          isAtSection ||
-          (isLockedRef.current && totalProgress < MAX_PROGRESS)
-        ) {
-          if (totalProgress < MAX_PROGRESS) {
-            e.preventDefault();
-            e.stopPropagation();
-            isLockedRef.current = true;
-            if (Math.abs(currentScroll - sectionTop) > 1) {
-              window.scrollTo({ top: sectionTop, behavior: "auto" });
-            }
-            updateProgress(deltaY);
-            return;
-          }
+      
+      if (shouldSnap && !hasSnappedRef.current) {
+        hasSnappedRef.current = true;
+        const targetScroll = container.offsetTop - (windowHeight - container.offsetHeight) / 2;
+        
+        // Scroll instantané si très proche, sinon smooth
+        const scrollBehavior = Math.abs(rect.top - windowHeight / 2) < 100 ? 'auto' : 'smooth';
+        
+        window.scrollTo({
+          top: targetScroll,
+          behavior: scrollBehavior
+        });
+        setIsInView(true);
+        window.dispatchEvent(new CustomEvent('portfolioActive', { detail: { active: true } }));
+      } else if (!shouldSnap && hasSnappedRef.current) {
+        if (distanceFromCenter > windowHeight * 0.7) {
+          hasSnappedRef.current = false;
+          setIsInView(false);
+          window.dispatchEvent(new CustomEvent('portfolioActive', { detail: { active: false } }));
         }
       }
-
-      // SCROLL UP
-      if (direction === "UP") {
-        if (
-          isAtSection ||
-          isLockedRef.current ||
-          (isPastSection && totalProgress > 0)
-        ) {
-          if (totalProgress > 0) {
-            if (isPastSection && !isLockedRef.current && diff > 50) {
-              return;
-            }
-            e.preventDefault();
-            e.stopPropagation();
-            isLockedRef.current = true;
-            if (Math.abs(currentScroll - sectionTop) > 1) {
-              window.scrollTo({ top: sectionTop, behavior: "auto" });
-            }
-            updateProgress(deltaY);
-            return;
-          }
-        }
+      
+      // Activer l'interactivité dans une zone plus large
+      if (distanceFromCenter < windowHeight * 0.3) {
+        setIsInView(true);
       }
-      isLockedRef.current = false;
-    };
-
-    // ============================================
-    // 4. EVENTS (Inchangé)
-    // ============================================
-    const onWheel = (e) => handleScroll(e, e.deltaY);
-
-    const onTouchStart = (e) => {
-      isPointerDown = true;
-      touchStartY = e.touches[0].clientY;
-    };
-
-    const onTouchMove = (e) => {
-      if (!isPointerDown) return;
-      if (isLockedRef.current) {
-        if (e.cancelable) e.preventDefault();
+      
+      // Réinitialiser si complètement au-dessus
+      if (rect.top > windowHeight * 1.2) {
+        setActiveIndex(0);
+        scrollAccumulatorRef.current = 0;
+        hasSnappedRef.current = false;
+        setIsInView(false);
       }
-      const delta = touchStartY - e.touches[0].clientY;
-      touchStartY = e.touches[0].clientY;
-      handleScroll(e, delta * 3);
     };
-
-    const onTouchEnd = () => {
-      isPointerDown = false;
-    };
-
-    // Init
-    applyTransforms(0, 0);
-
-    const options = { passive: false };
-    window.addEventListener("wheel", onWheel, options);
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, options);
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-
+    
+    // Vérification encore plus fréquente pour ne rien rater
+    const interval = setInterval(checkPosition, 30);
+    window.addEventListener('scroll', checkPosition, { passive: true });
+    checkPosition();
+    
     return () => {
-      // Nettoyage
-      window.removeEventListener("resize", calculateMaxScale);
-      window.removeEventListener("wheel", onWheel, options);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend", onTouchEnd);
+      clearInterval(interval);
+      window.removeEventListener('scroll', checkPosition);
     };
   }, []);
 
+  // Gestion du scroll avec la molette
+  useEffect(() => {
+    const handleWheel = (e) => {
+      if (!containerRef.current || !isInView) return;
+
+      const scrollingDown = e.deltaY > 0;
+      const scrollingUp = e.deltaY < 0;
+      
+      if (activeIndex === 0 && scrollingUp) {
+        return;
+      }
+      
+      if (activeIndex === items.length - 1 && scrollingDown) {
+        return;
+      }
+      
+      e.preventDefault();
+      
+      const newValue = scrollAccumulatorRef.current + e.deltaY;
+      const threshold = 300;
+      
+      if (newValue > threshold && activeIndex < items.length - 1) {
+        setActiveIndex(current => current + 1);
+        scrollAccumulatorRef.current = 0;
+      } else if (newValue < -threshold && activeIndex > 0) {
+        setActiveIndex(current => current - 1);
+        scrollAccumulatorRef.current = 0;
+      } else {
+        scrollAccumulatorRef.current = newValue;
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, [activeIndex, items.length, isInView]);
+
+  // Gestion des swipes sur mobile
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      if (!isInView) return;
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isInView) return;
+      touchEndY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = () => {
+      if (!isInView) return;
+      
+      const swipeDistance = touchStartY.current - touchEndY.current;
+      const minSwipeDistance = 50;
+
+      if (Math.abs(swipeDistance) > minSwipeDistance) {
+        if (swipeDistance > 0 && activeIndex < items.length - 1) {
+          // Swipe up - prochaine slide
+          setActiveIndex(current => current + 1);
+        } else if (swipeDistance < 0 && activeIndex > 0) {
+          // Swipe down - slide précédente
+          setActiveIndex(current => current - 1);
+        }
+      }
+
+      touchStartY.current = 0;
+      touchEndY.current = 0;
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [activeIndex, items.length, isInView]);
+
   return (
-    <section ref={containerRef} className="portfolio-track">
+    <div 
+      ref={containerRef}
+      className="portfolio-container"
+    >
       <div className="portfolio-sticky">
-        <div ref={textRef} className="portfolio-text">
-          <h3>NOS RÉALISATIONS</h3>
-          <h2>Voici une sélection de nos projets.</h2>
-        </div>
+        {items.map((item, index) => {
+          const isActive = activeIndex === index;
+          const isPrev = activeIndex > index;
+          const distance = Math.abs(activeIndex - index);
+          
+          return (
+            <div
+              key={index}
+              className={`portfolio-slide ${isActive ? 'active' : ''} ${
+                isPrev ? 'prev' : 'next'
+              }`}
+              style={{
+                filter: isActive ? 'blur(0px)' : `blur(${distance * 3}px)`,
+              }}
+            >
+              {/* Image de fond avec parallaxe */}
+              <img
+                src={item.image}
+                alt={item.title}
+                className="portfolio-image"
+                loading={index === 0 ? "eager" : "lazy"}
+                style={{
+                  transform: isActive ? `translateY(${parallaxOffset}px) scale(1.1)` : 'translateY(0) scale(1)',
+                }}
+              />
+              
+              {/* Overlay gradient */}
+              <div className="portfolio-overlay" />
+              
+              {/* Contenu texte */}
+              <div className="portfolio-content">
+                <div className={`portfolio-text ${isActive ? 'active' : ''}`}>
+                  <div className="portfolio-icon">
+                    {item.icon}
+                  </div>
+                  <h2 className="portfolio-title">
+                    {item.title}
+                  </h2>
+                </div>
+              </div>
 
-        <div className="portfolio-image-wrapper">
-          <div ref={imageRef} className="portfolio-image">
-            <img src={projects[0].image} alt="Projet" />
-          </div>
-        </div>
-
-        <div ref={slidesRef} className="portfolio-slides">
-          {projects.map((project, index) => (
-            <div key={index} className="portfolio-slide">
-              <img src={project.image} alt={project.title} />
-              <div className="portfolio-slide-content">
-                <div className="portfolio-slide-icon">{project.icon}</div>
-                <h2 className="portfolio-slide-title">{project.title}</h2>
+              {/* Indicateur de scroll en bas */}
+              <div className="portfolio-indicator">
+                <div className="portfolio-dots">
+                  {items.map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`portfolio-dot ${activeIndex === idx ? 'active' : ''}`}
+                    />
+                  ))}
+                </div>
+                {activeIndex < items.length - 1 && (
+                  <div className="portfolio-scroll-hint">
+                    <span className="desktop-hint">Scroll</span>
+                    <span className="mobile-hint">Swipe</span>
+                    <svg 
+                      className="portfolio-arrow" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Portfolio;

@@ -5,11 +5,10 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Bloc CTA */}
         <div className="footer-cta">
           <h2>Un projet digital en tête ?</h2>
           <p>Discutons de vos besoins et voyons comment vous aider.</p>
-          <a href="/rdv" className="footer-button">
+          <a href="/contact" className="footer-button">
             Prendre rendez-vous
           </a>
           <span className="footer-note">
@@ -17,14 +16,12 @@ export default function Footer() {
           </span>
         </div>
 
-        {/* Séparateur */}
         <div className="footer-divider" />
 
-        {/* Infos */}
         <div className="footer-bottom">
           <div className="footer-contact">
             <span className="footer-label">Contact</span>
-            <p>studio19.21@gmail.com</p>
+            <p>contact@studio1921.fr</p>
             <p>+33 7 67 96 06 89</p>
           </div>
 
@@ -38,7 +35,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Signature */}
         <div className="footer-signature">
           © 2025 Studio 19.21. All rights reserved.
         </div>

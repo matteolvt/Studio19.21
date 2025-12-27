@@ -1,0 +1,47 @@
+.about-hero {
+  padding: 180px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-hero .subtitle {
+  color: #031FD0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+  font-family: 'Public Sans', sans-serif; /* Moderne pour le label */
+}
+
+.about-hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  color: #1A1A1A;
+  font-family: 'Playfair Display', serif; /* Élégant pour le titre */
+  font-weight: 400; /* Playfair est belle même fine */
+  max-width: 900px;
+}
+
+.about-hero .italic {
+  font-style: italic;
+  font-family: 'Playfair Display', serif; /* L'italique du Playfair est magnifique */
+  color: #031FD0;
+}
+
+.about-hero .hero-text {
+  color: #666666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  font-family: 'Public Sans', sans-serif; /* Lisible pour le paragraphe */
+  font-weight: 300; /* Un peu plus fin pour le style */
+}
+
+@media (max-width: 768px) {
+  .about-hero { padding: 120px 20px 60px; }
+  .about-hero h1 { font-size: 2.5rem; }
+}
