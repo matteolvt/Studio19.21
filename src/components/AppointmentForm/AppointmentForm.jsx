@@ -7,8 +7,8 @@ import "./AppointmentForm.css";
 export default function AppointmentForm({
   firstName,
   setFirstName,
-  lastName,
-  setLastName,
+  name,
+  setName,
   email,
   setEmail,
   phone,
@@ -25,13 +25,14 @@ export default function AppointmentForm({
   onSubmit,
 }) {
   const isFormValid =
-    firstName &&
-    lastName &&
-    email &&
-    projectType &&
-    description &&
-    date &&
-    time;
+  firstName &&
+  name &&
+  email &&
+  phone &&
+  projectType &&
+  description &&
+  date &&
+  time;
 
   return (
     <form onSubmit={onSubmit} className="appointment-form">
@@ -88,8 +89,8 @@ export default function AppointmentForm({
           <label className="input-label">Nom</label>
           <input
             type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
             placeholder="Dupont"
             className="input-field"
@@ -153,8 +154,8 @@ export default function AppointmentForm({
 AppointmentForm.propTypes = {
   firstName: PropTypes.string,
   setFirstName: PropTypes.func,
-  lastName: PropTypes.string,
-  setLastName: PropTypes.func,
+  name: PropTypes.string,
+  setName: PropTypes.func,
   email: PropTypes.string,
   setEmail: PropTypes.func,
   phone: PropTypes.string,
