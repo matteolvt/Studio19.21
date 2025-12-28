@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap');
+
 :root {
   --bg-color: #FFFBF0;
   --text-dark: #000000;
@@ -12,15 +14,14 @@
 .services-section {
   background-color: var(--bg-color);
   padding: 60px 20px;
-  font-family: 'Inter', sans-serif;
   min-height: 100vh;
 }
 
 .section-title {
+  font-family: 'Public Sans', sans-serif !important; 
   text-align: center;
   color: var(--blue-title);
   font-weight: 700;
-  text-transform: uppercase;
   margin-bottom: 50px;
   letter-spacing: 1px;
 }

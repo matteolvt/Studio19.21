@@ -1,231 +1,182 @@
-.portfolio-container {
+
+/* =========================================
+   1. ISOLATION
+   ========================================= */
+.portfolio-wrapper-isolation {
   position: relative;
+  z-index: 10;
   width: 100%;
-  height: 100vh;
+  isolation: isolate; 
 }
 
+/* =========================================
+   2. TRACK (100VH STRICT)
+   ========================================= */
+.portfolio-track {
+  /* HAUTEUR STRICTE : On supprime l'espace blanc */
+  height: 100vh; 
+  width: 100%;
+  position: relative;
+  background: #fff6e4;
+  margin: 0;
+  padding: 0;
+  
+  /* Aide le navigateur à s'arrêter pile au bon endroit */
+  scroll-snap-align: start;
+}
+
+/* =========================================
+   3. STICKY
+   ========================================= */
 .portfolio-sticky {
   position: sticky;
   top: 0;
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  background: #fff6e4;
+  z-index: 20; 
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  will-change: transform;
+}
+
+/* =========================================
+   4. VISUELS (Inchangés)
+   ========================================= */
+.portfolio-text {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.1s linear; 
+}
+
+.portfolio-text h3 {
+  font-family: "Public Sans", sans-serif;
+  color: #031FD0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.portfolio-text h2 {
+  font-family: "Public Sans", sans-serif;
+  color: #282828;
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.portfolio-image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.portfolio-image {
+  width: 45vw; 
+  height: 55vh;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  transform-origin: center center;
+  border-radius: 24px;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0; 
+  pointer-events: none;
+  z-index: 30;
 }
 
 .portfolio-slide {
   position: absolute;
-  inset: 0;
-  transition: all 0.8s ease-out;
-  opacity: 0;
-  transform: translateY(20%);
-  will-change: transform, opacity, filter;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 
-.portfolio-slide.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.portfolio-slide.prev {
-  transform: translateY(-20%);
-}
-
-.portfolio-image {
+.portfolio-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-out;
-  transform-origin: center center;
+  opacity: 0.6;
 }
 
-.portfolio-overlay {
+.portfolio-slide-content {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.6)
-  );
-}
-
-.portfolio-content {
-  position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 40;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.portfolio-slide-icon {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 0 1.5rem;
+  font-size: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.portfolio-text {
-  transition: all 0.8s ease-out;
-  transition-delay: 0.2s;
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.portfolio-text.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.portfolio-icon {
-  font-size: 5rem;
-  margin-bottom: 2rem;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.portfolio-title {
-  font-size: 2.5rem;
-  font-weight: bold;
+.portfolio-slide-title {
+  font-family: "Public Sans", sans-serif;
   color: white;
-  max-width: 56rem;
-  line-height: 1.2;
-  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+  font-size: 48px;
+  font-weight: 900;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 
-.portfolio-indicator {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.portfolio-dots {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.portfolio-dot {
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: all 0.5s ease-out;
-}
-
-.portfolio-dot.active {
-  width: 3rem;
-  background-color: white;
-}
-
-.portfolio-scroll-hint {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.mobile-hint {
-  display: none;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.portfolio-arrow {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-/* Optimisations mobile */
 @media (max-width: 768px) {
-  .portfolio-title {
-    font-size: 2rem;
-    padding: 0 1rem;
-  }
-
-  .portfolio-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .portfolio-indicator {
-    bottom: 2rem;
-  }
-
-  .desktop-hint {
-    display: none;
-  }
-
-  .mobile-hint {
-    display: block;
-  }
-
-  .portfolio-content {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolio-title {
-    font-size: 1.75rem;
-  }
-
-  .portfolio-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .portfolio-dots {
-    gap: 0.5rem;
-  }
-
-  .portfolio-dot {
-    height: 0.4rem;
-    width: 0.4rem;
-  }
-
-  .portfolio-dot.active {
-    width: 2rem;
-  }
-}
-
-/* Optimisation des performances */
-@media (prefers-reduced-motion: reduce) {
-  .portfolio-slide,
-  .portfolio-text,
   .portfolio-image {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+    width: 80vw;
+    height: 50vh;
   }
-}
-
-/* Amélioration du contraste pour l'accessibilité */
-@media (min-width: 769px) {
-  .portfolio-title {
-    font-size: 3.5rem;
+  .portfolio-text h2 {
+    font-size: 28px;
   }
-
-  .portfolio-icon {
-    font-size: 6rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .portfolio-title {
-    font-size: 4.5rem;
+  .portfolio-slide-title {
+    font-size: 32px;
   }
 }
