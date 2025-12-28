@@ -1,60 +1,30 @@
-
 /* =========================================
-   1. ISOLATION
+   CONTENEUR PRINCIPAL
    ========================================= */
-.portfolio-wrapper-isolation {
+.portfolio-section {
+  width: 100%;
+  height: 100vh; /* Prend tout l'écran */
   position: relative;
-  z-index: 10;
-  width: 100%;
-  isolation: isolate; 
-}
-
-/* =========================================
-   2. TRACK (100VH STRICT)
-   ========================================= */
-.portfolio-track {
-  /* HAUTEUR STRICTE : On supprime l'espace blanc */
-  height: 100vh; 
-  width: 100%;
-  position: relative;
-  background: #fff6e4;
-  margin: 0;
-  padding: 0;
-  
-  /* Aide le navigateur à s'arrêter pile au bon endroit */
-  scroll-snap-align: start;
-}
-
-/* =========================================
-   3. STICKY
-   ========================================= */
-.portfolio-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
+  background: #FDFBF7;
   overflow: hidden;
-  background: #fff6e4;
-  z-index: 20; 
   
+  /* Centrage flex pour le contenu initial */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  will-change: transform;
+  align-items: center;
 }
 
 /* =========================================
-   4. VISUELS (Inchangés)
+   VISUELS (TEXTE & IMAGE)
    ========================================= */
 .portfolio-text {
   position: absolute;
   top: 10%;
   width: 100%;
   text-align: center;
-  z-index: 10;
+  z-index: 25;
   pointer-events: none;
-  transition: opacity 0.1s linear; 
 }
 
 .portfolio-text h3 {
@@ -73,6 +43,7 @@
   font-size: 42px;
   font-weight: 900;
   margin: 0;
+  padding: 0 20px; /* Sécurité pour ne pas toucher les bords sur desktop */
 }
 
 .portfolio-image-wrapper {
@@ -81,14 +52,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  z-index: 10;
   pointer-events: none;
-  z-index: 5;
+  
+  /* Padding pour éviter que l'image touche les bords avant le zoom */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .portfolio-image {
-  width: 45vw; 
-  height: 55vh;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  aspect-ratio: 16/9; /* Ratio Desktop par défaut */
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
   transform-origin: center center;
@@ -102,15 +78,18 @@
   display: block;
 }
 
+/* =========================================
+   SLIDES
+   ========================================= */
 .portfolio-slides {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  opacity: 0; 
-  pointer-events: none;
-  z-index: 30;
+  z-index: 50;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .portfolio-slide {
@@ -121,22 +100,25 @@
   height: 100vh;
   overflow: hidden;
   background: #000;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  clip-path: inset(100% 0 0 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .portfolio-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   opacity: 0.6;
 }
 
 .portfolio-slide-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 40;
+  position: relative;
+  z-index: 60;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -168,15 +150,57 @@
   margin: 0;
 }
 
-@media (max-width: 768px) {
+/* =========================================
+   RESPONSIVE (C'EST ICI QUE TOUT CHANGE)
+   ========================================= */
+
+/* Tablette */
+@media (max-width: 1024px) {
   .portfolio-image {
-    width: 80vw;
-    height: 50vh;
+    max-width: 90vw;
+    aspect-ratio: 4/3; /* Ratio un peu plus carré */
   }
+}
+
+/* Mobile (Modifications demandées) */
+@media (max-width: 768px) {
+  
+  /* --- 1. IMAGE FORMAT PORTRAIT 9:16 --- */
+  .portfolio-image {
+    /* On fixe la hauteur pour qu'elle tienne dans l'écran mobile */
+    height: 65vh; 
+    width: auto; /* La largeur s'adaptera au ratio */
+    max-width: 90vw; /* Sécurité horizontale */
+    aspect-ratio: 9 / 16; /* LE FORMAT PORTRAIT */
+  }
+
+  /* --- 2. TEXTES ADAPTÉS ET MARGES --- */
+  .portfolio-text {
+    top: 5%; /* On remonte un peu le texte pour laisser de la place à l'image */
+    width: 90%; /* On contraint la largeur à 90% de l'écran */
+    left: 50%; /* Astuce pour centrer un élément absolute */
+    transform: translateX(-50%);
+  }
+
+  .portfolio-text h3 {
+    font-size: 12px; /* Sous-titre plus petit */
+    letter-spacing: 1.5px;
+  }
+
   .portfolio-text h2 {
-    font-size: 28px;
+    font-size: 26px; /* Titre principal beaucoup plus petit (était 42px) */
+    line-height: 1.2; /* Meilleure interligne si le texte passe sur 3 lignes */
+    padding: 0; /* Reset du padding desktop */
   }
+
+  /* --- 3. ADAPTATION DES SLIDES AUSSI --- */
   .portfolio-slide-title {
+    font-size: 30px; /* Titre des slides plus petit (était 48px) */
+  }
+  
+  .portfolio-slide-icon {
+    width: 70px;
+    height: 70px;
     font-size: 32px;
   }
 }
