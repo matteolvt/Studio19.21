@@ -1,5 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import "./portfolio.css";
+
+// On active le plugin ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -23,269 +29,118 @@ const projects = [
 ];
 
 export default function Portfolio() {
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
-  const textRef = useRef(null);
-  const slidesRef = useRef(null);
+  const container = useRef(null);
+  const image = useRef(null);
+  const text = useRef(null);
+  const slidesContainer = useRef(null);
 
-  const progressRef = useRef(0);
-  const slideProgressRef = useRef(0);
-  const isLockedRef = useRef(false);
-  const maxScaleRef = useRef(1);
+  // Fonction pour gérer la navbar
+  const setNavbarHidden = (isHidden) => {
+    const event = new CustomEvent("portfolioActive", {
+      detail: { active: isHidden },
+    });
+    window.dispatchEvent(event);
+  };
 
-  useEffect(() => {
-    const el = containerRef.current;
-    const imgEl = imageRef.current;
-    const txtEl = textRef.current;
-    const slidesEl = slidesRef.current;
+  useGSAP(
+    () => {
+      // 1. Calcul dynamique du zoom max selon la taille de l'écran
+      const getScale = () => {
+        if (!image.current) return 1;
+        const rect = image.current.getBoundingClientRect();
+        const scaleX = window.innerWidth / rect.width;
+        const scaleY = window.innerHeight / rect.height;
+        return Math.max(scaleX, scaleY) * 1.05; // Petit bonus pour être sûr de couvrir
+      };
 
-    if (!el || !imgEl || !txtEl || !slidesEl) return;
+      // 2. La Timeline Principale
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top", // Déclenche quand le HAUT du container touche le HAUT de l'écran
+          end: "+=300%", // L'animation dure l'équivalent de 3 écrans de hauteur (réglable)
+          pin: true, // BLOQUE la section (c'est ça qui empêche de sauter la section)
+          scrub: 1, // Synchronise l'anim avec le scroll (1s de fluidité)
+          anticipatePin: 1, // Évite les petits sauts au début
 
-    let touchStartY = 0;
-    let isPointerDown = false;
-    const MAX_PROGRESS = 1 + projects.length;
-
-    // --- COMMUNICATION NAVBAR ---
-    const setNavbarHidden = (isHidden) => {
-      const event = new CustomEvent("portfolioActive", {
-        detail: { active: isHidden },
+          // Gestion Navbar automatique
+          onToggle: (self) => setNavbarHidden(self.isActive),
+          // Sécurité si on quitte la page
+          onLeave: () => setNavbarHidden(false),
+          onLeaveBack: () => setNavbarHidden(false),
+        },
       });
-      window.dispatchEvent(event);
-    };
 
-    // --- CALCUL ZOOM ---
-    const calculateMaxScale = () => {
-      const rect = imgEl.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0) return;
-      const scaleX = window.innerWidth / rect.width;
-      const scaleY = window.innerHeight / rect.height;
-      maxScaleRef.current = Math.max(scaleX, scaleY) * 1.02;
-    };
+      // --- SÉQUENCE D'ANIMATION ---
 
-    // --- RENDU ---
-    const applyTransforms = (prog, slideProg) => {
-      requestAnimationFrame(() => {
-        const currentScale = 1 + prog * (maxScaleRef.current - 1);
-        const borderRadius = Math.max(0, 24 - prog * 24);
-        const textOpacity = Math.max(0, 1 - prog / 0.2);
-        const textTranslate = (-prog / 0.2) * 20;
+      // ÉTAPE A : Zoom Image + Disparition Texte
+      tl.to(
+        image.current,
+        {
+          scale: () => getScale(), // Utilise une fonction pour recalculer si resize
+          borderRadius: 0,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "phase1"
+      ) // Label pour synchroniser
 
-        imgEl.style.transform = `scale(${currentScale})`;
-        imgEl.style.borderRadius = `${borderRadius}px`;
-        txtEl.style.opacity = textOpacity;
-        txtEl.style.transform = `translateY(${textTranslate}%)`;
+        .to(
+          text.current,
+          {
+            opacity: 0,
+            y: -100,
+            duration: 0.5,
+            ease: "power2.in",
+          },
+          "phase1"
+        ) // Se joue en même temps que le zoom
 
-        if (prog >= 0.99) {
-          const transitionProgress = Math.min(slideProg * 1.5, 1);
-          imgEl.parentElement.style.opacity = Math.max(
-            0,
-            1 - transitionProgress
-          );
-          slidesEl.style.opacity = 1;
-          slidesEl.style.pointerEvents = "auto";
+        // ÉTAPE B : Apparition du conteneur de slides
+        .to(slidesContainer.current, {
+          autoAlpha: 1, // visible + opacity 1
+          duration: 0.1,
+        })
 
-          const slides = slidesEl.querySelectorAll(".portfolio-slide");
-          slides.forEach((slide, index) => {
-            const clipValue = Math.max(0, 100 - (slideProg - index) * 100);
-            if (index <= Math.ceil(slideProg)) {
-              slide.style.clipPath = `polygon(0% ${clipValue}%, 100% ${clipValue}%, 100% 100%, 0% 100%)`;
-              slide.style.zIndex = index + 10;
-            } else {
-              slide.style.clipPath =
-                "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
-            }
-          });
-        } else {
-          imgEl.parentElement.style.opacity = 1;
-          slidesEl.style.opacity = 0;
-          slidesEl.style.pointerEvents = "none";
-        }
-      });
-    };
-
-    // --- PROGRESSION ---
-    const updateProgress = (deltaY) => {
-      const totalProgress = progressRef.current + slideProgressRef.current;
-      const sensitivity = 1500;
-      const newTotal = totalProgress + deltaY / sensitivity;
-
-      if (newTotal <= 1) {
-        progressRef.current = Math.max(0, Math.min(1, newTotal));
-        slideProgressRef.current = 0;
-      } else {
-        progressRef.current = 1;
-        slideProgressRef.current = Math.max(
-          0,
-          Math.min(projects.length, newTotal - 1)
-        );
-      }
-
-      // Si on revient au début, on débloque
-      if (newTotal <= 0.001) {
-        progressRef.current = 0;
-        slideProgressRef.current = 0;
-        isLockedRef.current = false;
-        setNavbarHidden(false);
-      }
-      // Si on arrive à la fin, on débloque
-      if (newTotal >= MAX_PROGRESS - 0.001) {
-        isLockedRef.current = false;
-        setNavbarHidden(false);
-      }
-
-      applyTransforms(progressRef.current, slideProgressRef.current);
-      return progressRef.current + slideProgressRef.current;
-    };
-
-    // --- LOGIQUE MAJEURE : SCROLL HANDLER ---
-    const handleScroll = (e, deltaY) => {
-      const rect = el.getBoundingClientRect();
-      const currentScroll = window.scrollY;
-      const absoluteSectionTop = currentScroll + rect.top;
-
-      const totalProgress = progressRef.current + slideProgressRef.current;
-      const direction = deltaY > 0 ? "DOWN" : "UP";
-
-      // ZONE DE TOLÉRANCE (SYMÉTRIQUE)
-      // On ne capture que si le haut de la section est entre -20px et +20px du haut de l'écran.
-      const isInCaptureZone = rect.top < 20 && rect.top > -20;
-
-      // 1. GARDE-FOU (Ignore si on est loin)
-      if (!isLockedRef.current) {
-        // Si on est trop haut (Hero) OU trop bas (Footer/Contenu suivant)
-        // On laisse le scroll natif fonctionner.
-        // La condition "isInCaptureZone" s'occupe de filtrer tout le reste.
-        if (!isInCaptureZone) return;
-      }
-
-      // 2. SORTIE DE SECOURS (SCROLL UP)
-      // Si on remonte et que l'anim est finie (0), on relâche immédiatement.
-      if (direction === "UP" && totalProgress <= 0.01) {
-        isLockedRef.current = false;
-        setNavbarHidden(false);
-        return;
-      }
-
-      // SCENARIO : SCROLL DOWN
-      if (direction === "DOWN") {
-        if (
-          (isInCaptureZone || isLockedRef.current) &&
-          totalProgress < MAX_PROGRESS
-        ) {
-          if (!isLockedRef.current) setNavbarHidden(true);
-
-          e.preventDefault();
-          e.stopPropagation();
-          isLockedRef.current = true;
-
-          // Alignement unique (Anti-saut)
-          if (Math.abs(rect.top) > 2) {
-            window.scrollTo({ top: absoluteSectionTop, behavior: "auto" });
-          }
-
-          updateProgress(deltaY);
-          return;
-        }
-      }
-
-      // SCENARIO : SCROLL UP (CORRECTION FINALE)
-      if (direction === "UP") {
-        // On ne capture que si :
-        // 1. On est déjà verrouillé (milieu d'anim).
-        // 2. OU on entre pile dans la zone de tolérance (isInCaptureZone) ET il y a de l'anim à rembobiner.
-
-        // Plus de "rect.top <= 5", c'était ça le bug qui capturait depuis le bas.
-        // Maintenant, on exige "isInCaptureZone" (-20 à +20px).
-
-        if ((isLockedRef.current || isInCaptureZone) && totalProgress > 0.01) {
-          if (!isLockedRef.current) setNavbarHidden(true);
-
-          e.preventDefault();
-          e.stopPropagation();
-          isLockedRef.current = true;
-
-          // Alignement unique
-          if (Math.abs(rect.top) > 2) {
-            window.scrollTo({ top: absoluteSectionTop, behavior: "auto" });
-          }
-
-          updateProgress(deltaY);
-          return;
-        }
-      }
-    };
-
-    // --- LISTENERS ---
-    const onWheel = (e) => handleScroll(e, e.deltaY);
-
-    const onTouchStart = (e) => {
-      isPointerDown = true;
-      touchStartY = e.touches[0].clientY;
-    };
-
-    const onTouchMove = (e) => {
-      if (!isPointerDown) return;
-      if (!isLockedRef.current) return; // Important sur mobile
-      if (e.cancelable) e.preventDefault();
-
-      const delta = touchStartY - e.touches[0].clientY;
-      touchStartY = e.touches[0].clientY;
-      handleScroll(e, delta * 3);
-    };
-
-    const onTouchEnd = () => {
-      isPointerDown = false;
-    };
-
-    calculateMaxScale();
-    window.addEventListener("resize", calculateMaxScale);
-    // Init visuel
-    applyTransforms(0, 0);
-
-    const options = { passive: false };
-    window.addEventListener("wheel", onWheel, options);
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, options);
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-
-    return () => {
-      setNavbarHidden(false);
-      window.removeEventListener("wheel", onWheel, options);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend", onTouchEnd);
-      window.removeEventListener("resize", calculateMaxScale);
-    };
-  }, []);
+        // ÉTAPE C : Défilement des slides
+        // On sélectionne toutes les slides via leur classe CSS
+        .to(".portfolio-slide", {
+          clipPath: "inset(0% 0 0 0)", // Dévoilement complet
+          stagger: 1, // Attendre 1 temps entre chaque slide
+          duration: 1, // Chaque slide prend 1 temps à s'afficher
+          ease: "none", // Linéaire pour que ça suive bien le scroll
+        });
+    },
+    { scope: container }
+  );
 
   return (
-    <div className="portfolio-wrapper-isolation">
-      <section ref={containerRef} className="portfolio-track">
-        <div className="portfolio-sticky">
-          <div ref={textRef} className="portfolio-text">
-            <h3>NOS RÉALISATIONS</h3>
-            <h2>Voici une sélection de nos projets.</h2>
-          </div>
+    <section ref={container} className="portfolio-section">
+      {/* TEXTE D'ACCROCHE */}
+      <div ref={text} className="portfolio-text">
+        <h3>NOS RÉALISATIONS</h3>
+        <h2>Voici une sélection de nos projets.</h2>
+      </div>
 
-          <div className="portfolio-image-wrapper">
-            <div ref={imageRef} className="portfolio-image">
-              <img src={projects[0].image} alt="Projet" />
+      {/* IMAGE PRINCIPALE (Celle qui zoom) */}
+      <div className="portfolio-image-wrapper">
+        <div ref={image} className="portfolio-image">
+          <img src={projects[0].image} alt="Projet Principal" />
+        </div>
+      </div>
+
+      {/* SLIDES (Overlay) */}
+      <div ref={slidesContainer} className="portfolio-slides">
+        {projects.map((project, index) => (
+          <div key={index} className="portfolio-slide">
+            <img src={project.image} alt={project.title} />
+            <div className="portfolio-slide-content">
+              <div className="portfolio-slide-icon">{project.icon}</div>
+              <h2 className="portfolio-slide-title">{project.title}</h2>
             </div>
           </div>
-
-          <div ref={slidesRef} className="portfolio-slides">
-            {projects.map((project, index) => (
-              <div key={index} className="portfolio-slide">
-                <img src={project.image} alt={project.title} />
-                <div className="portfolio-slide-content">
-                  <div className="portfolio-slide-icon">{project.icon}</div>
-                  <h2 className="portfolio-slide-title">{project.title}</h2>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+        ))}
+      </div>
+    </section>
   );
 }
