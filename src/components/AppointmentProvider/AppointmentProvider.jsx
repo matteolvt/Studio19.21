@@ -18,6 +18,7 @@ export default function AppointmentProvider({ children }) {
     "09:00",
     "10:00",
     "11:00",
+    "11:30",
     "14:00",
     "15:00",
     "16:00",
