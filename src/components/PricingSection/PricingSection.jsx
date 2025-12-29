@@ -9,12 +9,7 @@ const PricingSection = () => {
       name: "Essentiel",
       tagline: "L'indispensable pour exister.",
       price: "690€",
-      features: [
-        "Site One-Page",
-        "Design responsive",
-        "Intégration CMS",
-        "SEO de base",
-      ],
+      features: ["Site One-Page", "Design responsive", "SEO de base"],
       isFeatured: false,
     },
     {

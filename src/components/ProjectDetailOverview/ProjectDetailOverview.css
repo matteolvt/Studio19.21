@@ -1,0 +1,120 @@
+/* ProjectDetailOverview.css */
+
+.project-overview {
+  background-color: #FFF6E4; /* Ton fond crème */
+  color: #1a1a1a; /* Texte sombre (pas noir pur) pour le confort */
+  padding: 120px 20px;
+  border-bottom: 1px solid rgba(3, 31, 208, 0.1); /* Séparateur bleu très subtil */
+}
+
+.overview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Plus de place au récit qu'à la fiche */
+  gap: 80px;
+  align-items: start;
+}
+
+/* --- Colonne Gauche : Le Récit (Challenge) --- */
+.overview-challenge h2 {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #031FD0; /* Ton Bleu Roi */
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.challenge-text {
+  font-family: 'Playfair Display', serif; /* Titre éditorial */
+  font-size: 2rem; 
+  line-height: 1.3;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+.challenge-description {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.05rem;
+  color: #4a4a4a; /* Gris foncé pour le corps de texte */
+  line-height: 1.7;
+}
+
+/* --- Colonne Droite : Fiche Technique (Meta) --- */
+.overview-meta {
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 20px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meta-label {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #031FD0; /* Bleu Roi */
+  font-weight: 700;
+}
+
+.meta-value {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+/* --- Stack Technique (Tags) --- */
+.tech-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-tag {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border: 1px solid rgba(3, 31, 208, 0.3); /* Bordure bleue fine */
+  color: #031FD0; /* Texte bleu */
+  border-radius: 4px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background-color: #031FD0;
+  color: #FFF6E4; /* Texte crème au survol */
+}
+
+/* --- Responsive --- */
+@media (max-width: 960px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .challenge-text {
+    font-size: 1.6rem;
+  }
+  
+  .overview-meta {
+    border-left: 2px solid #031FD0;
+    padding-left: 24px;
+  }
+}

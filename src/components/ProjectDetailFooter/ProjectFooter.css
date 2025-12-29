@@ -1,0 +1,125 @@
+/* ProjectFooter.css */
+
+.project-footer {
+  background-color: #FFF6E4;
+  padding: 80px 20px 120px; /* Padding bas plus grand pour aérer avant le footer global */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+
+/* --- Boutons d'action (Live / Github) --- */
+.footer-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-action {
+  padding: 16px 32px;
+  border-radius: 50px; /* Pill shape */
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #031FD0;
+}
+
+.btn-primary {
+  background-color: #031FD0;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #021596;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #031FD0;
+}
+
+.btn-outline:hover {
+  background-color: rgba(3, 31, 208, 0.05);
+  transform: translateY(-2px);
+}
+
+/* --- Section Projet Suivant --- */
+.next-project-container {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.next-label {
+  display: block;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.next-project-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 400px; /* Hauteur fixe pour le bandeau */
+}
+
+.next-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+  filter: brightness(0.7); /* Assombrir l'image pour le texte */
+}
+
+.next-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.next-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.next-arrow {
+  display: block;
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* Animation au survol du projet suivant */
+.next-project-card:hover .next-bg-image {
+  transform: scale(1.05);
+  filter: brightness(0.5); /* Plus sombre pour faire ressortir le texte */
+}
+
+.next-project-card:hover .next-arrow {
+  transform: translateX(10px); /* La flèche bouge */
+}
+
+@media (max-width: 768px) {
+  .footer-actions { flex-direction: column; width: 100%; max-width: 300px; }
+  .btn-action { text-align: center; }
+  .next-title { font-size: 2rem; }
+  .next-project-card { height: 300px; }
+}
