@@ -1,0 +1,137 @@
+/* ProjectProcess.css */
+
+.project-process {
+  background-color: #FFF6E4; /* Ton fond crème */
+  color: #1a1a1a;
+  padding: 120px 20px;
+  position: relative;
+  overflow: hidden; /* Pour éviter que les décalages ne cassent la page */
+}
+
+.process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- En-tête de section (Texte) --- */
+.process-header {
+  margin-bottom: 80px;
+  max-width: 800px;
+  position: relative;
+  padding-left: 40px; /* Espace pour la ligne bleue */
+}
+
+/* La ligne bleue verticale décorative à gauche du texte */
+.process-header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  background-color: #031FD0; /* Bleu Roi */
+}
+
+.process-label {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #031FD0;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.process-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.process-description {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  max-width: 90%;
+}
+
+/* --- Grille des visuels (Style Magazine) --- */
+.process-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start; /* Important pour le décalage */
+  margin-top: 60px;
+}
+
+.process-card {
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+/* LE DÉCALAGE : La 2ème image descend de 120px pour casser la grille */
+.process-card:nth-child(even) {
+  margin-top: 120px;
+}
+
+.process-image-wrapper {
+  overflow: hidden;
+  /* Ombre portée douce et colorée (bleutée) pour détacher du fond */
+  box-shadow: 0 30px 60px -15px rgba(3, 31, 208, 0.15);
+  background-color: #fff; /* Au cas où l'image a de la transparence */
+}
+
+.process-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+/* Zoom lent au survol */
+.process-image-wrapper:hover .process-image {
+  transform: scale(1.05);
+}
+
+.image-caption {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #031FD0;
+  margin-top: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.image-caption::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: #031FD0;
+  opacity: 0.5;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .process-title {
+    font-size: 2.2rem;
+  }
+
+  .process-gallery {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  /* On annule le décalage sur mobile pour que ça s'empile proprement */
+  .process-card:nth-child(even) {
+    margin-top: 0;
+  }
+}

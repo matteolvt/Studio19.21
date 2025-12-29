@@ -1,0 +1,95 @@
+/* ProjectResults.css */
+
+.project-results {
+  background-color: #FFF6E4; /* Fond crème */
+  padding: 120px 20px;
+  border-top: 1px solid rgba(3, 31, 208, 0.1); /* Séparateur subtil */
+  text-align: center;
+}
+
+.results-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Section KPIs (Chiffres) --- */
+.results-kpis {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+.kpi-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kpi-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem; /* Très gros chiffres */
+  font-weight: 500;
+  color: #031FD0; /* Bleu Roi */
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.kpi-label {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4a4a4a;
+}
+
+/* --- Section Témoignage --- */
+.results-testimonial {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Grosses guillemets décoratives */
+.results-testimonial::before {
+  content: '“';
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  color: rgba(3, 31, 208, 0.1); /* Bleu très pâle */
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #031FD0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .results-kpis {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .kpi-value { font-size: 3rem; }
+  .testimonial-text { font-size: 1.4rem; }
+}

@@ -75,37 +75,39 @@
 }
 
 /* RESPONSIVE (Mobile & Tablette) */
-
 @media (max-width: 900px) {
   .hero-section {
+    margin-top: 100px; 
+    background: linear-gradient(150deg, #FFF6E4 60%, #031FD0 40%) !important;
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
   }
-
+  
   .hero-content {
     width: 90%;
     text-align: center;
     margin-top: 0;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
   }
-
+  
   .hero-content h1 {
     font-size: 48px;
     letter-spacing: -2px;
-}
-
+  }
+  
   .hero-content p {
     font-size: 16px;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-
+  
   .hero-mac {
     margin-top: 40px;
     justify-content: center;
   }
-
+  
   .hero-mac img {
     width: 90%;
     max-width: 100%;
@@ -116,18 +118,20 @@
 
 @media (max-width: 600px) {
   .hero-section {
+    background: linear-gradient(150deg, #FFF6E4 70%, #031FD0 30%);
     padding-top: 60px;
+    padding-bottom: 30px !important;
   }
-
+  
   .hero-content h1 {
     font-size: 36px;
     letter-spacing: -1px;
   }
-
+  
   .hero-content p {
     font-size: 14px;
   }
-
+  
   #hero-button {
     padding: 14px 30px;
     font-size: 16px;
