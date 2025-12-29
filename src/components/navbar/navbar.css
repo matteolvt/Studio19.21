@@ -141,7 +141,7 @@ body {
 }
 
 /* =========================
-   BURGER
+   BURGER 
 ========================= */
 .burger {
   display: none;
@@ -152,32 +152,35 @@ body {
   cursor: pointer;
   z-index: 2000;
   visibility: hidden;
+  padding: 0;
 }
 
 .burger span {
+  display: block;
   width: 30px;
   height: 3px;
   background: #031fd0;
+  border-radius: 3px;
   transition: all 0.4s ease;
-  box-shadow: 0 0 0 1px black;
-  border-radius: 0.5px;
+  transform-origin: center;
 }
 
 .white-burger span {
-  background: white;
+  background: #031fd0;
 }
 
 .burger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  transform: translateY(9px) rotate(45deg);
   background: #031fd0;
 }
 
 .burger.open span:nth-child(2) {
   opacity: 0;
+  transform: translateX(-20px); 
 }
 
 .burger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: translateY(-9px) rotate(-45deg);
   background: #031fd0;
 }
 
@@ -191,16 +194,27 @@ body {
 /* =========================
    MOBILE
 ========================= */
+/* =========================
+   MOBILE (En dessous de 900px)
+   ========================= */
 @media (max-width: 900px) {
+  
+  /* 1. Ajustements Navbar */
   .navbar {
     padding: 15px 30px;
   }
 
+  .homepage .navbar {
+    background: #fff6e4;
+  }
+
+  /* 2. Burger visible et corrigé (Croix parfaite) */
   .burger {
     display: flex;
     visibility: visible;
   }
 
+  /* 3. Le Menu Plein Écran (Avec l'anim de remontée) */
   .nav-links {
     position: fixed;
     top: 0;
@@ -210,9 +224,13 @@ body {
     background: #fff6e4;
     flex-direction: column;
     padding: 0 20px;
+    
+    /* ÉTAT FERMÉ (Caché en haut) */
     transform: translateY(-100%);
     opacity: 0;
+    visibility: hidden; 
     pointer-events: none;
+    
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -220,16 +238,29 @@ body {
     gap: 35px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    visibility: hidden;
+
+    /* ANIMATION FERMETURE (On remonte) */
+    /* Le 'visibility ... 0.5s' est crucial : on attend la fin de l'anim pour cacher */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s ease, 
+                visibility 0s linear 0.5s; 
   }
 
+  /* ÉTAT OUVERT (Visible) */
   .nav-links.open {
     transform: translateY(0);
     opacity: 1;
-    pointer-events: auto;
     visibility: visible;
+    pointer-events: auto;
+
+    /* ANIMATION OUVERTURE (On descend) */
+    /* visibility passe à visible tout de suite (0s) */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s ease, 
+                visibility 0s linear 0s;
   }
 
+  /* 4. Styles des liens et boutons */
   .nav-links a {
     margin-bottom: 0;
     font-size: 22px;
@@ -254,4 +285,5 @@ body {
   .devis-btn.mobile-only {
     display: block;
   }
-}
+} 
+/* FIN DU MEDIA QUERY (L'accolade indispensable !) */

@@ -1,0 +1,130 @@
+/* ProjectPagesSlider.css */
+
+.project-pages-slider {
+  /* On utilise une version sombre de ton bleu roi pour un effet immersif */
+  background-color: #031FD0; 
+  color: #FFF7E4;
+  padding: 120px 0; /* Padding vertical, pas horizontal pour que le slider touche les bords */
+  overflow: hidden;
+}
+
+.slider-container {
+  max-width: 1400px; /* Plus large pour ce type de slider */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Header de la section --- */
+.slider-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.slider-label {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #FFF6E4; /* Ton crème pour le contraste */
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.slider-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin: 0;
+  color: #FFF7E4;
+}
+
+/* --- Le Swiper --- */
+.pages-swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* --- Les Slides --- */
+.page-slide {
+  background-position: center;
+  background-size: cover;
+  width: 600px; /* Largeur fixe pour les slides */
+  height: 400px; /* Hauteur fixe */
+  /* Pour mobile, ça s'adaptera */
+}
+
+.page-image-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.page-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* L'image remplit le cadre */
+  object-position: top center; /* On montre le haut de la page du site */
+}
+
+/* --- Info sur la slide (Titre) --- */
+.page-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: #fff;
+  opacity: 0; /* Caché par défaut */
+  transition: opacity 0.3s ease;
+}
+
+/* Le titre apparaît uniquement sur la slide active */
+.swiper-slide-active .page-info {
+  opacity: 1;
+}
+
+.page-title {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* --- Personnalisation de Swiper (Flèches & Points) --- */
+
+
+/* Les flèches de navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #FFF6E4 !important; /* Force la couleur crème */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .page-slide {
+    width: 80%; /* Sur mobile, la slide prend 80% de la largeur */
+    height: 300px;
+  }
+  .slider-title {
+    font-size: 2rem;
+  }
+  /* On cache les flèches sur mobile pour laisser la place */
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
+}

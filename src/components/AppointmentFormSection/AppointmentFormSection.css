@@ -27,7 +27,7 @@
 
 .appointment-form button {
   padding: 12px;
-  background-color: #FFB84D;
+  background-color: #031FD0;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -42,5 +42,5 @@
 }
 
 .appointment-form button:hover:not(:disabled) {
-  background-color: #FF9900;
+  background-color: #031FD0;
 }
