@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 
@@ -62,6 +63,18 @@ const ProjectPagesSlider = ({ project }) => {
       </div>
     </section>
   );
+};
+
+ProjectFeatures.propTypes = {
+  project: PropTypes.shape({
+    features: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+      })
+    ),
+  }),
 };
 
 export default ProjectPagesSlider;

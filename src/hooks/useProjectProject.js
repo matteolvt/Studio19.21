@@ -6,7 +6,7 @@ import { projectsData } from '../data/projectsData'; // Vérifie bien ce chemin 
 export const useProjectData = () => {
   const { slug } = useParams(); // Récupère "maison-aurora"
   const [project, setProject] = useState(null);
-  const [nextProject, setNextProject] = useState(null);
+  const [nextProject] = useState(null);
 
   useEffect(() => {
     // Le console.log ici te dira si le hook se lance bien

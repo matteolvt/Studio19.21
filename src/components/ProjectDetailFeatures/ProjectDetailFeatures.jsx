@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ProjectDetailFeatures.css";
 
 const ProjectFeatures = ({ project }) => {
@@ -37,6 +38,18 @@ const ProjectFeatures = ({ project }) => {
       </div>
     </section>
   );
+};
+
+ProjectFeatures.propTypes = {
+  project: PropTypes.shape({
+    features: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+      })
+    ),
+  }),
 };
 
 export default ProjectFeatures;
