@@ -37,16 +37,14 @@ const ProjectDetailHero = ({ project }) => {
   );
 };
 
-ProjectFeatures.propTypes = {
+ProjectDetailHero.propTypes = {
   project: PropTypes.shape({
-    features: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-    ),
-  }),
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    client: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ProjectDetailHero;

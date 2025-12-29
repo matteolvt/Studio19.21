@@ -58,15 +58,17 @@ const ProjectFooter = ({ project, nextProject }) => {
   );
 };
 
-ProjectFeatures.propTypes = {
+ProjectFooter.propTypes = {
   project: PropTypes.shape({
-    features: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-    ),
+    links: PropTypes.shape({
+      live: PropTypes.string,
+      github: PropTypes.string,
+    }),
+  }),
+  nextProject: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }),
 };
 

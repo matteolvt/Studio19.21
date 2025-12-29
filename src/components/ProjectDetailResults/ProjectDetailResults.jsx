@@ -34,16 +34,21 @@ const ProjectResults = ({ project }) => {
   );
 };
 
-ProjectFeatures.propTypes = {
+ProjectResults.propTypes = {
   project: PropTypes.shape({
-    features: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-    ),
-  }),
+    results: PropTypes.shape({
+      kpis: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string,
+          value: PropTypes.string,
+        })
+      ),
+      testimonial: PropTypes.shape({
+        text: PropTypes.string,
+        author: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default ProjectResults;

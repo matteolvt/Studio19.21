@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "./ProjectDetailProcess.css";
 
 const ProjectProcess = ({ project }) => {
-  // Sécurité : Si pas de data process, on n'affiche rien pour ne pas casser la page
   if (!project || !project.process) return null;
 
   const { text, images } = project.process;
@@ -11,15 +10,12 @@ const ProjectProcess = ({ project }) => {
   return (
     <section className="project-process">
       <div className="process-container">
-        {/* Partie Texte (Narrative) */}
         <div className="process-header">
           <span className="process-label">Le Processus</span>
           <h2 className="process-title">De la recherche à la conception</h2>
           <p className="process-description">{text}</p>
         </div>
 
-        {/* Partie Visuelle (Images) */}
-        {/* On vérifie qu'il y a bien des images avant de rendre la grille */}
         {images && images.length > 0 && (
           <div className="process-gallery">
             {images.map((imgSrc, index) => (
@@ -32,7 +28,6 @@ const ProjectProcess = ({ project }) => {
                   />
                 </div>
                 <div className="image-caption">
-                  {/* Légende dynamique simple : Étape 01, Étape 02... */}
                   PHASE {index + 1 < 10 ? `0${index + 1}` : index + 1}
                 </div>
               </div>
@@ -44,16 +39,14 @@ const ProjectProcess = ({ project }) => {
   );
 };
 
-ProjectFeatures.propTypes = {
+ProjectProcess.propTypes = {
   project: PropTypes.shape({
-    features: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-    ),
-  }),
+    title: PropTypes.string.isRequired,
+    process: PropTypes.shape({
+      text: PropTypes.string,
+      images: PropTypes.arrayOf(PropTypes.string),
+    }),
+  }).isRequired,
 };
 
 export default ProjectProcess;

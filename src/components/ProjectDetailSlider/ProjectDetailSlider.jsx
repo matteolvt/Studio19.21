@@ -65,16 +65,10 @@ const ProjectPagesSlider = ({ project }) => {
   );
 };
 
-ProjectFeatures.propTypes = {
+ProjectPagesSlider.propTypes = {
   project: PropTypes.shape({
-    features: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-    ),
-  }),
+    websitePages: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
 };
 
 export default ProjectPagesSlider;

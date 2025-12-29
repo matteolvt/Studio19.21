@@ -64,16 +64,16 @@ const ProjectDetailOverview = ({ project }) => {
   );
 };
 
-ProjectFeatures.propTypes = {
+ProjectDetailOverview.propTypes = {
   project: PropTypes.shape({
-    features: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-    ),
-  }),
+    challenge: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    role: PropTypes.string,
+    client: PropTypes.string,
+    timeline: PropTypes.string,
+    categoryIds: PropTypes.arrayOf(PropTypes.string),
+    techStack: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
 };
 
 export default ProjectDetailOverview;
