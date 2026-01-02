@@ -13,6 +13,7 @@ import PageTransition from "./components/PageTransition/PageTransition";
 import Preloader from "./components/Preloader/Preloader";
 import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import AppointmentSuccess from "./components/AppointmentSuccess.jsx/AppointmentSuccess";
 
 function App() {
   const location = useLocation();
@@ -69,6 +70,14 @@ function App() {
                   element={
                     <PageTransition>
                       <Appointment />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/validé"
+                  element={
+                    <PageTransition>
+                      <AppointmentSuccess />
                     </PageTransition>
                   }
                 />
