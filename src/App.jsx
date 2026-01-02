@@ -12,6 +12,7 @@ import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
 import PageTransition from "./components/PageTransition/PageTransition";
 import Preloader from "./components/Preloader/Preloader";
 import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
 function App() {
   const location = useLocation();
@@ -95,6 +96,7 @@ function App() {
                     </PageTransition>
                   }
                 />
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </AnimatePresence>
           </SmoothScroll>
