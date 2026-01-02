@@ -1,29 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import DatePickerReact from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; // Import du style de base
-import { fr } from "date-fns/locale"; // Pour l'avoir en Français
-import "./DatePicker.css"; // Notre CSS pour le customiser
+import "react-datepicker/dist/react-datepicker.css";
+import { fr } from "date-fns/locale";
+import "./DatePicker.css";
 
 export default function DatePicker({ value, onChange }) {
-  // Calcul date min (J+7)
+  // Min date : J+7
   const today = new Date();
   const minDate = new Date(today);
   minDate.setDate(today.getDate() + 7);
 
-  // Fonction pour désactiver les WE (Samedi/Dimanche)
-  const isWeekday = (date) => {
-    const day = date.getDay();
-    return day !== 0 && day !== 6;
-  };
+  // Bloquer les WE
+  const isWeekday = (date) => date.getDay() !== 0 && date.getDay() !== 6;
 
-  // Convertir la string "YYYY-MM-DD" en objet Date pour le composant
+  // Convertir string YYYY-MM-DD → Date
   const selectedDate = value ? new Date(value) : null;
 
   const handleChange = (date) => {
-    // On reformate en "YYYY-MM-DD" pour ton state global
     if (date) {
-      const formatted = date.toISOString().split("T")[0];
+      const formatted = date.toISOString().split("T")[0]; // YYYY-MM-DD
       onChange(formatted);
     } else {
       onChange("");
@@ -37,12 +33,11 @@ export default function DatePicker({ value, onChange }) {
         selected={selectedDate}
         onChange={handleChange}
         minDate={minDate}
-        filterDate={isWeekday} // Bloque visuellement les WE
-        locale={fr} // Calendrier en FR
-        dateFormat="dd/MM/yyyy"
-        placeholderText="Sélectionner une date"
-        className="input-field" // On garde ton style de ligne soulignée
-        // Ces options empêchent le clavier de s'ouvrir sur mobile (meilleure UX)
+        filterDate={isWeekday}
+        locale={fr}
+        dateFormat="dd/MM/yy" // Affichage JJ/MM/AA
+        placeholderText="JJ/MM/AA"
+        className="input-field"
         onFocus={(e) => e.target.blur()}
       />
       <span
