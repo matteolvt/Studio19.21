@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import DatePicker from "../DatePicker/DatePicker";
 import TimeSlots from "../TimeSlots/TimeSlots";
-import ReCAPTCHA from "react-google-recaptcha";
-import { db } from "../../services/firebase";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import "./AppointmentForm.css";
 
 export default function AppointmentForm({
@@ -17,61 +14,37 @@ export default function AppointmentForm({
   date, setDate,
   time, setTime,
   slots = [],
+  honeypot, setHoneypot,
+  onSubmit
 }) {
-  const [captchaValue, setCaptchaValue] = useState(null);
 
   const isFormValid = firstName && name && email && phone &&
-                      projectType && description && date && time && captchaValue;
+                      projectType && description && date && time;
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!captchaValue) {
-      return alert("Veuillez valider le captcha !");
+    // ❌ Si le honeypot est rempli, on considère que c'est un bot
+    if (honeypot) {
+      console.warn("Bot détecté via honeypot !");
+      return;
     }
 
-    // Vérification des champs
-    if (!date || !time || !name || !email || !projectType || !description) {
-      return alert("Veuillez remplir tous les champs !");
-    }
-
-    try {
-      // Vérification disponibilité du créneau
-      const q = query(collection(db, "appointments"), where("date", "==", date));
-      const snapshot = await getDocs(q);
-      const booked = snapshot.docs.map(doc => doc.data().time);
-      if (booked.includes(time)) {
-        return alert("Ce créneau n'est plus disponible !");
-      }
-
-      // Ajout dans Firestore
-      await addDoc(collection(db, "appointments"), {
-        date,
-        time,
-        firstName,
-        name,
-        email,
-        phone,
-        projectType,
-        description,
-        createdAt: new Date()
-      });
-
-      alert(`Rendez-vous enregistré ✅ Merci ${firstName}`);
-
-      // reset formulaire
-      setDate(""); setTime(""); setName(""); setFirstName("");
-      setEmail(""); setPhone(""); setProjectType(""); setDescription("");
-      setCaptchaValue(null);
-      
-    } catch (e) {
-      console.error("Erreur addDoc:", e);
-      alert("Erreur lors de la réservation");
-    }
+    onSubmit(); // Tout est géré dans le provider
   };
 
   return (
     <form onSubmit={handleSubmit} className="appointment-form">
+
+      {/* ===== Honeypot (invisible) ===== */}
+      <input
+        type="text"
+        value={honeypot}
+        onChange={e => setHoneypot(e.target.value)}
+        style={{ display: "none" }}
+        autoComplete="off"
+        tabIndex="-1"
+      />
 
       {/* ===== 01. PROJET ===== */}
       <div className="form-section-title">01 — Votre Projet</div>
@@ -97,7 +70,7 @@ export default function AppointmentForm({
           value={description}
           onChange={e => setDescription(e.target.value)}
           required
-          placeholder="Décrivez brièvement vos objectifs..."
+          placeholder="Décrivez brièvement vos objectifs…"
           className="input-textarea"
         />
       </div>
@@ -105,12 +78,40 @@ export default function AppointmentForm({
       {/* ===== 02. COORDONNÉES ===== */}
       <div className="form-section-title">02 — Vos Coordonnées</div>
       <div className="form-row-2-cols">
-        <input type="text" placeholder="Prénom" value={firstName} onChange={e => setFirstName(e.target.value)} required className="input-field"/>
-        <input type="text" placeholder="Nom" value={name} onChange={e => setName(e.target.value)} required className="input-field"/>
+        <input
+          type="text"
+          placeholder="Prénom"
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+          required
+          className="input-field"
+        />
+        <input
+          type="text"
+          placeholder="Nom"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          required
+          className="input-field"
+        />
       </div>
       <div className="form-row-2-cols">
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required className="input-field"/>
-        <input type="tel" placeholder="06 11 11 11 11" value={phone} onChange={e => setPhone(e.target.value)} required className="input-field"/>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          className="input-field"
+        />
+        <input
+          type="tel"
+          placeholder="06 11 11 11 11"
+          value={phone}
+          onChange={e => setPhone(e.target.value)}
+          required
+          className="input-field"
+        />
       </div>
 
       {/* ===== 03. CRÉNEAUX ===== */}
@@ -118,21 +119,19 @@ export default function AppointmentForm({
       <p className="context-text">30 min offertes pour faire connaissance.</p>
       <div className="form-row-2-cols">
         <DatePicker value={date} onChange={setDate} />
-        <TimeSlots slots={slots || []} value={time} onChange={setTime} />
-      </div>
-
-      {/* ===== reCAPTCHA ===== */}
-      <div style={{ margin: "20px 0" }}>
-        <ReCAPTCHA
-          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} // ta clé publique
-          onChange={setCaptchaValue}
-        />
+        <TimeSlots slots={slots || []} value={time} onChange={setTime} /> {/* ✅ sécurité */}
       </div>
 
       {/* ===== SUBMIT ===== */}
       <button type="submit" className="appointment-button" disabled={!isFormValid}>
         Valider ma demande
       </button>
+
+      <div className="form-footer-text">
+        <span>✓ Gratuit</span>
+        <span>✓ Sans engagement</span>
+        <span>✓ Réponse 24h</span>
+      </div>
     </form>
   );
 }
@@ -147,4 +146,7 @@ AppointmentForm.propTypes = {
   date: PropTypes.string, setDate: PropTypes.func,
   time: PropTypes.string, setTime: PropTypes.func,
   slots: PropTypes.array.isRequired,
+  honeypot: PropTypes.string.isRequired,
+  setHoneypot: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
