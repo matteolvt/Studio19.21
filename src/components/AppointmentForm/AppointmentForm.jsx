@@ -124,7 +124,7 @@ export default function AppointmentForm({
       </div>
 
       {/* ===== 03. CRÉNEAUX ===== */}
-      <div className="form-section-title">03 — L'Échange</div>
+      <div className="form-section-title">03 — L&#39;Échange</div>
       <p className="context-text">30 min offertes pour faire connaissance.</p>
       <div className="form-row-2-cols">
         <DatePicker value={date} onChange={setDate} />
