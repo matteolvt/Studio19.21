@@ -9,7 +9,7 @@ export default function AppointmentSuccess() {
       <p>Merci ! Votre rendez-vous a bien été enregistré.</p>
       <p>Vous recevrez bientôt un mail de confirmation.</p>
       <Link to="/" className="appointment-success-button">
-        Retour à l'accueil
+        Retour à l&#39;accueil
       </Link>
     </div>
   );

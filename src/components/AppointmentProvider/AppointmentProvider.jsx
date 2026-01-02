@@ -18,7 +18,6 @@ export const parseDateEU = (euDate) => {
 };
 
 export default function AppointmentProvider({ children }) {
-  const navigate = useNavigate();
 
   const [date, setDate] = useState(""); // YYYY-MM-DD
   const [time, setTime] = useState("");

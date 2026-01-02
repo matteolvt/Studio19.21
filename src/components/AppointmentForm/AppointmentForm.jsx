@@ -20,8 +20,6 @@ export default function AppointmentForm({
   captchaValue, setCaptchaValue,
   handleSubmit,
   isSubmitting,
-  formatDateEU,
-  parseDateEU
 }) {
   const navigate = useNavigate();
 
@@ -130,6 +128,4 @@ AppointmentForm.propTypes = {
   setCaptchaValue: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   isSubmitting: PropTypes.bool.isRequired,
-  formatDateEU: PropTypes.func.isRequired,
-  parseDateEU: PropTypes.func.isRequired
 };
