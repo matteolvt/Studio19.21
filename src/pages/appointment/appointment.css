@@ -155,6 +155,50 @@
   margin-top: -5px;
 }
 
+.google-login-container,
+.user-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;     
+  gap: 1rem;              
+  margin: 2rem 0;
+}
+
+.user-greeting {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #d9363e;
+}
+
+
+.google-login-container button {
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.google-login-container button:hover {
+  background-color: #357ae8;
+}
+
+
 /* Responsive */
 @media (max-width: 600px) {
   .appointment-form { padding: 30px 20px; }

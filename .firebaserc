@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "studio-19-21",
+    "studio": "studio-19-21"
+  },
+  "targets": {},
+  "etags": {}
+}
