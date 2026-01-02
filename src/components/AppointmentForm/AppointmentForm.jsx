@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha";
 import DatePicker from "../DatePicker/DatePicker";
 import TimeSlots from "../TimeSlots/TimeSlots";
 import "./AppointmentForm.css";
@@ -17,26 +18,34 @@ export default function AppointmentForm({
   honeypot, setHoneypot,
   onSubmit
 }) {
+  const [captchaValue, setCaptchaValue] = useState(null);
 
   const isFormValid = firstName && name && email && phone &&
-                      projectType && description && date && time;
+                      projectType && description && date && time &&
+                      captchaValue; // captcha obligatoire
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ❌ Si le honeypot est rempli, on considère que c'est un bot
+    // Bloque les bots via honeypot
     if (honeypot) {
       console.warn("Bot détecté via honeypot !");
       return;
     }
 
-    onSubmit(); // Tout est géré dans le provider
+    if (!captchaValue) {
+      alert("Veuillez valider le captcha !");
+      return;
+    }
+
+    // Appel du onSubmit du provider, on envoie aussi le token captcha
+    onSubmit(captchaValue);
   };
 
   return (
     <form onSubmit={handleSubmit} className="appointment-form">
 
-      {/* ===== Honeypot (invisible) ===== */}
+      {/* ===== Honeypot invisible ===== */}
       <input
         type="text"
         value={honeypot}
@@ -70,7 +79,7 @@ export default function AppointmentForm({
           value={description}
           onChange={e => setDescription(e.target.value)}
           required
-          placeholder="Décrivez brièvement vos objectifs…"
+          placeholder="Décrivez brièvement vos objectifs..."
           className="input-textarea"
         />
       </div>
@@ -119,7 +128,15 @@ export default function AppointmentForm({
       <p className="context-text">30 min offertes pour faire connaissance.</p>
       <div className="form-row-2-cols">
         <DatePicker value={date} onChange={setDate} />
-        <TimeSlots slots={slots || []} value={time} onChange={setTime} /> {/* ✅ sécurité */}
+        <TimeSlots slots={slots} value={time} onChange={setTime} />
+      </div>
+
+      {/* ===== RECAPTCHA ===== */}
+      <div className="form-group">
+        <ReCAPTCHA
+          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+          onChange={setCaptchaValue}
+        />
       </div>
 
       {/* ===== SUBMIT ===== */}
