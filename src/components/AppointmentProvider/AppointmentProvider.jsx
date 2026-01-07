@@ -102,7 +102,7 @@ export default function AppointmentProvider({ children }) {
       // 🔹 Envoyer email via EmailJS
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CLIENT,
         {
           to_name: firstName,
           email,
@@ -112,6 +112,22 @@ export default function AppointmentProvider({ children }) {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_INTERNAL,
+        {
+          firstName,
+          name,
+          email,
+          phone: normalizedPhone,
+          date: formatDateEU(date),
+          time,
+          projectType,
+          description
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
 
       localStorage.setItem("lastSubmit", Date.now());
 
