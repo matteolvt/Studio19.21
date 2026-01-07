@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 // 🔹 Utilitaires pour conversion date
 export const formatDateEU = (isoDate) => {
@@ -17,7 +17,6 @@ export const parseDateEU = (euDate) => {
 };
 
 export default function AppointmentProvider({ children }) {
-
   const [date, setDate] = useState(""); // YYYY-MM-DD
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
@@ -30,7 +29,15 @@ export default function AppointmentProvider({ children }) {
   const [captchaValue, setCaptchaValue] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const allSlots = ["09:00","10:00","11:00","14:00","15:00","16:00","17:00"];
+  const allSlots = [
+    "09:00",
+    "10:00",
+    "11:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+  ];
   const [availableSlots, setAvailableSlots] = useState(allSlots);
 
   // 🔹 Reset créneau si date change
@@ -48,10 +55,10 @@ export default function AppointmentProvider({ children }) {
       try {
         const snapshot = await getDocs(collection(db, "appointments"));
         const booked = snapshot.docs
-          .map(doc => doc.data())
-          .filter(doc => doc.date === date)
-          .map(doc => doc.time);
-        setAvailableSlots(allSlots.filter(slot => !booked.includes(slot)));
+          .map((doc) => doc.data())
+          .filter((doc) => doc.date === date)
+          .map((doc) => doc.time);
+        setAvailableSlots(allSlots.filter((slot) => !booked.includes(slot)));
       } catch (e) {
         console.error("Erreur fetchBooked:", e);
       }
@@ -67,21 +74,33 @@ export default function AppointmentProvider({ children }) {
       if (!captchaValue) return alert("Veuillez valider le captcha !");
       if (!date) return alert("Veuillez sélectionner une date !");
       if (!time) return alert("Veuillez sélectionner un créneau horaire !");
-      if (!name || !firstName || !email || !phone || !projectType || !description) {
+      if (
+        !name ||
+        !firstName ||
+        !email ||
+        !phone ||
+        !projectType ||
+        !description
+      ) {
         return alert("Veuillez remplir tous les champs !");
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) return alert("Email invalide !");
 
-      const normalizedPhone = phone.replace(/\D/g, '');
-      if (!/^\d{10}$/.test(normalizedPhone)) return alert("Numéro de téléphone invalide !");
-      if (description.length < 10) return alert("La description doit contenir au moins 10 caractères !");
-      if (!availableSlots.includes(time)) return alert("Ce créneau n'est plus disponible !");
+      const normalizedPhone = phone.replace(/\D/g, "");
+      if (!/^\d{10}$/.test(normalizedPhone))
+        return alert("Numéro de téléphone invalide !");
+      if (description.length < 10)
+        return alert("La description doit contenir au moins 10 caractères !");
+      if (!availableSlots.includes(time))
+        return alert("Ce créneau n'est plus disponible !");
 
       const lastSubmit = localStorage.getItem("lastSubmit");
       if (lastSubmit && Date.now() - lastSubmit < 60_000) {
-        return alert("Merci d'attendre une minute avant de renvoyer un rendez-vous.");
+        return alert(
+          "Merci d'attendre une minute avant de renvoyer un rendez-vous."
+        );
       }
 
       setIsSubmitting(true);
@@ -96,7 +115,7 @@ export default function AppointmentProvider({ children }) {
         phone: normalizedPhone,
         projectType,
         description,
-        createdAt: new Date()
+        createdAt: new Date(),
       });
 
       // 🔹 Envoyer email via EmailJS
@@ -108,7 +127,7 @@ export default function AppointmentProvider({ children }) {
           email,
           date: formatDateEU(date),
           time,
-          projectType
+          projectType,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
@@ -124,17 +143,24 @@ export default function AppointmentProvider({ children }) {
           date: formatDateEU(date),
           time,
           projectType,
-          description
+          description,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
+      );
 
       localStorage.setItem("lastSubmit", Date.now());
 
       // 🔹 Reset formulaire
-      setDate(""); setTime(""); setName(""); setFirstName("");
-      setEmail(""); setPhone(""); setProjectType(""); setDescription("");
-      setHoneypot(""); setCaptchaValue(null);
+      setDate("");
+      setTime("");
+      setName("");
+      setFirstName("");
+      setEmail("");
+      setPhone("");
+      setProjectType("");
+      setDescription("");
+      setHoneypot("");
+      setCaptchaValue(null);
       setAvailableSlots(allSlots);
 
       if (onSuccessRedirect) onSuccessRedirect();
@@ -147,21 +173,31 @@ export default function AppointmentProvider({ children }) {
   };
 
   return children({
-    date, setDate,
-    time, setTime,
-    name, setName,
-    firstName, setFirstName,
-    email, setEmail,
-    phone, setPhone,
-    projectType, setProjectType,
-    description, setDescription,
-    honeypot, setHoneypot,
-    captchaValue, setCaptchaValue,
+    date,
+    setDate,
+    time,
+    setTime,
+    name,
+    setName,
+    firstName,
+    setFirstName,
+    email,
+    setEmail,
+    phone,
+    setPhone,
+    projectType,
+    setProjectType,
+    description,
+    setDescription,
+    honeypot,
+    setHoneypot,
+    captchaValue,
+    setCaptchaValue,
     slots: availableSlots,
     availableSlots,
     handleSubmit,
     isSubmitting,
     formatDateEU,
-    parseDateEU
+    parseDateEU,
   });
 }

@@ -19,8 +19,9 @@ const HeroSection = () => {
           FUTUR DIGITAL.
         </h1>
         <p>
-          Nous accompagnons les entreprises dans la création d’expériences
-          digitales sur mesure, alliant design, performance et visibilité.
+          Nous sommes une Agence Web basée à Lyon qui accompagne les entreprises
+          dans la création d’expériences digitales sur mesure, alliant design,
+          performance et visibilité.
         </p>
         <button id="hero-button" onClick={handleClick}>
           Prendre Rendez-vous

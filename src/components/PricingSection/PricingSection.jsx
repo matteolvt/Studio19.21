@@ -21,8 +21,8 @@ const PricingSection = () => {
         "Site vitrine (5 pages)",
         "DA sur-mesure",
         "Animations fluides",
-        "SEO Avancé",
-        "Formation admin",
+        "SEO de base",
+        "Formation admin (si besoin)",
       ],
       isFeatured: true,
     },
@@ -34,6 +34,7 @@ const PricingSection = () => {
       features: [
         "E-commerce ou Web App",
         "Fonctionnalités avancées",
+        "SEO avancé",
         "Design UX/UI",
         "Support prioritaire",
       ],

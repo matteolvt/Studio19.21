@@ -19,7 +19,7 @@ const StatsSection = () => {
       sub: "Réponse garantie sous 24h",
     },
     {
-      number: "4",
+      number: "2",
       label: "Semaines",
       sub: "Délai moyen de livraison",
     },
