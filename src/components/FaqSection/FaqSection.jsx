@@ -12,7 +12,7 @@ const FaqSection = () => {
     {
       question: "Combien de temps pour créer un site ?",
       answer:
-        "Pour l'offre Essentielle, comptez environ 2 semaines. L'offre Signature nécessite 4 à 6 semaines.",
+        "Pour l'offre Essentielle, comptez environ 1 semaine. L'offre Signature nécessite 2 à 3 semaines.",
     },
     {
       question: "Proposez-vous la maintenance ?",
