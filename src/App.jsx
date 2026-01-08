@@ -14,6 +14,7 @@ import Preloader from "./components/Preloader/Preloader";
 import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import AppointmentSuccess from "./components/AppointmentSuccess.jsx/AppointmentSuccess";
+import MentionsLegalesPage from "./pages/MentionsLegales/MentionsLegales";
 
 function App() {
   const location = useLocation();
@@ -102,6 +103,14 @@ function App() {
                   element={
                     <PageTransition>
                       <ProjectDetails />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/mentions-legales"
+                  element={
+                    <PageTransition>
+                      <MentionsLegalesPage />
                     </PageTransition>
                   }
                 />

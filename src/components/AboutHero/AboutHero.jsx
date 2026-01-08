@@ -6,13 +6,13 @@ const AboutHero = () => {
     <section className="about-hero">
       <span className="subtitle">NOTRE IDENTITÉ</span>
       <h1>
-        Plus qu&apos;une agence, <br />
-        votre <span className="italic">partenaire</span> digital.
+        Studio 19.21 : <br />
+        votre <span className="italic">partenaire digital</span> de confiance.
       </h1>
       <p className="hero-text">
-        Studio 19.21 est né d&apos;une conviction simple : le web artisanal
-        surpasse l&apos;industriel. Nous façonnons des sites uniques qui
-        reflètent l&apos;âme de votre projet.
+        Fondé par Mattéo Livrozet & Julliat Tom à Lyon, Studio 19.21 accompagne les entreprises
+        ambitieuses dans la création d’expériences digitales sur-mesure, alliant design, performance et visibilité. 
+        Nous ne créons pas juste des sites web : nous racontons votre histoire.
       </p>
     </section>
   );
