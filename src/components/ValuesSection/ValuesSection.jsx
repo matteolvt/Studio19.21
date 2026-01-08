@@ -7,22 +7,22 @@ const ValuesSection = () => {
     {
       icon: <Gem strokeWidth={1.5} size={32} />,
       title: "Sur-Mesure",
-      desc: "Nous ne croyons pas aux solutions toutes faites. Votre identité mérite un écrin unique.",
+      desc: "Chaque site que nous créons est unique. Nous adaptons design et fonctionnalités à votre vision.",
     },
     {
       icon: <Zap strokeWidth={1.5} size={32} />,
       title: "Performance",
-      desc: "Un site beau c'est bien, un site rapide et optimisé c'est mieux. Nous ne sacrifions rien.",
+      desc: "Nos sites sont rapides et optimisés pour offrir une expérience utilisateur fluide et agréable.",
     },
     {
       icon: <HeartHandshake strokeWidth={1.5} size={32} />,
       title: "Proximité",
-      desc: "Un interlocuteur unique, disponible et pédagogue. Nous avançons main dans la main.",
+      desc: "Vous parlez directement avec le fondateur et l’équipe technique. Pas de service client impersonnel.",
     },
     {
       icon: <ShieldCheck strokeWidth={1.5} size={32} />,
       title: "Fiabilité",
-      desc: "Des technologies modernes et robustes pour un site pérenne et sécurisé.",
+      desc: "Technologies modernes, maintenance proactive et sécurité maximale pour votre site.",
     },
   ];
 

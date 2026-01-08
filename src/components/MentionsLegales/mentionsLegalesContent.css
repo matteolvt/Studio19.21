@@ -1,0 +1,71 @@
+.mentions {
+  background-color: #FFF6E4;
+  padding: 160px 5% 100px;
+}
+
+.mentions-header {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  color: #031FD0;
+}
+
+.mentions-header h1 {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.mentions-header p {
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.mentions-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.mentions-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 30px 35px;
+  color: #031FD0;
+  box-shadow: 0 20px 40px rgba(3, 31, 208, 0.08);
+}
+
+.mentions-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.mentions-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mentions {
+    padding-top: 120px;
+  }
+
+  .mentions-header h1 {
+    font-size: 36px;
+  }
+
+  .mentions-header p {
+    font-size: 16px;
+  }
+
+  .mentions-card {
+    padding: 25px;
+  }
+}

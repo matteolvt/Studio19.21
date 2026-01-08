@@ -2,12 +2,7 @@ import React from "react";
 import "./StatsSection.css";
 
 const StatsSection = () => {
-  const stats = [
-    {
-      number: "100%",
-      label: "Sur-Mesure",
-      sub: "Pas de templates pré-faits",
-    },
+    const stats = [
     {
       number: "1",
       label: "Interlocuteur Unique",
@@ -19,9 +14,14 @@ const StatsSection = () => {
       sub: "Réponse garantie sous 24h",
     },
     {
-      number: "2",
+      number: "4",
       label: "Semaines",
       sub: "Délai moyen de livraison",
+    },
+    {
+      number: "100%",
+      label: "Sites Sur-Mesure",
+      sub: "Pas de templates pré-faits",
     },
   ];
 
