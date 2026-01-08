@@ -1,32 +1,41 @@
 import React from "react";
 import "./TeamSection.css";
 
+const founders = [
+  {
+    name: "Julliat Tom",
+    role: "Développeur Back-End",
+    bio: "Expert en architecture et performance, je m'assure que chaque site soit rapide et sécurisé.",
+    funFact: "Fan de jeux vidéo et de café🎮",
+  },
+  {
+    name: "Mattéo Livrozet",
+    role: "Développeur Front-End",
+    bio: "Passionné par les interfaces et le design, je crée des expériences utilisateurs fluides et esthétiques.",
+    funFact: "Amateur de café et de nouvelles typographies ☕",
+  },
+];
+
 const TeamSection = () => {
   return (
     <section className="team-section">
+      <h2 className="section-title">Notre équipe</h2>
       <div className="team-container">
-        {/* Partie Image (Placeholder couleur unie pour l'instant ou ton image) */}
-        <div className="team-image">
-          {/* Si tu as une image: <img src="/path/to/alex.jpg" alt="Alexandre" /> */}
-          <div className="placeholder-img">👨‍💻</div>
-        </div>
-
-        {/* Partie Texte */}
-        <div className="team-content">
-          <span className="subtitle">LE FONDATEUR</span>
-          <h2>Alexandre Rousseau</h2>
-          <p className="role">Développeur Full-Stack & Designer</p>
-          <p className="bio">
-            Passionné par le code et le design minimaliste, j&apos;ai fondé
-            Studio 19.21 pour offrir une alternative aux grosses agences
-            impersonnelles. Mon but ? Apporter une expertise technique pointue
-            (React, Node.js) avec une sensibilité artistique.
-          </p>
-          <div className="fun-fact">
-            <strong>Fun fact :</strong> Je code toujours avec un café (très)
-            serré ☕.
+        {founders.map((founder, idx) => (
+          <div key={idx} className="team-card">
+            <div className="team-image">
+              <div className="placeholder-img">👤</div>
+            </div>
+            <div className="team-content">
+              <h3>{founder.name}</h3>
+              <p className="role">{founder.role}</p>
+              <p className="bio">{founder.bio}</p>
+              <p className="fun-fact">
+                <strong>Fun fact :</strong> {founder.funFact}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

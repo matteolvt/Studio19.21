@@ -100,22 +100,43 @@
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.2s ease, transform 0.2s ease;
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-socials a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
 /* ===== Signature ===== */
 
 .footer-signature {
-  margin-top: 40px;
+  margin-top: 10px;
   font-size: 12px;
+
   opacity: 0.4;
   text-align: center;
 }
+
+/* ===== Légales ===== */
+
+.footer-legal {
+  text-align: center;
+}
+
+.footer-legal-button {
+  display: inline-block;
+  background-color: linear-gradient(90deg, #031FD0, #0230a0);
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
 
 /* ===== Responsive ===== */
 
