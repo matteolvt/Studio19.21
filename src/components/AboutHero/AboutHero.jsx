@@ -11,9 +11,10 @@ const AboutHero = () => {
       </h1>
       <p className="hero-text">
         Fondé par Tom Julliat & Mattéo Livrozet à Lyon, Studio 19.21 accompagne
-        les entreprises ambitieuses dans la création d'expériences digitales
-        sur-mesure. Alliant design minimaliste et performance technique, nous ne
-        créons pas juste des sites web : nous racontons votre histoire.
+        les entreprises ambitieuses dans la création d&apos;expériences
+        digitales sur-mesure. Alliant design minimaliste et performance
+        technique, nous ne créons pas juste des sites web : nous racontons votre
+        histoire.
       </p>
     </section>
   );

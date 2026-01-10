@@ -36,7 +36,7 @@ const TeamSection = () => {
   return (
     <section className="team-section">
       <div className="section-header">
-        <span className="section-tag">L'ÉQUIPE</span>
+        <span className="section-tag">L&apos;ÉQUIPE</span>
         <h3>Les visages derrière le code</h3>
       </div>
 
