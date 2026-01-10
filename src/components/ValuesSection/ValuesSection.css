@@ -9,7 +9,7 @@
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif !important;
   font-size: 2.5rem;
   margin-bottom: 60px;
   color: #1A1A1A;
@@ -64,6 +64,10 @@
   background-color: #031FD0;
   color: #FFF6E4;
   box-shadow: 0 4px 10px rgba(3, 31, 208, 0.2);
+}
+
+.section-title h2 {
+   font-family: 'Playfair Display', serif;
 }
 
 .value-card h3 {

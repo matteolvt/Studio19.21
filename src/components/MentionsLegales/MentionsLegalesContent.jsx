@@ -14,7 +14,7 @@ const itemVariants = {
 
 const MentionsLegalesContent = () => {
   return (
-    <section className="mentions">
+    <section className="mentions-page">
       {/* Header */}
       <motion.div
         className="mentions-header"
@@ -22,66 +22,107 @@ const MentionsLegalesContent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
+        <span className="juridique-tag">JURIDIQUE</span>
         <h1>Mentions légales</h1>
         <p>
-          Conformément aux articles 6-III et 19 de la Loi pour la Confiance dans l&apos;Économie Numérique (LCEN) et au RGPD.
+          La transparence est la base de toute relation de confiance.{" "}
+          <br className="desktop-break" />
+          Conformément aux articles 6-III et 19 de la Loi pour la Confiance dans
+          l&apos;Économie Numérique.
         </p>
       </motion.div>
 
       {/* Content */}
       <motion.div
-        className="mentions-container"
+        className="mentions-grid"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="mentions-card" variants={itemVariants}>
-          <h2>Éditeur du site</h2>
-          <p>
-            <strong>Studio 19.21</strong><br />
-            Co-fondateurs : Julliat Tom (Micro-entreprise) et Mattéo Livrozet (Micro-entreprise)<br />
-            Adresse : 9 Route de colombier le cardinal  / 29 rue Paul Montrochet, appartement 312<br />
-            Email : contact@studio1921.fr<br />
-            Téléphone : +33 6.62.46.26.56  /  +33 7.67.96.06.89<br />
-            SIRET : Tom : 99474207000018 // Mattéo : 99433530500011
-          </p>
+        {/* 01. Éditeur */}
+        <motion.div className="legal-card" variants={itemVariants}>
+          <h2>01. Éditeur du site</h2>
+          <div className="legal-card-details">
+            <p className="legal-highlight">Studio 19.21</p>
+            <p>
+              <strong>Co-fondateurs :</strong> Tom Julliat (Micro-entreprise) et
+              Mattéo Livrozet (Micro-entreprise)
+            </p>
+            <p>
+              <strong>Adresse :</strong> 9 Route de colombier le cardinal / 29
+              rue Paul Montrochet, appt 312, 69002 Lyon
+            </p>
+            <p>
+              <strong>Contact :</strong>{" "}
+              <a href="mailto:contact@studio1921.fr">contact@studio1921.fr</a>
+            </p>
+            <p>
+              <strong>SIRET :</strong> Tom : 99474207000018 // Mattéo :
+              99433530500011
+            </p>
+          </div>
         </motion.div>
 
-        <motion.div className="mentions-card" variants={itemVariants}>
-          <h2>Directeur de publication</h2>
-          <p>
-            Julliat Tom et Mattéo Livrozet, co-fondateurs de Studio 19.21
-          </p>
+        {/* 02. Publication */}
+        <motion.div className="legal-card" variants={itemVariants}>
+          <h2>02. Direction de la publication</h2>
+          <div className="legal-card-details">
+            <p>
+              <strong>Directeurs :</strong> Tom Julliat et Mattéo Livrozet
+            </p>
+            <p className="legal-note">
+              En leur qualité de co-fondateurs de Studio 19.21.
+            </p>
+          </div>
         </motion.div>
 
-        <motion.div className="mentions-card" variants={itemVariants}>
-          <h2>Hébergement</h2>
-          <p>
-            Hébergeur : Vercel <br />
-            Adresse : Vercel, Inc. 340 S Lemon Ave #4133, Walnut, CA 91789, USA<br />
-            Site : https://vercel.com
-          </p>
+        {/* 03. Hébergement */}
+        <motion.div className="legal-card" variants={itemVariants}>
+          <h2>03. Hébergement</h2>
+          <div className="legal-card-details">
+            <p className="legal-highlight">Vercel Inc.</p>
+            <p>
+              340 S Lemon Ave #4133, Walnut, CA 91789, USA
+              <br />
+              <a href="https://vercel.com" target="_blank" rel="noreferrer">
+                https://vercel.com
+              </a>
+            </p>
+          </div>
         </motion.div>
 
-        <motion.div className="mentions-card" variants={itemVariants}>
-          <h2>Propriété intellectuelle</h2>
-          <p>
-            Tous les éléments présents sur ce site (textes, images, code, design) sont protégés par le droit d&apos;auteur. Toute reproduction est interdite sans autorisation préalable.
-          </p>
+        {/* 04. Propriété Intellectuelle */}
+        <motion.div className="legal-card" variants={itemVariants}>
+          <h2>04. Propriété intellectuelle</h2>
+          <div className="legal-card-details">
+            <p>
+              L’ensemble de ce site relève de la législation française et
+              internationale sur le droit d’auteur et la propriété
+              intellectuelle.
+            </p>
+            <p>
+              Toute reproduction, modification ou adaptation de tout ou partie
+              des éléments du site est interdite sans autorisation écrite
+              préalable.
+            </p>
+          </div>
         </motion.div>
 
-        <motion.div className="mentions-card" variants={itemVariants}>
-          <h2>Données personnelles</h2>
-          <p>
-            Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre aux demandes. Conformément au RGPD, vous pouvez demander l&apos;accès ou la suppression de vos données via <strong>contact@studio1921.fr</strong>.
-          </p>
-        </motion.div>
-
-        <motion.div className="mentions-card" variants={itemVariants}>
-          <h2>Cookies</h2>
-          <p>
-            Ce site ne dépose aucun cookie ou traceur publicitaire.
-          </p>
+        {/* 05. Données & Cookies */}
+        <motion.div className="legal-card" variants={itemVariants}>
+          <h2>05. Données et Cookies</h2>
+          <div className="legal-card-details">
+            <p>
+              Les données collectées via le formulaire de contact sont utilisées
+              uniquement pour répondre aux demandes. Conformément au RGPD, vous
+              pouvez exercer vos droits via{" "}
+              <a href="mailto:contact@studio1921.fr">contact@studio1921.fr</a>.
+            </p>
+            <p style={{ marginTop: "10px" }}>
+              🍪 <strong>Cookies :</strong> Ce site ne dépose aucun cookie
+              publicitaire tiers.
+            </p>
+          </div>
         </motion.div>
       </motion.div>
     </section>
