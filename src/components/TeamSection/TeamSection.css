@@ -1,81 +1,207 @@
+/* TeamSection.css */
+
 .team-section {
-  background: #FFF6E4;
-  padding: 120px 5% 80px;
-  text-align: center;
+  padding: 100px 20px;
+  background-color: #FAFAFA; /* Un gris très très léger pour casser le blanc pur */
 }
 
-.team-section .section-title {
-  font-size: 48px;
-  font-weight: 900;
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-top: 10px;
+  color: #1A1A1A;
+}
+
+.section-tag {
+  font-family: 'Public Sans', sans-serif;
   color: #031FD0;
-  margin-bottom: 60px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.team-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Espace entre les cartes des membres */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .team-container {
   display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.team-card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(3, 31, 208, 0.08);
-  width: 300px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+/* Effet subtil au survol de la carte globale */
+.team-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+}
+
+/* Classe pour inverser l'ordre (Image à droite) */
+.team-container.reversed {
+  flex-direction: row-reverse;
+}
+
+.team-image-wrapper {
+  position: relative;
+}
+
+/* Élément décoratif derrière l'image (optionnel) */
+.team-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #031FD0;
+  border-radius: 8px;
+  z-index: 0;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.team-container.reversed .team-image-wrapper::after {
+  left: 20px; /* Ajustement pour le layout inversé */
+}
+
+.team-container:hover .team-image-wrapper::after {
+  top: 10px;
+  left: -10px;
+  opacity: 0.6;
 }
 
 .team-image {
-  margin-bottom: 20px;
-}
-
-.placeholder-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: #031FD0;
-  color: white;
-  font-size: 50px;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 300px;
+  height: 350px;
+  background-color: #F0F0F0;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 5rem;
+  overflow: hidden;
 }
 
-.team-content h3 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 5px;
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-content {
+  flex: 1; /* Prend l'espace restant */
+}
+
+.team-content .subtitle {
+  font-family: 'Public Sans', sans-serif;
+  color: #031FD0;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.team-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin: 0 0 5px 0;
+  color: #1A1A1A;
+}
+
+.role {
+  font-family: 'Public Sans', sans-serif;
+  color: #888;
+  margin-bottom: 25px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.bio {
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.8;
+  color: #4A4A4A;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.fun-fact {
+  font-family: 'Public Sans', sans-serif;
+  background-color: rgba(3, 31, 208, 0.04);
+  padding: 15px 20px;
+  border-radius: 8px;
+  border-left: 3px solid #031FD0;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.fun-fact strong {
   color: #031FD0;
 }
 
-.team-content .role {
-  font-size: 16px;
+/* Liens sociaux */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-btn {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: #1A1A1A;
   font-weight: 600;
-  margin-bottom: 15px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
 }
 
-.team-content .bio {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 10px;
+.social-btn:hover {
+  border-bottom: 1px solid #031FD0;
+  color: #031FD0;
 }
 
-.team-content .fun-fact {
-  font-size: 14px;
-  font-style: italic;
-  color: #555;
-}
-
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .team-container {
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
+  .team-container, 
+  .team-container.reversed { /* Force la colonne même en reverse */
+    flex-direction: column; 
+    text-align: center; 
+    padding: 40px 20px; 
+    gap: 40px; 
+  }
+  
+  .team-image-wrapper::after { display: none; } /* On cache la déco sur mobile */
+  
+  .team-image { 
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; /* Image ronde sur mobile, plus moderne */
+  }
+  
+  .fun-fact { text-align: left; }
+  
+  .social-links {
+    justify-content: center;
   }
 }

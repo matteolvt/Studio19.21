@@ -1,71 +1,139 @@
-.mentions {
-  background-color: #FFF6E4;
-  padding: 160px 5% 100px;
+/* --- CONFIGURATION GLOBALE PAGE --- */
+.mentions-page {
+  background-color: #FFF6E4; /* Crème Studio */
+  padding: 160px 5% 120px;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* --- HEADER (Aligné à gauche maintenant) --- */
 .mentions-header {
-  max-width: 900px;
-  margin: 0 auto 80px;
+  max-width: 800px;
+  margin: 0 auto 80px; /* On garde le centrage du BLOC, mais le texte dedans sera à gauche */
+  text-align: left;    /* <--- CHANGEMENT ICI : Alignement gauche */
+}
+
+.juridique-tag {
+  font-family: 'Public Sans', sans-serif;
   color: #031FD0;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .mentions-header h1 {
-  font-size: 56px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 25px;
+  line-height: 1.1;
 }
 
 .mentions-header p {
-  font-size: 18px;
-  font-weight: 600;
-  max-width: 600px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  max-width: 650px;
+  margin: 0; /* <--- CHANGEMENT ICI : On enlève le 'auto' pour qu'il reste à gauche */
 }
 
-.mentions-container {
-  max-width: 900px;
+/* --- GRILLE & CARTES --- */
+.mentions-grid {
+  max-width: 800px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 30px;
 }
 
-.mentions-card {
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
-  padding: 30px 35px;
-  color: #031FD0;
-  box-shadow: 0 20px 40px rgba(3, 31, 208, 0.08);
+.legal-card {
+  background: #FFFFFF !important;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  text-align: left;
 }
 
-.mentions-card h2 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 10px;
+/* Titres des blocs en BLEU */
+.legal-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #031FD0; /* <--- CHANGEMENT ICI : Titre en bleu */
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F0F0F0;
 }
 
-.mentions-card p {
-  font-size: 16px;
+/* --- CONTENU INTERNE --- */
+.legal-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: transparent !important;
+}
+
+.legal-card-details p {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.95rem;
   line-height: 1.6;
+  color: #4A4A4A !important;
+  margin: 0;
+  background: transparent !important;
+  width: 100%;
+}
+
+.legal-card-details strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.legal-highlight {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #031FD0 !important;
+  margin-bottom: 5px !important;
+}
+
+.legal-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #888 !important;
+}
+
+/* --- LIENS --- */
+.legal-card a {
+  color: #031FD0;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
   font-weight: 500;
 }
 
-/* Responsive */
+.legal-card a:hover {
+  border-bottom: 1px solid #031FD0;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .mentions {
+  .mentions-page {
     padding-top: 120px;
+    padding-bottom: 80px;
   }
-
   .mentions-header h1 {
-    font-size: 36px;
+    font-size: 2.5rem;
   }
-
-  .mentions-header p {
-    font-size: 16px;
+  .desktop-break {
+    display: none;
   }
-
-  .mentions-card {
+  .legal-card {
     padding: 25px;
   }
 }

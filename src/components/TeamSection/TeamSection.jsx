@@ -1,41 +1,103 @@
 import React from "react";
 import "./TeamSection.css";
+// Si tu as installé lucide-react ou fontawesome, importe les icônes ici.
+// Sinon, j'utilise des emojis ou du texte simple pour l'exemple.
 
-const founders = [
+const teamMembers = [
   {
-    name: "Julliat Tom",
-    role: "Développeur Back-End",
+    name: "Tom Julliat",
+    role: "Développeur Back End",
+    subtitle: "CO-FONDATEUR",
     bio: "Expert en architecture et performance, je m'assure que chaque site soit rapide et sécurisé.",
-    funFact: "Fan de jeux vidéo et de café🎮",
+    funFact: "Fan de jeux vidéo et de café 🎮",
+    image: null, // Mettre le chemin de l'image ici
+    links: {
+      linkedin: "https://www.linkedin.com/in/tom-julliat-web-dev-lyon/",
+      github: "https://github.com/ShayyNwE",
+    },
   },
   {
-    name: "Mattéo Livrozet",
-    role: "Développeur Front-End",
-    bio: "Passionné par les interfaces et le design, je crée des expériences utilisateurs fluides et esthétiques.",
-    funFact: "Amateur de café et de nouvelles typographies ☕",
+    name: "Matteo Livrozet",
+    role: "Développeur Full-Stack & Designer",
+    subtitle: "CO-FONDATEUR",
+    bio: "Je suis le pont entre votre vision et l’écran.\nJe transforme des concepts abstraits en interfaces fluides et intuitives, avec une attention extrême portée à chaque pixel et chaque animation.",
+    funFact:
+      "Je passe souvent plus de temps sur les détails que sur les fonctionnalités visibles.",
+    image: null,
+    links: {
+      linkedin:
+        "https://www.linkedin.com/in/matteo-livrozet-lyon-developpement-web/",
+      github: "https://github.com/matteolvt",
+    },
   },
 ];
 
 const TeamSection = () => {
   return (
     <section className="team-section">
-      <h2 className="section-title">Notre équipe</h2>
-      <div className="team-container">
-        {founders.map((founder, idx) => (
-          <div key={idx} className="team-card">
-            <div className="team-image">
-              <div className="placeholder-img">👤</div>
+      <div className="section-header">
+        <span className="section-tag">L'ÉQUIPE</span>
+        <h3>Les visages derrière le code</h3>
+      </div>
+
+      <div className="team-wrapper">
+        {teamMembers.map((member, index) => {
+          // Si l'index est impair (1, 3...), on inverse la direction
+          const isReversed = index % 2 !== 0;
+
+          return (
+            <div
+              className={`team-container ${isReversed ? "reversed" : ""}`}
+              key={index}
+            >
+              {/* Partie Image */}
+              <div className="team-image-wrapper">
+                <div className="team-image">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} />
+                  ) : (
+                    <div className="placeholder-img">👨‍💻</div>
+                  )}
+                </div>
+              </div>
+
+              {/* Partie Texte */}
+              <div className="team-content">
+                <div className="header-group">
+                  <span className="subtitle">{member.subtitle}</span>
+                  <h2>{member.name}</h2>
+                  <p className="role">{member.role}</p>
+                </div>
+
+                <p className="bio">{member.bio}</p>
+
+                <div className="fun-fact">
+                  <strong>Fun fact :</strong> {member.funFact}
+                </div>
+
+                {/* Ajout des liens sociaux */}
+                <div className="social-links">
+                  <a
+                    href={member.links.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-btn"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href={member.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-btn"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="team-content">
-              <h3>{founder.name}</h3>
-              <p className="role">{founder.role}</p>
-              <p className="bio">{founder.bio}</p>
-              <p className="fun-fact">
-                <strong>Fun fact :</strong> {founder.funFact}
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
