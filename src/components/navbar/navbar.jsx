@@ -11,9 +11,45 @@ const Navbar = () => {
   const isHome = location.pathname === "/";
   const isPortfolio = location.pathname === "/portfolio";
   const [isPortfolioActive, setIsPortfolioActive] = useState(false);
-
-  // Navbar visible par défaut sauf sur portfolio
   const [isVisible, setIsVisible] = useState(!isPortfolio);
+
+  // 👇 1er useEffect : Active le mode light sur la page portfolio 3D
+  useEffect(() => {
+    if (location.pathname === "/projets/immersive-3d-portfolio") {
+      document.body.setAttribute("data-navbar-theme", "light");
+    } else {
+      document.body.removeAttribute("data-navbar-theme");
+    }
+
+    return () => {
+      document.body.removeAttribute("data-navbar-theme");
+    };
+  }, [location.pathname]);
+
+  // 👇 2ème useEffect : Désactive le mode light au scroll (CORRIGÉ)
+  useEffect(() => {
+    if (location.pathname !== "/projets/immersive-3d-portfolio") return;
+
+    const handleScroll = () => {
+      const heroSection = document.querySelector(".project-hero"); // 👈 CORRIGÉ
+      if (!heroSection) return;
+
+      const heroRect = heroSection.getBoundingClientRect();
+
+      if (heroRect.bottom > 100) {
+        document.body.setAttribute("data-navbar-theme", "light");
+      } else {
+        document.body.removeAttribute("data-navbar-theme");
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [location.pathname]);
 
   // Écouter les événements du portfolio
   useEffect(() => {
@@ -21,10 +57,10 @@ const Navbar = () => {
       setIsPortfolioActive(e.detail.active);
     };
 
-    window.addEventListener('portfolioActive', handlePortfolioActive);
-    
+    window.addEventListener("portfolioActive", handlePortfolioActive);
+
     return () => {
-      window.removeEventListener('portfolioActive', handlePortfolioActive);
+      window.removeEventListener("portfolioActive", handlePortfolioActive);
     };
   }, []);
 

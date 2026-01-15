@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Snowfall from "react-snowfall";
+// import Snowfall from "react-snowfall";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -43,7 +43,7 @@ function App() {
       {!showSplash && (
         <div className="site-content">
           <SmoothScroll>
-            <Snowfall
+            {/* <Snowfall
               color="#DDE7EF"
               snowflakeCount={200}
               style={{
@@ -53,7 +53,7 @@ function App() {
                 zIndex: 9999,
                 pointerEvents: "none",
               }}
-            />
+            /> */}
 
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>

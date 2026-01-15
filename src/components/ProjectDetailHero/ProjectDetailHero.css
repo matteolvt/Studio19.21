@@ -124,8 +124,38 @@
   100% { transform: translateY(10px); opacity: 0; }
 }
 
+/* 👇 SECTION MOBILE CORRIGÉE avec 180px */
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.8rem; }
-  .hero-tagline { font-size: 1.1rem; }
-  .project-hero { height: 75vh; }
+  .project-hero {
+    height: 100vh;
+    padding-top: 180px; /* 👈 CHANGÉ : 180px d'espacement */
+    padding-bottom: 60px;
+  }
+
+  .project-hero-title { 
+    font-size: 2.8rem; 
+  }
+  
+  .project-hero-tagline { 
+    font-size: 1.1rem; 
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}
+
+/* 👇 AJOUT : Pour très petits écrans */
+@media (max-width: 480px) {
+  .project-hero {
+    padding-top: 180px; /* 👈 Garde les 180px aussi sur petits écrans */
+  }
+
+  .project-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .project-hero-tagline {
+    font-size: 1rem;
+  }
 }

@@ -192,11 +192,27 @@ body {
 }
 
 /* =========================
+   THEME CLAIR POUR PORTFOLIO 3D
+========================= */
+
+/* Texte des liens en beige clair (DESKTOP UNIQUEMENT) */
+[data-navbar-theme="light"] .nav-links a {
+  color: #fff6e4 !important;
+}
+
+[data-navbar-theme="light"] .nav-links a:hover {
+  color: #fff6e4;
+  opacity: 0.8;
+}
+
+/* Burger en beige clair UNIQUEMENT quand le menu est fermé */
+[data-navbar-theme="light"] .burger:not(.open) span {
+  background: #fff6e4 !important;
+}
+
+/* =========================
    MOBILE
 ========================= */
-/* =========================
-   MOBILE (En dessous de 900px)
-   ========================= */
 @media (max-width: 900px) {
   
   /* 1. Ajustements Navbar */
@@ -221,7 +237,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #fff6e4;
+    background: #fff6e4 !important; /* 👈 FORCE le fond beige */
     flex-direction: column;
     padding: 0 20px;
     
@@ -240,7 +256,6 @@ body {
     -webkit-overflow-scrolling: touch;
 
     /* ANIMATION FERMETURE (On remonte) */
-    /* Le 'visibility ... 0.5s' est crucial : on attend la fin de l'anim pour cacher */
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
                 opacity 0.5s ease, 
                 visibility 0s linear 0.5s; 
@@ -254,7 +269,6 @@ body {
     pointer-events: auto;
 
     /* ANIMATION OUVERTURE (On descend) */
-    /* visibility passe à visible tout de suite (0s) */
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
                 opacity 0.5s ease, 
                 visibility 0s linear 0s;
@@ -264,10 +278,14 @@ body {
   .nav-links a {
     margin-bottom: 0;
     font-size: 22px;
+    color: black !important; /* 👈 Force la couleur noire pour les liens */
   }
 
   .nav-links .devis-btn.mobile-only {
     margin-top: 40px;
+    background: #031fd0 !important; /* 👈 FORCE le fond bleu */
+    color: #fff6e4 !important; /* 👈 FORCE le texte beige */
+    border-color: #031fd0 !important;
   }
 
   .desktop-only {
@@ -285,5 +303,20 @@ body {
   .devis-btn.mobile-only {
     display: block;
   }
-} 
-/* FIN DU MEDIA QUERY (L'accolade indispensable !) */
+
+  /* Annule COMPLÈTEMENT le mode light pour le mobile */
+  [data-navbar-theme="light"] .nav-links {
+    background: #fff6e4 !important; /* 👈 Reste beige même en mode light */
+  }
+
+  [data-navbar-theme="light"] .nav-links a {
+    color: black !important; /* 👈 Reste noir même en mode light */
+  }
+
+  [data-navbar-theme="light"] .devis-btn.mobile-only {
+    background: #031fd0 !important; /* 👈 Reste bleu même en mode light */
+    color: #fff6e4 !important; /* 👈 Reste beige même en mode light */
+    border-color: #031fd0 !important;
+  }
+}
+/* FIN DU MEDIA QUERY */
