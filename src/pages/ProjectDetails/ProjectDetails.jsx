@@ -1,7 +1,6 @@
 import React from "react";
-import "./ProjectDetails.css";
-
-import { useProjectData } from "../../hooks/useProjectProject"; // On importe notre logique
+import { Helmet } from "react-helmet";
+import { useProjectData } from "../../hooks/useProjectProject";
 import Navbar from "../../components/navbar/navbar.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import ProjectDetailHero from "../../components/ProjectDetailHero/ProjectDetailHero";
@@ -11,6 +10,7 @@ import ProjectFeatures from "../../components/ProjectDetailFeatures/ProjectDetai
 import ProjectResults from "../../components/ProjectDetailResults/ProjectDetailResults";
 import ProjectFooter from "../../components/ProjectDetailFooter/ProjectFooter";
 import ProjectPagesSlider from "../../components/ProjectDetailSlider/ProjectDetailSlider";
+import "./ProjectDetails.css";
 
 function ProjectDetails() {
   const { project, nextProject } = useProjectData();
@@ -19,6 +19,13 @@ function ProjectDetails() {
 
   return (
     <div className="project-details-page">
+      <Helmet>
+        <title>{project.title} - Studio-19-21</title>
+        <meta name="description" content={project.description} />
+        <meta property="og:title" content={`${project.title} - Studio-19-21`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Navbar />
       <ProjectDetailHero project={project} />
       <ProjectDetailOverview project={project} />
