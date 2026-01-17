@@ -1,0 +1,12 @@
+# Robots.txt pour Studio 19.21
+
+# Autorise tous les moteurs de recherche
+User-agent: *
+Disallow:
+
+# Sitemap (facultatif mais recommandé si tu en as un)
+Sitemap: https://www.studio19-21.com/sitemap.xml
+
+# Pages spécifiques que tu veux éventuellement bloquer (exemple)
+# Disallow: /admin
+# Disallow: /private
