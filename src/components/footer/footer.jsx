@@ -26,22 +26,21 @@ export default function Footer() {
             <p>+33 7 67 96 06 89</p>
           </div>
 
-          <div className="footer-socials">
+          {/* <div className="footer-socials">
             <a href="#" aria-label="LinkedIn">in</a>
             <a href="#" aria-label="Instagram">◎</a>
-          </div>
+          </div> */}
         </div>
 
         <div className="footer-legal">
           <Link to="/mentions-legales" className="footer-legal-button">
-          Mentions légales
+            Mentions légales
           </Link>
         </div>
 
         <div className="footer-signature">
           © 2025 Studio 19.21. {"All rights reserved. "}
         </div>
-
       </div>
     </footer>
   );
