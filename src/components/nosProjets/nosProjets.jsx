@@ -1,41 +1,17 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./nosProjets.css";
-
-// --- DONNÉES ---
-const categories = [
-  { id: "all", label: "Tous" },
-  { id: "ecommerce", label: "E-commerce" },
-  { id: "webapp", label: "Application web" },
-  { id: "vitrine", label: "Site vitrine" },
-];
-
-const projectsData = [
-  {
-    id: 1,
-    title: "Maison Aurora",
-    year: 2024,
-    description:
-      "Création d’une plateforme e-commerce premium pour une marque de décoration.",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2666&auto=format&fit=crop",
-    categoryIds: ["ecommerce", "webapp"],
-    link: "#",
-  },
-  {
-    id: 2,
-    title: "Studio Nox",
-    year: 2023,
-    description: "Site vitrine minimaliste pour un studio créatif.",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2666&auto=format&fit=crop",
-    categoryIds: ["vitrine"],
-    link: "#",
-  },
-  // Ajoute d'autres projets ici pour tester...
-];
+import { categories, projectsData } from "../../data/projectsData";
 
 const NosProjets = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+
+  const getProjectCount = (categoryId) => {
+    if (categoryId === "all") return projectsData.length;
+    return projectsData.filter((project) =>
+      project.categoryIds.includes(categoryId)
+    ).length;
+  };
 
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === "all") return true;
@@ -44,9 +20,6 @@ const NosProjets = () => {
 
   return (
     <section className="projects-section">
-      <h2 className="section-title">NOS PROJETS</h2>
-
-      {/* --- MENU DE FILTRES --- */}
       <div className="filter-container">
         {categories.map((cat) => (
           <button
@@ -55,22 +28,24 @@ const NosProjets = () => {
             onClick={() => setActiveFilter(cat.id)}
           >
             {cat.label}
+            <span className="filter-count">{getProjectCount(cat.id)}</span>
           </button>
         ))}
       </div>
 
-      {/* L'astuce est ici : key={activeFilter} 
-         Quand la clé change, React "détruit" et "recrée" la grille,
-         ce qui relance l'animation CSS "fadeInUp".
-      */}
-      <div className="projects-container" key={activeFilter}>
+      <div className="projects-container">
         {filteredProjects.map((project) => {
           const projectTags = categories.filter(
             (cat) => cat.id !== "all" && project.categoryIds.includes(cat.id)
           );
 
           return (
-            <a href={project.link} key={project.id} className="project-card">
+            // MODIFICATION ICI : On utilise project.slug au lieu de project.id
+            <Link
+              to={`/projets/${project.slug}`}
+              key={project.id}
+              className="project-card"
+            >
               <div className="project-image-container">
                 <img
                   src={project.image}
@@ -100,7 +75,7 @@ const NosProjets = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           );
         })}
       </div>

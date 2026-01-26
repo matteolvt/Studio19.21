@@ -1,0 +1,20 @@
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+}
+
+.appointment-button {
+  padding: 0.7rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.appointment-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}

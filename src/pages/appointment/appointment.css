@@ -1,0 +1,206 @@
+/* ========================
+   LA CARTE DU FORMULAIRE
+   ======================== */
+.appointment-form {
+  background-color: #ffffff;
+  padding: 50px 60px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+}
+
+/* ========================
+   TITRES DE SECTION
+   ======================== */
+.form-section-title {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #A0A0A0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  margin-bottom: 5px; /* Rapproché du premier champ */
+  user-select: none;
+}
+.form-section-title:first-child { margin-top: 0; }
+
+.context-text {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* ========================
+   GRILLE 2 COLONNES
+   ======================== */
+.form-row-2-cols {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .form-row-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px; /* Bel espace entre les colonnes */
+    align-items: start;
+  }
+}
+
+/* ========================
+   INPUTS ET LABELS (Retour au style Editorial)
+   ======================== */
+/* Conteneur de chaque champ */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espace entre Label et Input */
+}
+
+/* Le Label au-dessus (Style Luxe) */
+.input-label {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem; /* Petit et discret */
+  color: #031FD0; /* Bleu identité */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Les Champs */
+.input-field,
+.input-select,
+.input-textarea {
+  width: 100%;
+  padding: 14px 0; /* Pas de padding gauche/droite, style ligne */
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+  border-radius: 0;
+  background-color: transparent;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.05rem;
+  color: #1A1A1A;
+  transition: all 0.3s ease;
+}
+
+.input-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Focus : La ligne devient bleue */
+.input-field:focus,
+.input-select:focus,
+.input-textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #031FD0;
+  background-color: rgba(250, 250, 250, 0.5);
+}
+
+.input-field::placeholder,
+.input-textarea::placeholder {
+  color: #CCC;
+  font-weight: 400;
+}
+
+/* ========================
+   BOUTON & FOOTER
+   ======================== */
+.appointment-button {
+  margin-top: 30px;
+  padding: 18px;
+  background-color: #031FD0;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(3, 31, 208, 0.15);
+}
+
+.appointment-button:hover:not(:disabled) {
+  background-color: #1A1A1A;
+  transform: translateY(-2px);
+}
+
+.appointment-button:disabled {
+  background-color: #CCC;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.form-footer-text {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: -5px;
+}
+
+.google-login-container,
+.user-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;     
+  gap: 1rem;              
+  margin: 2rem 0;
+}
+
+.user-greeting {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #d9363e;
+}
+
+
+.google-login-container button {
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.google-login-container button:hover {
+  background-color: #357ae8;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .appointment-form { padding: 30px 20px; }
+  .form-footer-text { flex-direction: column; align-items: center; gap: 5px; }
+}

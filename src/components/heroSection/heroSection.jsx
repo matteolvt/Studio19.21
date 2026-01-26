@@ -1,8 +1,15 @@
 import React from "react";
 import "./heroSection.css";
 import heroMac from "../../assets/macbook.png";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/contact");
+  };
+
   return (
     <section className="hero-section">
       <div className="hero-content">
@@ -12,10 +19,13 @@ const HeroSection = () => {
           FUTUR DIGITAL.
         </h1>
         <p>
-          Nous accompagnons les entreprises dans la création d’expériences
-          digitales sur mesure, alliant design, performance et visibilité.{" "}
+          Nous sommes une Agence Web basée à Lyon qui accompagne les entreprises
+          dans la création d’expériences digitales sur mesure, alliant design,
+          performance et visibilité.
         </p>
-        <button id="hero-button">Prendre Rendez-vous</button>
+        <button id="hero-button" onClick={handleClick}>
+          Prendre Rendez-vous
+        </button>
       </div>
       <div className="hero-mac">
         <img src={heroMac} alt="Macbook" />

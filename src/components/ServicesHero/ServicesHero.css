@@ -1,0 +1,51 @@
+/* src/components/services/ServicesHero.css */
+
+.service-hero {
+  padding: 180px 20px 80px; /* Aligné sur ton nouveau padding */
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left; /* Aligné à gauche comme Projets */
+}
+
+.service-hero .subtitle {
+  color: #2B4CFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.service-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  max-width: 800px;
+  color: #1A1A1A;
+  font-weight: 400; /* Assure le côté élégant/fin */
+}
+
+.service-hero .italic {
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  color: #031FD0;
+}
+
+.service-hero .hero-text {
+  color: #666666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    padding: 180px 20px 60px;
+  }
+  
+  .service-hero h1 { 
+    font-size: 2.5rem; 
+  }
+}

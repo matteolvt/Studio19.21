@@ -1,0 +1,32 @@
+/* src/components/services/CtaSection.css */
+
+.final-cta {
+  background-color: #FDFCF8;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.final-cta h2 { 
+  font-size: 3rem; 
+  margin-bottom: 20px; 
+  color: #1A1A1A;
+}
+
+.final-cta p {
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+.link-cta {
+  color: #1A1A1A;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-bottom: 2px solid #2B4CFF;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.link-cta:hover { 
+  color: #2B4CFF; 
+}

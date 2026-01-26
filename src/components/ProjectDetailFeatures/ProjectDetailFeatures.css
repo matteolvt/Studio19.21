@@ -1,0 +1,120 @@
+/* ProjectFeatures.css */
+
+.project-features {
+  background-color: #FFF6E4; /* Toujours ton fond crème */
+  color: #1a1a1a;
+  padding: 120px 20px;
+  overflow: hidden;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Une rangée (Feature) --- */
+.feature-row {
+  display: flex;
+  align-items: center; /* Centré verticalement */
+  justify-content: space-between;
+  gap: 80px;
+  margin-bottom: 150px; /* Grand espace entre chaque feature */
+}
+
+/* Le dernier n'a pas besoin de marge en bas */
+.feature-row:last-child {
+  margin-bottom: 0;
+}
+
+/* --- L'inversion automatique (Zig-Zag) --- */
+/* Une fois sur deux, on inverse l'ordre des éléments */
+.feature-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* --- Bloc Texte --- */
+.feature-content {
+  flex: 1; /* Prend la place disponible */
+  max-width: 500px;
+}
+
+.feature-number {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #031FD0; /* Bleu Roi */
+  margin-bottom: 16px;
+  display: inline-block;
+  border-bottom: 1px solid #031FD0;
+  padding-bottom: 4px;
+}
+
+.feature-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #000000;
+}
+
+.feature-description {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+}
+
+/* --- Bloc Visuel --- */
+.feature-visual {
+  flex: 1.2; /* L'image prend un peu plus de place que le texte */
+  position: relative;
+}
+
+.feature-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px; /* Très léger arrondi pour la douceur */
+  /* Ombre portée bleue subtile */
+  box-shadow: 20px 20px 0px rgba(3, 31, 208, 0.05); 
+  transition: transform 0.3s ease;
+}
+
+.feature-row:nth-child(even) .feature-image-wrapper {
+  /* On inverse l'ombre pour le zig-zag */
+  box-shadow: -20px 20px 0px rgba(3, 31, 208, 0.05); 
+}
+
+.feature-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+/* Effet Zoom au survol */
+.feature-image-wrapper:hover .feature-image {
+  transform: scale(1.05);
+}
+
+/* --- Responsive --- */
+@media (max-width: 960px) {
+  .feature-row {
+    flex-direction: column-reverse; /* Image en haut, texte en bas sur mobile */
+    gap: 40px;
+    margin-bottom: 100px;
+  }
+
+  /* On force l'ordre sur mobile pour tous (annule le zig-zag) */
+  .feature-row:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  .feature-content, .feature-visual {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .feature-title {
+    font-size: 2rem;
+  }
+}

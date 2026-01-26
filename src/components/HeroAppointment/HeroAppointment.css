@@ -1,0 +1,15 @@
+.hero-appointment {
+  text-align: center;
+  padding: 180px 20px 40px 20px;
+}
+
+.hero-appointment h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.hero-appointment p {
+  font-size: 1.25rem;
+  color: #555;
+}

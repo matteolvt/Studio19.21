@@ -1,70 +1,322 @@
+/* =========================
+   BASE
+========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =========================
+   NAVBAR - FULL WIDTH avec contenu limité
+========================= */
 .navbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent; 
-    z-index: 1000;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  padding: 20px calc((100vw - 1500px) / 2 + 80px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: transparent;
+  transition: transform 0.35s ease;
+  will-change: transform;
 }
 
+.navbar.navbar-portfolio-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.35s ease;
+}
+
+/* Sur petits écrans, padding normal */
+@media (max-width: 1660px) {
+  .navbar {
+    padding: 20px 80px;
+  }
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+/* Background beige pour pages Services et Projets */
+.services-page .navbar,
+.projets-page .navbar {
+  background: #fff6e4;
+}
+
+/* =========================
+   LOGO
+========================= */
 .logo {
-    justify-self: center;
+  flex-shrink: 0;
+  z-index: 10;
 }
 
 .logo img {
-    height: 120px;
-    width: 120px;
-    color: #031FD0;
+  width: 120px;
 }
 
+.mobile-menu-logo {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 1600;
+}
+
+.mobile-menu-logo img {
+  width: 90px;
+}
+
+/* =========================
+   NAV LINKS DESKTOP
+========================= */
 .nav-links {
-    justify-self: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  z-index: 10;
 }
 
-.nav-links ul {
-    list-style: none;
+.nav-links a {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #031fd0;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+/* Desktop bouton devis */
+.devis-btn.desktop-only {
+  background: #fff6e4;
+  color: #031fd0;
+  border: 2px solid #fff6e4;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  text-decoration: none;
+}
+
+/* Mobile bouton devis */
+.devis-btn.mobile-only {
+  display: none;
+  background: #031fd0;
+  color: #fff6e4;
+  border: 2px solid #031fd0;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: default;
+}
+
+/* =========================
+   BURGER 
+========================= */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+  visibility: hidden;
+  padding: 0;
+}
+
+.burger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #031fd0;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+  transform-origin: center;
+}
+
+.white-burger span {
+  background: #031fd0;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background: #031fd0;
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px); 
+}
+
+.burger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background: #031fd0;
+}
+
+.services-page .navbar,
+.projets .navbar,
+.about-page .navbar,
+.appointment-page .navbar {
+  background: #fff6e4;
+}
+
+/* =========================
+   THEME CLAIR POUR PORTFOLIO 3D
+========================= */
+
+/* Texte des liens en beige clair (DESKTOP UNIQUEMENT) */
+[data-navbar-theme="light"] .nav-links a {
+  color: #fff6e4 !important;
+}
+
+[data-navbar-theme="light"] .nav-links a:hover {
+  color: #fff6e4;
+  opacity: 0.8;
+}
+
+/* Burger en beige clair UNIQUEMENT quand le menu est fermé */
+[data-navbar-theme="light"] .burger:not(.open) span {
+  background: #fff6e4 !important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 900px) {
+  
+  /* 1. Ajustements Navbar */
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .homepage .navbar {
+    background: #fff6e4;
+  }
+
+  /* 2. Burger visible et corrigé (Croix parfaite) */
+  .burger {
     display: flex;
-    gap: 50px;
-}
+    visibility: visible;
+  }
 
-/* Cible explicitement les Link de react-router */
-.nav-links ul li a,
-.nav-links ul li a:visited {
-    color: black;
-    text-decoration: none;
-    font-size: 19px;
-    transition: color 0.3s ease;
-}
+  /* 3. Le Menu Plein Écran (Avec l'anim de remontée) */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff6e4 !important; /* 👈 FORCE le fond beige */
+    flex-direction: column;
+    padding: 0 20px;
+    
+    /* ÉTAT FERMÉ (Caché en haut) */
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden; 
+    pointer-events: none;
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1500;
+    gap: 35px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
-.nav-links ul li a:hover,
-.nav-links ul li a.active {
-    color: #031FD0;
-}
+    /* ANIMATION FERMETURE (On remonte) */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s ease, 
+                visibility 0s linear 0.5s; 
+  }
 
-.devis {
-    justify-self: center;
-}
+  /* ÉTAT OUVERT (Visible) */
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 
-#devis-button {
-    background-color: #FFF6E4;
-    border: none;
-    color: #031FD0;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 50px;
-    padding: 10px 20px;
-    height: 61px;
-    width: 227px;
-    font-size: 19px;
+    /* ANIMATION OUVERTURE (On descend) */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s ease, 
+                visibility 0s linear 0s;
+  }
+
+  /* 4. Styles des liens et boutons */
+  .nav-links a {
+    margin-bottom: 0;
+    font-size: 22px;
+    color: black !important; /* 👈 Force la couleur noire pour les liens */
+  }
+
+  .nav-links .devis-btn.mobile-only {
+    margin-top: 40px;
+    background: #031fd0 !important; /* 👈 FORCE le fond bleu */
+    color: #fff6e4 !important; /* 👈 FORCE le texte beige */
+    border-color: #031fd0 !important;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-menu-logo {
+    display: block;
+  }
+
+  .logo img {
+    width: 90px;
+  }
+
+  .devis-btn.mobile-only {
+    display: block;
+  }
+
+  /* Annule COMPLÈTEMENT le mode light pour le mobile */
+  [data-navbar-theme="light"] .nav-links {
+    background: #fff6e4 !important; /* 👈 Reste beige même en mode light */
+  }
+
+  [data-navbar-theme="light"] .nav-links a {
+    color: black !important; /* 👈 Reste noir même en mode light */
+  }
+
+  [data-navbar-theme="light"] .devis-btn.mobile-only {
+    background: #031fd0 !important; /* 👈 Reste bleu même en mode light */
+    color: #fff6e4 !important; /* 👈 Reste beige même en mode light */
+    border-color: #031fd0 !important;
+  }
 }
+/* FIN DU MEDIA QUERY */

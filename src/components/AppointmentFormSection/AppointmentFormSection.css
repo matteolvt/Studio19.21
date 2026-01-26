@@ -1,0 +1,46 @@
+.appointment-form-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Formulaire */
+.appointment-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.appointment-form input,
+.appointment-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.appointment-form button {
+  padding: 12px;
+  background-color: #031FD0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.appointment-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.appointment-form button:hover:not(:disabled) {
+  background-color: #031FD0;
+}
