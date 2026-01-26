@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="footer-contact">
             <span className="footer-label">Contact</span>
             <p>contact@studio1921.fr</p>
-            <p>+33 7 67 96 06 89</p>
+            <p>+33 7 67 96 06 89 / +33 6 62 46 26 56</p>
           </div>
 
           {/* <div className="footer-socials">
