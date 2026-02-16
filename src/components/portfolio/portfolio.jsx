@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import scene from "../../assets/projectPics/portfolio/scene.jpg";
+import home from "../../assets/projectPics/delivecrous/Home.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -12,6 +13,11 @@ const projects = [
     image: scene,
     title: "Projet interne — Portfolio 3D",
     icon: "📖",
+  },
+  {
+    image: home,
+    title: "Projet d'école — Application de vente en ligne",
+    icon: "🛍️",
   },
 ];
 
