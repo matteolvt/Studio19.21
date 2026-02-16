@@ -67,7 +67,13 @@ const ProjectPagesSlider = ({ project }) => {
 
 ProjectPagesSlider.propTypes = {
   project: PropTypes.shape({
-    websitePages: PropTypes.arrayOf(PropTypes.string),
+    websitePages: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired
+      })
+    ),
   }).isRequired,
 };
 

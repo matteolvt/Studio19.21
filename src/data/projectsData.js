@@ -6,6 +6,14 @@ import scene from "../assets/projectPics/portfolio/scene.jpg";
 import mockup from "../assets/projectPics/portfolio/mockup.jpeg";
 import mockupIA from "../assets/projectPics/portfolio/mockupIA.png";
 import blender from "../assets/projectPics/portfolio/blender.png";
+import home from "../assets/projectPics/delivecrous/Home.png";
+import cart from "../assets/projectPics/delivecrous/Cart.png";
+import auth from "../assets/projectPics/delivecrous/Auth.png";
+import detail from "../assets/projectPics/delivecrous/Detail.png";
+import valid from "../assets/projectPics/delivecrous/Valid.png";
+import proto from "../assets/projectPics/delivecrous/Prototype.png";
+import compo from "../assets/projectPics/delivecrous/Composant.png";
+
 
 
 export const categories = [
@@ -24,7 +32,7 @@ export const projectsData = [
     // --- Pour <ProjectHero /> ---
     title: "Portfolio Immersif 3D",
     tagline: "Une expérience interactive pour repousser les limites du web.",
-    year: 2026,
+    year: "2026",
     image: scene,
     
     // --- Pour <ProjectOverview /> ---
@@ -99,5 +107,66 @@ export const projectsData = [
       // live: "",
       github: "https://github.com/matteolvt/Portfolio3D"
     }
+  },
+  {
+    id: 2,
+    navbarTheme: 'dark',
+    slug: "delivecrous",
+    // --- Pour <ProjectHero /> ---
+    title: "Delivecrous — Application de Vente en Ligne",
+    tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
+    year: "2026",
+    image: home,
+
+    // --- Pour <ProjectOverview /> ---
+    categoryIds: ["ecommerce", "webapp"],
+    client: "Projet d'école — Delivecrous",
+    role: "Développeur Frontend & Designer UI",
+    timeline: "2 semaines",
+    techStack: ["React", "CSS"],
+    description: "Application de vente en ligne permettant la navigation, le panier et le checkout de produits.",
+    challenge: "Créer une expérience utilisateur simple et efficace pour la vente en ligne, avec un design responsive et un système de panier fonctionnel.",
+
+    // --- Pour <ProjectProcess /> ---
+    process: {
+    text: "Le projet Delivecrous a commencé par la conception des composants sur Figma, afin de définir le style, la typographie et les éléments interactifs. Une fois les composants validés, nous avons créé le prototype des pages pour visualiser le parcours utilisateur complet et tester la navigation. Après validation du prototype, nous avons intégré les composants dans React, construit le catalogue, les pages produits et le panier, et effectué des tests pour garantir une expérience fluide et cohérente.",
+    images: [compo, proto]
+    },
+
+    // --- Pour <ProjectPagesSlider /> ---
+    websitePages: [
+      { id: 'home', title: "Page d'Accueil", image: home },
+      { id: 'produit', title: "Fiche Produit", image: detail },
+      { id: 'authentification', title: "Authentification", image: auth },
+      { id: 'panier', title: "Panier", image: cart },
+      { id: 'validation', title: "Validation", image: valid }
+    ],
+
+    // --- Pour <ProjectFeatures /> ---
+    features: [
+      {
+      title: "Catalogue de Produits",
+      description: "Permet aux clients de découvrir rapidement tous vos produits et de filtrer facilement selon leurs besoins. Base idéale pour la réservation ou le click & collect, ce qui augmente vos ventes et simplifie la gestion des stocks.",
+      image: home
+      },
+      {
+        title: "Connexion / Compte utilisateur",
+        description: "Offre aux clients un espace personnel pour suivre leurs commandes, gérer leurs réservations et recevoir des recommandations personnalisées. Favorise la fidélisation et un parcours utilisateur fluide.",
+        image: auth
+      },
+      {
+        title: "Gestion du Panier",
+        description: "Simplifie le processus d’achat avec ajout et suppression faciles des produits, calcul automatique du total et options de livraison ou de retrait en magasin. Cela réduit les abandons de panier et rend le parcours client plus agréable.",
+        image: cart
+      },
+      {
+        title: "Validation de la commande",
+        description: "Confirme la commande de manière claire et sécurisée, avec toutes les informations nécessaires. Idéal pour les réservations et le click & collect, ce qui rassure le client et optimise la préparation des commandes pour le commerçant.",
+        image: valid
+      }
+    ],
+    links:{
+      // live: "",
+      github: "https://github.com/ShayyNwE/DeliveCROUS" }
   },
 ];
