@@ -2,11 +2,8 @@
 
 # Autorise tous les moteurs de recherche
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /private
 
-# Sitemap (facultatif mais recommandé si tu en as un)
+# Sitemap
 Sitemap: https://www.studio19-21.com/sitemap.xml
-
-# Pages spécifiques que tu veux éventuellement bloquer (exemple)
-# Disallow: /admin
-# Disallow: /private
