@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { useProjectData } from "../../hooks/useProjectProject";
 import Navbar from "../../components/navbar/navbar.jsx";
 import Footer from "../../components/footer/footer.jsx";
@@ -19,18 +18,6 @@ function ProjectDetails() {
 
   return (
     <div className="project-details-page">
-      <Helmet>
-        <title>{project.nom} | Réalisation – Studio-19-21 Lyon</title>
-        <meta name="description" content={`Découvrez notre réalisation pour ${project.nom}. Site web créé par Studio-19-21, agence web lyonnaise spécialisée pour les artisans.`} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://www.studio1921.fr/projets/${project.slug}`} />
-        <meta property="og:title" content={`${project.nom} | Studio-19-21`} />
-        <meta property="og:description" content={`Réalisation web pour ${project.nom} par Studio-19-21 à Lyon.`} />
-        <meta property="og:url" content={`https://www.studio1921.fr/projets/${project.slug}`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={project.image} />
-        <meta property="og:locale" content="fr_FR" />
-      </Helmet>
       <Navbar />
       <ProjectDetailHero project={project} />
       <ProjectDetailOverview project={project} />
