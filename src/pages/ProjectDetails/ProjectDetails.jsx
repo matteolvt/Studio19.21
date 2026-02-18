@@ -20,7 +20,7 @@ function ProjectDetails() {
   return (
     <div className="project-details-page">
       <Helmet>
-        <title>{projet.nom} | Réalisation – Studio-19-21 Lyon</title>
+        <title>{project.nom} | Réalisation – Studio-19-21 Lyon</title>
         <meta name="description" content={`Découvrez notre réalisation pour ${project.nom}. Site web créé par Studio-19-21, agence web lyonnaise spécialisée pour les artisans.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://www.studio1921.fr/projets/${project.slug}`} />
