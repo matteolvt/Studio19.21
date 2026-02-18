@@ -15,6 +15,7 @@ import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import AppointmentSuccess from "./components/AppointmentSuccess.jsx/AppointmentSuccess";
 import MentionsLegalesPage from "./pages/MentionsLegales/MentionsLegales";
+import Blog from "./pages/Blog/Blog";
 
 function App() {
   const location = useLocation();
@@ -111,6 +112,14 @@ function App() {
                   element={
                     <PageTransition>
                       <MentionsLegalesPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/blog"
+                  element={
+                    <PageTransition>
+                      <Blog />
                     </PageTransition>
                   }
                 />
