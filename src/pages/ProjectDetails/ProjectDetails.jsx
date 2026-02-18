@@ -24,8 +24,8 @@ function ProjectDetails() {
         <meta name="description" content={`Découvrez notre réalisation pour ${project.nom}. Site web créé par Studio-19-21, agence web lyonnaise spécialisée pour les artisans.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://www.studio1921.fr/projets/${project.slug}`} />
-        <meta property="og:title" content={`${projet.nom} | Studio-19-21`} />
-        <meta property="og:description" content={`Réalisation web pour ${projet.nom} par Studio-19-21 à Lyon.`} />
+        <meta property="og:title" content={`${project.nom} | Studio-19-21`} />
+        <meta property="og:description" content={`Réalisation web pour ${project.nom} par Studio-19-21 à Lyon.`} />
         <meta property="og:url" content={`https://www.studio1921.fr/projets/${project.slug}`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={project.image} />
