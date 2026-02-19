@@ -1,0 +1,17 @@
+.blog-hero {
+  padding: 150px 20px 80px;
+  text-align: center;
+  background-color: #FFF6E4;
+}
+
+.blog-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #1A1A1A;
+}
+
+.blog-hero p {
+  font-size: 1.2rem;
+  color: #666666;
+}
