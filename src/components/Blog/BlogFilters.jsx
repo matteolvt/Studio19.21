@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./BlogFilters.css";
 
 export default function BlogFilters({ categories, selected, setSelected, posts }) {
@@ -21,3 +22,14 @@ export default function BlogFilters({ categories, selected, setSelected, posts }
     </div>
   );
 }
+
+BlogFilters.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selected: PropTypes.string.isRequired,
+  setSelected: PropTypes.func.isRequired,
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
