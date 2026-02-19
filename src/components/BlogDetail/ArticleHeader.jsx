@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ArticleHeader.css";
 
 export default function ArticleHeader({ category, title, excerpt, date, readTime, author }) {
@@ -17,3 +18,15 @@ export default function ArticleHeader({ category, title, excerpt, date, readTime
     </header>
   );
 }
+
+ArticleHeader.propTypes = {
+  category: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  excerpt: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  readTime: PropTypes.string.isRequired,
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }).isRequired,
+};

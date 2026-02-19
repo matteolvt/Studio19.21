@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ArticleContent.css";
 
 export default function ArticleContent({ coverImage, blocks }) {
@@ -8,11 +9,11 @@ export default function ArticleContent({ coverImage, blocks }) {
         <div className="ac-coverWrapper">
           <img
             src={coverImage.src}
-            srcSet={`${coverImage.src.replace(/w=\d+/, 'w=400')} 400w, ${coverImage.src.replace(/w=\d+/, 'w=750')} 750w, ${coverImage.src} 1200w`}
+            srcSet={`${coverImage.src.replace(/w=\d+/, "w=400")} 400w, ${coverImage.src.replace(/w=\d+/, "w=750")} 750w, ${coverImage.src} 1200w`}
             sizes="(max-width: 480px) 400px, (max-width: 900px) 750px, 800px"
             alt={coverImage.alt}
             className="ac-coverImg"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
       )}
@@ -31,7 +32,7 @@ export default function ArticleContent({ coverImage, blocks }) {
           if (block.type === "quote") {
             return (
               <blockquote key={i} className="ac-blockquote">
-                <span className="ac-quoteAccent">"</span>
+                <span className="ac-quoteAccent">&ldquo;</span>
                 {block.text}
               </blockquote>
             );
@@ -50,3 +51,19 @@ export default function ArticleContent({ coverImage, blocks }) {
     </div>
   );
 }
+
+ArticleContent.propTypes = {
+  coverImage: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }),
+  blocks: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      text: PropTypes.string,
+      src: PropTypes.string,
+      alt: PropTypes.string,
+      caption: PropTypes.string,
+    })
+  ).isRequired,
+};

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./ShareBar.css";
 
 export default function ShareBar({ url, title }) {
@@ -16,7 +17,6 @@ export default function ShareBar({ url, title }) {
   return (
     <div className="sb-wrapper">
       <span className="sb-label">Partager</span>
-
       <a
         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(title || "")}`}
         target="_blank"
@@ -25,7 +25,6 @@ export default function ShareBar({ url, title }) {
       >
         Twitter
       </a>
-
       <a
         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
         target="_blank"
@@ -34,10 +33,14 @@ export default function ShareBar({ url, title }) {
       >
         LinkedIn
       </a>
-
       <button onClick={handleCopy} className="sb-btn">
         {copied ? "Copié !" : "Copier le lien"}
       </button>
     </div>
   );
 }
+
+ShareBar.propTypes = {
+  url: PropTypes.string,
+  title: PropTypes.string,
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./RelatedPosts.css";
 
@@ -6,7 +7,7 @@ function RelatedCard({ post }) {
   return (
     <Link to={`/blog/${post.slug}`} className="rp-card">
       <div className="rp-imgWrapper">
-        <img src={post.image} alt={post.title} className="rp-img" />
+        <img src={post.image} alt={post.title} className="rp-img" loading="lazy" />
       </div>
       <div className="rp-cardBody">
         <span className="rp-badge">{post.category}</span>
@@ -16,6 +17,16 @@ function RelatedCard({ post }) {
     </Link>
   );
 }
+
+RelatedCard.propTypes = {
+  post: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    excerpt: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default function RelatedPosts({ posts }) {
   if (!posts || posts.length === 0) return null;
@@ -31,3 +42,16 @@ export default function RelatedPosts({ posts }) {
     </section>
   );
 }
+
+RelatedPosts.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      slug: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      excerpt: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};

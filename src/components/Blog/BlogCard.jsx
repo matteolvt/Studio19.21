@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./BlogCard.css";
 
@@ -11,7 +12,7 @@ export default function BlogCard({ title, excerpt, category, image, isHero, slug
             src={image}
             alt={`Illustration de ${title}`}
             loading={isHero ? "eager" : "lazy"}
-            {...(isHero ? { fetchpriority: "high" } : {})}
+            {...(isHero ? { fetchPriority: "high" } : {})}
           />
         </div>
       )}
@@ -27,4 +28,11 @@ export default function BlogCard({ title, excerpt, category, image, isHero, slug
   );
 }
 
-
+BlogCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  excerpt: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  isHero: PropTypes.bool,
+  slug: PropTypes.string.isRequired,
+};
