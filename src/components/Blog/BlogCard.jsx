@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BlogCard.css";
 
-export default function BlogCard({ title, excerpt, category, image, isHero }) {
+export default function BlogCard({ title, excerpt, category, image, isHero, slug }) {
   return (
     <article className="blog-card">
       {image && (
@@ -18,6 +19,9 @@ export default function BlogCard({ title, excerpt, category, image, isHero }) {
         <span className="blog-card-category">{category}</span>
         <h3 className="blog-card-title">{title}</h3>
         <p className="blog-card-excerpt">{excerpt}</p>
+        <Link to={`/blog/${slug}`} className="blog-card-link">
+          En savoir plus
+        </Link>
       </div>
     </article>
   );

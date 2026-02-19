@@ -16,6 +16,8 @@ import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import AppointmentSuccess from "./components/AppointmentSuccess.jsx/AppointmentSuccess";
 import MentionsLegalesPage from "./pages/MentionsLegales/MentionsLegales";
 import Blog from "./pages/Blog/Blog";
+import BlogDetailPage from "./pages/BlogDetail/BlogDetails";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -44,6 +46,7 @@ function App() {
       {!showSplash && (
         <div className="site-content">
           <SmoothScroll>
+            <ScrollToTop />
             {/* <Snowfall
               color="#DDE7EF"
               snowflakeCount={200}
@@ -120,6 +123,14 @@ function App() {
                   element={
                     <PageTransition>
                       <Blog />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/blog/:slug"
+                  element={
+                    <PageTransition>
+                      <BlogDetailPage />
                     </PageTransition>
                   }
                 />

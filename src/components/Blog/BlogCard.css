@@ -51,6 +51,33 @@
   line-height: 1.5;
 }
 
+.blog-card-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a2f8f;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+}
+
+.blog-card-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #1a2f8f;
+  transition: width 0.25s ease;
+}
+
+.blog-card-link:hover::after {
+  width: 100%;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

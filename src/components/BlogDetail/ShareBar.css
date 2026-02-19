@@ -1,0 +1,37 @@
+.sb-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 680px;
+  margin: 48px auto 0;
+  padding: 28px 32px;
+  border-top: 1px solid #e0d8cc;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.sb-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b6b7b;
+  margin-right: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sb-btn {
+  background: transparent;
+  border: 1px solid #e0d8cc;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #1a1a2e;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.sb-btn:hover {
+  border-color: #1a2f8f;
+  color: #1a2f8f;
+}
