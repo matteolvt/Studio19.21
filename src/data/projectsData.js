@@ -9,7 +9,7 @@ import blender from "../assets/projectPics/portfolio/blender.png";
 import home from "../assets/projectPics/delivecrous/Home.png";
 import cart from "../assets/projectPics/delivecrous/Cart.png";
 import auth from "../assets/projectPics/delivecrous/Auth.png";
-import detail from "../assets/projectpics/delivecrous/Detail.png";
+import detail from "../assets/projectPics/delivecrous/Detail.png"
 import valid from "../assets/projectPics/delivecrous/Valid.png";
 import proto from "../assets/projectPics/delivecrous/Prototype.png";
 import compo from "../assets/projectPics/delivecrous/Composant.png";
