@@ -1,6 +1,6 @@
-import ecommerce from "../assets/Blog/e-commerce.jpg";
-import devweb from "../assets/Blog/devweb.jpg";
-import vitrine from "../assets/Blog/vitrine.jpg";
+import ecommerce from "../assets/Blog/e-commerce.webp";
+import devweb from "../assets/Blog/devweb.webp";
+import vitrine from "../assets/Blog/vitrine.webp";
 
 export const posts = [
   {

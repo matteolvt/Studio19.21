@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import scene from "../../assets/projectPics/portfolio/scene.jpg";
-import home from "../../assets/projectPics/delivecrous/Home.png";
+import scene from "../../assets/projectPics/portfolio/scene.webp";
+import home from "../../assets/projectPics/delivecrous/Home.webp";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";

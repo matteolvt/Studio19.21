@@ -1,19 +1,23 @@
-import loader from "../assets/projectPics/portfolio/loader.jpg";
-import accueil from "../assets/projectPics/portfolio/accueil.jpg";
-import livre from "../assets/projectPics/portfolio/livre.jpg";
-import livreOuvert from "../assets/projectPics/portfolio/livreOuvert.jpg";
-import scene from "../assets/projectPics/portfolio/scene.jpg";
-import mockup from "../assets/projectPics/portfolio/mockup.jpeg";
-import mockupIA from "../assets/projectPics/portfolio/mockupIA.png";
-import blender from "../assets/projectPics/portfolio/blender.png";
-import home from "../assets/projectPics/delivecrous/Home.png";
-import cart from "../assets/projectPics/delivecrous/Cart.png";
-import auth from "../assets/projectPics/delivecrous/Auth.png";
-import detail from "../assets/projectPics/delivecrous/Detail.png"
-import valid from "../assets/projectPics/delivecrous/Valid.png";
-import proto from "../assets/projectPics/delivecrous/Prototype.png";
-import compo from "../assets/projectPics/delivecrous/Composant.png";
-import fournil_cover from "../assets/projectPics/Landing/Fournil.png";
+import loader from "../assets/projectPics/portfolio/loader.webp";
+import accueil from "../assets/projectPics/portfolio/accueil.webp";
+import livre from "../assets/projectPics/portfolio/livre.webp";
+import livreOuvert from "../assets/projectPics/portfolio/livreOuvert.webp";
+import scene from "../assets/projectPics/portfolio/scene.webp";
+import mockup from "../assets/projectPics/portfolio/mockup.webp";
+import mockupIA from "../assets/projectPics/portfolio/mockupIA.webp";
+import blender from "../assets/projectPics/portfolio/blender.webp";
+import home from "../assets/projectPics/delivecrous/Home.webp";
+import cart from "../assets/projectPics/delivecrous/Cart.webp";
+import auth from "../assets/projectPics/delivecrous/Auth.webp";
+import detail from "../assets/projectPics/delivecrous/Detail.webp"
+import valid from "../assets/projectPics/delivecrous/Valid.webp";
+import proto from "../assets/projectPics/delivecrous/Prototype.webp";
+import compo from "../assets/projectPics/delivecrous/Composant.webp";
+import fournil_cover from "../assets/projectPics/Landing/Fournil.webp";
+import fournil_creation from "../assets/projectpics/Landing/Fournil_creation.webp";
+import fournil_expertise from "../assets/projectpics/Landing/Fournil_expertise.webp";
+import fournil_footer from "../assets/projectpics/Landing/Fournil_footer.webp";
+import fournil_histoire from "../assets/projectpics/Landing/Fournil_histoire.webp";
 
 
 
@@ -189,11 +193,14 @@ export const projectsData = [
     challenge: "Concevoir une identité visuelle chaleureuse et artisanale qui reflète le savoir-faire d'une boulangerie familiale, tout en restant moderne et performante.",
     process: {
       text: "Le projet a démarré par une phase de recherche d'identité visuelle : palette de couleurs terracotta et chocolat, typographies serif et script pour évoquer l'artisanat. La landing page a été développée en HTML/CSS natif avec un soin particulier apporté aux micro-animations et aux transitions pour créer une expérience immersive.",
-      images: [fournil_cover, fournil_cover]
+      images: [fournil_cover]
     },
     websitePages: [
-      { id: 'hero', title: "Hero", image: fournil_cover },
-      { id: 'histoire', title: "Notre Histoire", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=75&fm=webp" },
+      { id: 'home', title: "Home", image: fournil_cover },
+      { id: 'histoire', title: "Notre Histoire", image: fournil_histoire },
+      { id: 'expertise', title: "Notre Expertise", image: fournil_expertise },
+      { id: 'creation', title: "Nos Création", image: fournil_creation },
+      { id: 'info', title: "Nos Informations", image: fournil_footer }
     ],
     features: [
       {
@@ -204,12 +211,12 @@ export const projectsData = [
       {
         title: "Carte Interactive",
         description: "Système d'onglets pour naviguer entre Boulangerie, Viennoiseries et Pâtisserie, avec des fiches produit détaillées et des badges de saisonnalité.",
-        image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=800&q=75&fm=webp"
+        image: fournil_creation
       }
     ],
     // Lien vers la landing page HTML dans /public
     links: {
-      live: "../../public/fournil-emile/fourmil.html",
+      live: "../../public/fournil-emile/Fournil.html",
     }
   },
 ];
