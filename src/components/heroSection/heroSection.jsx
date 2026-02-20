@@ -1,6 +1,6 @@
 import React from "react";
 import "./heroSection.css";
-import heroMac from "../../assets/macbook.png";
+import heroMac from "../../assets/macbook.webp";
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
