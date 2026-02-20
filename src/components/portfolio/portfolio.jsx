@@ -8,15 +8,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    image: "/images/projectpics/portfolio/scene.webp",
-    title: "Projet interne — Portfolio 3D",
-    icon: "📖",
-  },
-  {
-    image: "/images/projectpics/delivecrous/Home.webp",
+    image: "/images/projectpics/delivecrous/Home_full.webp",
     title: "Projet d'école — Application de vente en ligne",
     icon: "🛍️",
   },
+  {
+    image: "/images/projectpics/Landing/pain_full.webp",
+    title: "Exemple — Page vitrine boulangerie",
+    icon: "🥐",
+  },
+  {
+    image: "/images/projectpics/Landing/bar_full.webp",
+    title: "Exemple — Page vitrine bar/restaurant",
+    icon: "🍺",
+  },
+
 ];
 
 export default function Portfolio() {
