@@ -59,7 +59,7 @@ export const projectsData = [
     title: "Delivecrous — Application de Vente en Ligne",
     tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
     year: "2026",
-    image: "/images/projectpics/delivecrous/Home.webp",
+    image: "/images/projectpics/delivecrous/Home_full.webp",
     categoryIds: ["ecommerce", "webapp"],
     client: "Projet d'école — Delivecrous",
     role: "Développeur Frontend & Designer UI",
@@ -115,7 +115,7 @@ export const projectsData = [
     title: "Au Fournil d'Émile",
     tagline: "Landing page artisanale pour une boulangerie lyonnaise.",
     year: "2026",
-    image: "/images/projectpics/Landing/Fournil.webp",
+    image: "/images/projectpics/Landing/pain_full.webp",
     categoryIds: ["vitrine", "artisan"],
     client: "Au Fournil d'Émile — Boulangerie Lyon",
     role: "Designer & Développeur Web",
@@ -140,6 +140,104 @@ export const projectsData = [
     ],
     links: {
       live: "/fournil-emile/Fournil.html",
+    }
+  },
+
+  {
+    id: 4,
+    navbarTheme: 'dark',
+    slug: "saigon",
+    title: "Saigon",
+    tagline: "L'authentique Vietnam à Montchat — cantine le midi, bar & karaoké le soir.",
+    year: "2026",
+    image: "/images/projectpics/Landing/bar_full.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "Saigon — Restaurant Lyon 7",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page pour un restaurant vietnamien atypique de Lyon 7 : carte complète, section bar & karaoké, et informations pratiques.",
+    challenge: "Retranscrire l'ambiance unique du Saigon — un hybride entre cantine de quartier et bar festif — avec une identité visuelle qui mêle chaleur asiatique et néons nocturnes.",
+    process: {
+      text: "Le projet a démarré par une analyse de l'identité du lieu : un restaurant de quartier chaleureux le midi qui se transforme en bar festif le soir. La palette mêle des tons bambou et brun chaud pour la partie restaurant, et des accents néon rose et bleu pour l'ambiance bar. La navigation par onglets permet d'explorer la carte vietnamienne complète.",
+      images: [
+        "/images/projectpics/Landing/Saigon.webp",
+        "/images/projectpics/Landing/Saigon_carte.webp"
+      ]
+    },
+
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/Saigon.webp" },
+      { id: 'carte', title: "La Carte", image: "/images/projectpics/Landing/Saigon_carte.webp" },
+      { id: 'bar', title: "Bar & Karaoké", image: "/images/projectpics/Landing/Saigon_bar.webp" },
+      { id: 'infos', title: "Infos & Accès", image: "/images/projectpics/Landing/Saigon_infos.webp" },
+      { id: 'bas', title: "Bas de page", image: "/images/projectpics/Landing/Saigon_footer.webp" }
+    ],
+
+    features: [
+      {
+        title: "Carte Vietnamienne Interactive",
+        description: "Navigation par onglets entre Phô, Bo Bun, Tapas Viet et options végétariennes. Chaque plat est présenté avec sa description et son prix.",
+        image: "/images/projectpics/Landing/Saigon_carte.webp"
+      },
+      {
+        title: "Ambiance Saigon Bar & Karaoké",
+        description: "Section dédiée à l'activité karaoké du soir avec réservation directe. Design néon qui contraste avec la chaleur naturelle de la partie restaurant.",
+        image: "/images/projectpics/Landing/Saigon_bar.webp"
+      }
+    ],
+
+    links: {
+      live: "/Saigon/Saigon.html"
+    }
+  },
+
+  {
+    id: 5,
+    navbarTheme: 'light',
+    slug: "fournil-honore",
+    title: "Le Fournil d'Honoré",
+    tagline: "L'excellence artisanale au cœur de Lyon 2ème.",
+    year: "2026",
+    image: "/images/projectpics/Landing/FournilHonore.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "Le Fournil d'Honoré — Boulangerie Lyon 2",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page haut de gamme pour une boulangerie artisanale lyonnaise : collection pains & viennoiseries, formules déjeuner, pâtisserie événementielle et terrasse.",
+    challenge: "Concevoir une expérience visuelle premium qui reflète l'excellence artisanale d'une boulangerie de quartier, avec un curseur personnalisé, des animations soignées et une identité forte.",
+    process: {
+      text: "Le projet a démarré par une définition de l'identité visuelle haut de gamme : typographies serif élégantes, palette sobre et contrastée, animations d'entrée progressives. Un soin particulier a été apporté aux micro-interactions comme le curseur personnalisé et les effets de scroll reveal pour renforcer l'image premium de l'établissement.",
+      images: [
+        "/images/projectpics/Landing/FournilHonore.webp",
+        "/images/projectpics/Landing/FournilHonore_collection.webp"
+      ]
+    },
+    
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/FournilHonore.webp" },
+      { id: 'collection', title: "Collection", image: "/images/projectpics/Landing/FournilHonore_collection.webp" },
+      { id: 'dejeuner', title: "Déjeuner", image: "/images/projectpics/Landing/FournilHonore_dejeuner.webp" },
+      { id: 'patisserie', title: "Pâtisserie", image: "/images/projectpics/Landing/FournilHonore_patisserie.webp" },
+      { id: 'terrasse', title: "Terrasse", image: "/images/projectpics/Landing/FournilHonore_terrasse.webp" }
+    ],
+
+    features: [
+      {
+        title: "Collection Pains & Viennoiseries",
+        description: "Présentation soignée de la collection de pains artisanaux et viennoiseries avec une mise en page élégante qui met en valeur chaque création.",
+        image: "/images/projectpics/Landing/FournilHonore_collection.webp"
+      },
+      {
+        title: "Pâtisserie & Événements",
+        description: "Section dédiée aux créations pâtissières et commandes événementielles, avec formulaire de contact intégré pour les professionnels.",
+        image: "/images/projectpics/Landing/FournilHonore_patisserie.webp"
+      }
+    ],
+
+    links: {
+      live: "/FournilHonore/FournilHonore.html"
     }
   },
 ];
