@@ -1,33 +1,10 @@
-import loader from "../assets/projectPics/portfolio/loader.webp";
-import accueil from "../assets/projectPics/portfolio/accueil.webp";
-import livre from "../assets/projectPics/portfolio/livre.webp";
-import livreOuvert from "../assets/projectPics/portfolio/livreOuvert.webp";
-import scene from "../assets/projectPics/portfolio/scene.webp";
-import mockup from "../assets/projectPics/portfolio/mockup.webp";
-import mockupIA from "../assets/projectPics/portfolio/mockupIA.webp";
-import blender from "../assets/projectPics/portfolio/blender.webp";
-import home from "../assets/projectPics/delivecrous/Home.webp";
-import cart from "../assets/projectPics/delivecrous/Cart.webp";
-import auth from "../assets/projectPics/delivecrous/Auth.webp";
-import detail from "../assets/projectPics/delivecrous/Detail.webp"
-import valid from "../assets/projectPics/delivecrous/Valid.webp";
-import proto from "../assets/projectPics/delivecrous/Prototype.webp";
-import compo from "../assets/projectPics/delivecrous/Composant.webp";
-import fournil_cover from "../assets/projectPics/Landing/Fournil.webp";
-import fournil_creation from "../assets/projectpics/Landing/Fournil_creation.webp";
-import fournil_expertise from "../assets/projectpics/Landing/Fournil_expertise.webp";
-import fournil_footer from "../assets/projectpics/Landing/Fournil_footer.webp";
-import fournil_histoire from "../assets/projectpics/Landing/Fournil_histoire.webp";
-
-
-
 export const categories = [
   { id: "all", label: "Tous" },
   { id: "ecommerce", label: "E-commerce" },
   { id: "webapp", label: "Application web" },
   { id: "vitrine", label: "Site vitrine" },
-  { id : "portfolio", label: "Portfolio" },
-  { id : "artisan", label: "Artisan" },
+  { id: "portfolio", label: "Portfolio" },
+  { id: "artisan", label: "Artisan" },
 ];
 
 export const projectsData = [
@@ -35,82 +12,43 @@ export const projectsData = [
     id: 1,
     navbarTheme: 'light',
     slug: "immersive-3d-portfolio",
-    // --- Pour <ProjectHero /> ---
     title: "Portfolio Immersif 3D",
     tagline: "Une expérience interactive pour repousser les limites du web.",
     year: "2026",
-    image: scene,
-    
-    // --- Pour <ProjectOverview /> ---
+    image: "/images/projectpics/portfolio/scene.webp",
     categoryIds: ["portfolio", "webapp"],
     client: "Projet interne — Mattéo Livrozet",
     role: "Lead Designer & Frontend Dev",
     timeline: "2 mois",
     techStack: ["React", "Three.js", "GSAP"],
     description: "Création d’un portfolio immersif pensé comme une expérience interactive.",
-    challenge: "L’objectif était de concevoir une expérience immersive et mémorable, capable de se démarquer des portfolios classiques, tout en conservant une navigation fluide et accessible pour tous les utilisateurs.",
-
-    // --- Pour <ProjectProcess /> ---
+    challenge: "L’objectif était de concevoir une expérience immersive et mémorable...",
     process: {
-      text: "Le projet a débuté par une phase de réflexion hors écran, avec la création de maquettes papier afin de définir la composition de la scène, l’angle de caméra et les interactions clés. Cette étape a permis de poser une direction artistique claire avant le développement, en anticipant les contraintes techniques liées à la 3D temps réel et à la performance. Les itérations ont ensuite été réalisées directement dans le navigateur afin d’ajuster les animations, les transitions et la fluidité globale de l’expérience.",
+      text: "Le projet a débuté par une phase de réflexion hors écran...",
       images: [
-        mockup, blender
+        "/images/projectpics/portfolio/mockup.webp",
+        "/images/projectpics/portfolio/blender.webp"
       ]
     },
-
-    // 👇 NOUVEAU : Pour <ProjectPagesSlider /> ---
     websitePages: [
-      {
-        id: 'loader',
-        title: "Loading Screen",
-        image: loader 
-      },
-      {
-        id : 'scene',
-        title: "Scène Principale",
-        image: scene
-      },
-      {
-        id: 'livre',
-        title: "Livre ",
-        image: livre
-      },
-      {
-        id: 'livre-ouvert',
-        title: "Livre Ouvert",
-        image: livreOuvert 
-      }
+      { id: 'loader', title: "Loading Screen", image: "/images/projectpics/portfolio/loader.webp" },
+      { id: 'scene', title: "Scène Principale", image: "/images/projectpics/portfolio/scene.webp" },
+      { id: 'livre', title: "Livre", image: "/images/projectpics/portfolio/livre.webp" },
+      { id: 'livre-ouvert', title: "Livre Ouvert", image: "/images/projectpics/portfolio/livreOuvert.webp" }
     ],
-
-    // --- Pour <ProjectFeatures /> ---
     features: [
       {
         title: "Navigation 3D Narrative",
-        description: "Une navigation pensée comme un parcours scénarisé, où chaque interaction déclenche des mouvements de caméra et des transitions progressives pour guider l’utilisateur sans rupture.",
-        image: accueil
+        description: "Une navigation pensée comme un parcours scénarisé...",
+        image: "/images/projectpics/portfolio/accueil.webp"
       },
       {
         title: "Transitions Caméra Fluides",
-        description: "Des transitions cinématographiques basées sur des easings personnalisés afin d’assurer une continuité visuelle et une expérience fluide entre chaque section du site.(Visualisation des trajectoires caméra utilisées dans la scène.)",
-        image: mockupIA
+        description: "Des transitions cinématographiques basées sur des easings personnalisés...",
+        image: "/images/projectpics/portfolio/mockupIA.webp"
       }
     ],
-
-    // results: {
-    //   text: "Le lancement a été un succès immédiat avec une adoption massive sur mobile.",
-    //   kpis: [
-    //     { label: "Taux de conversion", value: "+45%" },
-    //     { label: "Ventes mobile", value: "+120%" },
-    //     { label: "Temps de chargement", value: "0.8s" }
-    //   ],
-    //   testimonial: {
-    //     text: "Une refonte qui a dépassé nos espérances. Nos clients adorent la nouvelle fluidité du site.",
-    //     author: "Sophie Martin, Fondatrice"
-    //   }
-    // },
-
     links: {
-      // live: "",
       github: "https://github.com/matteolvt/Portfolio3D"
     }
   },
@@ -118,62 +56,56 @@ export const projectsData = [
     id: 2,
     navbarTheme: 'dark',
     slug: "delivecrous",
-    // --- Pour <ProjectHero /> ---
     title: "Delivecrous — Application de Vente en Ligne",
     tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
     year: "2026",
-    image: home,
-
-    // --- Pour <ProjectOverview /> ---
+    image: "/images/projectpics/delivecrous/Home.webp",
     categoryIds: ["ecommerce", "webapp"],
     client: "Projet d'école — Delivecrous",
     role: "Développeur Frontend & Designer UI",
     timeline: "2 semaines",
     techStack: ["React", "CSS"],
     description: "Application de vente en ligne permettant la navigation, le panier et le checkout de produits.",
-    challenge: "Créer une expérience utilisateur simple et efficace pour la vente en ligne, avec un design responsive et un système de panier fonctionnel.",
-
-    // --- Pour <ProjectProcess /> ---
+    challenge: "Créer une expérience utilisateur simple et efficace...",
     process: {
-    text: "Le projet Delivecrous a commencé par la conception des composants sur Figma, afin de définir le style, la typographie et les éléments interactifs. Une fois les composants validés, nous avons créé le prototype des pages pour visualiser le parcours utilisateur complet et tester la navigation. Après validation du prototype, nous avons intégré les composants dans React, construit le catalogue, les pages produits et le panier, et effectué des tests pour garantir une expérience fluide et cohérente.",
-    images: [compo, proto]
+      text: "Le projet Delivecrous a commencé par la conception des composants sur Figma...",
+      images: [
+        "/images/projectpics/delivecrous/Composant.webp",
+        "/images/projectpics/delivecrous/Prototype.webp"
+      ]
     },
-
-    // --- Pour <ProjectPagesSlider /> ---
     websitePages: [
-      { id: 'home', title: "Page d'Accueil", image: home },
-      { id: 'produit', title: "Fiche Produit", image: detail },
-      { id: 'authentification', title: "Authentification", image: auth },
-      { id: 'panier', title: "Panier", image: cart },
-      { id: 'validation', title: "Validation", image: valid }
+      { id: 'home', title: "Page d'Accueil", image: "/images/projectpics/delivecrous/Home.webp" },
+      { id: 'produit', title: "Fiche Produit", image: "/images/projectpics/delivecrous/Detail.webp" },
+      { id: 'authentification', title: "Authentification", image: "/images/projectpics/delivecrous/Auth.webp" },
+      { id: 'panier', title: "Panier", image: "/images/projectpics/delivecrous/Cart.webp" },
+      { id: 'validation', title: "Validation", image: "/images/projectpics/delivecrous/Valid.webp" }
     ],
-
-    // --- Pour <ProjectFeatures /> ---
     features: [
       {
-      title: "Catalogue de Produits",
-      description: "Permet aux clients de découvrir rapidement tous vos produits et de filtrer facilement selon leurs besoins. Base idéale pour la réservation ou le click & collect, ce qui augmente vos ventes et simplifie la gestion des stocks.",
-      image: home
+        title: "Catalogue de Produits",
+        description: "Permet aux clients de découvrir rapidement tous vos produits...",
+        image: "/images/projectpics/delivecrous/Home.webp"
       },
       {
         title: "Connexion / Compte utilisateur",
-        description: "Offre aux clients un espace personnel pour suivre leurs commandes, gérer leurs réservations et recevoir des recommandations personnalisées. Favorise la fidélisation et un parcours utilisateur fluide.",
-        image: auth
+        description: "Offre aux clients un espace personnel pour suivre leurs commandes...",
+        image: "/images/projectpics/delivecrous/Auth.webp"
       },
       {
         title: "Gestion du Panier",
-        description: "Simplifie le processus d’achat avec ajout et suppression faciles des produits, calcul automatique du total et options de livraison ou de retrait en magasin. Cela réduit les abandons de panier et rend le parcours client plus agréable.",
-        image: cart
+        description: "Simplifie le processus d’achat avec ajout et suppression faciles des produits...",
+        image: "/images/projectpics/delivecrous/Cart.webp"
       },
       {
         title: "Validation de la commande",
-        description: "Confirme la commande de manière claire et sécurisée, avec toutes les informations nécessaires. Idéal pour les réservations et le click & collect, ce qui rassure le client et optimise la préparation des commandes pour le commerçant.",
-        image: valid
+        description: "Confirme la commande de manière claire et sécurisée...",
+        image: "/images/projectpics/delivecrous/Valid.webp"
       }
     ],
-    links:{
-      // live: "",
-      github: "https://github.com/ShayyNwE/DeliveCROUS" }
+    links: {
+      github: "https://github.com/ShayyNwE/DeliveCROUS"
+    }
   },
 
   {
@@ -183,40 +115,31 @@ export const projectsData = [
     title: "Au Fournil d'Émile",
     tagline: "Landing page artisanale pour une boulangerie lyonnaise.",
     year: "2026",
-    image: fournil_cover,
+    image: "/images/projectpics/Landing/Fournil.webp",
     categoryIds: ["vitrine", "artisan"],
     client: "Au Fournil d'Émile — Boulangerie Lyon",
     role: "Designer & Développeur Web",
     timeline: "1 semaine",
     techStack: ["HTML", "CSS", "JavaScript"],
-    description: "Landing page complète pour une boulangerie artisanale lyonnaise : hero, histoire, expertise, carte du jour et informations pratiques.",
-    challenge: "Concevoir une identité visuelle chaleureuse et artisanale qui reflète le savoir-faire d'une boulangerie familiale, tout en restant moderne et performante.",
+    description: "Landing page complète pour une boulangerie artisanale lyonnaise...",
+    challenge: "Concevoir une identité visuelle chaleureuse et artisanale...",
     process: {
-      text: "Le projet a démarré par une phase de recherche d'identité visuelle : palette de couleurs terracotta et chocolat, typographies serif et script pour évoquer l'artisanat. La landing page a été développée en HTML/CSS natif avec un soin particulier apporté aux micro-animations et aux transitions pour créer une expérience immersive.",
-      images: [fournil_cover]
+      text: "Le projet a démarré par une phase de recherche d'identité visuelle...",
+      images: ["/images/projectpics/Landing/Fournil.webp"]
     },
     websitePages: [
-      { id: 'home', title: "Home", image: fournil_cover },
-      { id: 'histoire', title: "Notre Histoire", image: fournil_histoire },
-      { id: 'expertise', title: "Notre Expertise", image: fournil_expertise },
-      { id: 'creation', title: "Nos Création", image: fournil_creation },
-      { id: 'info', title: "Nos Informations", image: fournil_footer }
+      { id: 'home', title: "Home", image: "/images/projectpics/Landing/Fournil.webp" },
+      { id: 'histoire', title: "Notre Histoire", image: "/images/projectpics/Landing/Fournil_histoire.webp" },
+      { id: 'expertise', title: "Notre Expertise", image: "/images/projectpics/Landing/Fournil_expertise.webp" },
+      { id: 'creation', title: "Nos Création", image: "/images/projectpics/Landing/Fournil_creation.webp" },
+      { id: 'info', title: "Nos Informations", image: "/images/projectpics/Landing/Fournil_footer.webp" }
     ],
     features: [
-      {
-        title: "Design Artisanal",
-        description: "Palette terracotta et chocolat, typographies Playfair Display et Caveat, grain texturé en overlay — chaque détail évoque le soin et le savoir-faire d'une boulangerie familiale.",
-        image: fournil_cover
-      },
-      {
-        title: "Carte Interactive",
-        description: "Système d'onglets pour naviguer entre Boulangerie, Viennoiseries et Pâtisserie, avec des fiches produit détaillées et des badges de saisonnalité.",
-        image: fournil_creation
-      }
+      { title: "Design Artisanal", description: "Palette terracotta et chocolat...", image: "/images/projectpics/Landing/Fournil.webp" },
+      { title: "Carte Interactive", description: "Système d'onglets pour naviguer...", image: "/images/projectpics/Landing/Fournil_creation.webp" }
     ],
-    // Lien vers la landing page HTML dans /public
     links: {
-      live: "../../public/fournil-emile/Fournil.html",
+      live: "/fournil-emile/Fournil.html",
     }
   },
 ];

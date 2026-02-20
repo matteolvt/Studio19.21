@@ -1,6 +1,4 @@
 import React, { useRef } from "react";
-import scene from "../../assets/projectPics/portfolio/scene.webp";
-import home from "../../assets/projectPics/delivecrous/Home.webp";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -10,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    image: scene,
+    image: "/images/projectpics/portfolio/scene.webp",
     title: "Projet interne — Portfolio 3D",
     icon: "📖",
   },
   {
-    image: home,
+    image: "/images/projectpics/delivecrous/Home.webp",
     title: "Projet d'école — Application de vente en ligne",
     icon: "🛍️",
   },
