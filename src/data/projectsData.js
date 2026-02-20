@@ -13,6 +13,7 @@ import detail from "../assets/projectPics/delivecrous/Detail.png"
 import valid from "../assets/projectPics/delivecrous/Valid.png";
 import proto from "../assets/projectPics/delivecrous/Prototype.png";
 import compo from "../assets/projectPics/delivecrous/Composant.png";
+import fournil_cover from "../assets/projectPics/Landing/Fournil.png";
 
 
 
@@ -22,6 +23,7 @@ export const categories = [
   { id: "webapp", label: "Application web" },
   { id: "vitrine", label: "Site vitrine" },
   { id : "portfolio", label: "Portfolio" },
+  { id : "artisan", label: "Artisan" },
 ];
 
 export const projectsData = [
@@ -168,5 +170,46 @@ export const projectsData = [
     links:{
       // live: "",
       github: "https://github.com/ShayyNwE/DeliveCROUS" }
+  },
+
+  {
+    id: 3,
+    navbarTheme: 'light',
+    slug: "fournil-emile",
+    title: "Au Fournil d'Émile",
+    tagline: "Landing page artisanale pour une boulangerie lyonnaise.",
+    year: "2026",
+    image: fournil_cover,
+    categoryIds: ["vitrine", "artisan"],
+    client: "Au Fournil d'Émile — Boulangerie Lyon",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page complète pour une boulangerie artisanale lyonnaise : hero, histoire, expertise, carte du jour et informations pratiques.",
+    challenge: "Concevoir une identité visuelle chaleureuse et artisanale qui reflète le savoir-faire d'une boulangerie familiale, tout en restant moderne et performante.",
+    process: {
+      text: "Le projet a démarré par une phase de recherche d'identité visuelle : palette de couleurs terracotta et chocolat, typographies serif et script pour évoquer l'artisanat. La landing page a été développée en HTML/CSS natif avec un soin particulier apporté aux micro-animations et aux transitions pour créer une expérience immersive.",
+      images: [fournil_cover, fournil_cover]
+    },
+    websitePages: [
+      { id: 'hero', title: "Hero", image: fournil_cover },
+      { id: 'histoire', title: "Notre Histoire", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=75&fm=webp" },
+    ],
+    features: [
+      {
+        title: "Design Artisanal",
+        description: "Palette terracotta et chocolat, typographies Playfair Display et Caveat, grain texturé en overlay — chaque détail évoque le soin et le savoir-faire d'une boulangerie familiale.",
+        image: fournil_cover
+      },
+      {
+        title: "Carte Interactive",
+        description: "Système d'onglets pour naviguer entre Boulangerie, Viennoiseries et Pâtisserie, avec des fiches produit détaillées et des badges de saisonnalité.",
+        image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=800&q=75&fm=webp"
+      }
+    ],
+    // Lien vers la landing page HTML dans /public
+    links: {
+      live: "../../public/fournil-emile/fourmil.html",
+    }
   },
 ];
