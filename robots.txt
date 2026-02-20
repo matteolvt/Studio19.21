@@ -1,9 +1,0 @@
-# Robots.txt pour Studio 19.21
-
-# Autorise tous les moteurs de recherche
-User-agent: *
-Disallow: /admin
-Disallow: /private
-
-# Sitemap
-Sitemap: https://www.studio19-21.com/sitemap.xml

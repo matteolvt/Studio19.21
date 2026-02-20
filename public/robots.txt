@@ -1,0 +1,9 @@
+# robots.txt pour Studio1921
+
+# Autoriser tous les moteurs de recherche
+User-agent: *
+Disallow: /admin
+Disallow: /private
+
+# Sitemap
+Sitemap: https://www.studio1921.fr/sitemap.xml
