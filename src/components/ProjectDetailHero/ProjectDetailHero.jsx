@@ -13,7 +13,7 @@ const ProjectDetailHero = ({ project }) => {
           alt={project.title}
           className="project-hero-image"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
         />
         <div className="project-hero-overlay"></div>
       </div>
