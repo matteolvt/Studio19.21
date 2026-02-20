@@ -145,6 +145,9 @@ const Navbar = () => {
         <Link to="/services" onClick={() => setIsOpen(false)}>
           Services
         </Link>
+        <Link to="/blog" className="footer-legal-button">
+            Blog
+        </Link>
         <Link to="/about" onClick={() => setIsOpen(false)}>
           À propos
         </Link>

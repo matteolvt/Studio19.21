@@ -54,6 +54,7 @@ export default function AppointmentForm({
           <option value="e-commerce">E-Commerce</option>
           <option value="app-web">Application Web / SaaS</option>
           <option value="refonte">Refonte</option>
+          <option value="refonte">Artisan</option>
           <option value="audit">Audit & Conseil</option>
         </select>
       </div>
