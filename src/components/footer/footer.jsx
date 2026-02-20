@@ -36,9 +36,6 @@ export default function Footer() {
           <Link to="/mentions-legales" className="footer-legal-button">
             Mentions légales
           </Link>
-          <Link to="/blog" className="footer-legal-button">
-            Blog
-          </Link>
         </div>
 
         <div className="footer-signature">
