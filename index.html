@@ -11,19 +11,16 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.studio1921.fr/" />
 
-
-    <!-- Preconnect pour réduire la latence des ressources tierces -->
+    <!-- Preconnect (performances) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://i.pravatar.cc" />
 
-    <!-- Google Fonts chargé en non-bloquant -->
+    <!-- Google Fonts non-bloquantes -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap"
-      media="print"
-      onload="this.media='all'"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
@@ -32,6 +29,18 @@
       />
     </noscript>
 
+    <!-- Préchargement LCP -->
+    <link rel="preload" as="image" href="/images/projectpics/portfolio/scene.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/projectpics/delivecrous/Home.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/projectpics/Landing/Fournil.webp" fetchpriority="high">
+
+
+    <!-- reCAPTCHA async / defer -->
+    <script 
+      src="https://www.google.com/recaptcha/api.js?render=VITE_RECAPTCHA_SITE_KEY"
+      async
+      defer
+    ></script>
 
     <!-- Open Graph -->
     <meta property="og:title" content="Studio1921 | Création de site web pour artisans à Lyon" />
@@ -48,14 +57,9 @@
     <meta name="google-site-verification" content="baNZogbEpJDL6aaLeqxG71Kt_hyCxM506IAK-ObalNw" />
     <meta name="twitter:image" content="https://www.studio1921.fr/og-image.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=VITE_RECAPTCHA_SITE_KEY"></script>
   </body>
 </html>

@@ -12,6 +12,8 @@ const ProjectDetailHero = ({ project }) => {
           src={project.image}
           alt={project.title}
           className="project-hero-image"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="project-hero-overlay"></div>
       </div>
