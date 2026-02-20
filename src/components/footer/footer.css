@@ -119,23 +119,6 @@
   text-align: center;
 }
 
-/* ===== Légales ===== */
-
-.footer-legal {
-  text-align: center;
-}
-
-.footer-legal-button {
-  display: inline-block;
-  background-color: linear-gradient(90deg, #031FD0, #0230a0);
-  color: #fff;
-  padding: 10px 20px;
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
 
 
 /* ===== Responsive ===== */
