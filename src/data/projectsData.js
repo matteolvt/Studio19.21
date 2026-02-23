@@ -54,7 +54,7 @@ export const projectsData = [
   },
   {
     id: 2,
-    navbarTheme: 'dark',
+    navbarTheme: 'light',
     slug: "delivecrous",
     title: "Delivecrous — Application de Vente en Ligne",
     tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
@@ -145,7 +145,7 @@ export const projectsData = [
 
   {
     id: 4,
-    navbarTheme: 'dark',
+    navbarTheme: 'light',
     slug: "saigon",
     title: "Saigon",
     tagline: "L'authentique Vietnam à Montchat — cantine le midi, bar & karaoké le soir.",
@@ -238,6 +238,52 @@ export const projectsData = [
 
     links: {
       live: "/FournilHonore/FournilHonore.html"
+    }
+  },
+
+  {
+    id: 6,
+    navbarTheme: 'dark',
+    slug: "le-backstage",
+    title: "Le Backstage",
+    tagline: "Le QG Rock de Montplaisir — concerts, matchs et punch maison.",
+    year: "2026",
+    image: "/images/projectpics/Landing/LeBackstage.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "Le Backstage — Bar Lyon 8",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page pour un bar rock lyonnais : agenda des concerts, carte des boissons, galerie photos et section privatisation.",
+    challenge: "Capturer l'énergie brute d'un bar rock tout en restant lisible et moderne. L'identité visuelle joue sur les contrastes forts, les typographies percutantes et une ambiance scénique.",
+    process: {
+      text: "Le projet a démarré par une recherche d'identité visuelle autour de l'univers rock : palette sombre et contrastée, typographies bold et énergiques, animations percutantes. Un soin particulier a été apporté à l'agenda des concerts et à la section privatisation pour répondre aux besoins concrets de l'établissement.",
+      images: [
+        "/images/projectpics/Landing/LeBackstage.webp",
+        "/images/projectpics/Landing/LeBackstage_agenda.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/LeBackstage.webp" },
+      { id: 'agenda', title: "Agenda", image: "/images/projectpics/Landing/LeBackstage_agenda.webp" },
+      { id: 'drinks', title: "Carburant", image: "/images/projectpics/Landing/LeBackstage_drinks.webp" },
+      { id: 'gallery', title: "Hall of Fame", image: "/images/projectpics/Landing/LeBackstage_gallery.webp" },
+      { id: 'info', title: "Infos", image: "/images/projectpics/Landing/LeBackstage_infos.webp" }
+    ],
+    features: [
+      {
+        title: "Agenda des Concerts",
+        description: "Programme des événements mis en avant dès l'entrée du site, avec dates, artistes et type de soirée pour inciter à la réservation.",
+        image: "/images/projectpics/Landing/LeBackstage_agenda.webp"
+      },
+      {
+        title: "Privatisation & Événements",
+        description: "Section dédiée à la privatisation du bar pour anniversaires, EVJF, EVG et soirées d'entreprise, avec formulaire de contact intégré.",
+        image: "/images/projectpics/Landing/LeBackstage_drinks.webp"
+      }
+    ],
+    links: {
+      live: "/LeBackstage/LeBackstage.html"
     }
   },
 ];

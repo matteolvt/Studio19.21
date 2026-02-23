@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Backstage – QG Rock de Montplaisir • Lyon 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bois: #2a1a0e;
+    --rouge: #c0392b;
+    --rouge-vif: #e74c3c;
+    --noir: #0d0d0d;
+    --asphalte: #1a1a1a;
+    --punch: #e67e22;
+    --punch-clair: #f39c12;
+    --creme: #f5e6c8;
+    --gris: #2d2d2d;
+    --texte: #d4c5a9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--noir);
+    color: var(--texte);
+    font-family: 'Oswald', sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent);
+    transition: background 0.3s;
+  }
+
+  nav.scrolled {
+    background: rgba(13,13,13,0.98);
+    border-bottom: 1px solid rgba(192,57,43,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.4rem;
+    color: var(--punch);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--creme);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    opacity: 0.8;
+  }
+
+  .nav-links a:hover { color: var(--punch); opacity: 1; }
+
+  .nav-cta {
+    background: var(--rouge);
+    color: white !important;
+    padding: 8px 18px !important;
+    opacity: 1 !important;
+  }
+
+  .nav-cta:hover { background: var(--rouge-vif) !important; color: white !important; }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger span {
+    width: 26px; height: 2px;
+    background: var(--creme);
+    transition: 0.3s;
+  }
+
+  /* HERO */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 60% 40%, rgba(192,57,43,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 70%, rgba(230,126,34,0.15) 0%, transparent 50%),
+      linear-gradient(135deg, #0d0d0d 0%, #1a0d05 50%, #0d0d0d 100%);
+  }
+
+  /* Concert lights simulation */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 30%;
+    width: 300px;
+    height: 600px;
+    background: conic-gradient(from 180deg, transparent 60%, rgba(192,57,43,0.3) 70%, transparent 80%);
+    transform-origin: top center;
+    animation: spotlight1 8s ease-in-out infinite;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: 20%;
+    width: 250px;
+    height: 500px;
+    background: conic-gradient(from 180deg, transparent 60%, rgba(230,126,34,0.25) 70%, transparent 80%);
+    transform-origin: top center;
+    animation: spotlight2 10s ease-in-out infinite;
+  }
+
+  @keyframes spotlight1 {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+  }
+  @keyframes spotlight2 {
+    0%, 100% { transform: rotate(10deg); }
+    50% { transform: rotate(-20deg); }
+  }
+
+  /* Torn paper top edge for sections */
+  .torn-edge {
+    position: relative;
+  }
+  .torn-edge::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0; right: 0;
+    height: 40px;
+    background: inherit;
+    clip-path: polygon(0 60%, 2% 20%, 5% 80%, 8% 10%, 11% 70%, 14% 30%, 17% 85%, 20% 15%, 23% 75%, 26% 25%, 29% 90%, 32% 20%, 35% 65%, 38% 10%, 41% 80%, 44% 30%, 47% 75%, 50% 5%, 53% 85%, 56% 25%, 59% 70%, 62% 15%, 65% 80%, 68% 35%, 71% 75%, 74% 10%, 77% 85%, 80% 20%, 83% 70%, 86% 5%, 89% 80%, 92% 30%, 95% 75%, 98% 20%, 100% 60%, 100% 100%, 0 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    animation: heroIn 1.2s ease-out both;
+  }
+
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    color: var(--punch);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: heroIn 1s 0.3s ease-out both;
+  }
+
+  .hero-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    color: var(--creme);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+    text-shadow: 4px 4px 0 var(--rouge), 8px 8px 0 rgba(192,57,43,0.3);
+    opacity: 0;
+    animation: heroIn 1s 0.5s ease-out both;
+  }
+
+  .hero-title span {
+    color: var(--rouge-vif);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--punch);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: heroIn 1s 0.7s ease-out both;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--rouge);
+    color: white;
+    padding: 16px 40px;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--rouge);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: heroIn 1s 0.9s ease-out both;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.1);
+    transition: left 0.3s;
+  }
+  .hero-cta:hover::before { left: 0; }
+  .hero-cta:hover { box-shadow: 0 0 30px rgba(192,57,43,0.6); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.6;
+    animation: bounce 2s 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--texte);
+  }
+
+  .scroll-arrow { font-size: 1.5rem; color: var(--punch); }
+
+  /* Guitar decoration */
+  .hero-guitar {
+    position: absolute;
+    right: -5%;
+    bottom: -5%;
+    font-size: 20rem;
+    opacity: 0.04;
+    transform: rotate(-20deg);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 80px 20px; position: relative; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--punch);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: var(--creme);
+    margin-bottom: 16px;
+  }
+
+  .section-title .accent { color: var(--rouge-vif); }
+
+  /* AGENDA */
+  #agenda {
+    background: var(--asphalte);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #agenda::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48px,
+      rgba(255,255,255,0.02) 48px,
+      rgba(255,255,255,0.02) 49px
+    );
+    pointer-events: none;
+  }
+
+  .agenda-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .agenda-header {
+    margin-bottom: 48px;
+  }
+
+  .agenda-month {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .agenda-month h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
+    color: var(--punch);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .agenda-month .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(230,126,34,0.5), transparent);
+  }
+
+  .ticket {
+    display: flex;
+    align-items: stretch;
+    background: var(--bois);
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .ticket:hover {
+    transform: translateX(6px);
+    box-shadow: -6px 0 0 var(--rouge), 4px 0 20px rgba(0,0,0,0.5);
+  }
+
+  .ticket::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 90px;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 80%;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 4px, rgba(255,255,255,0.1) 4px, rgba(255,255,255,0.1) 8px);
+  }
+
+  .ticket-date {
+    width: 90px;
+    min-width: 90px;
+    background: var(--rouge);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 8px;
+  }
+
+  .ticket.match .ticket-date { background: #1a4a8a; }
+  .ticket.special .ticket-date { background: #6a0dad; }
+
+  .ticket-day {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.2rem;
+    color: white;
+    line-height: 1;
+  }
+
+  .ticket-weekday {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .ticket-body {
+    flex: 1;
+    padding: 20px 24px;
+  }
+
+  .ticket-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .tag-concert { background: rgba(192,57,43,0.3); color: var(--rouge-vif); }
+  .tag-match { background: rgba(26,74,138,0.3); color: #4a90d9; }
+  .tag-special { background: rgba(106,13,173,0.3); color: #b366ff; }
+
+  .ticket-event {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
+    color: var(--creme);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .ticket-details {
+    font-size: 0.85rem;
+    color: var(--texte);
+    opacity: 0.7;
+  }
+
+  .ticket-time {
+    padding: 20px 20px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .ticket-time .time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--punch);
+  }
+
+  .ticket-time .free {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+
+  /* DRINKS */
+  #drinks {
+    background: var(--bois);
+    overflow: hidden;
+    position: relative;
+  }
+
+  #drinks::after {
+    content: '♪';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    font-size: 30rem;
+    opacity: 0.02;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .drinks-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .drinks-header {
+    grid-column: 1 / -1;
+    margin-bottom: 48px;
+  }
+
+  .punch-hero {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(230,126,34,0.15), rgba(192,57,43,0.1));
+    border: 1px solid rgba(230,126,34,0.3);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .punch-hero::before {
+    content: '🍹';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 12rem;
+    opacity: 0.07;
+  }
+
+  .punch-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--punch-clair);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .punch-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--texte);
+    opacity: 0.85;
+    font-weight: 300;
+  }
+
+  .punch-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid var(--punch);
+    padding-left: 16px;
+  }
+
+  .stat-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+    color: var(--punch);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .drink-card {
+    background: var(--asphalte);
+    padding: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-right: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .drink-card:hover { background: rgba(255,255,255,0.04); }
+
+  .drink-card .emoji { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+
+  .drink-card h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.3rem;
+    color: var(--creme);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .drink-card p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    opacity: 0.65;
+    font-weight: 300;
+  }
+
+  .food-section {
+    grid-column: 1 / -1;
+    margin-top: 32px;
+    background: linear-gradient(135deg, rgba(42,26,14,0.8), var(--asphalte));
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 40px;
+  }
+
+  .food-section h3 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+    color: var(--punch);
+    margin-bottom: 8px;
+  }
+
+  .food-badge {
+    display: inline-block;
+    background: var(--rouge);
+    color: white;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .food-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .food-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .food-item .fi-icon { font-size: 1.5rem; }
+  .food-item .fi-name { font-family: 'Oswald', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--creme); }
+  .food-item .fi-desc { font-size: 0.78rem; opacity: 0.55; }
+
+  /* GALLERY */
+  #gallery {
+    background: var(--noir);
+    overflow: hidden;
+  }
+
+  .gallery-header { max-width: 1100px; margin: 0 auto 40px; }
+
+  .gallery-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    gap: 8px;
+  }
+
+  .gallery-item {
+    background: var(--gris);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-item:nth-child(1) { grid-column: 1/4; grid-row: 1/3; }
+  .gallery-item:nth-child(2) { grid-column: 4/6; grid-row: 1/2; }
+  .gallery-item:nth-child(3) { grid-column: 6/7; grid-row: 1/2; }
+  .gallery-item:nth-child(4) { grid-column: 4/5; grid-row: 2/3; }
+  .gallery-item:nth-child(5) { grid-column: 5/7; grid-row: 2/3; }
+  .gallery-item:nth-child(6) { grid-column: 1/3; grid-row: 3/4; }
+  .gallery-item:nth-child(7) { grid-column: 3/5; grid-row: 3/4; }
+  .gallery-item:nth-child(8) { grid-column: 5/7; grid-row: 3/4; }
+
+  .gallery-placeholder {
+    width: 100%;
+    padding-bottom: 75%;
+    position: relative;
+    background: var(--gris);
+    overflow: hidden;
+  }
+
+  .gallery-item:nth-child(1) .gallery-placeholder { padding-bottom: 100%; }
+
+  .gallery-placeholder-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .gallery-icon { font-size: 2.5rem; opacity: 0.4; }
+  .gallery-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.3;
+    font-weight: 600;
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(192,57,43,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .gallery-overlay span {
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 16px;
+  }
+
+  /* Mood colors for gallery items */
+  .gallery-item:nth-child(1) { background: linear-gradient(135deg, #1a0d05, #2d1408); }
+  .gallery-item:nth-child(2) { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+  .gallery-item:nth-child(3) { background: linear-gradient(135deg, #2d1408, #0d0d0d); }
+  .gallery-item:nth-child(4) { background: linear-gradient(135deg, #0d1a0d, #0a1a0a); }
+  .gallery-item:nth-child(5) { background: linear-gradient(135deg, #2a1a0e, #1a0e06); }
+  .gallery-item:nth-child(6) { background: linear-gradient(135deg, #1a0005, #0d0d0d); }
+  .gallery-item:nth-child(7) { background: linear-gradient(135deg, #1a1a0e, #0d0d05); }
+  .gallery-item:nth-child(8) { background: linear-gradient(135deg, #0e0d1a, #0d0d0d); }
+
+  /* BRA decoration for vibe */
+  .bra-hint {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--punch);
+    opacity: 0.5;
+    font-weight: 700;
+    writing-mode: vertical-rl;
+  }
+
+  /* INFO */
+  #info {
+    background: var(--asphalte);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #info::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 80% 50%, rgba(192,57,43,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .info-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .hours-block h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    color: var(--creme);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--rouge);
+    display: inline-block;
+  }
+
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .hours-table tr:last-child { border-bottom: none; }
+
+  .hours-table td {
+    padding: 12px 0;
+    font-size: 0.95rem;
+  }
+
+  .hours-table .day {
+    font-weight: 600;
+    color: var(--texte);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .hours-table .time {
+    color: var(--punch);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: right;
+  }
+
+  .hours-table .closed {
+    color: rgba(255,255,255,0.25);
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: right;
+  }
+
+  .hours-note {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(192,57,43,0.1);
+    border-left: 3px solid var(--rouge);
+    font-size: 0.85rem;
+    color: var(--texte);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .map-block h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    color: var(--creme);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--rouge);
+    display: inline-block;
+  }
+
+  .map-container {
+    background: var(--bois);
+    border: 1px solid rgba(255,255,255,0.08);
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: invert(90%) hue-rotate(180deg);
+    opacity: 0.85;
+  }
+
+  .map-address {
+    font-size: 1rem;
+    color: var(--creme);
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+
+  .map-sub {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+
+  .btn-call {
+    background: var(--rouge);
+    color: white;
+  }
+  .btn-call:hover { background: var(--rouge-vif); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(192,57,43,0.4); }
+
+  .btn-ig {
+    background: transparent;
+    color: var(--creme);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .btn-ig:hover { border-color: var(--punch); color: var(--punch); }
+
+  .btn-fb {
+    background: transparent;
+    color: var(--creme);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .btn-fb:hover { border-color: #4a90d9; color: #4a90d9; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bois);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(192,57,43,0.3);
+    position: relative;
+  }
+
+  .footer-logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem;
+    color: var(--punch);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--texte);
+    opacity: 0.4;
+    margin-bottom: 32px;
+  }
+
+  .footer-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--rouge);
+    margin: 24px auto;
+  }
+
+  .footer-bottom {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    opacity: 0.25;
+    text-transform: uppercase;
+  }
+
+  /* SPOTIFY PLAYER */
+  .spotify-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(13,13,13,0.97);
+    border-top: 1px solid rgba(192,57,43,0.4);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 50;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+
+  .spotify-bar.visible { transform: translateY(0); }
+
+  .spotify-toggle {
+    width: 40px; height: 40px;
+    background: var(--rouge);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .spotify-toggle:hover { background: var(--rouge-vif); }
+
+  .spotify-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .spotify-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--creme);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .spotify-sub {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--punch);
+    opacity: 0.7;
+  }
+
+  .spotify-embed {
+    display: none;
+  }
+
+  .spotify-bar.expanded .spotify-embed { display: block; }
+
+  .spotify-close {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.3);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px;
+    transition: color 0.2s;
+  }
+  .spotify-close:hover { color: var(--creme); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .burger { display: flex; }
+
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(13,13,13,0.99);
+      padding: 80px 32px 40px;
+      gap: 20px;
+      z-index: 99;
+      border-bottom: 1px solid var(--rouge);
+    }
+
+    .nav-links a { font-size: 1.2rem; }
+
+    .punch-hero { grid-template-columns: 1fr; }
+    .drinks-grid { grid-template-columns: 1fr; }
+    .drink-card { border-right: none; }
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .gallery-item:nth-child(1) { grid-column: 1/3; grid-row: 1/2; }
+    .gallery-item:nth-child(2) { grid-column: 1/2; grid-row: 2/3; }
+    .gallery-item:nth-child(3) { grid-column: 2/3; grid-row: 2/3; }
+    .gallery-item:nth-child(4) { grid-column: 1/2; grid-row: 3/4; }
+    .gallery-item:nth-child(5) { grid-column: 2/3; grid-row: 3/4; }
+    .gallery-item:nth-child(6) { grid-column: 1/3; grid-row: 4/5; }
+    .gallery-item:nth-child(7) { grid-column: 1/2; grid-row: 5/6; }
+    .gallery-item:nth-child(8) { grid-column: 2/3; grid-row: 5/6; }
+
+    .info-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    section { padding: 60px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">🎸 Le Backstage</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#agenda">Programme</a></li>
+    <li><a href="#drinks">Carburant</a></li>
+    <li><a href="#gallery">Hall of Fame</a></li>
+    <li><a href="#info" class="nav-cta">Nous trouver</a></li>
+  </ul>
+  <div class="burger" id="burger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-guitar">🎸</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Lyon 8 · Montplaisir · Depuis toujours</p>
+    <h1 class="hero-title">
+      Le QG<br><span>Rock</span><br>de Montplaisir
+    </h1>
+    <p class="hero-subtitle">Concerts • Matchs • Punch Maison</p>
+    <a href="#agenda" class="hero-cta">🎤 Voir le programme ce soir</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-arrow">↓</div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda" class="torn-edge" style="--torn-color: var(--asphalte);">
+  <div class="agenda-inner">
+    <div class="agenda-header fade-up">
+      <span class="section-label">🎟️ Le programme</span>
+      <h2 class="section-title">L'Agenda<br><span class="accent">des Festivités</span></h2>
+      <p style="font-weight:300; opacity:0.6; font-size:0.95rem; max-width:500px;">Concerts live, diffusions de matchs, soirées à thème… Ici, il se passe toujours quelque chose.</p>
+    </div>
+
+    <div class="agenda-month fade-up">
+      <h3>Février 2026</h3>
+      <div class="line"></div>
+    </div>
+
+    <div class="ticket fade-up" onclick="location.href='#info'">
+      <div class="ticket-date">
+        <div class="ticket-day">19</div>
+        <div class="ticket-weekday">Jeu</div>
+      </div>
+      <div class="ticket-body">
+        <span class="ticket-tag tag-concert">🎸 Concert Live</span>
+        <div class="ticket-event">Les Voleurs de Feu</div>
+        <div class="ticket-details">Rock français · Reprises & Originals</div>
+      </div>
+      <div class="ticket-time">
+        <div class="time">21h00</div>
+        <div class="free">Entrée libre</div>
+      </div>
+    </div>
+
+    <div class="ticket match fade-up" onclick="location.href='#info'">
+      <div class="ticket-date">
+        <div class="ticket-day">22</div>
+        <div class="ticket-weekday">Dim</div>
+      </div>
+      <div class="ticket-body">
+        <span class="ticket-tag tag-match">⚽ Diffusion Match</span>
+        <div class="ticket-event">OL — PSG</div>
+        <div class="ticket-details">Ligue 1 · Écran géant · Ambiance garantie</div>
+      </div>
+      <div class="ticket-time">
+        <div class="time">20h45</div>
+        <div class="free">Coup d'envoi</div>
+      </div>
+    </div>
+
+    <div class="ticket fade-up" onclick="location.href='#info'">
+      <div class="ticket-date">
+        <div class="ticket-day">26</div>
+        <div class="ticket-weekday">Jeu</div>
+      </div>
+      <div class="ticket-body">
+        <span class="ticket-tag tag-concert">🎸 Concert Live</span>
+        <div class="ticket-event">Dead Riff Society</div>
+        <div class="ticket-details">Hard Rock · Stoner · Blues</div>
+      </div>
+      <div class="ticket-time">
+        <div class="time">21h30</div>
+        <div class="free">Entrée libre</div>
+      </div>
+    </div>
+
+    <div class="ticket special fade-up" onclick="location.href='#info'">
+      <div class="ticket-date">
+        <div class="ticket-day">28</div>
+        <div class="ticket-weekday">Sam</div>
+      </div>
+      <div class="ticket-body">
+        <span class="ticket-tag tag-special">🎉 Soirée Spéciale</span>
+        <div class="ticket-event">Nuit Punk VS Métal</div>
+        <div class="ticket-details">DJ Set · 2 groupes · Jusqu'à l'aube</div>
+      </div>
+      <div class="ticket-time">
+        <div class="time">22h00</div>
+        <div class="free">Entrée libre</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:32px; opacity:0.5; font-size:0.8rem; letter-spacing:2px; text-transform:uppercase;" class="fade-up">
+      Programme mis à jour chaque semaine · Suis-nous sur Instagram pour ne rien rater 🔔
+    </div>
+  </div>
+</section>
+
+<!-- DRINKS & FOOD -->
+<section id="drinks">
+  <div class="drinks-grid">
+    <div class="drinks-header fade-up">
+      <span class="section-label">🍹 Ce qu'on verse</span>
+      <h2 class="section-title">Carburant<br><span class="accent">& Houblon</span></h2>
+    </div>
+
+    <div class="punch-hero fade-up">
+      <div>
+        <h3 class="punch-title">Le Punch<br>Maison 🍹</h3>
+        <p class="punch-desc">
+          La star incontestée du bar. Notre punch est préparé chaque semaine avec des rhums sélectionnés, des fruits frais et une recette jalousement gardée. Tu viens pour la musique, tu repars avec la recette en tête (mais jamais l'ingrédient secret).
+        </p>
+        <br>
+        <p class="punch-desc" style="opacity:0.5; font-size:0.85rem;">
+          Servi en verre ou en pichet pour les groupes → parfait pour partager (ou pas).
+        </p>
+      </div>
+      <div class="punch-stats">
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Fait Maison</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">+</span>
+          <span class="stat-label">de 10 bières pression</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Bonne ambiance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="drink-card fade-up">
+      <span class="emoji">🍺</span>
+      <h3>Bières Pression</h3>
+      <p>Une sélection de bières françaises et importées, avec des rotations régulières. Blondes, IPA, brunes, blanches — il y en a pour tous les palais.</p>
+    </div>
+
+    <div class="drink-card fade-up">
+      <span class="emoji">🥃</span>
+      <h3>Whiskies & Spiritueux</h3>
+      <p>Une jolie carte de whiskies pour les amateurs du genre. On sait aussi faire un cocktail qui tache.</p>
+    </div>
+
+    <div class="drink-card fade-up">
+      <span class="emoji">🥤</span>
+      <h3>Softs & Sans Alcool</h3>
+      <p>Pas d'alcool ? Pas de jugement. Sodas artisanaux, jus de fruits frais, et limonades pour rester en forme jusqu'au dernier rappel.</p>
+    </div>
+
+    <div class="drink-card fade-up">
+      <span class="emoji">☕</span>
+      <h3>Café & Digestifs</h3>
+      <p>Pour prolonger la soirée ou bien la conclure. Un café allongé et une discussion sur le dernier concert, c'est le rituel des habitués.</p>
+    </div>
+
+    <div class="food-section fade-up">
+      <h3>La Cuisine Canaille</h3>
+      <span class="food-badge">✋ 100% Fait Maison · Pas de surgelé</span>
+      <p style="opacity:0.7; font-size:0.9rem; line-height:1.8; max-width:600px;">
+        Ici la cuisine, c'est du sérieux. Les planches et les tapas sont préparés chaque jour. De quoi grignoter entre deux concerts sans jamais descendre à la cave chercher du surgelé.
+      </p>
+      <div class="food-items">
+        <div class="food-item">
+          <span class="fi-icon">🥩</span>
+          <span class="fi-name">Planche Charcuterie</span>
+          <span class="fi-desc">Jambon, saucisson, rillettes du coin</span>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🧀</span>
+          <span class="fi-name">Planche Fromages</span>
+          <span class="fi-desc">Sélection de fromages affinés</span>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🥗</span>
+          <span class="fi-name">Tapas Maison</span>
+          <span class="fi-desc">Selon les arrivages et l'humeur</span>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🫒</span>
+          <span class="fi-name">Antipasti</span>
+          <span class="fi-desc">Olives, légumes marinés, houmous</span>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🍞</span>
+          <span class="fi-name">Mix Apéro</span>
+          <span class="fi-desc">La planche pour partager</span>
+        </div>
+      </div>
+      <p style="margin-top:20px; font-size:0.8rem; color:var(--punch); font-weight:600; letter-spacing:1px; text-transform:uppercase;">
+        🕐 Service continu · Du Mar au Sam jusqu'à 22h30
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header fade-up">
+    <span class="section-label">📸 La preuve par l'image</span>
+    <h2 class="section-title">Hall<br><span class="accent">of Fame</span></h2>
+    <p style="font-weight:300; opacity:0.5; font-size:0.9rem; max-width:500px; margin-top:8px;">
+      Baby-foot. Déco qui raconte une histoire. Ce bar, c'est pas du décor, c'est une vie.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="padding-bottom:120%;">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🎸</div>
+          <div class="gallery-label">Concert Live<br>Scène principale</div>
+        </div>
+        <div class="gallery-overlay"><span>L'ambiance<br>électrique du live 🔥</span></div>
+      </div>
+      <div class="bra-hint">😏</div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🪅</div>
+          <div class="gallery-label">La Déco<br>Atypique</div>
+        </div>
+        <div class="gallery-overlay"><span>La déco<br>c'est une religion 🤘</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🍹</div>
+          <div class="gallery-label">Le Punch<br>Signature</div>
+        </div>
+        <div class="gallery-overlay"><span>Le carburant<br>officiel 🍹</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🎱</div>
+          <div class="gallery-label">Baby-Foot</div>
+        </div>
+        <div class="gallery-overlay"><span>On parle<br>foot, on joue 🎱</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🎵</div>
+          <div class="gallery-label">L'Ambiance<br>du Soir</div>
+        </div>
+        <div class="gallery-overlay"><span>Chaque soir<br>une nouvelle histoire 🎵</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🍻</div>
+          <div class="gallery-label">Soir de<br>Match</div>
+        </div>
+        <div class="gallery-overlay"><span>Les grands<br>soirs ici 🍻</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🎵</div>
+          <div class="gallery-label">Vinyles &<br>Déco</div>
+        </div>
+        <div class="gallery-overlay"><span>Le mur<br>des icônes 🎵</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-inner">
+          <div class="gallery-icon">🥩</div>
+          <div class="gallery-label">Planches<br>Maison</div>
+        </div>
+        <div class="gallery-overlay"><span>Mangé sur<br>le pouce ✋</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-top:32px; opacity:0.3; font-size:0.75rem; letter-spacing:3px; text-transform:uppercase;" class="fade-up">
+    — Remplace ces blocs par tes photos une fois uploadées sur WordPress —
+  </p>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="info-grid">
+    <div>
+      <span class="section-label">⏰ Les infos</span>
+      <h2 class="section-title" style="margin-bottom:40px;">Rejoins<br><span class="accent">le Band</span></h2>
+
+      <div class="hours-block fade-up">
+        <h3>Horaires</h3>
+        <table class="hours-table">
+          <tr>
+            <td class="day">Lundi</td>
+            <td class="closed">Fermé (on se repose)</td>
+          </tr>
+          <tr>
+            <td class="day">Mardi — Vendredi</td>
+            <td class="time">17h00 → 01h00</td>
+          </tr>
+          <tr>
+            <td class="day">Samedi</td>
+            <td class="time">15h00 → 02h00</td>
+          </tr>
+          <tr>
+            <td class="day">Dimanche</td>
+            <td class="time">15h00 → 00h00</td>
+          </tr>
+        </table>
+        <div class="hours-note">
+          🎸 Les soirs de concert, fermeture au dernier rappel. Arrive pas trop tard si tu veux une place au bar.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span class="section-label" style="visibility:hidden">.</span>
+      <h2 class="section-title" style="visibility:hidden;margin-bottom:40px;">_</h2>
+
+      <div class="map-block fade-up">
+        <h3>Nous Trouver</h3>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.0!2d4.869!3d45.739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s14+Rue+des+Musiciens%2C+69008+Lyon!5e0!3m2!1sfr!2sfr!4v0000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="map-address">14 Rue des Musiciens, 69008 Lyon</div>
+        <div class="map-sub">Métro A — Charpennes · Bus C6</div>
+
+        <div class="contact-buttons">
+          <a href="tel:+33XXXXXXXXX" class="btn btn-call">
+            <span>📞</span> Appeler le bar
+          </a>
+          <a href="https://instagram.com/aperorock" target="_blank" class="btn btn-ig">
+            <span>📸</span> Instagram
+          </a>
+          <a href="https://facebook.com/aperorock" target="_blank" class="btn btn-fb">
+            <span>👍</span> Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">🎸 Le Backstage</span>
+  <p class="footer-tagline">Lyon 8 · Montplaisir · Le QG Rock</p>
+  <div class="footer-divider"></div>
+  <p style="font-size:0.85rem; opacity:0.4; letter-spacing:1px;">Mar–Ven 17h→01h · Sam 15h→02h · Dim 15h→00h</p>
+  <br>
+  <p class="footer-bottom">© 2026 Le Backstage · Tous droits réservés · Conçu avec 🎸 et 🍹</p>
+</footer>
+
+<!-- SPOTIFY BAR -->
+<div class="spotify-bar" id="spotifyBar">
+  <button class="spotify-toggle" id="spotifyToggle" onclick="toggleSpotify()">▶</button>
+  <div class="spotify-info">
+    <div class="spotify-title">Playlist Le Backstage</div>
+    <div class="spotify-sub">🎸 L'ambiance du bar · Direct dans tes oreilles</div>
+  </div>
+  <div class="spotify-embed">
+    <iframe style="border-radius:4px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcF6B6QPhFDv?utm_source=generator&theme=0" width="200" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+  <button class="spotify-close" onclick="closeSpotify()" title="Fermer">✕</button>
+</div>
+
+<script>
+  // NAV scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // BURGER
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // INTERSECTION OBSERVER for fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // SPOTIFY BAR
+  let spotifyPlaying = false;
+  let spotifyVisible = false;
+
+  // Show spotify bar after 3 seconds
+  setTimeout(() => {
+    document.getElementById('spotifyBar').classList.add('visible');
+    spotifyVisible = true;
+  }, 3000);
+
+  function toggleSpotify() {
+    const bar = document.getElementById('spotifyBar');
+    const btn = document.getElementById('spotifyToggle');
+    spotifyPlaying = !spotifyPlaying;
+    bar.classList.toggle('expanded', spotifyPlaying);
+    btn.textContent = spotifyPlaying ? '⏸' : '▶';
+  }
+
+  function closeSpotify() {
+    document.getElementById('spotifyBar').classList.remove('visible');
+    document.getElementById('spotifyBar').classList.remove('expanded');
+    spotifyPlaying = false;
+    spotifyVisible = false;
+  }
+
+  // SMOOTH ANCHOR SCROLL with offset for fixed nav
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offset = 72;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
