@@ -13,7 +13,8 @@ const ProjectDetailHero = ({ project }) => {
           alt={project.title}
           className="project-hero-image"
           loading="eager"
-          fetchPriority="high"
+          // eslint-disable-next-line react/no-unknown-property
+          fetchpriority="high"
         />
         <div className="project-hero-overlay"></div>
       </div>
