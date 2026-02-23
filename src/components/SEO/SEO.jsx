@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import React from "react";
 
 const SEO = ({ title, description, image, url }) => {
   const canonicalUrl = url || `${window.location.origin}${window.location.pathname}`;
