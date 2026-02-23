@@ -28,4 +28,13 @@ const SEO = ({ title, description, image, url }) => {
   );
 };
 
+import PropTypes from "prop-types";
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  url: PropTypes.string,
+};
+
 export default SEO;
