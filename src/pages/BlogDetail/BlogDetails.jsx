@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { getPostBySlug } from "../../data/blogData";
-
 import ArticleHeader from "../../components/BlogDetail/ArticleHeader";
 import ArticleContent from "../../components/BlogDetail/ArticleContent";
 import ShareBar from "../../components/BlogDetail/ShareBar";
 import RelatedPosts from "../../components/BlogDetail/RelatedPost";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
+import SEO from "../../components/SEO/SEO";
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
@@ -19,6 +19,10 @@ export default function BlogDetailPage() {
 
   return (
     <>
+      <SEO
+        title={`${post.title} | Studio1921`}
+        description={post.excerpt}
+      />
       <Navbar />
       <ArticleHeader
         category={post.category}
@@ -28,10 +32,7 @@ export default function BlogDetailPage() {
         readTime={post.readTime}
         author={post.author}
       />
-      <ArticleContent
-        coverImage={post.coverImage}
-        blocks={post.blocks}
-      />
+      <ArticleContent coverImage={post.coverImage} blocks={post.blocks} />
       <ShareBar title={post.title} />
       <RelatedPosts posts={post.relatedPosts} />
       <Footer />

@@ -9,6 +9,7 @@ import ProjectFeatures from "../../components/ProjectDetailFeatures/ProjectDetai
 import ProjectResults from "../../components/ProjectDetailResults/ProjectDetailResults";
 import ProjectFooter from "../../components/ProjectDetailFooter/ProjectFooter";
 import ProjectPagesSlider from "../../components/ProjectDetailSlider/ProjectDetailSlider";
+import SEO from "../../components/SEO/SEO.jsx";
 import "./ProjectDetails.css";
 
 function ProjectDetails() {
@@ -18,6 +19,10 @@ function ProjectDetails() {
 
   return (
     <div className="project-details-page">
+      <SEO
+        title={`${project.title} | Studio1921`}
+        description={project.tagline}
+      />
       <Navbar />
       <ProjectDetailHero project={project} />
       <ProjectDetailOverview project={project} />
