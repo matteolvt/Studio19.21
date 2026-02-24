@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
 
+    <meta property="og:image" content="https://www.studio1921.fr/og-image.png" />
+    <meta property="og:title" content="Studio1921 | Création de site web pour artisans à Lyon" />
+    <meta property="og:description" content="Agence web lyonnaise spécialisée dans la création de sites vitrine pour artisans." />
+    <meta property="og:url" content="https://www.studio1921.fr/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+
     <!-- Preconnect pour les fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,15 +32,31 @@
 
     <!-- Préchargement LCP -->
     <link rel="preload" as="image" href="/images/projectpics/Landing/bar_full.webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="/images/projectpics/delivecrous/Home_Full.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/projectpics/delivecrous/Home_full.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/images/projectpics/Landing/pain_full.webp" fetchpriority="high" />
 
     <!-- reCAPTCHA async / defer -->
     <script 
-      src="https://www.google.com/recaptcha/api.js?render=VITE_RECAPTCHA_SITE_KEY"
+      src="https://www.google.com/recaptcha/api.js?render=6LcMDT4sAAAAAMlYsK_jz8sORfzDU5oa99y_8FMU"
       async
       defer
     ></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Studio1921",
+      "description": "Agence web lyonnaise spécialisée dans la création de sites vitrine pour artisans.",
+      "url": "https://www.studio1921.fr",
+      "logo": "https://www.studio1921.fr/Logo.svg",
+      "areaServed": {
+        "@type": "City",
+        "name": "Lyon"
+      },
+      "serviceType": ["Création de site web", "Design UI/UX", "SEO"],
+      "knowsAbout": ["React", "HTML", "CSS", "JavaScript", "Sites vitrine", "Artisans"]
+    }
+</script>
   </head>
   <body>
     <div id="root"></div>
