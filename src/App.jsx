@@ -77,7 +77,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="/validé"
+                  path="/valide"
                   element={
                     <PageTransition>
                       <AppointmentSuccess />

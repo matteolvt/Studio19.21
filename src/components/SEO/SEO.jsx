@@ -1,8 +1,11 @@
 import { Helmet } from "react-helmet-async";
+import PropTypes from "prop-types";
 import React from "react";
 
 const SEO = ({ title, description, image, url }) => {
-  const canonicalUrl = url || `${window.location.origin}${window.location.pathname}`;
+  const canonicalUrl = url || (typeof window !== "undefined" 
+  ? `${window.location.origin}${window.location.pathname}`
+  : "https://www.studio1921.fr");
 
   return (
     <Helmet>
@@ -28,8 +31,6 @@ const SEO = ({ title, description, image, url }) => {
     </Helmet>
   );
 };
-
-import PropTypes from "prop-types";
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
