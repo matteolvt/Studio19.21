@@ -19,7 +19,7 @@ export const posts = [
       alt: "Site e-commerce performant",
     },
     blocks: [
-      { type: "paragraph", text: "Lancer un site e-commerce en 2025, c'est bien plus qu'installer un plugin ou choisir un template. C'est orchestrer une expérience utilisateur fluide, une architecture technique solide et une stratégie de conversion pensée dans les moindres détails. Avec plus de 2 milliards d'acheteurs en ligne dans le monde, la concurrence est féroce — et seuls les sites les mieux conçus tirent leur épingle du jeu." },
+      { type: "paragraph", text: "Lancer un site e-commerce en 2026, c'est bien plus qu'installer un plugin ou choisir un template. C'est orchestrer une expérience utilisateur fluide, une architecture technique solide et une stratégie de conversion pensée dans les moindres détails. Avec plus de 2 milliards d'acheteurs en ligne dans le monde, la concurrence est féroce — et seuls les sites les mieux conçus tirent leur épingle du jeu." },
       { type: "paragraph", text: "Dans cet article, nous allons passer en revue toutes les étapes clés pour construire une boutique en ligne qui convertit : du choix de la plateforme jusqu'à l'optimisation des performances, en passant par l'expérience utilisateur, le SEO e-commerce et la fidélisation client. Que vous soyez artisan, commerçant local ou entrepreneur, ce guide est fait pour vous." },
 
       { type: "h2", text: "1. Définir vos objectifs avant de coder" },
@@ -116,7 +116,7 @@ export const posts = [
       { type: "paragraph", text: "Un investissement dans un site e-commerce bien conçu se rentabilise rapidement si le projet est bien cadré dès le départ. C'est pourquoi nous consacrons toujours une première phase de découverte à comprendre votre marché, vos clients et vos objectifs avant de proposer une solution technique." },
 
       { type: "quote", text: "Le meilleur site e-commerce n'est pas celui qui a le plus de fonctionnalités. C'est celui qui répond le mieux aux besoins de ses clients et qui les guide naturellement vers l'achat." },
-      { type: "paragraph", text: "En résumé, créer un site e-commerce performant en 2025 nécessite de maîtriser une combinaison de facteurs : le choix d'une plateforme adaptée, une architecture produit claire, des fiches produit optimisées, des performances techniques irréprochables, un tunnel d'achat simplifié, une stratégie SEO solide et un suivi analytique rigoureux. Prenez le temps de bien faire les choses dès le départ — vous en récolterez les fruits sur le long terme." },
+      { type: "paragraph", text: "En résumé, créer un site e-commerce performant en 2026 nécessite de maîtriser une combinaison de facteurs : le choix d'une plateforme adaptée, une architecture produit claire, des fiches produit optimisées, des performances techniques irréprochables, un tunnel d'achat simplifié, une stratégie SEO solide et un suivi analytique rigoureux. Prenez le temps de bien faire les choses dès le départ — vous en récolterez les fruits sur le long terme." },
     ],
     relatedPosts: [
       { id: 2, slug: "les-bases-du-developpement-web-moderne", category: "DÉVELOPPEMENT WEB", title: "Les bases du développement web moderne", excerpt: "Un guide pour comprendre HTML, CSS, JS et React.", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=60&fm=webp" },
@@ -146,7 +146,7 @@ export const posts = [
       { type: "paragraph", text: "Dans ce guide, nous allons parcourir l'ensemble du spectre du développement web moderne : des fondations (HTML sémantique, CSS avancé) jusqu'aux frameworks actuels (React, Next.js), en passant par les outils incontournables du développeur professionnel. Que vous soyez débutant curieux ou chef d'entreprise qui veut mieux comprendre ce que fait son prestataire, ce guide est fait pour vous." },
 
       { type: "h2", text: "1. HTML : la structure sémantique avant tout" },
-      { type: "paragraph", text: "HTML (HyperText Markup Language) est le squelette de toute page web. Mais écrire du bon HTML en 2025, ce n'est pas juste balancer des div partout. C'est utiliser les bonnes balises pour décrire la nature du contenu : un article est un article, une navigation est une navigation, un titre principal est un h1." },
+      { type: "paragraph", text: "HTML (HyperText Markup Language) est le squelette de toute page web. Mais écrire du bon HTML en 2026, ce n'est pas juste balancer des div partout. C'est utiliser les bonnes balises pour décrire la nature du contenu : un article est un article, une navigation est une navigation, un titre principal est un h1." },
       { type: "paragraph", text: "L'HTML sémantique, c'est l'utilisation des balises HTML5 qui ont une signification précise : <article>, <section>, <nav>, <header>, <footer>, <aside>, <main>. Ces balises permettent aux moteurs de recherche de mieux comprendre la structure de votre page, aux lecteurs d'écran de la rendre accessible aux personnes en situation de handicap, et aux autres développeurs de comprendre rapidement votre code." },
       { type: "h3", text: "Pourquoi l'accessibilité web n'est plus optionnelle" },
       { type: "paragraph", text: "En France, la loi pour une République numérique impose des obligations d'accessibilité aux sites publics et aux grandes entreprises. Mais au-delà du cadre légal, un site accessible, c'est un site meilleur pour tout le monde. Les sous-titres profitent aux malentendants ET aux personnes qui regardent une vidéo dans un lieu bruyant. Les contrastes élevés aident les malvoyants ET les utilisateurs qui consultent leur téléphone en plein soleil." },
@@ -176,7 +176,7 @@ export const posts = [
 
       { type: "h2", text: "3. JavaScript : le langage universel du web" },
       { type: "paragraph", text: "JavaScript est passé du statut de langage « de script pour animer des boutons » à celui de langage universel qui tourne partout : dans le navigateur, sur le serveur (Node.js), dans les applications mobiles (React Native), les applications desktop (Electron) et même dans l'IoT." },
-      { type: "paragraph", text: "En 2025, maîtriser JavaScript moderne (ES2020+) est indispensable pour tout développeur web. Les fonctionnalités clés à maîtriser : les modules ES (import/export), la programmation asynchrone (async/await, Promises), la déstructuration, les template literals, les arrow functions et les méthodes de tableau modernes (map, filter, reduce)." },
+      { type: "paragraph", text: "En 2026, maîtriser JavaScript moderne (ES2020+) est indispensable pour tout développeur web. Les fonctionnalités clés à maîtriser : les modules ES (import/export), la programmation asynchrone (async/await, Promises), la déstructuration, les template literals, les arrow functions et les méthodes de tableau modernes (map, filter, reduce)." },
       { type: "h3", text: "TypeScript : le JavaScript avec des garde-fous" },
       { type: "paragraph", text: "TypeScript est un superset de JavaScript qui ajoute un système de types statiques. En pratique, ça veut dire que vous définissez explicitement ce que contient chaque variable, chaque fonction, chaque objet. Le compilateur TypeScript détecte alors les erreurs avant même que vous exécutiez le code — ce qui réduit drastiquement les bugs en production." },
       { type: "html", html: 'La <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" style="color:#004aad;font-weight:600;">documentation MDN</a> est la référence absolue pour apprendre JavaScript et les APIs web. Gratuite, maintenue par Mozilla, elle couvre tout du débutant au niveau expert.' },
@@ -199,7 +199,7 @@ export const posts = [
       { type: "html", html: 'Chez Studio1921, nous utilisons React et Next.js pour construire des interfaces modernes et performantes. Découvrez <a href="/services" style="color:#004aad;font-weight:600;">nos services de développement web</a> et voyez comment nous pouvons vous aider à construire votre projet.' },
 
       { type: "h2", text: "5. Les outils du développeur web moderne" },
-      { type: "paragraph", text: "Un bon développeur web en 2025 maîtrise non seulement les langages, mais aussi son environnement de travail. Les outils ont autant d'importance que le code lui-même pour la productivité, la qualité et la collaboration." },
+      { type: "paragraph", text: "Un bon développeur web en 2026 maîtrise non seulement les langages, mais aussi son environnement de travail. Les outils ont autant d'importance que le code lui-même pour la productivité, la qualité et la collaboration." },
       { type: "h3", text: "Git et GitHub : indispensables pour le versioning" },
       { type: "paragraph", text: "Git est le système de contrôle de versions le plus utilisé au monde. Il vous permet de garder un historique complet de votre code, de travailler à plusieurs sans écraser le travail des autres, et de revenir à une version précédente en cas de problème. GitHub est la plateforme en ligne qui héberge vos dépôts Git et facilite la collaboration." },
       { type: "paragraph", text: "Apprendre les commandes de base de Git (commit, push, pull, branch, merge) est non-négociable pour tout développeur professionnel. Les éditeurs modernes comme VS Code intègrent Git nativement, ce qui facilite grandement son utilisation au quotidien." },
@@ -216,9 +216,9 @@ export const posts = [
       ]},
 
       { type: "h2", text: "6. Le développement web mobile-first" },
-      { type: "paragraph", text: "En 2025, plus de 60 % du trafic web mondial se fait depuis un smartphone. Pourtant, beaucoup de sites sont encore conçus principalement pour desktop et « adaptés » pour mobile en second lieu. C'est la mauvaise approche." },
+      { type: "paragraph", text: "En 2026, plus de 60 % du trafic web mondial se fait depuis un smartphone. Pourtant, beaucoup de sites sont encore conçus principalement pour desktop et « adaptés » pour mobile en second lieu. C'est la mauvaise approche." },
       { type: "paragraph", text: "L'approche mobile-first consiste à concevoir et développer d'abord pour les petits écrans, puis à enrichir progressivement l'expérience pour les écrans plus grands. Cette philosophie est non seulement meilleure pour l'expérience utilisateur, mais aussi favorisée par Google pour le référencement naturel (Mobile-First Indexing)." },
-      { type: "html", html: 'Pour en savoir plus sur les performances web et le référencement, lisez notre article sur <a href="/blog/pourquoi-un-site-vitrine-est-essentiel" style="color:#004aad;font-weight:600;">pourquoi un site vitrine est essentiel en 2025</a>. Et si vous avez un projet de développement web, <a href="/contact" style="color:#004aad;font-weight:600;">contactez notre équipe</a> pour en discuter.' },
+      { type: "html", html: 'Pour en savoir plus sur les performances web et le référencement, lisez notre article sur <a href="/blog/pourquoi-un-site-vitrine-est-essentiel" style="color:#004aad;font-weight:600;">pourquoi un site vitrine est essentiel en 2026</a>. Et si vous avez un projet de développement web, <a href="/contact" style="color:#004aad;font-weight:600;">contactez notre équipe</a> pour en discuter.' },
 
       { type: "h2", text: "7. Les APIs et l'intégration de services tiers" },
       { type: "paragraph", text: "Un site web moderne ne fonctionne presque jamais seul. Il s'intègre avec des dizaines de services : un système de paiement (Stripe), un outil d'email marketing (Mailchimp), un CRM (HubSpot), un service d'analytics (Google Analytics), un CDN pour les images (Cloudinary), etc." },
@@ -260,7 +260,7 @@ export const posts = [
     id: 3,
     slug: "pourquoi-un-site-vitrine-est-essentiel",
     category: "SITE VITRINE",
-    title: "Pourquoi un site vitrine est essentiel pour votre activité en 2025",
+    title: "Pourquoi un site vitrine est essentiel pour votre activité en 2026",
     excerpt: "Présentez votre entreprise et vos services avec style et convainquez vos prospects avant même qu'ils vous contactent.",
     date: "5 janvier 2026",
     readTime: "11 min de lecture",
@@ -274,9 +274,9 @@ export const posts = [
       alt: "Site vitrine professionnel",
     },
     blocks: [
-      { type: "paragraph", text: "En 2025, ne pas avoir de site web, c'est être invisible. Peu importe la qualité de vos produits ou de vos services, si vous n'existez pas sur internet, vous manquez une part considérable de votre marché potentiel. Selon une étude BVA, 83 % des Français utilisent internet pour rechercher un produit ou un service avant de prendre une décision d'achat." },
+      { type: "paragraph", text: "En 2026, ne pas avoir de site web, c'est être invisible. Peu importe la qualité de vos produits ou de vos services, si vous n'existez pas sur internet, vous manquez une part considérable de votre marché potentiel. Selon une étude BVA, 83 % des Français utilisent internet pour rechercher un produit ou un service avant de prendre une décision d'achat." },
       { type: "paragraph", text: "Pour un artisan, un commerçant ou un prestataire de services, un site vitrine bien conçu est bien plus qu'une carte de visite en ligne. C'est un outil de prospection, de crédibilisation, de différenciation et de communication ouvert 24h/24, 7j/7, accessible depuis n'importe quel appareil, partout dans le monde." },
-      { type: "paragraph", text: "Dans cet article, nous allons explorer en profondeur pourquoi un site vitrine est devenu indispensable en 2025, quels sont ses bénéfices concrets pour votre activité, comment le concevoir pour qu'il soit efficace, et combien ça coûte réellement." },
+      { type: "paragraph", text: "Dans cet article, nous allons explorer en profondeur pourquoi un site vitrine est devenu indispensable en 2026, quels sont ses bénéfices concrets pour votre activité, comment le concevoir pour qu'il soit efficace, et combien ça coûte réellement." },
 
       { type: "h2", text: "1. La première impression se joue en 50 millisecondes" },
       { type: "paragraph", text: "Des chercheurs de l'Université Carleton ont montré que les internautes se font une première impression d'un site web en seulement 50 millisecondes — soit 0,05 secondes. Cette impression initiale conditionne tout le reste : est-ce que je reste sur ce site ? Est-ce que je fais confiance à cette entreprise ? Est-ce que je vais les contacter ?" },
@@ -368,8 +368,8 @@ export const posts = [
       { type: "paragraph", text: "Ensuite, rassemblez vos contenus avant de chercher un prestataire : photos de vos réalisations (idéalement prises par un professionnel), textes de présentation de vos services, témoignages clients, informations de contact. Plus vous arrivez préparé, plus le projet ira vite et sera moins coûteux." },
       { type: "html", html: 'Vous êtes artisan ou commerçant à Lyon et vous souhaitez créer ou refaire votre site vitrine ? <a href="/contact" style="color:#004aad;font-weight:600;">Contactez Studio1921 pour un premier échange gratuit</a>. Nous étudions votre projet, vous proposons des solutions adaptées à votre budget et vous accompagnons de A à Z, du design à la mise en ligne. Découvrez aussi <a href="/projets" style="color:#004aad;font-weight:600;">nos réalisations</a> pour vous faire une idée de notre style et de notre niveau d\'exigence.' },
 
-      { type: "quote", text: "En 2025, votre site vitrine n'est plus un luxe. C'est l'outil de croissance le plus accessible et le plus rentable pour votre activité." },
-      { type: "paragraph", text: "En conclusion, un site vitrine professionnel est un investissement stratégique incontournable pour toute entreprise qui veut se développer en 2025. Il vous permet d'être trouvé sur Google, d'inspirer confiance à vos prospects, de vous différencier de la concurrence et de générer des contacts qualifiés — même quand vous dormez. Ne laissez pas vos concurrents prendre les clients qui auraient pu être les vôtres." },
+      { type: "quote", text: "En 2026, votre site vitrine n'est plus un luxe. C'est l'outil de croissance le plus accessible et le plus rentable pour votre activité." },
+      { type: "paragraph", text: "En conclusion, un site vitrine professionnel est un investissement stratégique incontournable pour toute entreprise qui veut se développer en 2026. Il vous permet d'être trouvé sur Google, d'inspirer confiance à vos prospects, de vous différencier de la concurrence et de générer des contacts qualifiés — même quand vous dormez. Ne laissez pas vos concurrents prendre les clients qui auraient pu être les vôtres." },
     ],
     relatedPosts: [
       { id: 1, slug: "comment-creer-un-site-ecommerce-performant", category: "E-COMMERCE", title: "Comment créer un site e-commerce performant", excerpt: "Découvrez les meilleures pratiques pour construire une boutique en ligne efficace.", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=60&fm=webp" },
@@ -379,10 +379,10 @@ export const posts = [
 
   {
     id: 4,
-    slug: "pourquoi-tout-artisan-a-besoin-dun-site-web-en-2025",
+    slug: "pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026",
     category: "SITE VITRINE",
-    title: "Pourquoi tout artisan a besoin d'un site web en 2025",
-    excerpt: "Boulangers, plombiers, menuisiers, coiffeurs... Aucun artisan ne peut plus se permettre d'ignorer le web en 2025. Voici pourquoi.",
+    title: "Pourquoi tout artisan a besoin d'un site web en 2026",
+    excerpt: "Boulangers, plombiers, menuisiers, coiffeurs... Aucun artisan ne peut plus se permettre d'ignorer le web en 2026. Voici pourquoi.",
     date: "18 février 2026",
     readTime: "11 min de lecture",
     author: {
@@ -395,13 +395,13 @@ export const posts = [
       alt: "Artisan au travail",
     },
     blocks: [
-      { type: "paragraph", text: "Menuisier, boulanger, plombier, coiffeur, électricien, maçon, pâtissier... Le monde de l'artisanat regroupe des centaines de métiers différents, mais ils ont tous un point commun en 2025 : leurs clients les cherchent sur internet avant de les appeler." },
+      { type: "paragraph", text: "Menuisier, boulanger, plombier, coiffeur, électricien, maçon, pâtissier... Le monde de l'artisanat regroupe des centaines de métiers différents, mais ils ont tous un point commun en 2026 : leurs clients les cherchent sur internet avant de les appeler." },
       { type: "paragraph", text: "Pourtant, selon une étude de la Chambre de Métiers et de l'Artisanat, plus de 40 % des artisans français n'ont toujours pas de site web. Certains s'appuient sur le bouche-à-oreille. D'autres pensent qu'un profil Facebook suffit. D'autres encore estiment qu'un site web, c'est pour les grandes entreprises, pas pour eux." },
-      { type: "paragraph", text: "Ces croyances coûtent cher. Dans ce guide, nous allons vous expliquer pourquoi un site web est devenu indispensable pour tout artisan en 2025 — et comment en tirer le meilleur parti sans y consacrer un budget exorbitant." },
+      { type: "paragraph", text: "Ces croyances coûtent cher. Dans ce guide, nous allons vous expliquer pourquoi un site web est devenu indispensable pour tout artisan en 2026 — et comment en tirer le meilleur parti sans y consacrer un budget exorbitant." },
 
       { type: "h2", text: "1. Vos clients vous cherchent sur Google, pas dans les Pages Jaunes" },
       { type: "paragraph", text: "Il y a vingt ans, les Pages Jaunes étaient le réflexe naturel pour trouver un artisan. Aujourd'hui, ce réflexe s'appelle Google. Quand un particulier cherche un plombier à Lyon, un menuisier à Bordeaux ou un électricien à Marseille, il tape sa requête dans Google et appelle l'un des premiers résultats qu'il trouve." },
-      { type: "paragraph", text: "Si vous n'êtes pas dans ces résultats, vous n'existez pas. Ce n'est pas une métaphore — c'est la réalité du comportement des consommateurs en 2025. Le bouche-à-oreille reste important, bien sûr. Mais même quand quelqu'un vous recommande, la première chose que fait votre prospect, c'est de googler votre nom pour en savoir plus avant de vous appeler." },
+      { type: "paragraph", text: "Si vous n'êtes pas dans ces résultats, vous n'existez pas. Ce n'est pas une métaphore — c'est la réalité du comportement des consommateurs en 2026. Le bouche-à-oreille reste important, bien sûr. Mais même quand quelqu'un vous recommande, la première chose que fait votre prospect, c'est de googler votre nom pour en savoir plus avant de vous appeler." },
       { type: "quote", text: "Si quelqu'un vous recommande et que votre prospect ne trouve rien sur vous en ligne, il appellera probablement quelqu'un d'autre. Le bouche-à-oreille et le web se complètent, ils ne se remplacent pas." },
       { type: "paragraph", text: "Un site web bien référencé vous permet de capter deux types de trafic : les recherches directes (votre nom ou votre entreprise) et les recherches génériques (« menuisier Lyon », « plombier urgence Paris »). Ce second type est le plus précieux — ce sont des clients qui ne vous connaissent pas encore mais qui ont exactement besoin de votre service." },
 
@@ -478,7 +478,7 @@ export const posts = [
         "<strong>Étape 4</strong> : Choisissez un prestataire web spécialisé artisanat",
         "<strong>Étape 5</strong> : Demandez à vos clients satisfaits de laisser un avis Google",
       ]},
-      { type: "paragraph", text: "En 2025, avoir un site web professionnel n'est plus une option pour un artisan qui veut développer son activité. C'est une nécessité aussi évidente qu'avoir une carte de visite ou un numéro de téléphone. Les artisans qui ont franchi le pas le confirment unanimement : leur site web est devenu l'un de leurs meilleurs outils de développement commercial." },
+      { type: "paragraph", text: "En 2026, avoir un site web professionnel n'est plus une option pour un artisan qui veut développer son activité. C'est une nécessité aussi évidente qu'avoir une carte de visite ou un numéro de téléphone. Les artisans qui ont franchi le pas le confirment unanimement : leur site web est devenu l'un de leurs meilleurs outils de développement commercial." },
       { type: "html", html: 'Prêt à passer à l\'étape suivante ? Lisez aussi notre article sur <a href="/blog/pourquoi-un-site-vitrine-est-essentiel" style="color:#004aad;font-weight:600;">pourquoi un site vitrine est essentiel pour votre activité</a>, et découvrez <a href="/projets" style="color:#004aad;font-weight:600;">nos réalisations pour des artisans lyonnais</a>.' },
     ],
     relatedPosts: [
@@ -521,7 +521,7 @@ export const posts = [
       ]},
 
       { type: "h2", text: "Erreur n°2 : Un site non optimisé pour mobile" },
-      { type: "paragraph", text: "En 2025, plus de 65 % des recherches locales se font depuis un smartphone. Si votre site n'est pas parfaitement adapté aux mobiles — textes trop petits, boutons trop rapprochés, images mal cadrées, formulaire impossible à remplir — vous perdez la majorité de vos visiteurs potentiels avant même qu'ils aient lu votre contenu." },
+      { type: "paragraph", text: "En 2026, plus de 65 % des recherches locales se font depuis un smartphone. Si votre site n'est pas parfaitement adapté aux mobiles — textes trop petits, boutons trop rapprochés, images mal cadrées, formulaire impossible à remplir — vous perdez la majorité de vos visiteurs potentiels avant même qu'ils aient lu votre contenu." },
       { type: "paragraph", text: "Google l'a bien compris : depuis 2019, il indexe les sites en priorité depuis leur version mobile (Mobile-First Indexing). Un site qui fonctionne bien sur desktop mais mal sur mobile sera pénalisé dans les résultats de recherche. C'est donc une erreur qui affecte à la fois votre expérience utilisateur ET votre référencement." },
       { type: "html", html: 'Testez votre site sur <a href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener noreferrer" style="color:#004aad;font-weight:600;">l\'outil Mobile-Friendly Test de Google</a> — c\'est gratuit et vous saurez en 30 secondes si votre site passe le test. Si ce n\'est pas le cas, il est urgent d\'agir.' },
       { type: "paragraph", text: "Un bon site artisan doit être conçu mobile-first : navigation simple avec un menu accessible, numéro de téléphone cliquable (tap-to-call), formulaire court et facile à remplir, images qui s'adaptent à toutes les tailles d'écran. Ce ne sont pas des détails — c'est la base." },
@@ -620,10 +620,10 @@ export const posts = [
         "Pas d'analytics — installez Google Analytics 4 gratuitement",
       ]},
       { type: "paragraph", text: "Corriger ces erreurs une par une peut transformer un site vitrine inactif en un véritable outil de développement commercial. Si vous partez de zéro ou si vous souhaitez refaire entièrement votre site en évitant tous ces pièges dès le départ, faites appel à un professionnel spécialisé dans les sites artisan." },
-      { type: "html", html: '<a href="/contact" style="color:#004aad;font-weight:600;">Contactez Studio1921</a> pour un audit gratuit de votre site actuel. Nous vous donnons un retour honnête sur ce qui fonctionne, ce qui bloque, et ce qu\'il faudrait améliorer. Sans engagement. Découvrez aussi <a href="/blog/pourquoi-tout-artisan-a-besoin-dun-site-web-en-2025" style="color:#004aad;font-weight:600;">pourquoi tout artisan a besoin d\'un site web en 2025</a> pour une vision complète de l\'enjeu digital pour votre métier.' },
+      { type: "html", html: '<a href="/contact" style="color:#004aad;font-weight:600;">Contactez Studio1921</a> pour un audit gratuit de votre site actuel. Nous vous donnons un retour honnête sur ce qui fonctionne, ce qui bloque, et ce qu\'il faudrait améliorer. Sans engagement. Découvrez aussi <a href="/blog/pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026" style="color:#004aad;font-weight:600;">pourquoi tout artisan a besoin d\'un site web en 2026</a> pour une vision complète de l\'enjeu digital pour votre métier.' },
     ],
     relatedPosts: [
-      { id: 4, slug: "pourquoi-tout-artisan-a-besoin-dun-site-web-en-2025", category: "SITE VITRINE", title: "Pourquoi tout artisan a besoin d'un site web en 2025", excerpt: "Boulangers, plombiers, menuisiers... Aucun artisan ne peut plus ignorer le web.", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=60&fm=webp" },
+      { id: 4, slug: "pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026", category: "SITE VITRINE", title: "Pourquoi tout artisan a besoin d'un site web en 2026", excerpt: "Boulangers, plombiers, menuisiers... Aucun artisan ne peut plus ignorer le web.", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=60&fm=webp" },
       { id: 3, slug: "pourquoi-un-site-vitrine-est-essentiel", category: "SITE VITRINE", title: "Pourquoi un site vitrine est essentiel", excerpt: "Présentez votre entreprise et vos services avec style.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=60&fm=webp" },
     ],
   },
