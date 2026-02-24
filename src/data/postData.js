@@ -26,10 +26,10 @@ export const posts = [
   },
   {
   id: 4,
-  slug: "pourquoi-tout-artisan-a-besoin-dun-site-web-en-2025",
-  title: "Pourquoi tout artisan a besoin d'un site web en 2025",
+  slug: "pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026",
+  title: "Pourquoi tout artisan a besoin d'un site web en 2026",
   category: "Site vitrine",
-  excerpt: "Boulangers, plombiers, menuisiers... Aucun artisan ne peut plus ignorer le web en 2025.",
+  excerpt: "Boulangers, plombiers, menuisiers... Aucun artisan ne peut plus ignorer le web en 2026.",
   image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=60&fm=webp",
 },
 {
