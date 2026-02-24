@@ -157,6 +157,11 @@
     font-size: 1rem;
   }
 
+  .project-hero-image {
+    object-fit: contain;
+    object-position: center center;
+  }
+
   .scroll-indicator {
     display: none; /* ✅ inutile sur mobile */
   }

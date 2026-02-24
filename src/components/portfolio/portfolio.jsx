@@ -61,6 +61,10 @@ export default function Portfolio() {
 
           onLeave: () => setNavbarHidden(false),
           onLeaveBack: () => setNavbarHidden(false),
+          onUpdate: (self) => {
+            const fill = document.querySelector(".portfolio-progress-fill");
+            if (fill) fill.style.width = (self.progress * 100) + "%";
+          },
         },
       });
 
@@ -127,6 +131,15 @@ export default function Portfolio() {
             </div>
           </div>
         ))}
+      </div>
+      {/* SCROLL INDICATOR */}
+      <div className="portfolio-scroll-indicator">
+        <div className="mouse-icon">
+          <div className="mouse-wheel"></div>
+        </div>
+      </div>
+      <div className="portfolio-progress-bar">
+        <div className="portfolio-progress-fill"></div>
       </div>
     </section>
   );
