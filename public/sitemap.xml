@@ -1,54 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
 
+  <!-- Pages statiques -->
   <url>
     <loc>https://www.studio1921.fr/</loc>
-    <priority>1.0</priority>
+    <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
   </url>
-
   <url>
     <loc>https://www.studio1921.fr/about</loc>
     <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
   </url>
-
   <url>
     <loc>https://www.studio1921.fr/services</loc>
     <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
   </url>
-
   <url>
     <loc>https://www.studio1921.fr/projets</loc>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
   </url>
-
-  <url>
-    <loc>https://www.studio1921.fr/projets/project-1</loc>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.studio1921.fr/projets/project-2</loc>
-    <priority>0.6</priority>
-  </url>
-
   <url>
     <loc>https://www.studio1921.fr/contact</loc>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
   </url>
-
   <url>
     <loc>https://www.studio1921.fr/validé</loc>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
   </url>
-
   <url>
     <loc>https://www.studio1921.fr/mentions-legales</loc>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.studio1921.fr/blog</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-02-24</lastmod>
+  </url>
+
+  <!-- Projets -->
+  <url>
+    <loc>https://www.studio1921.fr/projets/immersive-3d-portfolio</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/portfolio/scene.webp</image:loc>
+      <image:caption>Portfolio Immersif 3D</image:caption>
+    </image:image>
   </url>
 
   <url>
-    <loc>https://www.studio1921.fr/blog</loc>
-    <priority>0.3</priority>
+    <loc>https://www.studio1921.fr/projets/delivecrous</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/delivecrous/Home_full.webp</image:loc>
+      <image:caption>Delivecrous — Application de Vente en Ligne</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.studio1921.fr/projets/fournil-emile</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/Landing/pain_full.webp</image:loc>
+      <image:caption>Au Fournil d'Émile</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.studio1921.fr/projets/saigon</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/Landing/bar_full.webp</image:loc>
+      <image:caption>Saigon</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.studio1921.fr/projets/fournil-honore</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/Landing/FournilHonore.webp</image:loc>
+      <image:caption>Le Fournil d'Honoré</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.studio1921.fr/projets/le-backstage</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/Landing/LeBackstage.webp</image:loc>
+      <image:caption>Le Backstage</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Articles de blog -->
+  <url>
+    <loc>https://www.studio1921.fr/blog/comment-creer-un-site-ecommerce-performant</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/Blog/e-commerce.webp</image:loc>
+      <image:caption>Comment créer un site e-commerce performant</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.studio1921.fr/blog/les-bases-du-developpement-web-moderne</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/Blog/devweb.webp</image:loc>
+      <image:caption>Les bases du développement web moderne</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.studio1921.fr/blog/pourquoi-un-site-vitrine-est-essentiel</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-02-24</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/Blog/vitrine.webp</image:loc>
+      <image:caption>Pourquoi un site vitrine est essentiel</image:caption>
+    </image:image>
   </url>
 
 </urlset>
