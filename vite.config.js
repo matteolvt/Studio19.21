@@ -5,5 +5,10 @@ export default defineConfig({
   plugins: [react()],
   build: {
     chunkSizeWarningLimit: 1600
+  },
+  server: {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8"
+    }
   }
 });

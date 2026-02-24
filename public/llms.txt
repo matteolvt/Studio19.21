@@ -1,0 +1,22 @@
+# Studio1921
+
+> Agence web lyonnaise spécialisée dans la création de sites vitrine pour artisans.
+
+## Services
+- Création de sites vitrine HTML/CSS/JS
+- Développement React pour applications web
+- Design UI/UX pour artisans et commerces locaux
+- Référencement naturel (SEO) pour artisans à Lyon
+
+## À propos
+Studio1921 est une agence web basée à Lyon, fondée par Mattéo Livrozet. Nous concevons des sites web sur mesure pour les artisans, boulangers, restaurateurs et commerces locaux lyonnais.
+
+## Contact
+- Site : https://www.studio1921.fr
+- Email : contact@studio1921.fr
+
+## Projets récents
+- Au Fournil d'Émile — Site vitrine boulangerie Lyon
+- Saigon — Site vitrine restaurant vietnamien Lyon
+- Le Backstage — Site vitrine bar rock Lyon
+- Delivecrous — Application de vente en ligne
