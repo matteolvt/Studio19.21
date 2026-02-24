@@ -7,8 +7,11 @@ export default defineConfig({
     chunkSizeWarningLimit: 1600
   },
   server: {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8"
+    headers: (path) => {
+      if (path.endsWith("llms.txt")) {
+        return { "Content-Type": "text/plain; charset=utf-8" };
+      }
+      return {};
     }
   }
 });

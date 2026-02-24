@@ -111,13 +111,26 @@
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .page-slide {
-    width: 80%;
-    height: 300px;
+    width: 85%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
+
+  .page-image-wrapper {
+    height: 100%;
+  }
+
+  .page-image {
+    object-fit: contain;
+    background-color: #1a1a1a;
+  }
+
   .slider-title {
     font-size: 2rem;
   }
-  .swiper-button-next, .swiper-button-prev {
+
+  .swiper-button-next,
+  .swiper-button-prev {
     display: none;
   }
 }

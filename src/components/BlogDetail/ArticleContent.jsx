@@ -23,6 +23,15 @@ export default function ArticleContent({ coverImage, blocks }) {
           if (block.type === "paragraph") {
             return <p key={i} className="ac-paragraph">{block.text}</p>;
           }
+          if (block.type === "html") {
+            return (
+              <p
+                key={i}
+                className="ac-paragraph"
+                dangerouslySetInnerHTML={{ __html: block.html }}
+              />
+            );
+          }
           if (block.type === "h2") {
             return <h2 key={i} className="ac-h2">{block.text}</h2>;
           }
@@ -35,6 +44,15 @@ export default function ArticleContent({ coverImage, blocks }) {
                 <span className="ac-quoteAccent">&ldquo;</span>
                 {block.text}
               </blockquote>
+            );
+          }
+          if (block.type === "list") {
+            return (
+              <ul key={i} className="ac-list">
+                {block.items.map((item, j) => (
+                  <li key={j} className="ac-list-item" dangerouslySetInnerHTML={{ __html: item }} />
+                ))}
+              </ul>
             );
           }
           if (block.type === "image") {
@@ -61,6 +79,8 @@ ArticleContent.propTypes = {
     PropTypes.shape({
       type: PropTypes.string.isRequired,
       text: PropTypes.string,
+      html: PropTypes.string,
+      items: PropTypes.arrayOf(PropTypes.string),
       src: PropTypes.string,
       alt: PropTypes.string,
       caption: PropTypes.string,
