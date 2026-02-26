@@ -186,6 +186,64 @@
   transition: transform 0.2s;
 }
 
+.services-tag {
+  text-align: center;
+  color: var(--blue-right);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: -35px;
+  margin-bottom: 50px;
+  opacity: 0.8;
+}
+
+.artisans-banner {
+  max-width: 900px;
+  margin: 60px auto 0;
+  background-color: var(--blue-right);
+  border-radius: 30px;
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.artisans-banner-text {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.artisans-banner-sub {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+.artisans-banner-btn {
+  margin-top: 10px;
+  background-color: #fff;
+  color: var(--blue-right);
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.artisans-banner-btn:hover {
+  transform: scale(1.05);
+}
+
+
+
 .btn-circle:hover {
   transform: scale(1.1);
 }
@@ -195,4 +253,11 @@
   .card-content { flex-direction: column; }
   .card-left, .card-right { width: 100%; }
   .card-left { height: 80px; padding: 20px; }
+  .artisans-banner {
+    padding: 40px 30px;
+  }
+  
+  .artisans-banner-text {
+    font-size: 1.5rem;
+  }
 }

@@ -64,6 +64,7 @@ const NosServices = () => {
   return (
     <section className="services-section">
       <h2 className="section-title">NOS SERVICES</h2>
+      <p className="services-tag">✦ Idéal pour les artisans & TPE/PME</p>
 
       <div className="services-container">
         {servicesData.map((service) => {
@@ -118,6 +119,12 @@ const NosServices = () => {
             </div>
           );
         })}
+      </div>
+      {/* Bandeau artisans */}
+      <div className="artisans-banner">
+        <p className="artisans-banner-text">Vous êtes artisan ?</p>
+        <p className="artisans-banner-sub">Nous avons les solutions adaptées à votre métier.</p>
+        <a href="/contact" className="artisans-banner-btn">Parlons de votre projet →</a>
       </div>
     </section>
   );
