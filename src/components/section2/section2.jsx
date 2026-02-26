@@ -8,9 +8,8 @@ const Section2 = () => {
     <section className="section2">
       <div className="section2-content">
         <h2>
-          Notre but est de concevoir des expériences digitales soignées et sur
-          mesure, offrant à chaque entreprise une visibilité forte et un
-          positionnement professionnel.
+          Notre but est de concevoir des expériences digitales soignées et sur mesure,
+          offrant à chaque artisan et entreprise une visibilité forte et un positionnement professionnel.
         </h2>
       </div>
 

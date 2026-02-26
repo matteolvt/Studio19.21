@@ -14,9 +14,11 @@ const HeroSection = () => {
     <section className="hero-section">
       <div className="hero-content">
         <h1>
-          CRÉONS VOTRE
+          NOUS CRÉONS LE
           <br />
           FUTUR DIGITAL.
+          <br />
+          DES ARTISANS ET ENTREPRISES
         </h1>
         <p>
           Nous sommes une Agence Web basée à Lyon qui accompagne les entreprises
