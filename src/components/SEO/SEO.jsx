@@ -14,6 +14,7 @@ const SEO = ({ title, description, image, url }) => {
       <meta name="description" content={description} />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={canonicalUrl} />
+      <script src="https://analytics.ahrefs.com/analytics.js" data-key="u6wNQ2hPAsq3az5BMAurKg" async></script>
 
       {/* OpenGraph */}
       <meta property="og:title" content={title} />
