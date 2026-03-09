@@ -1,6 +1,6 @@
 import fs from "fs";
 import { projectsData } from "./src/data/projectsData.js";
-import { posts } from "./src/data/blogData.js";
+import { posts } from "./src/data/postData.js";
 
 const baseUrl = "https://www.studio1921.fr";
 let urls = "";
@@ -36,13 +36,17 @@ projectsData.forEach(project => {
 
 // Posts / Blog
 posts.forEach(post => {
+  const imageUrl = post.image?.startsWith("http")
+    ? post.image
+    : `${baseUrl}${post.image}`;
+
   urls += `
   <url>
     <loc>${baseUrl}/blog/${post.slug}</loc>
     <priority>0.5</priority>
     <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
     <image:image>
-      <image:loc>${baseUrl}${post.image}</image:loc>
+      <image:loc>${imageUrl}</image:loc>
       <image:caption>${post.title}</image:caption>
     </image:image>
   </url>`;
