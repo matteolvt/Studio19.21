@@ -627,6 +627,240 @@ export const posts = [
       { id: 3, slug: "pourquoi-un-site-vitrine-est-essentiel", category: "SITE VITRINE", title: "Pourquoi un site vitrine est essentiel", excerpt: "Présentez votre entreprise et vos services avec style.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=60&fm=webp" },
     ],
   },
+  
+  {
+    id: 6,
+    slug: "refonte-site-web-quand-et-pourquoi",
+    category: "SITE VITRINE",
+    title: "Refonte de site web : quand faut-il se lancer et pourquoi ?",
+    excerpt: "Votre site web date de 2019, il est lent, il ne convertit pas... Est-ce vraiment le bon moment de tout refaire ? On vous aide à trancher.",
+    date: "3 mars 2026",
+    readTime: "11 min de lecture",
+    author: {
+      name: "Tom Julliat",
+      role: "Développeur Web & Co-fondateur Studio1921",
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23d1d5db'/%3E%3Ccircle cx='40' cy='30' r='14' fill='%239ca3af'/%3E%3Cellipse cx='40' cy='70' rx='22' ry='18' fill='%239ca3af'/%3E%3C/svg%3E",
+    },
+    coverImage: {
+      src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=75&fm=webp",
+      alt: "Refonte de site web",
+    },
+    blocks: [
+      { type: "paragraph", text: "Votre site web a quelques années au compteur. Il fonctionne — plus ou moins. Mais vous avez l'impression qu'il ne vous apporte plus grand-chose : peu de demandes de contact, un design qui commence à dater, une vitesse de chargement qui laisse à désirer. Vous vous demandez s'il est temps de le refaire entièrement. Et surtout, si ça vaut vraiment l'investissement." },
+      { type: "paragraph", text: "La refonte de site web est une décision stratégique importante. Elle demande du temps, de l'argent et de l'énergie. Mais quand elle est bien menée, c'est l'un des investissements les plus rentables qu'une entreprise peut faire pour son développement commercial. Dans cet article, nous vous donnons tous les indicateurs pour savoir si vous avez besoin d'une refonte — et comment la réussir." },
+
+      { type: "h2", text: "1. C'est quoi exactement une refonte de site web ?" },
+      { type: "paragraph", text: "Une refonte de site web, ce n'est pas juste changer les couleurs ou mettre à jour les photos. C'est repenser en profondeur la structure, le design, les contenus et parfois même la technologie utilisée pour construire votre site. L'objectif : repartir sur des bases saines pour un site qui répond aux standards actuels du web et aux attentes de vos clients." },
+      { type: "paragraph", text: "On distingue deux types de refonte. La refonte partielle consiste à améliorer certains éléments spécifiques : moderniser le design, optimiser la vitesse, améliorer le référencement, ajouter de nouvelles fonctionnalités. La refonte totale repart de zéro : nouvelle technologie, nouvelle architecture, nouveau contenu, nouveau design. C'est plus long et plus coûteux, mais parfois incontournable." },
+      { type: "quote", text: "Une refonte réussie ne se mesure pas à son esthétique. Elle se mesure à l'augmentation des contacts, des devis et du chiffre d'affaires qu'elle génère." },
+
+      { type: "h2", text: "2. Les 7 signaux qui indiquent qu'il est temps de refondre votre site" },
+      { type: "paragraph", text: "Il n'existe pas de durée de vie universelle pour un site web. Certains sites de 5 ans sont encore parfaitement efficaces. D'autres de 2 ans sont déjà obsolètes. Ce qui compte, ce ne sont pas les années — c'est la performance. Voici les signaux qui ne trompent pas." },
+
+      { type: "h3", text: "Signal 1 : Votre site n'est pas adapté au mobile" },
+      { type: "paragraph", text: "Si votre site a été créé avant 2016 et qu'il n'a pas été refondu depuis, il y a de fortes chances qu'il ne soit pas vraiment optimisé pour les smartphones. Et en 2026, c'est rédhibitoire : plus de 65 % des recherches locales se font depuis un mobile. Un site non responsive perd la majorité de ses visiteurs potentiels avant même qu'ils aient lu votre contenu." },
+
+      { type: "h3", text: "Signal 2 : Votre score Google PageSpeed est inférieur à 60" },
+      { type: "paragraph", text: "La vitesse de chargement est un facteur de classement officiel pour Google depuis 2018. Un site lent est pénalisé dans les résultats de recherche ET fait fuir les visiteurs. Si votre score PageSpeed mobile est inférieur à 60/100, vous perdez des clients et du référencement chaque jour." },
+      { type: "html", html: 'Testez gratuitement votre site sur <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer" style="color:#004aad;font-weight:600;">Google PageSpeed Insights</a>. Si votre score mobile est rouge (inférieur à 50), une refonte s\'impose en urgence.' },
+
+      { type: "h3", text: "Signal 3 : Votre site ne génère aucune demande de contact" },
+      { type: "paragraph", text: "C'est le signal le plus éloquent. Si votre site existe depuis un an ou plus et qu'il n'a jamais généré une seule demande de devis ou un seul appel téléphonique directement attribuable à une visite web, quelque chose ne va pas. Soit le trafic est insuffisant (problème de SEO), soit le site ne convertit pas les visiteurs en prospects (problème de design et d'ergonomie)." },
+
+      { type: "h3", text: "Signal 4 : Votre design date clairement" },
+      { type: "paragraph", text: "Les tendances du web évoluent vite. Un site créé en 2017 avec ses sliders automatiques, ses ombres portées partout et ses polices génériques renvoie immédiatement une image vieillotte. Dans l'esprit des visiteurs, un site au design dépassé signifie une entreprise qui ne se renouvelle pas — même si vos prestations sont excellentes." },
+
+      { type: "h3", text: "Signal 5 : Votre positionnement a évolué" },
+      { type: "paragraph", text: "Vous avez changé de cible clientèle, monté en gamme, développé de nouvelles offres, rebrandé votre entreprise ? Votre site doit refléter votre positionnement actuel. Un artisan qui visait le grand public il y a 5 ans et qui cible désormais les professionnels a besoin d'un site qui parle à cette nouvelle cible — même discours, même design, même ton." },
+
+      { type: "h3", text: "Signal 6 : Votre technologie est obsolète ou non maintenue" },
+      { type: "paragraph", text: "Si votre site tourne sur une version de WordPress datant de 2018 avec des plugins jamais mis à jour, vous êtes une cible facile pour les hackers. Les failles de sécurité des CMS et plugins obsolètes sont exploitées massivement par des robots automatisés. Un site piraté peut être désindexé par Google et noircir durablement votre réputation en ligne." },
+
+      { type: "h3", text: "Signal 7 : Vous avez honte de donner votre URL" },
+      { type: "paragraph", text: "Celui-là, on ne le dit pas toujours, mais il est réel. Si vous hésitez à donner l'adresse de votre site à un prospect parce que vous savez pertinemment qu'il ne donne pas une bonne image de votre travail — c'est que l'heure de la refonte a sonné. Votre site doit être votre meilleur commercial, pas un frein à votre développement." },
+
+      { type: "h2", text: "3. Refonte partielle ou refonte totale : comment choisir ?" },
+      { type: "paragraph", text: "Pas besoin de tout refaire si quelques ajustements ciblés suffisent à relancer la machine. Une refonte partielle est souvent la bonne option quand votre site a une base solide mais présente des lacunes spécifiques : une page d'accueil trop chargée, un formulaire de contact qui ne fonctionne pas bien, des images non optimisées." },
+      { type: "paragraph", text: "En revanche, une refonte totale s'impose quand la technologie est obsolète et ne peut pas être mise à jour sans tout casser, quand le design est tellement daté qu'un simple lifting ne suffira pas, ou quand votre positionnement a tellement évolué que le contenu entier doit être réécrit. Dans ce cas, repartir de zéro est souvent plus rapide et moins coûteux que de rafistoler l'existant." },
+      { type: "list", items: [
+        "<strong>Refonte partielle</strong> : base technique saine, design acceptable, quelques pages à améliorer",
+        "<strong>Refonte totale</strong> : technologie obsolète, design très daté, positionnement changé, site lent malgré les optimisations",
+        "Dans le doute, demandez un audit technique à un professionnel avant de trancher",
+      ]},
+
+      { type: "h2", text: "4. Les erreurs à ne pas commettre lors d'une refonte" },
+      { type: "paragraph", text: "Une refonte mal menée peut être pire que de ne rien faire. La plus grave des erreurs : négliger le SEO existant. Si votre ancien site était référencé sur certains mots-clés, changer les URLs sans mettre en place des redirections 301 peut faire chuter votre trafic organique de 50 à 80 % du jour au lendemain. Ce genre d'erreur peut prendre des mois à corriger." },
+      { type: "paragraph", text: "Autre erreur fréquente : refaire le site pour soi plutôt que pour ses clients. On change le design parce qu'on en a marre de l'ancien, on réorganise les pages selon sa propre logique plutôt que selon le parcours des visiteurs. La refonte doit toujours partir des données (Google Analytics, heatmaps, retours clients) et non de vos préférences personnelles." },
+      { type: "list", items: [
+        "Ne supprimez jamais d'URLs sans mettre en place des redirections 301",
+        "Conservez et améliorez vos contenus existants qui génèrent du trafic",
+        "Testez votre nouveau site sur mobile avant la mise en ligne",
+        "Prévenez Google Search Console du changement via le rapport de couverture",
+        "Prévoyez une phase de test d'au moins 2 semaines avant la mise en ligne officielle",
+      ]},
+
+      { type: "h2", text: "5. Combien coûte une refonte de site web ?" },
+      { type: "paragraph", text: "Le budget d'une refonte varie énormément selon la taille du site, la technologie choisie et le niveau de personnalisation souhaité. Pour un site vitrine artisan de 5 à 10 pages, comptez entre 1 500 et 4 000 € pour une refonte bien faite. Pour un site e-commerce ou un site avec des fonctionnalités avancées, la fourchette monte à 5 000-15 000 €." },
+      { type: "paragraph", text: "Ce qui fait monter la facture : la migration de données complexes, la création de contenu (textes, photos professionnelles), le développement de fonctionnalités sur mesure, et le travail SEO approfondi. Ce qui peut faire baisser le coût : avoir des contenus déjà rédigés et des photos de qualité disponibles, et choisir un prestataire habitué à votre type de projet." },
+      { type: "html", html: 'Chez <a href="/" style="color:#004aad;font-weight:600;">Studio1921</a>, nous réalisons des audits gratuits pour évaluer l\'état de votre site actuel et estimer le coût d\'une refonte. <a href="/contact" style="color:#004aad;font-weight:600;">Contactez-nous</a> — nous vous donnons un retour honnête et sans engagement.' },
+
+      { type: "h2", text: "6. Comment bien préparer sa refonte ?" },
+      { type: "paragraph", text: "Une refonte réussie se prépare bien en amont. La première étape est l'audit de l'existant : qu'est-ce qui fonctionne sur votre site actuel ? Quelles pages génèrent du trafic ? Quels mots-clés vous positionnent déjà sur Google ? Ces éléments sont précieux et doivent être préservés dans le nouveau site." },
+      { type: "paragraph", text: "Ensuite, définissez clairement vos objectifs pour le nouveau site. Plus de demandes de devis ? Mieux se positionner sur une nouvelle zone géographique ? Cibler un nouveau type de clientèle ? Ces objectifs vont guider toutes les décisions de la refonte : structure, contenu, design, fonctionnalités." },
+      { type: "list", items: [
+        "Installez Google Analytics et Search Console avant de commencer pour avoir une baseline",
+        "Listez toutes les URLs de votre site actuel et préparez votre plan de redirections",
+        "Rassemblez vos nouvelles photos, textes et témoignages avant de lancer le projet",
+        "Définissez vos 3 objectifs principaux pour le nouveau site",
+        "Prévoyez un budget de maintenance après la mise en ligne (mises à jour, optimisations)",
+      ]},
+
+      { type: "h2", text: "7. Choisir le bon moment pour refondre" },
+      { type: "paragraph", text: "Évitez de lancer une refonte en pleine période haute de votre activité. Si vous êtes maçon et que le printemps est votre saison la plus chargée, ne lancez pas un chantier web en mars. Préférez l'automne ou le début d'année pour avoir le temps de valider les contenus et de tester le nouveau site sereinement." },
+      { type: "paragraph", text: "Le bon moment, c'est aussi quand vous avez les ressources pour investir correctement. Une refonte bâclée par manque de budget est pire que de garder l'ancien site en l'état. Mieux vaut attendre 6 mois et faire les choses bien, plutôt que de se précipiter et de devoir tout recommencer dans 2 ans." },
+      { type: "html", html: 'Vous hésitez encore ? Lisez notre article sur <a href="/blog/pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026" style="color:#004aad;font-weight:600;">pourquoi tout artisan a besoin d\'un site web en 2026</a> et découvrez <a href="/services" style="color:#004aad;font-weight:600;">nos offres de création et refonte de sites web</a> pour les artisans et PME lyonnaises.' },
+
+      { type: "quote", text: "La meilleure refonte n'est pas celle qui ressemble à ce que vous aimez. C'est celle qui convainc vos prospects de vous choisir." },
+      { type: "paragraph", text: "En résumé : si votre site date de plus de 3-4 ans, s'il n'est pas adapté au mobile, s'il est lent ou s'il ne vous apporte aucun contact, la question n'est plus de savoir si vous devez refondre — mais quand. Plus tôt vous agissez, plus vite vous commencez à capter les clients que vous laissez filer à la concurrence chaque jour." },
+    ],
+    relatedPosts: [
+      { id: 3, slug: "pourquoi-un-site-vitrine-est-essentiel", category: "SITE VITRINE", title: "Pourquoi un site vitrine est essentiel", excerpt: "Présentez votre entreprise et vos services avec style.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=60&fm=webp" },
+      { id: 7, slug: "comment-choisir-son-agence-web", category: "CONSEILS", title: "Comment choisir son agence web (sans se faire avoir)", excerpt: "Les bonnes questions à poser avant de signer avec une agence ou un freelance.", image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=60&fm=webp" },
+    ],
+  },
+
+  {
+    id: 7,
+    slug: "comment-choisir-son-agence-web",
+    category: "CONSEILS",
+    title: "Comment choisir son agence web (sans se faire avoir)",
+    excerpt: "Tarifs flous, promesses de référencement garantis, sites livrés en retard... Voici comment identifier les bons prestataires et éviter les mauvaises surprises.",
+    date: "10 mars 2026",
+    readTime: "12 min de lecture",
+    author: {
+      name: "Tom Julliat",
+      role: "Développeur Web & Co-fondateur Studio1921",
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23d1d5db'/%3E%3Ccircle cx='40' cy='30' r='14' fill='%239ca3af'/%3E%3Cellipse cx='40' cy='70' rx='22' ry='18' fill='%239ca3af'/%3E%3C/svg%3E",
+    },
+    coverImage: {
+      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=75&fm=webp",
+      alt: "Réunion avec une agence web",
+    },
+    blocks: [
+      { type: "paragraph", text: "Choisir son agence web ou son développeur freelance, c'est l'une des décisions les plus importantes — et les plus risquées — pour un artisan ou un chef d'entreprise. Le marché est saturé de prestataires aux promesses alléchantes, aux portfolios copiés sur internet et aux tarifs impossibles à comparer. Résultat : beaucoup d'entrepreneurs ont déjà vécu une mauvaise expérience. Un site livré avec des mois de retard, un budget qui explose, un référencement qui ne décolle jamais..." },
+      { type: "paragraph", text: "Pourtant, il existe des prestataires sérieux, compétents et honnêtes — il faut juste savoir comment les reconnaître. Dans ce guide, nous vous donnons toutes les clés pour évaluer, comparer et choisir un partenaire web de confiance, quel que soit votre budget ou votre secteur d'activité." },
+
+      { type: "h2", text: "1. Commencez par clarifier votre besoin avant de chercher" },
+      { type: "paragraph", text: "Avant de contacter des prestataires, prenez le temps de définir précisément ce que vous voulez. Un site vitrine de 5 pages ? Un site e-commerce avec 200 produits ? Une refonte complète avec migration de contenus ? Plus votre brief est précis, plus les devis seront comparables et moins vous risquez de mauvaises surprises en cours de route." },
+      { type: "paragraph", text: "Préparez également une liste de sites que vous aimez (et que vous n'aimez pas) avec une explication de pourquoi. Ces références visuelles valent mieux qu'une longue description : elles donnent au prestataire une idée immédiate de vos goûts et de vos attentes en matière de design." },
+      { type: "list", items: [
+        "Définissez le type de site souhaité (vitrine, e-commerce, portfolio, blog)",
+        "Listez les pages et fonctionnalités indispensables",
+        "Précisez votre budget maximum — inutile de faire des devis si les budgets ne correspondent pas",
+        "Indiquez votre délai souhaité pour la mise en ligne",
+        "Préparez 3 à 5 URLs de sites que vous aimez comme références visuelles",
+      ]},
+
+      { type: "h2", text: "2. Agence web, freelance ou plateforme no-code : quelle différence ?" },
+      { type: "paragraph", text: "Il existe trois grandes catégories de prestataires web, chacune avec ses avantages et ses limites. Comprendre ces différences est essentiel pour faire le bon choix selon votre projet et votre budget." },
+      { type: "h3", text: "Le freelance" },
+      { type: "paragraph", text: "Un développeur ou designer freelance travaille seul ou avec quelques collaborateurs ponctuels. Il est généralement moins cher qu'une agence (entre 300 et 600 €/jour selon l'expérience) et souvent plus flexible. L'inconvénient : si il est malade, en vacances ou surchargé de travail, votre projet peut prendre du retard. Et si vous avez des besoins complexes qui nécessitent plusieurs expertises (design + développement + SEO + rédaction), vous devrez peut-être faire appel à plusieurs freelances différents." },
+      { type: "h3", text: "L'agence web" },
+      { type: "paragraph", text: "Une agence web dispose d'une équipe pluridisciplinaire : designers, développeurs, chefs de projet, experts SEO. Elle offre plus de garanties sur les délais et la qualité, une meilleure continuité en cas d'absence d'un membre de l'équipe, et souvent un accompagnement plus complet. En contrepartie, les tarifs sont plus élevés et la communication peut parfois être moins directe qu'avec un freelance." },
+      { type: "h3", text: "Les plateformes no-code" },
+      { type: "paragraph", text: "Wix, Squarespace, Webflow et leurs concurrents permettent de créer un site sans coder, à partir de 15-40 €/mois. C'est une option valable pour tester une idée ou pour un projet très simple avec un budget serré. Mais les limites sont réelles : design moins différenciant, performances moins optimisées, dépendance totale à la plateforme, et SEO plus difficile à travailler finement." },
+      { type: "quote", text: "Il n'y a pas de mauvaise catégorie de prestataire. Il y a un mauvais choix de prestataire par rapport à son besoin." },
+
+      { type: "h2", text: "3. Les questions à poser avant de signer" },
+      { type: "paragraph", text: "Un bon prestataire n'hésitera pas à répondre à toutes vos questions — même les plus pointues. Méfiez-vous de ceux qui sont vagues, qui évitent les questions sur les délais ou le budget, ou qui vous pressent de signer rapidement. Voici les questions essentielles à poser systématiquement." },
+      { type: "list", items: [
+        "<strong>Puis-je voir votre portfolio avec des sites similaires au mien ?</strong> — Un bon prestataire a des références dans votre secteur ou des projets comparables",
+        "<strong>Qui va concrètement travailler sur mon projet ?</strong> — En agence, demandez si votre site sera fait en interne ou sous-traité",
+        "<strong>Quels sont les délais et les étapes du projet ?</strong> — Un planning précis avec des jalons est un signe de sérieux",
+        "<strong>Qu'est-ce qui est inclus et qu'est-ce qui est en option ?</strong> — Le SEO, les textes, les photos, la formation... sont-ils dans le devis ?",
+        "<strong>À qui appartient le site à la livraison ?</strong> — Vous devez avoir les accès complets à l'hébergement, au nom de domaine et au CMS",
+        "<strong>Que se passe-t-il si je ne suis pas satisfait du résultat ?</strong> — Les conditions de révision et de litige doivent être claires",
+        "<strong>Comment se passe la maintenance après la mise en ligne ?</strong> — Support, mises à jour, qui contacter en cas de panne ?",
+      ]},
+
+      { type: "h2", text: "4. Les red flags à repérer absolument" },
+      { type: "paragraph", text: "Certains signaux d'alerte doivent vous inciter à chercher un autre prestataire, même si le prix semble attractif ou si le site de présentation est joli. Ces red flags sont souvent révélateurs d'un manque de sérieux ou d'une pratique commerciale douteuse." },
+      { type: "h3", text: "Les promesses de référencement garanti" },
+      { type: "paragraph", text: "Aucun prestataire sérieux ne peut garantir une position sur Google. L'algorithme de Google évolue en permanence et dépend de centaines de facteurs. Un prestataire qui vous promet d'être « numéro 1 sur Google en 3 mois » soit ne comprend pas le SEO, soit vous ment délibérément pour décrocher le contrat." },
+      { type: "h3", text: "Les tarifs anormalement bas" },
+      { type: "paragraph", text: "Un « site web professionnel à 299 € » n'existe pas vraiment. Ce que vous obtenez à ce prix, c'est un template acheté 20 € avec votre logo collé dessus, sans stratégie, sans optimisation SEO, sans vrai accompagnement. Les économies réalisées à la signature se paient souvent cher ensuite : site qui ne convertit pas, prestataire injoignable, site piraté faute de maintenance." },
+      { type: "h3", text: "L'absence de contrat ou un contrat très flou" },
+      { type: "paragraph", text: "Un bon prestataire fournit toujours un devis détaillé et un contrat qui précise les livrables, les délais, les conditions de paiement et les conditions de révision. Un prestataire qui travaille sur un simple email ou une poignée de main expose les deux parties à des malentendus coûteux." },
+      { type: "list", items: [
+        "Promesse de référencement garanti ou de position numéro 1 sur Google",
+        "Tarifs inférieurs à 500 € pour un site vitrine « professionnel »",
+        "Impossibilité de voir des références ou un portfolio concret",
+        "Contrat vague sur les livrables, les délais ou la propriété du site",
+        "Pression pour signer rapidement ou acompte demandé avant tout devis",
+        "Prestataire qui reste vague quand vous demandez qui fait quoi",
+        "Aucune mention du SEO, de la performance mobile ou de la maintenance",
+      ]},
+
+      { type: "h2", text: "5. Comment évaluer un portfolio ?" },
+      { type: "paragraph", text: "Ne vous arrêtez pas aux apparences visuelles d'un portfolio. Un site peut être beau et avoir de très mauvaises performances. Quand vous regardez les réalisations d'un prestataire, allez vérifier ces sites en conditions réelles : testez leur vitesse sur PageSpeed Insights, naviguez dessus depuis un smartphone, vérifiez si les formulaires de contact fonctionnent." },
+      { type: "paragraph", text: "Demandez aussi si le prestataire peut vous mettre en contact avec un ou deux de ses anciens clients. Un témoignage direct d'un client satisfait vaut infiniment plus qu'une belle page de portfolio. Un prestataire qui refuse cette démarche ou qui tourne autour du pot mérite votre méfiance." },
+      { type: "html", html: 'Pour chaque site du portfolio, testez la vitesse sur <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer" style="color:#004aad;font-weight:600;">PageSpeed Insights</a> et la compatibilité mobile sur le <a href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener noreferrer" style="color:#004aad;font-weight:600;">Mobile-Friendly Test de Google</a>. Ces données objectives vous en diront plus que n\'importe quel discours commercial.' },
+
+      { type: "h2", text: "6. Comparer des devis : attention aux pièges" },
+      { type: "paragraph", text: "Recevoir plusieurs devis pour un même projet, c'est indispensable. Mais comparer des devis web est un exercice piégeux, parce que tous les prestataires ne détaillent pas les mêmes éléments. Un devis à 1 200 € peut inclure le SEO, la rédaction des textes et la formation au CMS — un autre à 2 500 € peut ne rien inclure de tout cela." },
+      { type: "paragraph", text: "Pour comparer honnêtement, créez un tableau avec toutes les prestations possibles et cochez ce qui est inclus dans chaque devis : design, développement, responsive mobile, SEO on-page, rédaction des textes, fourniture des photos, intégration des avis Google, formation à l'utilisation, hébergement la première année, maintenance. La comparaison au même niveau vous donnera une image beaucoup plus juste du rapport qualité/prix réel." },
+      { type: "list", items: [
+        "Design et maquettes validées avant développement",
+        "Responsive mobile inclus (ce devrait être standard en 2026)",
+        "Optimisation SEO on-page (balises, vitesse, structure)",
+        "Rédaction des textes ou accompagnement à la rédaction",
+        "Hébergement et nom de domaine (première année)",
+        "Formation à l'utilisation du CMS pour les mises à jour autonomes",
+        "Support après mise en ligne (délai et conditions)",
+      ]},
+
+      { type: "h2", text: "7. Les questions à se poser sur soi-même" },
+      { type: "paragraph", text: "Choisir un bon prestataire, c'est aussi savoir quel type de client vous êtes. Avez-vous le temps de vous impliquer dans le projet (valider des maquettes, fournir des contenus, répondre aux questions) ? Ou avez-vous besoin que le prestataire prenne en charge tout le contenu également ?" },
+      { type: "paragraph", text: "Êtes-vous à l'aise avec la communication à distance, par email et visioconférence ? Ou préférez-vous rencontrer votre prestataire en personne ? Si la proximité géographique est importante pour vous, une agence locale comme Studio1921 à Lyon aura l'avantage de pouvoir vous rencontrer facilement pour les réunions de suivi." },
+      { type: "html", html: 'Studio1921 est une agence web lyonnaise qui reçoit ses clients en présentiel pour les projets importants. <a href="/contact" style="color:#004aad;font-weight:600;">Prenez rendez-vous pour un premier échange gratuit</a> — nous étudions votre projet ensemble et vous donnons une estimation claire avant tout engagement.' },
+
+      { type: "h2", text: "8. Faut-il choisir une agence spécialisée dans son secteur ?" },
+      { type: "paragraph", text: "Pas forcément — mais c'est un avantage non négligeable. Une agence qui a déjà créé des sites pour des artisans, des restaurateurs ou des professionnels de santé connaît les spécificités de ces marchés : les mots-clés qui convertissent, les fonctionnalités attendues par les clients, les erreurs fréquentes à éviter. Elle ira plus vite et produira souvent un résultat plus pertinent." },
+      { type: "paragraph", text: "Cela dit, l'expertise sectorielle ne remplace pas la qualité du travail. Un prestataire généraliste très compétent qui prend le temps de comprendre votre métier peut produire d'excellents résultats. L'important, c'est sa capacité à s'adapter à vos besoins spécifiques — pas forcément d'avoir déjà créé exactement le même type de site." },
+      { type: "quote", text: "Un bon prestataire web, c'est quelqu'un qui pose plus de questions qu'il n'en a des réponses toutes faites. Méfiez-vous de ceux qui ont une solution avant même de comprendre votre problème." },
+
+      { type: "h2", text: "9. Après la signature : comment bien démarrer le projet ?" },
+      { type: "paragraph", text: "Une fois le prestataire choisi et le contrat signé, votre travail commence aussi. Plus vous serez disponible et réactif pour valider les étapes du projet, mieux il se passera. Les projets web qui dérapent sont souvent ceux où le client est injoignable pendant des semaines, puis mécontents des décisions prises en son absence." },
+      { type: "paragraph", text: "Prévoyez un point de démarrage (kick-off) pour aligner tout le monde sur les objectifs, les délais et le processus de validation. Définissez clairement qui, de votre côté, est l'interlocuteur unique du projet. Et anticipez la fourniture des contenus (textes, photos, témoignages) qui représente souvent le principal facteur de retard dans un projet web." },
+      { type: "list", items: [
+        "Organisez un kick-off pour poser les bases du projet et les rôles de chacun",
+        "Désignez un seul interlocuteur côté client pour les validations",
+        "Préparez vos contenus (textes, photos) avant le début du développement",
+        "Répondez aux demandes de validation dans les délais convenus",
+        "Posez toutes vos questions en cours de projet — pas à la livraison finale",
+      ]},
+
+      { type: "h2", text: "10. En résumé : la checklist du bon choix" },
+      { type: "paragraph", text: "Choisir son agence web ne devrait pas être un acte de foi. Avec les bons critères et les bonnes questions, vous pouvez objectivement évaluer la qualité et le sérieux d'un prestataire avant de signer quoi que ce soit. Voici notre checklist finale pour ne rien oublier." },
+      { type: "list", items: [
+        "Le prestataire peut montrer des références concrètes et récentes",
+        "Il peut vous mettre en contact avec d'anciens clients",
+        "Il répond clairement à toutes vos questions sans vous presser",
+        "Le devis est détaillé et liste précisément ce qui est inclus",
+        "Un contrat est fourni avant tout paiement",
+        "Les accès (hébergement, nom de domaine, CMS) vous seront remis à la livraison",
+        "Le SEO et la compatibilité mobile sont explicitement inclus",
+        "Les conditions de révision et de support après livraison sont claires",
+        "Vous avez rencontré ou échangé directement avec la personne qui fera le travail",
+        "Votre instinct vous dit que la communication est fluide et honnête",
+      ]},
+      { type: "html", html: 'Vous cherchez une agence web lyonnaise sérieuse pour votre projet ? <a href="/contact" style="color:#004aad;font-weight:600;">Contactez Studio1921</a> pour un premier échange sans engagement. Découvrez aussi notre article sur <a href="/blog/refonte-site-web-quand-et-pourquoi" style="color:#004aad;font-weight:600;">quand et pourquoi refondre son site web</a> si vous avez déjà un site existant.' },
+    ],
+    relatedPosts: [
+      { id: 6, slug: "refonte-site-web-quand-et-pourquoi", category: "SITE VITRINE", title: "Refonte de site web : quand et pourquoi ?", excerpt: "Votre site date de 2019, il est lent et ne convertit pas... Est-ce le moment de tout refaire ?", image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=60&fm=webp" },
+      { id: 5, slug: "site-web-artisan-erreurs-a-eviter", category: "SITE VITRINE", title: "Site web pour artisan : les erreurs à éviter", excerpt: "Les pièges les plus fréquents qui empêchent votre site de vous apporter des clients.", image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=60&fm=webp" },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug) {
