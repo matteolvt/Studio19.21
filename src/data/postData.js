@@ -40,4 +40,20 @@ export const posts = [
   excerpt: "Les pièges les plus fréquents qui empêchent votre site de vous apporter des clients.",
   image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=60&fm=webp",
 },
+{
+    id: 6,
+    slug: "refonte-site-web-quand-et-pourquoi",
+    title: "Refonte de site web : quand faut-il se lancer et pourquoi ?",
+    category: "Site vitrine",
+    excerpt: "Votre site web date de 2019, il est lent, il ne convertit pas... Est-ce vraiment le bon moment de tout refaire ?",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=60&fm=webp",
+  },
+  {
+    id: 7,
+    slug: "comment-choisir-son-agence-web",
+    title: "Comment choisir son agence web (sans se faire avoir)",
+    category: "Conseils",
+    excerpt: "Tarifs flous, promesses de référencement garantis, sites livrés en retard... Voici comment identifier les bons prestataires.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=60&fm=webp",
+  },
 ];
