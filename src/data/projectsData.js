@@ -11,50 +11,6 @@ export const projectsData = [
   {
     id: 1,
     navbarTheme: 'light',
-    slug: "immersive-3d-portfolio",
-    title: "Portfolio Immersif 3D",
-    tagline: "Une expérience interactive pour repousser les limites du web.",
-    year: "2026",
-    image: "/images/projectpics/portfolio/scene.webp",
-    categoryIds: ["portfolio", "webapp"],
-    client: "Projet interne — Mattéo Livrozet",
-    role: "Lead Designer & Frontend Dev",
-    timeline: "2 mois",
-    techStack: ["React", "Three.js", "GSAP"],
-    description: "Création d’un portfolio immersif pensé comme une expérience interactive.",
-    challenge: "L’objectif était de concevoir une expérience immersive et mémorable...",
-    process: {
-      text: "Le projet a débuté par une phase de réflexion hors écran...",
-      images: [
-        "/images/projectpics/portfolio/mockup.webp",
-        "/images/projectpics/portfolio/blender.webp"
-      ]
-    },
-    websitePages: [
-      { id: 'loader', title: "Loading Screen", image: "/images/projectpics/portfolio/loader.webp" },
-      { id: 'scene', title: "Scène Principale", image: "/images/projectpics/portfolio/scene.webp" },
-      { id: 'livre', title: "Livre", image: "/images/projectpics/portfolio/livre.webp" },
-      { id: 'livre-ouvert', title: "Livre Ouvert", image: "/images/projectpics/portfolio/livreOuvert.webp" }
-    ],
-    features: [
-      {
-        title: "Navigation 3D Narrative",
-        description: "Une navigation pensée comme un parcours scénarisé...",
-        image: "/images/projectpics/portfolio/accueil.webp"
-      },
-      {
-        title: "Transitions Caméra Fluides",
-        description: "Des transitions cinématographiques basées sur des easings personnalisés...",
-        image: "/images/projectpics/portfolio/mockupIA.webp"
-      }
-    ],
-    links: {
-      github: "https://github.com/matteolvt/Portfolio3D"
-    }
-  },
-  {
-    id: 2,
-    navbarTheme: 'light',
     slug: "delivecrous",
     title: "Delivecrous — Application de Vente en Ligne",
     tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
@@ -81,6 +37,9 @@ export const projectsData = [
       { id: 'panier', title: "Panier", image: "/images/projectpics/delivecrous/Cart.webp" },
       { id: 'validation', title: "Validation", image: "/images/projectpics/delivecrous/Valid.webp" }
     ],
+        links: {
+      github: "https://github.com/ShayyNwE/DeliveCROUS"
+    },
     features: [
       {
         title: "Catalogue de Produits",
@@ -103,14 +62,11 @@ export const projectsData = [
         image: "/images/projectpics/delivecrous/Valid.webp"
       }
     ],
-    links: {
-      github: "https://github.com/ShayyNwE/DeliveCROUS"
-    }
   },
 
   {
-    id: 3,
-    navbarTheme: 'light',
+    id: 2,
+    navbarTheme: 'dark',
     slug: "fournil-emile",
     title: "Au Fournil d'Émile",
     tagline: "Landing page artisanale pour une boulangerie lyonnaise.",
@@ -144,7 +100,7 @@ export const projectsData = [
   },
 
   {
-    id: 4,
+    id: 3,
     navbarTheme: 'light',
     slug: "saigon",
     title: "Saigon",
@@ -193,7 +149,7 @@ export const projectsData = [
   },
 
   {
-    id: 5,
+    id: 4,
     navbarTheme: 'light',
     slug: "fournil-honore",
     title: "Le Fournil d'Honoré",
@@ -242,7 +198,7 @@ export const projectsData = [
   },
 
   {
-    id: 6,
+    id: 5,
     navbarTheme: 'dark',
     slug: "le-backstage",
     title: "Le Backstage",
@@ -284,6 +240,51 @@ export const projectsData = [
     ],
     links: {
       live: "/LeBackstage/LeBackstage.html"
+    }
+  },
+
+  {
+    id: 6,
+    navbarTheme: 'light',
+    slug: "immersive-3d-portfolio",
+    title: "Portfolio Immersif 3D",
+    tagline: "Une expérience interactive pour repousser les limites du web.",
+    year: "2026",
+    image: "/images/projectpics/portfolio/scene.webp",
+    categoryIds: ["portfolio", "webapp"],
+    client: "Projet interne — Mattéo Livrozet",
+    role: "Lead Designer & Frontend Dev",
+    timeline: "2 mois",
+    techStack: ["React", "Three.js", "GSAP"],
+    description: "Création d’un portfolio immersif pensé comme une expérience interactive.",
+    challenge: "L’objectif était de concevoir une expérience immersive et mémorable...",
+    process: {
+      text: "Le projet a débuté par une phase de réflexion hors écran...",
+      images: [
+        "/images/projectpics/portfolio/mockup.webp",
+        "/images/projectpics/portfolio/blender.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'loader', title: "Loading Screen", image: "/images/projectpics/portfolio/loader.webp" },
+      { id: 'scene', title: "Scène Principale", image: "/images/projectpics/portfolio/scene.webp" },
+      { id: 'livre', title: "Livre", image: "/images/projectpics/portfolio/livre.webp" },
+      { id: 'livre-ouvert', title: "Livre Ouvert", image: "/images/projectpics/portfolio/livreOuvert.webp" }
+    ],
+    features: [
+      {
+        title: "Navigation 3D Narrative",
+        description: "Une navigation pensée comme un parcours scénarisé...",
+        image: "/images/projectpics/portfolio/accueil.webp"
+      },
+      {
+        title: "Transitions Caméra Fluides",
+        description: "Des transitions cinématographiques basées sur des easings personnalisés...",
+        image: "/images/projectpics/portfolio/mockupIA.webp"
+      }
+    ],
+    links: {
+      github: "https://github.com/matteolvt/Portfolio3D"
     }
   },
 ];
