@@ -1,15 +1,15 @@
 .hero-appointment {
   text-align: center;
-  padding: 180px 20px 40px 20px;
+  padding: clamp(120px, 15vw, 180px) 20px clamp(30px, 4vw, 40px);
 }
 
 .hero-appointment h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .hero-appointment p {
-  font-size: 1.25rem;
-  color: #555;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
 }
