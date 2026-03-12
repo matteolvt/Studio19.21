@@ -4,8 +4,14 @@ import "./BlogHero.css";
 export default function BlogHero() {
   return (
     <section className="blog-hero">
-      <h1>Notre Blog</h1>
-      <p>Découvrez nos articles et conseils pour vos projets web.</p>
+      <span className="subtitle">NOTRE BLOG</span>
+      <h1>
+        Nos <span className="italic">conseils</span> pour vos projets.
+      </h1>
+      <p className="hero-text">
+        Découvrez nos articles et retours d'expérience sur le design,
+        le développement web et la stratégie digitale.
+      </p>
     </section>
   );
 }

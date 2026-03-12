@@ -1,7 +1,7 @@
 .stats-section {
-  padding: 80px 20px;
-  background-color: #031FD0;
-  border: none;
+  padding: clamp(50px, 8vw, 80px) 20px;
+  background-color: var(--stats-bg);
+  transition: background-color 0.3s ease;
 }
 
 .stats-container {
@@ -11,7 +11,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   text-align: center;
-  align-items: start; 
+  align-items: start;
 }
 
 .stat-item {
@@ -23,7 +23,6 @@
   width: 100%;
 }
 
-/* Les séparateurs */
 .stat-item:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -34,14 +33,13 @@
   background-color: rgba(255, 246, 228, 0.2);
 }
 
-/* 1. FORCE L'ALIGNEMENT DES CHIFFRES */
 .stat-number {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 500;
   color: #FFF6E4;
   line-height: 1;
-  height: 70px; 
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,12 +48,12 @@
 
 .stat-label {
   font-family: 'Public Sans', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #FFFFFF;
-  height: 50px; 
+  height: 50px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -70,25 +68,12 @@
   max-width: 220px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
-  .stats-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 60px 20px;
-  }
-  .stat-item:not(:last-child)::after {
-    display: none;
-  }
-  
+  .stats-container { grid-template-columns: 1fr 1fr; gap: 50px 20px; }
+  .stat-item:not(:last-child)::after { display: none; }
 }
 
 @media (max-width: 600px) {
-  .stats-container {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .stat-number, .stat-label {
-    height: auto;
-    margin-bottom: 10px;
-  }
+  .stats-container { grid-template-columns: 1fr; gap: 40px; }
+  .stat-number, .stat-label { height: auto; margin-bottom: 8px; }
 }

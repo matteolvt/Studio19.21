@@ -1,6 +1,6 @@
 /* --- CONFIGURATION GLOBALE PAGE --- */
 .mentions-page {
-  background-color: #FFF6E4; /* Crème Studio */
+  background-color: var(--bg-primary); /* Crème Studio */
   padding: 160px 5% 120px;
   min-height: 100vh;
   width: 100%;
@@ -16,7 +16,7 @@
 
 .juridique-tag {
   font-family: 'Public Sans', sans-serif;
-  color: #031FD0;
+  color: var(--brand-blue);
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 2px;
@@ -29,7 +29,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 3.5rem;
   font-weight: 500;
-  color: #1A1A1A;
+  color: var(--text-primary);
   margin-bottom: 25px;
   line-height: 1.1;
 }
@@ -38,7 +38,7 @@
   font-family: 'Public Sans', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: #666;
+  color: var(--text-muted);
   max-width: 650px;
   margin: 0; /* <--- CHANGEMENT ICI : On enlève le 'auto' pour qu'il reste à gauche */
 }
@@ -66,7 +66,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   font-weight: 500;
-  color: #031FD0; /* <--- CHANGEMENT ICI : Titre en bleu */
+  color: var(--brand-blue); /* <--- CHANGEMENT ICI : Titre en bleu */
   margin-bottom: 20px;
   padding-bottom: 15px;
   border-bottom: 1px solid #F0F0F0;
@@ -84,7 +84,7 @@
   font-family: 'Public Sans', sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #4A4A4A !important;
+  color: var(--text-secondary) !important;
   margin: 0;
   background: transparent !important;
   width: 100%;
@@ -98,7 +98,7 @@
 .legal-highlight {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #031FD0 !important;
+  color: var(--brand-blue) !important;
   margin-bottom: 5px !important;
 }
 
@@ -110,7 +110,7 @@
 
 /* --- LIENS --- */
 .legal-card a {
-  color: #031FD0;
+  color: var(--brand-blue);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s;
@@ -118,7 +118,7 @@
 }
 
 .legal-card a:hover {
-  border-bottom: 1px solid #031FD0;
+  border-bottom: 1px solid var(--brand-blue);
 }
 
 /* --- RESPONSIVE --- */

@@ -13,10 +13,11 @@ export default function BlogFilters({ categories, selected, setSelected, posts }
       {categories.map((cat) => (
         <button
           key={cat}
-          className={selected === cat ? "active" : ""}
+          className={`blog-filter-btn ${selected === cat ? "active" : ""}`}
           onClick={() => setSelected(cat)}
         >
-          {cat} <span className="blog-filter-count">{getPostCount(cat)}</span>
+          {cat}
+          <span className="blog-filter-count">{getPostCount(cat)}</span>
         </button>
       ))}
     </div>
@@ -28,8 +29,6 @@ BlogFilters.propTypes = {
   selected: PropTypes.string.isRequired,
   setSelected: PropTypes.func.isRequired,
   posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      category: PropTypes.string.isRequired,
-    })
+    PropTypes.shape({ category: PropTypes.string.isRequired })
   ).isRequired,
 };

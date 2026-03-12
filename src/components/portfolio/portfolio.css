@@ -1,23 +1,21 @@
 /* =========================================
    CONTENEUR PRINCIPAL
-   ========================================= */
+========================================= */
 .portfolio-section {
   width: 100%;
-  height: 100vh; /* Prend tout l'écran */
+  height: 100svh;
   position: relative;
-  background: #FDFBF7;
+  background: var(--bg-primary);
   overflow: hidden;
-  
-  /* Centrage flex pour le contenu initial */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 /* =========================================
-   VISUELS (TEXTE & IMAGE)
-   ========================================= */
+   TEXTE
+========================================= */
 .portfolio-text {
   position: absolute;
   top: 5%;
@@ -25,6 +23,7 @@
   text-align: center;
   z-index: 25;
   pointer-events: none;
+  will-change: opacity, transform;
 }
 
 .portfolio-text h3 {
@@ -39,13 +38,16 @@
 
 .portfolio-text h2 {
   font-family: "Public Sans", sans-serif;
-  color: #282828;
+  color: var(--text-primary);
   font-size: 42px;
   font-weight: 900;
   margin: 0;
-  padding: 0 20px; /* Sécurité pour ne pas toucher les bords sur desktop */
+  padding: 0 20px;
 }
 
+/* =========================================
+   IMAGE PRINCIPALE
+========================================= */
 .portfolio-image-wrapper {
   width: 100%;
   height: 100%;
@@ -54,9 +56,7 @@
   align-items: center;
   z-index: 10;
   pointer-events: none;
-  
-  /* Padding pour éviter que l'image touche les bords avant le zoom */
-  padding: 20px;
+  padding: 160px 20px 20px;
   box-sizing: border-box;
 }
 
@@ -64,11 +64,11 @@
   width: 100%;
   max-width: 1200px;
   height: auto;
-  aspect-ratio: 16/9; /* Ratio Desktop par défaut */
+  aspect-ratio: 16/9;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-  transform-origin: center center;
   border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  transform-origin: center;
 }
 
 .portfolio-image img {
@@ -80,13 +80,11 @@
 
 /* =========================================
    SLIDES
-   ========================================= */
+========================================= */
 .portfolio-slides {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
+  height: 100svh;
   z-index: 50;
   visibility: hidden;
   opacity: 0;
@@ -94,10 +92,7 @@
 
 .portfolio-slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   overflow: hidden;
   background: #000;
   clip-path: inset(100% 0 0 0);
@@ -108,10 +103,9 @@
 
 .portfolio-slide img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
   opacity: 0.6;
 }
@@ -150,6 +144,9 @@
   margin: 0;
 }
 
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
 .portfolio-scroll-indicator {
   position: absolute;
   bottom: 18%;
@@ -176,22 +173,25 @@
 .portfolio-scroll-indicator .mouse-wheel {
   width: 4px;
   height: 6px;
-  background-color: #282828;
+  background: #282828;
   border-radius: 2px;
   animation: scrollWheel 1.5s infinite;
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-10px); }
-  60% { transform: translateX(-50%) translateY(-5px); }
+  0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0);}
+  40%{transform:translateX(-50%) translateY(-10px);}
+  60%{transform:translateX(-50%) translateY(-5px);}
 }
 
 @keyframes scrollWheel {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(10px); opacity: 0; }
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(10px);opacity:0;}
 }
 
+/* =========================================
+   PROGRESS BAR
+========================================= */
 .portfolio-progress-bar {
   position: fixed;
   bottom: 0;
@@ -211,57 +211,81 @@
 }
 
 /* =========================================
-   RESPONSIVE (C'EST ICI QUE TOUT CHANGE)
-   ========================================= */
+   RESPONSIVE
+========================================= */
 
-/* Tablette */
-@media (max-width: 1024px) {
-  .portfolio-image {
+/* TABLET */
+@media (max-width:1024px){
+  .portfolio-image{
     max-width: 90vw;
-    aspect-ratio: 4/3; /* Ratio un peu plus carré */
+    aspect-ratio: 4/3;
   }
 }
 
-/* Mobile (Modifications demandées) */
-@media (max-width: 768px) {
-  
-  /* --- 1. IMAGE FORMAT PORTRAIT 9:16 --- */
-  .portfolio-image {
-    /* On fixe la hauteur pour qu'elle tienne dans l'écran mobile */
-    height: 65vh; 
-    width: auto; /* La largeur s'adaptera au ratio */
-    max-width: 90vw; /* Sécurité horizontale */
-    aspect-ratio: 9 / 16; /* LE FORMAT PORTRAIT */
-  }
-
-  /* --- 2. TEXTES ADAPTÉS ET MARGES --- */
+/* MOBILE */
+@media (max-width:768px){
   .portfolio-text {
-    top: 5%; /* On remonte un peu le texte pour laisser de la place à l'image */
-    width: 90%; /* On contraint la largeur à 90% de l'écran */
-    left: 50%; /* Astuce pour centrer un élément absolute */
+    top: 3%;
+    width: 90%;
+    left: 50%;
     transform: translateX(-50%);
+    text-align: center;
   }
 
-
-  .portfolio-text h3 {
-    font-size: 12px; /* Sous-titre plus petit */
-    letter-spacing: 1.5px;
+  .portfolio-text h3{
+    font-size:12px;
+    letter-spacing:1.5px;
+  }
+  .portfolio-text h2{
+    font-size:26px;
+    line-height:1.2;
+    padding:0;
   }
 
-  .portfolio-text h2 {
-    font-size: 26px; /* Titre principal beaucoup plus petit (était 42px) */
-    line-height: 1.2; /* Meilleure interligne si le texte passe sur 3 lignes */
-    padding: 0; /* Reset du padding desktop */
+  .portfolio-image-wrapper {
+    padding: 350px 20px 20px;
   }
 
-  /* --- 3. ADAPTATION DES SLIDES AUSSI --- */
-  .portfolio-slide-title {
-    font-size: 30px; /* Titre des slides plus petit (était 48px) */
+  /* Image principale */
+  .portfolio-image{
+    width: 90vw;
+    max-width: 420px;
+    height: 90vh;
+    aspect-ratio: 9/16;
+    object-fit: cover;
   }
-  
-  .portfolio-slide-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 32px;
+
+  /* Slides */
+  .portfolio-slide img{
+    object-fit: cover;
   }
+
+  .portfolio-slide-title{
+    font-size:30px;
+  }
+
+  .portfolio-slide-icon{
+    width:70px;
+    height:70px;
+    font-size:32px;
+  }
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+html[data-theme="dark"] .portfolio-section{
+  background:#0F0F0F;
+}
+html[data-theme="dark"] .portfolio-text h2{
+  color:#F0EAD6;
+}
+html[data-theme="dark"] .portfolio-text h3{
+  color:#7B9AFF;
+}
+html[data-theme="dark"] .portfolio-scroll-indicator .mouse-icon{
+  border-color:#F0EAD6;
+}
+html[data-theme="dark"] .portfolio-scroll-indicator .mouse-wheel{
+  background-color:#F0EAD6;
 }

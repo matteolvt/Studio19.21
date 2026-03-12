@@ -1,17 +1,46 @@
 .blog-hero {
-  padding: 150px 20px 80px;
-  text-align: center;
-  background-color: #FFF6E4;
+  padding: clamp(120px, 15vw, 180px) 20px clamp(40px, 6vw, 80px);
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.blog-hero .subtitle {
+  color: var(--text-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+  font-family: 'Public Sans', sans-serif;
 }
 
 .blog-hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: #1A1A1A;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 30px;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  max-width: 800px;
 }
 
-.blog-hero p {
-  font-size: 1.2rem;
-  color: #666666;
+.blog-hero .italic {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-blue);
+}
+
+.blog-hero .hero-text {
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  max-width: 600px;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .blog-hero { padding: 120px 16px 40px; }
 }
