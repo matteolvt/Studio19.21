@@ -1,7 +1,7 @@
 .ah-wrapper {
   max-width: 720px;
   margin: 0 auto;
-  padding: 120px 32px 40px;
+  padding: clamp(100px, 14vw, 120px) 24px 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -11,8 +11,8 @@
 
 .ah-badge {
   background: transparent;
-  border: 1.5px solid #1a2f8f;
-  color: #1a2f8f;
+  border: 1.5px solid var(--article-link);
+  color: var(--article-link);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -23,18 +23,18 @@
 }
 
 .ah-title {
-  font-size: clamp(28px, 5vw, 52px);
+  font-size: clamp(26px, 5vw, 52px);
   font-weight: 700;
   line-height: 1.15;
-  color: #1a1a2e;
+  color: var(--article-heading);
   letter-spacing: -0.02em;
   margin: 0;
   font-family: "Georgia", serif;
 }
 
 .ah-excerpt {
-  font-size: 18px;
-  color: #6b6b7b;
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-muted);
   line-height: 1.7;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
@@ -47,32 +47,11 @@
   align-items: center;
   gap: 12px;
   padding-top: 8px;
-  border-top: 1px solid #e0d8cc;
+  border-top: 1px solid var(--article-border);
   width: 100%;
   justify-content: center;
 }
 
-.ah-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e0d8cc;
-}
-
-.ah-authorName {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1a1a2e;
-  margin: 0;
-  text-align: left;
-}
-
-.ah-authorMeta {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 12px;
-  color: #6b6b7b;
-  margin: 0;
-  text-align: left;
-}
+.ah-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--article-border); }
+.ah-authorName { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 14px; font-weight: 600; color: var(--article-heading); margin: 0; text-align: left; }
+.ah-authorMeta { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 12px; color: var(--text-muted); margin: 0; text-align: left; }

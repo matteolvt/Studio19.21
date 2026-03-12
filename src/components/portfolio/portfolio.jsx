@@ -9,17 +9,17 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     image: "/images/projectpics/delivecrous/Home_full.webp",
-    title: "Projet d'école — Application de vente en ligne",
+    title: "Application de vente en ligne",
     icon: "🛍️",
   },
   {
     image: "/images/projectpics/Landing/pain_full.webp",
-    title: "Exemple — Page vitrine boulangerie",
+    title: "Page vitrine boulangerie",
     icon: "🥐",
   },
   {
-    image: "/images/projectpics/Landing/bar_full.webp",
-    title: "Exemple — Page vitrine bar/restaurant",
+    image: "/images/projectpics/Landing/LeBackstage.webp",
+    title: "Page vitrine bar/restaurant",
     icon: "🍺",
   },
 
@@ -42,11 +42,21 @@ export default function Portfolio() {
     () => {
       const getScale = () => {
         if (!image.current) return 1;
+
         const rect = image.current.getBoundingClientRect();
         const scaleX = window.innerWidth / rect.width;
         const scaleY = window.innerHeight / rect.height;
+
+        // MOBILE : ne pas forcer le cover
+        if (window.innerWidth < 768) {
+          return 1.05;
+        }
+
+        // DESKTOP : effet cover
         return Math.max(scaleX, scaleY) * 1.05;
       };
+
+      ScrollTrigger.refresh();
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -79,16 +89,12 @@ export default function Portfolio() {
         "phase1"
       )
 
-        .to(
-          text.current,
-          {
-            opacity: 0,
-            y: -100,
-            duration: 0.5,
-            ease: "power2.in",
-          },
-          "phase1"
-        )
+        .to(text.current, {
+          opacity: 0,
+          y: -50, // Moins de déplacement sur mobile pour rester fluide
+          duration: 0.4,
+          ease: "power2.in",
+        }, "phase1")
 
         .to(slidesContainer.current, {
           autoAlpha: 1,

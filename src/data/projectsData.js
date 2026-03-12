@@ -10,21 +10,21 @@ export const categories = [
 export const projectsData = [
   {
     id: 1,
-    navbarTheme: 'light',
+    navbarTheme: 'dark',
     slug: "delivecrous",
     title: "Delivecrous — Application de Vente en Ligne",
     tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
     year: "2026",
     image: "/images/projectpics/delivecrous/Home_full.webp",
     categoryIds: ["ecommerce", "webapp"],
-    client: "Projet d'école — Delivecrous",
+    client: "Delivecrous",
     role: "Développeur Frontend & Designer UI",
     timeline: "2 semaines",
     techStack: ["React", "CSS"],
-    description: "Application de vente en ligne permettant la navigation, le panier et le checkout de produits.",
-    challenge: "Créer une expérience utilisateur simple et efficace...",
+    description: "Application web de vente en ligne. Elle permet aux utilisateurs de naviguer dans un catalogue de produits, de gérer leur panier et de finaliser leur commande via un tunnel de checkout complet. Le projet couvre l'intégralité du parcours client, de la découverte du produit jusqu'à la confirmation de commande, avec une gestion de compte utilisateur intégrée.",
+    challenge: "Concevoir une expérience d'achat fluide et intuitive en React, en gérant l'état global de l'application (panier, authentification, navigation) sans librairie externe de state management. L'enjeu était de rendre l'interface simple et agréable malgré la complexité fonctionnelle sous-jacente, tout en maintenant un code propre et modulaire.",
     process: {
-      text: "Le projet Delivecrous a commencé par la conception des composants sur Figma...",
+      text: "Le projet Delivecrous a démarré par la conception des composants sur Figma : wireframes basse fidélité, puis maquettes haute fidélité avec le système de design complet. Une fois la structure validée, le développement React a suivi une architecture par composants réutilisables. La gestion du panier et de l'authentification ont été les points les plus délicats, résolus avec le Context API de React pour éviter le prop drilling.",
       images: [
         "/images/projectpics/delivecrous/Composant.webp",
         "/images/projectpics/delivecrous/Prototype.webp"
@@ -43,30 +43,30 @@ export const projectsData = [
     features: [
       {
         title: "Catalogue de Produits",
-        description: "Permet aux clients de découvrir rapidement tous vos produits...",
+        description: "Interface de navigation claire avec filtrage par catégorie, affichage des prix et ajout au panier en un clic. Les fiches produits présentent le détail, la description et les options disponibles. L'ensemble est responsive et pensé pour une consultation rapide depuis mobile.",
         image: "/images/projectpics/delivecrous/Home.webp"
       },
       {
-        title: "Connexion / Compte utilisateur",
-        description: "Offre aux clients un espace personnel pour suivre leurs commandes...",
-        image: "/images/projectpics/delivecrous/Auth.webp"
-      },
-      {
-        title: "Gestion du Panier",
-        description: "Simplifie le processus d’achat avec ajout et suppression faciles des produits...",
-        image: "/images/projectpics/delivecrous/Cart.webp"
-      },
-      {
-        title: "Validation de la commande",
-        description: "Confirme la commande de manière claire et sécurisée...",
-        image: "/images/projectpics/delivecrous/Valid.webp"
-      }
+       title: "Connexion & Compte Utilisateur",
+       description: "Système d'authentification complet avec création de compte, connexion et gestion de session persistante. L'espace personnel permet de retrouver l'historique des commandes et les informations de livraison pré-remplies pour accélérer les achats suivants.",
+       image: "/images/projectpics/delivecrous/Auth.webp"
+     },
+     {
+       title: "Gestion du Panier",
+       description: "Panier dynamique mis à jour en temps réel avec ajout, suppression et modification des quantités. Le total est recalculé instantanément et l'état du panier est persisté pendant toute la session. L'interface est conçue pour minimiser les frictions avant le passage à la caisse.",
+       image: "/images/projectpics/delivecrous/Cart.webp"
+     },
+     {
+       title: "Tunnel de Commande",
+       description: "Processus de validation en étapes claires : récapitulatif du panier, saisie des informations de livraison, confirmation finale. Chaque étape est validée avant de passer à la suivante, avec des messages d'erreur explicites pour guider l'utilisateur en cas d'oubli.",
+       image: "/images/projectpics/delivecrous/Valid.webp"
+     },
     ],
   },
 
   {
     id: 2,
-    navbarTheme: 'dark',
+    navbarTheme: 'light',
     slug: "fournil-emile",
     title: "Au Fournil d'Émile",
     tagline: "Landing page artisanale pour une boulangerie lyonnaise.",
@@ -77,10 +77,10 @@ export const projectsData = [
     role: "Designer & Développeur Web",
     timeline: "1 semaine",
     techStack: ["HTML", "CSS", "JavaScript"],
-    description: "Landing page complète pour une boulangerie artisanale lyonnaise...",
-    challenge: "Concevoir une identité visuelle chaleureuse et artisanale...",
+    description: "Landing page complète pour une boulangerie artisanale lyonnaise. Le site présente l'histoire de la maison, le savoir-faire du boulanger, la carte des créations et les informations pratiques. Pensé comme une vitrine digitale chaleureuse, il reflète l'identité artisanale du lieu avec une palette terracotta et des typographies soignées. Le tout développé en HTML/CSS/JS vanilla pour des performances maximales et une prise en main simple.",
+    challenge: "Concevoir une identité visuelle qui transmette la chaleur et l'authenticité d'une boulangerie de quartier, sans tomber dans les clichés. Il fallait trouver l'équilibre entre un design moderne et lisible, et une atmosphère artisanale sincère. L'enjeu technique était aussi de livrer un site ultra-rapide, sans framework, optimisé pour les clients mobiles qui cherchent rapidement les horaires ou la carte.",
     process: {
-      text: "Le projet a démarré par une phase de recherche d'identité visuelle...",
+      text: "Le projet a démarré par une phase de recherche d'identité visuelle : analyse de la concurrence, choix de la palette (terracotta, crème, chocolat), sélection typographique. Une fois la direction artistique validée, les maquettes ont été réalisées sur Figma avant le passage au code. Le développement en HTML/CSS/JS pur a permis d'obtenir un site très léger, avec des animations CSS subtiles qui renforcent l'aspect artisanal sans alourdir l'expérience.",
       images: ["/images/projectpics/Landing/Fournil.webp"]
     },
     websitePages: [
@@ -91,8 +91,16 @@ export const projectsData = [
       { id: 'info', title: "Nos Informations", image: "/images/projectpics/Landing/Fournil_footer.webp" }
     ],
     features: [
-      { title: "Design Artisanal", description: "Palette terracotta et chocolat...", image: "/images/projectpics/Landing/Fournil.webp" },
-      { title: "Carte Interactive", description: "Système d'onglets pour naviguer...", image: "/images/projectpics/Landing/Fournil_creation.webp" }
+      {
+        title: "Identité Visuelle Artisanale",
+        description: "Palette terracotta et chocolat, typographies serif chaleureuses, textures subtiles — chaque détail visuel a été pensé pour refléter le soin et l'authenticité du fournil. Le design crée une atmosphère immédiatement reconnaissable, cohérente avec l'univers de la boulangerie.",
+        image: "/images/projectpics/Landing/Fournil.webp"
+      },
+      {
+        title: "Carte Interactive par Onglets",
+        description: "Système de navigation par onglets permettant d'explorer facilement les différentes catégories : pains, viennoiseries, pâtisseries. L'interaction est fluide et intuitive, pensée pour les clients qui consultent le site depuis leur téléphone avant de passer commande.",
+        image: "/images/projectpics/Landing/Fournil_creation.webp"
+      },
     ],
     links: {
       live: "/fournil-emile/Fournil.html",
@@ -199,7 +207,7 @@ export const projectsData = [
 
   {
     id: 5,
-    navbarTheme: 'dark',
+    navbarTheme: 'light',
     slug: "le-backstage",
     title: "Le Backstage",
     tagline: "Le QG Rock de Montplaisir — concerts, matchs et punch maison.",

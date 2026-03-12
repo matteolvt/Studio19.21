@@ -5,7 +5,7 @@ import BlogFilters from "./BlogFilters";
 import "./BlogList.css";
 
 export default function BlogList({ posts }) {
-  const categories = ["Tous", "E-commerce", "Développement web", "Site vitrine"];
+  const categories = ["Tous", "E-commerce", "Développement web", "Site vitrine","Conseils"];
   const [selectedCategory, setSelectedCategory] = useState("Tous");
 
   const filteredPosts =

@@ -1,61 +1,66 @@
 .hero-section {
-  background: linear-gradient(105deg, #FFF6E4 60%, #031FD0 60%);
-  min-height: 100vh; 
+  background: linear-gradient(105deg, var(--bg-primary) 60%, var(--brand-blue) 60%);
+  min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding-top: 120px; 
+  padding-top: 120px;
   padding-left: 5%;
   padding-right: 5%;
   position: relative;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .hero-content {
   flex-shrink: 0;
-  width: 600px;
+  width: 580px;
   text-align: left;
   position: relative;
   z-index: 10;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .hero-content h1 {
-  font-family: 'Inter', sans-serif;
-  color: #031FD0;
+  font-family: 'Public Sans', sans-serif;
+  color: var(--brand-blue);
   font-weight: 900;
-  font-size: 65px;
-  letter-spacing: -6px;
-  line-height: 0.85;
+  font-size: clamp(40px, 5vw, 65px);
+  letter-spacing: -4px;
+  line-height: 0.88;
   text-transform: uppercase;
   margin-bottom: 30px;
 }
 
+html[data-theme="dark"] .hero-content h1 { color: var(--text-blue); }
+
 .hero-content p {
-  color: #031FD0;
-  font-size: 18px;
+  color: var(--text-blue);
+  font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 700;
   line-height: 1.5;
   margin-bottom: 40px;
-  max-width: 500px;
+  max-width: 480px;
 }
 
+html[data-theme="dark"] .hero-content p { color: var(--text-secondary); }
+
 #hero-button {
-  background-color: #031FD0;
+  background-color: var(--brand-blue);
   border: none;
   color: white;
   cursor: pointer;
   font-weight: 700;
   border-radius: 50px;
-  padding: 18px 40px;
-  font-size: 18px;
+  padding: 16px 38px;
+  font-size: 17px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 #hero-button:hover {
   transform: scale(1.05);
+  box-shadow: var(--shadow-blue);
 }
 
 .hero-mac {
@@ -67,77 +72,71 @@
 }
 
 .hero-mac img {
-  width: 800px;
+  width: 780px;
   max-width: none;
   height: auto;
-  margin-left: -200px;
+  margin-left: -180px;
   margin-top: 20px;
 }
 
-/* RESPONSIVE (Mobile & Tablette) */
+/* ===== TABLET 901–1200px ===== */
+@media (max-width: 1200px) {
+  .hero-content { width: 460px; }
+  .hero-mac img { width: 620px; margin-left: -100px; }
+}
+
+/* ===== TABLET 769–900px ===== */
 @media (max-width: 900px) {
   .hero-section {
-    margin-top: 100px; 
-    background: linear-gradient(150deg, #FFF6E4 60%, #031FD0 40%) !important;
+    background: linear-gradient(150deg, var(--bg-primary) 60%, var(--brand-blue) 40%);
     flex-direction: column;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 100px;
+    padding-bottom: 40px;
   }
-  
+
   .hero-content {
     width: 90%;
+    max-width: 560px;
     text-align: center;
     margin-top: 0;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
   }
-  
-  .hero-content h1 {
-    font-size: 35px;
-    letter-spacing: -2px;
-  }
-  
-  .hero-content p {
-    font-size: 16px;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
+
+  .hero-content h1 { letter-spacing: -2px; }
+  .hero-content p { max-width: 100%; margin-left: auto; margin-right: auto; }
+
   .hero-mac {
     margin-top: 40px;
     justify-content: center;
+    width: 100%;
   }
-  
+
   .hero-mac img {
     width: 90%;
-    max-width: 100%;
+    max-width: 520px;
     margin-left: 0;
     margin-top: 0;
   }
 }
 
+/* ===== MOBILE ≤ 600px ===== */
 @media (max-width: 600px) {
   .hero-section {
-    background: linear-gradient(150deg, #FFF6E4 70%, #031FD0 30%);
-    padding-top: 60px;
-    padding-bottom: 30px !important;
+    background: linear-gradient(160deg, var(--bg-primary) 68%, var(--brand-blue) 32%);
+    padding-top: 80px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  
-  .hero-content h1 {
-    font-size: 25px;
-    letter-spacing: -1px;
-  }
-  
-  .hero-content p {
-    font-size: 14px;
-  }
-  
-  #hero-button {
-    padding: 14px 30px;
-    font-size: 16px;
-  }
-  
-  .hero-mac img {
-    width: 100%;
-  }
+
+  .hero-content { width: 100%; }
+  .hero-content h1 { letter-spacing: -1.5px; }
+  #hero-button { padding: 14px 28px; font-size: 15px; }
+  .hero-mac img { width: 100%; max-width: 100%; }
+}
+
+/* ===== TRÈS PETIT ≤ 400px ===== */
+@media (max-width: 400px) {
+  .hero-content h1 { font-size: 32px; letter-spacing: -1px; }
+  .hero-content p { font-size: 14px; }
 }
