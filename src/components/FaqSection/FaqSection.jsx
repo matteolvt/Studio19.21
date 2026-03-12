@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./FaqSection.css";
 
 const defaultFaqs = [
@@ -67,6 +68,16 @@ const FaqSection = ({ faqs = defaultFaqs, title = "Questions fréquentes" }) => 
       </div>
     </section>
   );
+};
+
+FaqSection.propTypes = {
+  faqs: PropTypes.arrayOf(
+    PropTypes.shape({
+      question: PropTypes.string.isRequired,
+      answer: PropTypes.string.isRequired,
+    })
+  ),
+  title: PropTypes.string,
 };
 
 export default FaqSection;

@@ -9,7 +9,7 @@ export default function BlogHero() {
         Nos <span className="italic">conseils</span> pour vos projets.
       </h1>
       <p className="hero-text">
-        Découvrez nos articles et retours d'expérience sur le design,
+        Découvrez nos articles et retours d&apos;expérience sur le design,
         le développement web et la stratégie digitale.
       </p>
     </section>

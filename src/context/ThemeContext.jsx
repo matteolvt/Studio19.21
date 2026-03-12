@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from "react";
+import PropTypes from "prop-types";
 import { useDarkMode } from "../hooks/useDarkMode";
 
 const ThemeContext = createContext(null);
@@ -11,6 +12,10 @@ export function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export function useTheme() {
   const ctx = useContext(ThemeContext);
