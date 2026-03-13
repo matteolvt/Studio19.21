@@ -7,6 +7,7 @@ import "./BlogList.css";
 export default function BlogList({ posts }) {
   const categories = ["Tous", "E-commerce", "Développement web", "Site vitrine","Conseils"];
   const [selectedCategory, setSelectedCategory] = useState("Tous");
+  const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const filteredPosts =
     selectedCategory === "Tous"
