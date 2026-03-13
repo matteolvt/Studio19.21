@@ -9,9 +9,13 @@ export default function BlogList({ posts }) {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
 
   const filteredPosts =
-    selectedCategory === "Tous"
-      ? posts
-      : posts.filter((post) => post.category === selectedCategory);
+  selectedCategory === "Tous"
+    ? posts
+    : posts.filter((post) => post.category === selectedCategory);
+
+  const sortedPosts = [...filteredPosts].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
   return (
     <section className="blog-list-section">
@@ -22,8 +26,8 @@ export default function BlogList({ posts }) {
         posts={posts}
       />
       <div className="blog-list">
-        {filteredPosts.map((post, index) => (
-          <BlogCard key={index} {...post} />
+        {sortedPosts.map((post) => (
+          <BlogCard key={post.id} {...post} />
         ))}
       </div>
     </section>
