@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "../../context/ThemeContext";
 import "./navbar.css";
 import logo from "../../assets/Logo.svg";
 import { projectsData } from "../../data/projectsData";
@@ -9,7 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const lastScrollY = useRef(0);
-  const { isDark, toggle } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [navbarTheme, setNavbarTheme] = useState("");
 
   const isHome = location.pathname === "/";
   const isPortfolio = location.pathname === "/portfolio";
@@ -18,30 +18,41 @@ const Navbar = () => {
 
   // ─── Thème light/dark uniquement sur la hero d'un projet ───
   useEffect(() => {
-  // On ne touche au theme que si on est sur une page projet
-  if (location.pathname.includes("/projets/")) {
-    const handleScroll = () => {
-      const hero = document.querySelector(".project-hero");
-      const slug = location.pathname.split("/projets/")[1];
-      const project = projectsData.find((p) => p.slug === slug);
-
-      if (hero && project?.navbarTheme) {
-        if (hero.getBoundingClientRect().bottom > 100) {
-          document.body.setAttribute("data-navbar-theme", project.navbarTheme);
-        } else {
-          document.body.removeAttribute("data-navbar-theme");
-        }
-      } else {
-        document.body.removeAttribute("data-navbar-theme");
-      }
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  } else {
-    // On est sur une autre page → supprimer tout thème
+  if (!location.pathname.includes("/projets/")) {
     document.body.removeAttribute("data-navbar-theme");
+    return;
   }
+
+  const slug = location.pathname.split("/projets/")[1];
+  const project = projectsData.find((p) => p.slug === slug);
+
+  if (!project?.navbarTheme) {
+    document.body.removeAttribute("data-navbar-theme");
+    return;
+  }
+
+  const handleScroll = () => {
+    const hero = document.querySelector(".project-hero");
+    if (!hero) {
+      document.body.setAttribute("data-navbar-theme", project.navbarTheme);
+      return;
+    }
+    if (hero.getBoundingClientRect().bottom > 100) {
+      document.body.setAttribute("data-navbar-theme", project.navbarTheme);
+    } else {
+      document.body.removeAttribute("data-navbar-theme");
+    }
+  };
+
+  // Délai pour laisser le DOM se monter
+  const timeout = setTimeout(handleScroll, 50);
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => {
+    clearTimeout(timeout);
+    window.removeEventListener("scroll", handleScroll);
+    document.body.removeAttribute("data-navbar-theme");
+  };
 }, [location.pathname]);
 
   // ─── Portfolio active custom event ───
@@ -82,31 +93,45 @@ const Navbar = () => {
 
   // ─── Scroll show/hide navbar ───
   useEffect(() => {
-    const onScroll = () => {
-      if (isOpen || isPortfolio || isPortfolioActive) return;
-      const cur = window.scrollY;
-      if (cur < 50) setIsVisible(true);
-      else if (cur > lastScrollY.current) setIsVisible(false);
-      else setIsVisible(true);
-      lastScrollY.current = cur;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isOpen, isPortfolio, isPortfolioActive]);
+  const onScroll = () => {
+    if (isOpen || isPortfolio || isPortfolioActive) return;
+    const cur = window.scrollY;
 
-  const navbarClass = `navbar ${isHome ? "home" : ""} ${
-    isOpen ? "navbar-visible" : isVisible ? "navbar-visible" : "navbar-hidden"
-  } ${isPortfolioActive ? "navbar-portfolio-hidden" : ""}`;
+    setIsScrolled(cur > 50);
+
+    if (cur < 50) setIsVisible(true);
+    else if (cur > lastScrollY.current) setIsVisible(false);
+    else setIsVisible(true);
+    lastScrollY.current = cur;
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  return () => window.removeEventListener("scroll", onScroll);
+}, [isOpen, isPortfolio, isPortfolioActive]);
+
+// Observe data-navbar-theme sur le body
+useEffect(() => {
+  const observer = new MutationObserver(() => {
+    setNavbarTheme(document.body.getAttribute("data-navbar-theme") || "");
+  });
+  observer.observe(document.body, { attributes: true, attributeFilter: ["data-navbar-theme"] });
+  return () => observer.disconnect();
+}, []);
+
+  const navbarClass = `navbar ${isHome ? "home" : ""} ${isScrolled && !navbarTheme ? "scrolled" : ""} ${
+  isOpen ? "navbar-visible" : isVisible ? "navbar-visible" : "navbar-hidden"
+} ${isPortfolioActive ? "navbar-portfolio-hidden" : ""}`;
+
+
 
   return (
     <nav className={navbarClass}>
       <Link to="/" className="logo" onClick={() => setIsOpen(false)}>
-        <img src={logo} alt="Logo" className={isDark ? "logo-dark" : ""} />
+        <img src={logo} alt="Logo"/>
       </Link>
 
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         <Link to="/" className="mobile-menu-logo" onClick={() => setIsOpen(false)}>
-          <img src={logo} alt="Logo" className={isDark ? "logo-dark" : ""} />
+          <img src={logo} alt="Logo"/>
         </Link>
         <Link to="/projets" onClick={() => setIsOpen(false)}>Projets</Link>
         <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
@@ -118,18 +143,6 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
-        <button
-          className="theme-toggle"
-          onClick={toggle}
-          aria-label={isDark ? "Mode clair" : "Mode sombre"}
-        >
-          <span className="theme-toggle-track">
-            <span className="theme-toggle-thumb" />
-            <span className="theme-toggle-icon theme-toggle-sun">☀️</span>
-            <span className="theme-toggle-icon theme-toggle-moon">🌙</span>
-          </span>
-        </button>
-
         {!isPortfolio && (
           <button
             className={`burger ${isOpen ? "open" : ""}`}

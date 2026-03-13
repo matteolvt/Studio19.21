@@ -295,4 +295,59 @@ export const projectsData = [
       github: "https://github.com/matteolvt/Portfolio3D"
     }
   },
+  {
+    id: 7,
+    navbarTheme: 'light',
+    slug: "sucretoile",
+    title: "SucrÉtoile",
+    tagline: "Landing page festive et colorée pour une créatrice de gâteaux sur-mesure.",
+    year: "2026",
+    image: "/images/projectpics/FestiCake/festicake_hero.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "SucrÉtoile — Cake Design",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page complète pour une pâtissière spécialisée dans la création de gâteaux sur-mesure pour tous types d'occasions : anniversaires, mariages, baptêmes, événements. Le site traduit un univers festif et artisanal avec des blobs animés, une palette pastel vibrante et des typographies expressives, tout en intégrant des fonctionnalités concrètes utiles au parcours client.",
+    challenge: "Traduire visuellement l'univers joyeux d'une créatrice de gâteaux dans un site à la fois ludique et professionnel. L'enjeu était d'animer les éléments de fond en CSS pur, de rendre le calculateur de parts et le guide des saveurs pleinement interactifs, sans sacrifier les performances mobiles.",
+    process: {
+      text: "Le projet a démarré par une recherche d'identité visuelle inspirée de la pâtisserie créative : palette pastel (rose, bleu ciel, jaune citron, violet), typographies expressives (Fredoka One + Nunito), et animations CSS subtiles pour les blobs de fond. Les maquettes ont été validées avant le développement. Le choix du HTML/CSS/JS vanilla garantit un site léger et ultra-performant.",
+      images: [
+        "/images/projectpics/FestiCake/festicake_hero.webp",
+        "/images/projectpics/FestiCake/festicake_galerie.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/FestiCake/festicake_hero.webp" },
+      { id: 'galerie', title: "Galerie", image: "/images/projectpics/FestiCake/festicake_galerie.webp" },
+      { id: 'saveurs', title: "Guide des Saveurs", image: "/images/projectpics/FestiCake/festicake_saveurs.webp" },
+      { id: 'Calculateur', title: "Calculateur", image: "/images/projectpics/FestiCake/festicake_calculateur.webp" },
+      { id: 'ateliers', title: "Ateliers", image: "/images/projectpics/FestiCake/festicake_ateliers.webp" },
+    ],
+    features: [
+      {
+        title: "Identité Visuelle Festive",
+        description: "Palette pastel vibrante, blobs animés en CSS, typographies Fredoka One et Nunito — chaque détail visuel plonge le visiteur dans un univers cohérent avec l'activité de la créatrice.",
+        image: "/images/projectpics/FestiCake/festicake_hero.webp"
+      },
+      {
+        title: "Galerie par Occasion",
+        description: "Portfolio filtrable par type d'événement (anniversaire, mariage, baptême, entreprise) pour que chaque visiteur trouve rapidement l'inspiration qui correspond à son projet.",
+        image: "/images/projectpics/FestiCake/festicake_galerie.webp"
+      },
+      {
+        title: "Calculateur de Parts",
+        description: "Outil interactif permettant aux clients d'estimer instantanément la taille du gâteau dont ils ont besoin selon le nombre de convives — sans échange de mails.",
+        image: "/images/projectpics/FestiCake/festicake_calculateur.webp"
+      },
+      {
+        title: "Formulaire de Devis Multi-Étapes",
+        description: "Un formulaire progressif en plusieurs étapes pour guider le client dans la description de son projet (occasion, date, budget, personnalisation) et générer des demandes qualifiées.",
+        image: "/images/projectpics/FestiCake/festicake_ateliers.webp"
+      },
+    ],
+    links: {
+      live: "/SucrEtoile/Sucretoile.html",
+    }
+  },
 ];
