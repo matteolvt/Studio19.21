@@ -65,8 +65,9 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center center; /* ✅ centré au lieu de top center */
+  object-fit: contain;
+  object-position: center center;
+  background-color: #1a1a2e;
 }
 
 /* --- Info sur la slide (Titre) --- */

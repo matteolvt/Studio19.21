@@ -254,50 +254,6 @@ export const projectsData = [
   {
     id: 6,
     navbarTheme: 'light',
-    slug: "immersive-3d-portfolio",
-    title: "Portfolio Immersif 3D",
-    tagline: "Une expérience interactive pour repousser les limites du web.",
-    year: "2026",
-    image: "/images/projectpics/portfolio/scene.webp",
-    categoryIds: ["portfolio", "webapp"],
-    client: "Projet interne — Mattéo Livrozet",
-    role: "Lead Designer & Frontend Dev",
-    timeline: "2 mois",
-    techStack: ["React", "Three.js", "GSAP"],
-    description: "Création d’un portfolio immersif pensé comme une expérience interactive.",
-    challenge: "L’objectif était de concevoir une expérience immersive et mémorable...",
-    process: {
-      text: "Le projet a débuté par une phase de réflexion hors écran...",
-      images: [
-        "/images/projectpics/portfolio/mockup.webp",
-        "/images/projectpics/portfolio/blender.webp"
-      ]
-    },
-    websitePages: [
-      { id: 'loader', title: "Loading Screen", image: "/images/projectpics/portfolio/loader.webp" },
-      { id: 'scene', title: "Scène Principale", image: "/images/projectpics/portfolio/scene.webp" },
-      { id: 'livre', title: "Livre", image: "/images/projectpics/portfolio/livre.webp" },
-      { id: 'livre-ouvert', title: "Livre Ouvert", image: "/images/projectpics/portfolio/livreOuvert.webp" }
-    ],
-    features: [
-      {
-        title: "Navigation 3D Narrative",
-        description: "Une navigation pensée comme un parcours scénarisé...",
-        image: "/images/projectpics/portfolio/accueil.webp"
-      },
-      {
-        title: "Transitions Caméra Fluides",
-        description: "Des transitions cinématographiques basées sur des easings personnalisés...",
-        image: "/images/projectpics/portfolio/mockupIA.webp"
-      }
-    ],
-    links: {
-      github: "https://github.com/matteolvt/Portfolio3D"
-    }
-  },
-  {
-    id: 7,
-    navbarTheme: 'light',
     slug: "sucretoile",
     title: "SucrÉtoile",
     tagline: "Landing page festive et colorée pour une créatrice de gâteaux sur-mesure.",
@@ -348,6 +304,151 @@ export const projectsData = [
     ],
     links: {
       live: "/SucrEtoile/Sucretoile.html",
+    }
+  },
+
+  {
+    id: 7,
+    navbarTheme: 'light',
+    slug: "luna-beauty",
+    title: "Luna Beauty Salon",
+    tagline: "Landing page premium pour un salon de beauté spécialisé en manucure russe.",
+    year: "2026",
+    image: "/images/projectpics/Landing/NikaBeauty_hero.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "Luna Beauty Salon — Lyon 6",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page complète pour un salon de beauté premium situé au cœur de Lyon 2, spécialisé dans la manucure russe, les extensions de cils et le design de sourcils. Le site présente l'ensemble des prestations avec une carte des soins interactive, un portfolio filtrable, les informations de réservation multi-canaux et les accès. Développé en HTML/CSS/JS vanilla pour des performances maximales.",
+    challenge: "Traduire l'univers raffiné d'un salon haut de gamme dans un design à la fois élégant et fonctionnel. L'enjeu était de combiner une esthétique premium (palette terracotta, typographies Playfair Display) avec une navigation fluide, des onglets de prestations interactifs et un portfolio filtrable — le tout sans framework.",
+    process: {
+      text: "Le projet a démarré par une recherche d'identité visuelle cohérente avec l'univers beauté premium : palette terracotta et nude, typographies serif (Playfair Display) associées à Jost pour le texte courant. La structure a été pensée pour guider naturellement le visiteur de la découverte du salon jusqu'à la prise de rendez-vous, avec plusieurs points de conversion intégrés.",
+      images: [
+        "/images/projectpics/Landing/NikaBeauty_hero.webp",
+        "/images/projectpics/Landing/NikaBeauty_tarifs.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/NikaBeauty_hero.webp" },
+      { id: 'tarifs', title: "Soins & Tarifs", image: "/images/projectpics/Landing/NikaBeauty_tarifs.webp" },
+      { id: 'portfolio', title: "Portfolio", image: "/images/projectpics/Landing/NikaBeauty_portfolio.webp" },
+      { id: 'rdv', title: "Réservation", image: "/images/projectpics/Landing/NikaBeauty_rdv.webp" }
+    ],
+    features: [
+      {
+        title: "Carte des Soins Interactive",
+        description: "Présentation des prestations en onglets (Manucure, Pédicure, Cils & Sourcils, Soins) avec tarifs, durées et descriptions détaillées. Les cartes Nail Art niveaux 1 et 2 permettent au client de choisir sa complexité de création.",
+        image: "/images/projectpics/Landing/NikaBeauty_tarifs.webp"
+      },
+      {
+        title: "Portfolio Filtrable",
+        description: "Galerie de réalisations filtrable par catégorie (Nude, Nail Art, Avant/Après) avec overlays élégants révélant les détails de chaque création au survol.",
+        image: "/images/projectpics/Landing/NikaBeauty_portfolio.webp"
+      },
+      {
+        title: "Réservation Multi-Canaux",
+        description: "Section de prise de rendez-vous centralisant tous les modes de contact : Planity, téléphone, Instagram DM et WhatsApp — avec les consignes d'avant-séance pour préparer le client.",
+        image: "/images/projectpics/Landing/NikaBeauty_rdv.webp"
+      }
+    ],
+    links: {
+      live: "/NikaBeauty/NikaBeauty.html"
+    }
+  },
+
+  {
+    id: 8,
+    navbarTheme: 'light',
+    slug: "axiom-beauty",
+    title: "AXIOM BEAUTY",
+    tagline: "Landing page dark & neon pour un studio de beauté bold à Lyon.",
+    year: "2026",
+    image: "/images/projectpics/Landing/NeonBeauty_hero.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "AXIOM BEAUTY — Lyon 3",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page dark & neon pour un studio de beauté urbain et avant-gardiste basé à Lyon 3. L'identité visuelle repose sur une esthétique chrome, grain et néon vert électrique — à l'opposé des codes classiques du secteur beauté. Le site intègre des animations glitch, un effet grain animé, une galerie filtrable et une section réservation épurée.",
+    challenge: "Créer une identité visuelle radicalement différente des standards du secteur beauté, tout en conservant une lisibilité et une ergonomie parfaites. L'enjeu était de maîtriser les effets visuels (grain, glitch, néon glow) sans que la page ne devienne trop lourde ou illisible sur mobile.",
+    process: {
+      text: "Le projet a démarré par une direction artistique volontairement provocatrice : fond noir absolu, typographies condensées ultra-bold (Barlow Condensed, Oswald), couleurs chrome et néon vert. Les effets visuels (grain overlay, glitch aléatoire, scroll distortion) ont été développés entièrement en CSS et JS vanilla pour garder des performances optimales.",
+      images: [
+        "/images/projectpics/Landing/NeonBeauty_hero.webp",
+        "/images/projectpics/Landing/NeonBeauty_services.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/NeonBeauty_hero.webp" },
+      { id: 'services', title: "Services", image: "/images/projectpics/Landing/NeonBeauty_services.webp" },
+      { id: 'galerie', title: "Galerie", image: "/images/projectpics/Landing/NeonBeauty_galerie.webp" },
+      { id: 'contact', title: "Contact", image: "/images/projectpics/Landing/NeonBeauty_contact.webp" }
+    ],
+    features: [
+      {
+        title: "Esthétique Dark Chrome & Néon",
+        description: "Direction artistique radicale : fond noir absolu, typographies condensées ultra-bold, effet grain animé en overlay et couleurs néon vert électrique. Une identité visuelle mémorable qui tranche avec les codes habituels du secteur beauté.",
+        image: "/images/projectpics/Landing/NeonBeauty_hero.webp"
+      },
+      {
+        title: "Effets Glitch & Animations",
+        description: "Animations glitch déclenchées aléatoirement, effet scroll distortion sur la galerie et transitions CSS fluides — tout développé en vanilla JS pour des performances maximales.",
+        image: "/images/projectpics/Landing/NeonBeauty_galerie.webp"
+      },
+      {
+        title: "Galerie & Services Filtrables",
+        description: "Présentation des prestations (Nails, Eyes, Brows, Skin) avec galerie filtrable par catégorie et section réservation multi-canaux épurée.",
+        image: "/images/projectpics/Landing/NeonBeauty_services.webp"
+      }
+    ],
+    links: {
+      live: "/NeonBeauty/NeonBeauty.html"
+    }
+  },
+
+  {
+    id: 9,
+    navbarTheme: 'light',
+    slug: "immersive-3d-portfolio",
+    title: "Portfolio Immersif 3D",
+    tagline: "Une expérience interactive pour repousser les limites du web.",
+    year: "2026",
+    image: "/images/projectpics/portfolio/scene.webp",
+    categoryIds: ["portfolio", "webapp"],
+    client: "Projet interne — Mattéo Livrozet",
+    role: "Lead Designer & Frontend Dev",
+    timeline: "2 mois",
+    techStack: ["React", "Three.js", "GSAP"],
+    description: "Création d'un portfolio immersif pensé comme une expérience interactive.",
+    challenge: "L'objectif était de concevoir une expérience immersive et mémorable...",
+    process: {
+      text: "Le projet a débuté par une phase de réflexion hors écran...",
+      images: [
+        "/images/projectpics/portfolio/mockup.webp",
+        "/images/projectpics/portfolio/blender.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'loader', title: "Loading Screen", image: "/images/projectpics/portfolio/loader.webp" },
+      { id: 'scene', title: "Scène Principale", image: "/images/projectpics/portfolio/scene.webp" },
+      { id: 'livre', title: "Livre", image: "/images/projectpics/portfolio/livre.webp" },
+      { id: 'livre-ouvert', title: "Livre Ouvert", image: "/images/projectpics/portfolio/livreOuvert.webp" }
+    ],
+    features: [
+      {
+        title: "Navigation 3D Narrative",
+        description: "Une navigation pensée comme un parcours scénarisé...",
+        image: "/images/projectpics/portfolio/accueil.webp"
+      },
+      {
+        title: "Transitions Caméra Fluides",
+        description: "Des transitions cinématographiques basées sur des easings personnalisés...",
+        image: "/images/projectpics/portfolio/mockupIA.webp"
+      }
+    ],
+    links: {
+      github: "https://github.com/matteolvt/Portfolio3D"
     }
   },
 ];
