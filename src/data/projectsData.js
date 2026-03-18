@@ -10,21 +10,21 @@ export const categories = [
 export const projectsData = [
   {
     id: 1,
-    navbarTheme: 'light',
+    navbarTheme: 'dark',
     slug: "delivecrous",
     title: "Delivecrous — Application de Vente en Ligne",
     tagline: "Une boutique en ligne simple et intuitive pour vos clients.",
     year: "2026",
     image: "/images/projectpics/delivecrous/Home_full.webp",
     categoryIds: ["ecommerce", "webapp"],
-    client: "Projet d'école — Delivecrous",
+    client: "Delivecrous",
     role: "Développeur Frontend & Designer UI",
     timeline: "2 semaines",
     techStack: ["React", "CSS"],
-    description: "Application de vente en ligne permettant la navigation, le panier et le checkout de produits.",
-    challenge: "Créer une expérience utilisateur simple et efficace...",
+    description: "Application web de vente en ligne. Elle permet aux utilisateurs de naviguer dans un catalogue de produits, de gérer leur panier et de finaliser leur commande via un tunnel de checkout complet. Le projet couvre l'intégralité du parcours client, de la découverte du produit jusqu'à la confirmation de commande, avec une gestion de compte utilisateur intégrée.",
+    challenge: "Concevoir une expérience d'achat fluide et intuitive en React, en gérant l'état global de l'application (panier, authentification, navigation) sans librairie externe de state management. L'enjeu était de rendre l'interface simple et agréable malgré la complexité fonctionnelle sous-jacente, tout en maintenant un code propre et modulaire.",
     process: {
-      text: "Le projet Delivecrous a commencé par la conception des composants sur Figma...",
+      text: "Le projet Delivecrous a démarré par la conception des composants sur Figma : wireframes basse fidélité, puis maquettes haute fidélité avec le système de design complet. Une fois la structure validée, le développement React a suivi une architecture par composants réutilisables. La gestion du panier et de l'authentification ont été les points les plus délicats, résolus avec le Context API de React pour éviter le prop drilling.",
       images: [
         "/images/projectpics/delivecrous/Composant.webp",
         "/images/projectpics/delivecrous/Prototype.webp"
@@ -43,30 +43,30 @@ export const projectsData = [
     features: [
       {
         title: "Catalogue de Produits",
-        description: "Permet aux clients de découvrir rapidement tous vos produits...",
+        description: "Interface de navigation claire avec filtrage par catégorie, affichage des prix et ajout au panier en un clic. Les fiches produits présentent le détail, la description et les options disponibles. L'ensemble est responsive et pensé pour une consultation rapide depuis mobile.",
         image: "/images/projectpics/delivecrous/Home.webp"
       },
       {
-        title: "Connexion / Compte utilisateur",
-        description: "Offre aux clients un espace personnel pour suivre leurs commandes...",
-        image: "/images/projectpics/delivecrous/Auth.webp"
-      },
-      {
-        title: "Gestion du Panier",
-        description: "Simplifie le processus d’achat avec ajout et suppression faciles des produits...",
-        image: "/images/projectpics/delivecrous/Cart.webp"
-      },
-      {
-        title: "Validation de la commande",
-        description: "Confirme la commande de manière claire et sécurisée...",
-        image: "/images/projectpics/delivecrous/Valid.webp"
-      }
+       title: "Connexion & Compte Utilisateur",
+       description: "Système d'authentification complet avec création de compte, connexion et gestion de session persistante. L'espace personnel permet de retrouver l'historique des commandes et les informations de livraison pré-remplies pour accélérer les achats suivants.",
+       image: "/images/projectpics/delivecrous/Auth.webp"
+     },
+     {
+       title: "Gestion du Panier",
+       description: "Panier dynamique mis à jour en temps réel avec ajout, suppression et modification des quantités. Le total est recalculé instantanément et l'état du panier est persisté pendant toute la session. L'interface est conçue pour minimiser les frictions avant le passage à la caisse.",
+       image: "/images/projectpics/delivecrous/Cart.webp"
+     },
+     {
+       title: "Tunnel de Commande",
+       description: "Processus de validation en étapes claires : récapitulatif du panier, saisie des informations de livraison, confirmation finale. Chaque étape est validée avant de passer à la suivante, avec des messages d'erreur explicites pour guider l'utilisateur en cas d'oubli.",
+       image: "/images/projectpics/delivecrous/Valid.webp"
+     },
     ],
   },
 
   {
     id: 2,
-    navbarTheme: 'dark',
+    navbarTheme: 'light',
     slug: "fournil-emile",
     title: "Au Fournil d'Émile",
     tagline: "Landing page artisanale pour une boulangerie lyonnaise.",
@@ -77,10 +77,10 @@ export const projectsData = [
     role: "Designer & Développeur Web",
     timeline: "1 semaine",
     techStack: ["HTML", "CSS", "JavaScript"],
-    description: "Landing page complète pour une boulangerie artisanale lyonnaise...",
-    challenge: "Concevoir une identité visuelle chaleureuse et artisanale...",
+    description: "Landing page complète pour une boulangerie artisanale lyonnaise. Le site présente l'histoire de la maison, le savoir-faire du boulanger, la carte des créations et les informations pratiques. Pensé comme une vitrine digitale chaleureuse, il reflète l'identité artisanale du lieu avec une palette terracotta et des typographies soignées. Le tout développé en HTML/CSS/JS vanilla pour des performances maximales et une prise en main simple.",
+    challenge: "Concevoir une identité visuelle qui transmette la chaleur et l'authenticité d'une boulangerie de quartier, sans tomber dans les clichés. Il fallait trouver l'équilibre entre un design moderne et lisible, et une atmosphère artisanale sincère. L'enjeu technique était aussi de livrer un site ultra-rapide, sans framework, optimisé pour les clients mobiles qui cherchent rapidement les horaires ou la carte.",
     process: {
-      text: "Le projet a démarré par une phase de recherche d'identité visuelle...",
+      text: "Le projet a démarré par une phase de recherche d'identité visuelle : analyse de la concurrence, choix de la palette (terracotta, crème, chocolat), sélection typographique. Une fois la direction artistique validée, les maquettes ont été réalisées sur Figma avant le passage au code. Le développement en HTML/CSS/JS pur a permis d'obtenir un site très léger, avec des animations CSS subtiles qui renforcent l'aspect artisanal sans alourdir l'expérience.",
       images: ["/images/projectpics/Landing/Fournil.webp"]
     },
     websitePages: [
@@ -91,8 +91,16 @@ export const projectsData = [
       { id: 'info', title: "Nos Informations", image: "/images/projectpics/Landing/Fournil_footer.webp" }
     ],
     features: [
-      { title: "Design Artisanal", description: "Palette terracotta et chocolat...", image: "/images/projectpics/Landing/Fournil.webp" },
-      { title: "Carte Interactive", description: "Système d'onglets pour naviguer...", image: "/images/projectpics/Landing/Fournil_creation.webp" }
+      {
+        title: "Identité Visuelle Artisanale",
+        description: "Palette terracotta et chocolat, typographies serif chaleureuses, textures subtiles — chaque détail visuel a été pensé pour refléter le soin et l'authenticité du fournil. Le design crée une atmosphère immédiatement reconnaissable, cohérente avec l'univers de la boulangerie.",
+        image: "/images/projectpics/Landing/Fournil.webp"
+      },
+      {
+        title: "Carte Interactive par Onglets",
+        description: "Système de navigation par onglets permettant d'explorer facilement les différentes catégories : pains, viennoiseries, pâtisseries. L'interaction est fluide et intuitive, pensée pour les clients qui consultent le site depuis leur téléphone avant de passer commande.",
+        image: "/images/projectpics/Landing/Fournil_creation.webp"
+      },
     ],
     links: {
       live: "/fournil-emile/Fournil.html",
@@ -199,7 +207,7 @@ export const projectsData = [
 
   {
     id: 5,
-    navbarTheme: 'dark',
+    navbarTheme: 'light',
     slug: "le-backstage",
     title: "Le Backstage",
     tagline: "Le QG Rock de Montplaisir — concerts, matchs et punch maison.",
@@ -246,6 +254,162 @@ export const projectsData = [
   {
     id: 6,
     navbarTheme: 'light',
+    slug: "sucretoile",
+    title: "SucrÉtoile",
+    tagline: "Landing page festive et colorée pour une créatrice de gâteaux sur-mesure.",
+    year: "2026",
+    image: "/images/projectpics/FestiCake/festicake_hero.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "SucrÉtoile — Cake Design",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page complète pour une pâtissière spécialisée dans la création de gâteaux sur-mesure pour tous types d'occasions : anniversaires, mariages, baptêmes, événements. Le site traduit un univers festif et artisanal avec des blobs animés, une palette pastel vibrante et des typographies expressives, tout en intégrant des fonctionnalités concrètes utiles au parcours client.",
+    challenge: "Traduire visuellement l'univers joyeux d'une créatrice de gâteaux dans un site à la fois ludique et professionnel. L'enjeu était d'animer les éléments de fond en CSS pur, de rendre le calculateur de parts et le guide des saveurs pleinement interactifs, sans sacrifier les performances mobiles.",
+    process: {
+      text: "Le projet a démarré par une recherche d'identité visuelle inspirée de la pâtisserie créative : palette pastel (rose, bleu ciel, jaune citron, violet), typographies expressives (Fredoka One + Nunito), et animations CSS subtiles pour les blobs de fond. Les maquettes ont été validées avant le développement. Le choix du HTML/CSS/JS vanilla garantit un site léger et ultra-performant.",
+      images: [
+        "/images/projectpics/FestiCake/festicake_hero.webp",
+        "/images/projectpics/FestiCake/festicake_galerie.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/FestiCake/festicake_hero.webp" },
+      { id: 'galerie', title: "Galerie", image: "/images/projectpics/FestiCake/festicake_galerie.webp" },
+      { id: 'saveurs', title: "Guide des Saveurs", image: "/images/projectpics/FestiCake/festicake_saveurs.webp" },
+      { id: 'Calculateur', title: "Calculateur", image: "/images/projectpics/FestiCake/festicake_calculateur.webp" },
+      { id: 'ateliers', title: "Ateliers", image: "/images/projectpics/FestiCake/festicake_ateliers.webp" },
+    ],
+    features: [
+      {
+        title: "Identité Visuelle Festive",
+        description: "Palette pastel vibrante, blobs animés en CSS, typographies Fredoka One et Nunito — chaque détail visuel plonge le visiteur dans un univers cohérent avec l'activité de la créatrice.",
+        image: "/images/projectpics/FestiCake/festicake_hero.webp"
+      },
+      {
+        title: "Galerie par Occasion",
+        description: "Portfolio filtrable par type d'événement (anniversaire, mariage, baptême, entreprise) pour que chaque visiteur trouve rapidement l'inspiration qui correspond à son projet.",
+        image: "/images/projectpics/FestiCake/festicake_galerie.webp"
+      },
+      {
+        title: "Calculateur de Parts",
+        description: "Outil interactif permettant aux clients d'estimer instantanément la taille du gâteau dont ils ont besoin selon le nombre de convives — sans échange de mails.",
+        image: "/images/projectpics/FestiCake/festicake_calculateur.webp"
+      },
+      {
+        title: "Formulaire de Devis Multi-Étapes",
+        description: "Un formulaire progressif en plusieurs étapes pour guider le client dans la description de son projet (occasion, date, budget, personnalisation) et générer des demandes qualifiées.",
+        image: "/images/projectpics/FestiCake/festicake_ateliers.webp"
+      },
+    ],
+    links: {
+      live: "/SucrEtoile/Sucretoile.html",
+    }
+  },
+
+  {
+    id: 7,
+    navbarTheme: 'light',
+    slug: "luna-beauty",
+    title: "Luna Beauty Salon",
+    tagline: "Landing page premium pour un salon de beauté spécialisé en manucure russe.",
+    year: "2026",
+    image: "/images/projectpics/Landing/NikaBeauty_hero.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "Luna Beauty Salon — Lyon 6",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page complète pour un salon de beauté premium situé au cœur de Lyon 2, spécialisé dans la manucure russe, les extensions de cils et le design de sourcils. Le site présente l'ensemble des prestations avec une carte des soins interactive, un portfolio filtrable, les informations de réservation multi-canaux et les accès. Développé en HTML/CSS/JS vanilla pour des performances maximales.",
+    challenge: "Traduire l'univers raffiné d'un salon haut de gamme dans un design à la fois élégant et fonctionnel. L'enjeu était de combiner une esthétique premium (palette terracotta, typographies Playfair Display) avec une navigation fluide, des onglets de prestations interactifs et un portfolio filtrable — le tout sans framework.",
+    process: {
+      text: "Le projet a démarré par une recherche d'identité visuelle cohérente avec l'univers beauté premium : palette terracotta et nude, typographies serif (Playfair Display) associées à Jost pour le texte courant. La structure a été pensée pour guider naturellement le visiteur de la découverte du salon jusqu'à la prise de rendez-vous, avec plusieurs points de conversion intégrés.",
+      images: [
+        "/images/projectpics/Landing/NikaBeauty_hero.webp",
+        "/images/projectpics/Landing/NikaBeauty_tarifs.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/NikaBeauty_hero.webp" },
+      { id: 'tarifs', title: "Soins & Tarifs", image: "/images/projectpics/Landing/NikaBeauty_tarifs.webp" },
+      { id: 'portfolio', title: "Portfolio", image: "/images/projectpics/Landing/NikaBeauty_portfolio.webp" },
+      { id: 'rdv', title: "Réservation", image: "/images/projectpics/Landing/NikaBeauty_rdv.webp" }
+    ],
+    features: [
+      {
+        title: "Carte des Soins Interactive",
+        description: "Présentation des prestations en onglets (Manucure, Pédicure, Cils & Sourcils, Soins) avec tarifs, durées et descriptions détaillées. Les cartes Nail Art niveaux 1 et 2 permettent au client de choisir sa complexité de création.",
+        image: "/images/projectpics/Landing/NikaBeauty_tarifs.webp"
+      },
+      {
+        title: "Portfolio Filtrable",
+        description: "Galerie de réalisations filtrable par catégorie (Nude, Nail Art, Avant/Après) avec overlays élégants révélant les détails de chaque création au survol.",
+        image: "/images/projectpics/Landing/NikaBeauty_portfolio.webp"
+      },
+      {
+        title: "Réservation Multi-Canaux",
+        description: "Section de prise de rendez-vous centralisant tous les modes de contact : Planity, téléphone, Instagram DM et WhatsApp — avec les consignes d'avant-séance pour préparer le client.",
+        image: "/images/projectpics/Landing/NikaBeauty_rdv.webp"
+      }
+    ],
+    links: {
+      live: "/NikaBeauty/NikaBeauty.html"
+    }
+  },
+
+  {
+    id: 8,
+    navbarTheme: 'light',
+    slug: "axiom-beauty",
+    title: "AXIOM BEAUTY",
+    tagline: "Landing page dark & neon pour un studio de beauté bold à Lyon.",
+    year: "2026",
+    image: "/images/projectpics/Landing/NeonBeauty_hero.webp",
+    categoryIds: ["vitrine", "artisan"],
+    client: "AXIOM BEAUTY — Lyon 3",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Landing page dark & neon pour un studio de beauté urbain et avant-gardiste basé à Lyon 3. L'identité visuelle repose sur une esthétique chrome, grain et néon vert électrique — à l'opposé des codes classiques du secteur beauté. Le site intègre des animations glitch, un effet grain animé, une galerie filtrable et une section réservation épurée.",
+    challenge: "Créer une identité visuelle radicalement différente des standards du secteur beauté, tout en conservant une lisibilité et une ergonomie parfaites. L'enjeu était de maîtriser les effets visuels (grain, glitch, néon glow) sans que la page ne devienne trop lourde ou illisible sur mobile.",
+    process: {
+      text: "Le projet a démarré par une direction artistique volontairement provocatrice : fond noir absolu, typographies condensées ultra-bold (Barlow Condensed, Oswald), couleurs chrome et néon vert. Les effets visuels (grain overlay, glitch aléatoire, scroll distortion) ont été développés entièrement en CSS et JS vanilla pour garder des performances optimales.",
+      images: [
+        "/images/projectpics/Landing/NeonBeauty_hero.webp",
+        "/images/projectpics/Landing/NeonBeauty_services.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Landing/NeonBeauty_hero.webp" },
+      { id: 'services', title: "Services", image: "/images/projectpics/Landing/NeonBeauty_services.webp" },
+      { id: 'galerie', title: "Galerie", image: "/images/projectpics/Landing/NeonBeauty_galerie.webp" },
+      { id: 'contact', title: "Contact", image: "/images/projectpics/Landing/NeonBeauty_contact.webp" }
+    ],
+    features: [
+      {
+        title: "Esthétique Dark Chrome & Néon",
+        description: "Direction artistique radicale : fond noir absolu, typographies condensées ultra-bold, effet grain animé en overlay et couleurs néon vert électrique. Une identité visuelle mémorable qui tranche avec les codes habituels du secteur beauté.",
+        image: "/images/projectpics/Landing/NeonBeauty_hero.webp"
+      },
+      {
+        title: "Effets Glitch & Animations",
+        description: "Animations glitch déclenchées aléatoirement, effet scroll distortion sur la galerie et transitions CSS fluides — tout développé en vanilla JS pour des performances maximales.",
+        image: "/images/projectpics/Landing/NeonBeauty_galerie.webp"
+      },
+      {
+        title: "Galerie & Services Filtrables",
+        description: "Présentation des prestations (Nails, Eyes, Brows, Skin) avec galerie filtrable par catégorie et section réservation multi-canaux épurée.",
+        image: "/images/projectpics/Landing/NeonBeauty_services.webp"
+      }
+    ],
+    links: {
+      live: "/NeonBeauty/NeonBeauty.html"
+    }
+  },
+
+  {
+    id: 9,
+    navbarTheme: 'light',
     slug: "immersive-3d-portfolio",
     title: "Portfolio Immersif 3D",
     tagline: "Une expérience interactive pour repousser les limites du web.",
@@ -256,8 +420,8 @@ export const projectsData = [
     role: "Lead Designer & Frontend Dev",
     timeline: "2 mois",
     techStack: ["React", "Three.js", "GSAP"],
-    description: "Création d’un portfolio immersif pensé comme une expérience interactive.",
-    challenge: "L’objectif était de concevoir une expérience immersive et mémorable...",
+    description: "Création d'un portfolio immersif pensé comme une expérience interactive.",
+    challenge: "L'objectif était de concevoir une expérience immersive et mémorable...",
     process: {
       text: "Le projet a débuté par une phase de réflexion hors écran...",
       images: [

@@ -2,69 +2,67 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../assets/Logo.svg";
+import { projectsData } from "../../data/projectsData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const lastScrollY = useRef(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [navbarTheme, setNavbarTheme] = useState("");
 
   const isHome = location.pathname === "/";
   const isPortfolio = location.pathname === "/portfolio";
   const [isPortfolioActive, setIsPortfolioActive] = useState(false);
   const [isVisible, setIsVisible] = useState(!isPortfolio);
 
-  // 👇 1er useEffect : Active le mode light sur la page portfolio 3D
+  // ─── Thème light/dark uniquement sur la hero d'un projet ───
   useEffect(() => {
-    if (location.pathname === "/projets/immersive-3d-portfolio") {
-      document.body.setAttribute("data-navbar-theme", "light");
+  if (!location.pathname.includes("/projets/")) {
+    document.body.removeAttribute("data-navbar-theme");
+    return;
+  }
+
+  const slug = location.pathname.split("/projets/")[1];
+  const project = projectsData.find((p) => p.slug === slug);
+
+  if (!project?.navbarTheme) {
+    document.body.removeAttribute("data-navbar-theme");
+    return;
+  }
+
+  const handleScroll = () => {
+    const hero = document.querySelector(".project-hero");
+    if (!hero) {
+      document.body.setAttribute("data-navbar-theme", project.navbarTheme);
+      return;
+    }
+    if (hero.getBoundingClientRect().bottom > 100) {
+      document.body.setAttribute("data-navbar-theme", project.navbarTheme);
     } else {
       document.body.removeAttribute("data-navbar-theme");
     }
+  };
 
-    return () => {
-      document.body.removeAttribute("data-navbar-theme");
-    };
-  }, [location.pathname]);
+  // Délai pour laisser le DOM se monter
+  const timeout = setTimeout(handleScroll, 50);
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
-  // 👇 2ème useEffect : Désactive le mode light au scroll (CORRIGÉ)
+  return () => {
+    clearTimeout(timeout);
+    window.removeEventListener("scroll", handleScroll);
+    document.body.removeAttribute("data-navbar-theme");
+  };
+}, [location.pathname]);
+
+  // ─── Portfolio active custom event ───
   useEffect(() => {
-    if (location.pathname !== "/projets/immersive-3d-portfolio") return;
-
-    const handleScroll = () => {
-      const heroSection = document.querySelector(".project-hero"); // 👈 CORRIGÉ
-      if (!heroSection) return;
-
-      const heroRect = heroSection.getBoundingClientRect();
-
-      if (heroRect.bottom > 100) {
-        document.body.setAttribute("data-navbar-theme", "light");
-      } else {
-        document.body.removeAttribute("data-navbar-theme");
-      }
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [location.pathname]);
-
-  // Écouter les événements du portfolio
-  useEffect(() => {
-    const handlePortfolioActive = (e) => {
-      setIsPortfolioActive(e.detail.active);
-    };
-
-    window.addEventListener("portfolioActive", handlePortfolioActive);
-
-    return () => {
-      window.removeEventListener("portfolioActive", handlePortfolioActive);
-    };
+    const h = (e) => setIsPortfolioActive(e.detail.active);
+    window.addEventListener("portfolioActive", h);
+    return () => window.removeEventListener("portfolioActive", h);
   }, []);
 
-  // Mettre à jour la visibilité si la page change
+  // ─── Portfolio page → navbar cachée ───
   useEffect(() => {
     if (isPortfolio) {
       setIsVisible(false);
@@ -77,110 +75,90 @@ const Navbar = () => {
     }
   }, [location.pathname, isPortfolio]);
 
-  // Bloque le scroll du body quand le menu burger est ouvert (sauf portfolio)
+  // ─── Menu mobile scroll lock ───
   useEffect(() => {
     if (isOpen && !isPortfolio) {
-      const scrollY = window.scrollY;
+      const y = window.scrollY;
       document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
+      document.body.style.top = `-${y}px`;
       document.body.style.width = "100%";
     } else {
-      const scrollY = -parseInt(document.body.style.top || "0");
+      const y = -parseInt(document.body.style.top || "0");
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
-      window.scrollTo(0, scrollY);
+      window.scrollTo(0, y);
     }
   }, [isOpen, isPortfolio]);
 
-  // Hide/show navbar au scroll (sauf portfolio)
+  // ─── Scroll show/hide navbar ───
   useEffect(() => {
-    const onScroll = () => {
-      if (isOpen || isPortfolio || isPortfolioActive) return;
+  const onScroll = () => {
+    if (isOpen || isPortfolio || isPortfolioActive) return;
+    const cur = window.scrollY;
 
-      const currentScroll = window.scrollY;
-      if (currentScroll < 50) {
-        setIsVisible(true);
-      } else if (currentScroll > lastScrollY.current) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      lastScrollY.current = currentScroll;
-    };
+    setIsScrolled(cur > 50);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isOpen, isPortfolio, isPortfolioActive]);
+    if (cur < 50) setIsVisible(true);
+    else if (cur > lastScrollY.current) setIsVisible(false);
+    else setIsVisible(true);
+    lastScrollY.current = cur;
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  return () => window.removeEventListener("scroll", onScroll);
+}, [isOpen, isPortfolio, isPortfolioActive]);
 
-  const navbarClass = `navbar ${isHome ? "home" : ""} ${
-    isOpen ? "navbar-visible" : isVisible ? "navbar-visible" : "navbar-hidden"
-  } ${isPortfolioActive ? "navbar-portfolio-hidden" : ""}`;
+// Observe data-navbar-theme sur le body
+useEffect(() => {
+  const observer = new MutationObserver(() => {
+    setNavbarTheme(document.body.getAttribute("data-navbar-theme") || "");
+  });
+  observer.observe(document.body, { attributes: true, attributeFilter: ["data-navbar-theme"] });
+  return () => observer.disconnect();
+}, []);
 
-  const burgerClass = `burger ${isOpen ? "open" : ""} ${
-    isHome ? "white-burger" : ""
-  }`;
+  const navbarClass = `navbar ${isHome ? "home" : ""} ${isScrolled && !navbarTheme ? "scrolled" : ""} ${
+  isOpen ? "navbar-visible" : isVisible ? "navbar-visible" : "navbar-hidden"
+} ${isPortfolioActive ? "navbar-portfolio-hidden" : ""}`;
+
+
 
   return (
     <nav className={navbarClass}>
-      {/* Logo desktop */}
       <Link to="/" className="logo" onClick={() => setIsOpen(false)}>
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo"/>
       </Link>
 
-      {/* Menu links */}
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
-        {/* Mobile logo */}
-        <Link
-          to="/"
-          className="mobile-menu-logo"
-          onClick={() => setIsOpen(false)}
-        >
-          <img src={logo} alt="Logo" />
+        <Link to="/" className="mobile-menu-logo" onClick={() => setIsOpen(false)}>
+          <img src={logo} alt="Logo"/>
         </Link>
-
-        <Link to="/projets" onClick={() => setIsOpen(false)}>
-          Projets
-        </Link>
-        <Link to="/services" onClick={() => setIsOpen(false)}>
-          Services
-        </Link>
-        <Link to="/blog">
-            Blog
-        </Link>
-        <Link to="/about" onClick={() => setIsOpen(false)}>
-          À propos
-        </Link>
-
-        {/* Mobile bouton devis */}
-        <Link
-          to="/contact"
-          className="devis-btn mobile-only"
-          onClick={() => setIsOpen(false)}
-        >
+        <Link to="/projets" onClick={() => setIsOpen(false)}>Projets</Link>
+        <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
+        <Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
+        <Link to="/about" onClick={() => setIsOpen(false)}>À propos</Link>
+        <Link to="/contact" className="devis-btn mobile-only" onClick={() => setIsOpen(false)}>
           Demander un devis
         </Link>
       </div>
 
-      {/* Burger menu */}
-      {!isPortfolio && (
-        <button
-          className={burgerClass}
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="Menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      )}
+      <div className="navbar-right">
+        {!isPortfolio && (
+          <button
+            className={`burger ${isOpen ? "open" : ""}`}
+            onClick={() => setIsOpen((p) => !p)}
+            aria-label="Menu"
+          >
+            <span /><span /><span />
+          </button>
+        )}
 
-      {/* Desktop bouton devis */}
-      {!isPortfolio && (
-        <Link to="/contact" className="devis-btn desktop-only">
-          Demander un devis
-        </Link>
-      )}
+        {!isPortfolio && (
+          <Link to="/contact" className="devis-btn desktop-only">
+            Demander un devis
+          </Link>
+        )}
+      </div>
     </nav>
   );
 };

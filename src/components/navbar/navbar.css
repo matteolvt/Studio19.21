@@ -13,7 +13,7 @@ body {
 }
 
 /* =========================
-   NAVBAR - FULL WIDTH avec contenu limité
+   NAVBAR
 ========================= */
 .navbar {
   position: fixed;
@@ -27,8 +27,13 @@ body {
   align-items: center;
   z-index: 1000;
   background: transparent;
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, background-color 0.4s ease;
   will-change: transform;
+}
+
+.navbar.scrolled {
+  background: #fff6e4;
+  padding: 2px calc((100vw - 1500px) / 2 + 80px);
 }
 
 .navbar.navbar-portfolio-hidden {
@@ -37,7 +42,6 @@ body {
   transition: opacity 0.3s ease, transform 0.35s ease;
 }
 
-/* Sur petits écrans, padding normal */
 @media (max-width: 1660px) {
   .navbar {
     padding: 20px 80px;
@@ -50,12 +54,6 @@ body {
 
 .navbar-hidden {
   transform: translateY(-100%);
-}
-
-/* Background beige pour pages Services et Projets */
-.services-page .navbar,
-.projets-page .navbar {
-  background: #fff6e4;
 }
 
 /* =========================
@@ -112,7 +110,6 @@ body {
 /* =========================
    BOUTONS
 ========================= */
-/* Desktop bouton devis */
 .devis-btn.desktop-only {
   background: #fff6e4;
   color: #031fd0;
@@ -127,7 +124,6 @@ body {
   text-decoration: none;
 }
 
-/* Mobile bouton devis */
 .devis-btn.mobile-only {
   display: none;
   background: #031fd0;
@@ -141,7 +137,7 @@ body {
 }
 
 /* =========================
-   BURGER 
+   BURGER
 ========================= */
 .burger {
   display: none;
@@ -176,7 +172,7 @@ body {
 
 .burger.open span:nth-child(2) {
   opacity: 0;
-  transform: translateX(-20px); 
+  transform: translateX(-20px);
 }
 
 .burger.open span:nth-child(3) {
@@ -184,18 +180,9 @@ body {
   background: #031fd0;
 }
 
-.services-page .navbar,
-.projets .navbar,
-.about-page .navbar,
-.appointment-page .navbar {
-  background: #fff6e4;
-}
-
 /* =========================
-   THEME CLAIR POUR PORTFOLIO 3D
+   THEME CLAIR PORTFOLIO 3D
 ========================= */
-
-/* Texte des liens en beige clair (DESKTOP UNIQUEMENT) */
 [data-navbar-theme="light"] .nav-links a {
   color: #fff6e4 !important;
 }
@@ -205,7 +192,6 @@ body {
   opacity: 0.8;
 }
 
-/* Burger en beige clair UNIQUEMENT quand le menu est fermé */
 [data-navbar-theme="light"] .burger:not(.open) span {
   background: #fff6e4 !important;
 }
@@ -214,39 +200,42 @@ body {
    MOBILE
 ========================= */
 @media (max-width: 900px) {
-  
-  /* 1. Ajustements Navbar */
+
   .navbar {
     padding: 15px 30px;
   }
 
-  .homepage .navbar {
+  .navbar.scrolled {
+    padding: 15px 30px;
+  }
+
+  .navbar.scrolled {
     background: #fff6e4;
   }
 
-  /* 2. Burger visible et corrigé (Croix parfaite) */
+  .navbar-right {
+    position: relative;
+    z-index: 2000;
+  }
+
   .burger {
     display: flex;
     visibility: visible;
   }
 
-  /* 3. Le Menu Plein Écran (Avec l'anim de remontée) */
   .nav-links {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #fff6e4 !important; /* 👈 FORCE le fond beige */
+    background: #fff6e4 !important;
     flex-direction: column;
     padding: 0 20px;
-    
-    /* ÉTAT FERMÉ (Caché en haut) */
     transform: translateY(-100%);
     opacity: 0;
-    visibility: hidden; 
+    visibility: hidden;
     pointer-events: none;
-    
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -254,37 +243,31 @@ body {
     gap: 35px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-
-    /* ANIMATION FERMETURE (On remonte) */
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.5s ease, 
-                visibility 0s linear 0.5s; 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.5s ease,
+                visibility 0s linear 0.5s;
   }
 
-  /* ÉTAT OUVERT (Visible) */
   .nav-links.open {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
-    /* ANIMATION OUVERTURE (On descend) */
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.5s ease, 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.5s ease,
                 visibility 0s linear 0s;
   }
 
-  /* 4. Styles des liens et boutons */
   .nav-links a {
     margin-bottom: 0;
     font-size: 22px;
-    color: black !important; /* 👈 Force la couleur noire pour les liens */
+    color: black !important;
   }
 
   .nav-links .devis-btn.mobile-only {
     margin-top: 40px;
-    background: #031fd0 !important; /* 👈 FORCE le fond bleu */
-    color: #fff6e4 !important; /* 👈 FORCE le texte beige */
+    background: #031fd0 !important;
+    color: #fff6e4 !important;
     border-color: #031fd0 !important;
   }
 
@@ -304,19 +287,17 @@ body {
     display: block;
   }
 
-  /* Annule COMPLÈTEMENT le mode light pour le mobile */
   [data-navbar-theme="light"] .nav-links {
-    background: #fff6e4 !important; /* 👈 Reste beige même en mode light */
+    background: #fff6e4 !important;
   }
 
   [data-navbar-theme="light"] .nav-links a {
-    color: black !important; /* 👈 Reste noir même en mode light */
+    color: black !important;
   }
 
   [data-navbar-theme="light"] .devis-btn.mobile-only {
-    background: #031fd0 !important; /* 👈 Reste bleu même en mode light */
-    color: #fff6e4 !important; /* 👈 Reste beige même en mode light */
+    background: #031fd0 !important;
+    color: #fff6e4 !important;
     border-color: #031fd0 !important;
   }
 }
-/* FIN DU MEDIA QUERY */

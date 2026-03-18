@@ -1,18 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap');
 
-:root {
-  --bg-color: #FFFBF0;
-  --text-dark: #000000;
-  --text-light: #ffffff;
-  --blue-left: #8A9CE8;
-  --blue-right: #4E60D6;
-  --blue-title: #1a1a7a;
-  --transition-speed: 0.5s;
-  --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
 .services-section {
-  background-color: var(--bg-color);
+  background-color: var(--bg-primary);
   padding: 60px 20px;
   min-height: 100vh;
   font-family: 'Public Sans', sans-serif;
@@ -21,16 +10,13 @@
 .section-title {
   font-family: 'Public Sans', sans-serif !important;
   text-align: center;
-  color: var(--blue-title);
+  color: var(--text-blue);
   font-weight: 700;
   margin-bottom: 50px;
   letter-spacing: 1px;
 }
 
-/* 👇 Force Public Sans sur tous les h2 de cette section */
-.services-section h2 {
-  font-family: 'Public Sans', sans-serif !important;
-}
+.services-section h2 { font-family: 'Public Sans', sans-serif !important; }
 
 .services-container {
   max-width: 900px;
@@ -40,7 +26,7 @@
 }
 
 .service-item {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
 }
 
@@ -50,7 +36,7 @@
   align-items: center;
   padding: 25px 0;
   cursor: pointer;
-  transition: all var(--transition-speed) var(--ease-smooth);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   max-height: 100px;
   opacity: 1;
 }
@@ -62,92 +48,62 @@
   pointer-events: none;
 }
 
-.service-collapsed:hover {
-  opacity: 0.7;
-}
+.service-collapsed:hover { opacity: 0.7; }
 
 .closed-header {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--text-primary);
   font-family: 'Public Sans', sans-serif;
 }
 
-.closed-number { 
-  font-family: 'Public Sans', sans-serif;
-  font-weight: 600;
-}
-
-.arrow-icon {
-  font-size: 1.5rem;
-  transition: transform 0.3s;
-}
+.closed-number { font-family: 'Public Sans', sans-serif; font-weight: 600; color: var(--text-muted); }
+.arrow-icon { font-size: 1.5rem; transition: transform 0.3s; color: var(--text-muted); }
 
 .service-expanded {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--transition-speed) var(--ease-smooth);
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.service-item.active .service-expanded {
-  grid-template-rows: 1fr;
-  margin-bottom: 20px;
-}
+.service-item.active .service-expanded { grid-template-rows: 1fr; margin-bottom: 20px; }
 
-.expanded-inner {
-  overflow: hidden;
-}
+.expanded-inner { overflow: hidden; }
 
 .card-content {
   display: flex;
-  background-color: var(--blue-right);
-  border-radius: 30px;
+  background-color: var(--service-card-bg);
+  border-radius: 24px;
   overflow: hidden;
-  color: var(--text-light);
-  min-height: 350px;
-  box-shadow: 0 10px 30px rgba(78, 96, 214, 0.2);
-  opacity: 1; 
+  color: #fff;
+  min-height: 320px;
+  box-shadow: var(--shadow-blue);
 }
 
 .card-left {
-  background-color: var(--blue-left);
-  width: 40%;
+  background-color: var(--service-card-left);
+  width: 38%;
   padding: 40px;
   display: flex;
   align-items: flex-start;
 }
 
-.card-number-large {
-  font-size: 2rem;
-  font-weight: 600;
-  opacity: 0.9;
-  font-family: 'Public Sans', sans-serif;
-}
+.card-number-large { font-size: 2rem; font-weight: 600; opacity: 0.9; }
 
 .card-right {
-  width: 60%;
+  width: 62%;
   padding: 40px 40px 40px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.card-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  font-family: 'Public Sans', sans-serif;
-}
+.card-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 700; margin-bottom: 20px; }
 
-.service-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
+.service-list { list-style: none; padding: 0; margin: 0; }
 .service-list li {
   margin-bottom: 10px;
   font-size: 1rem;
@@ -155,22 +111,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Public Sans', sans-serif;
 }
 
-.dot {
-  width: 4px;
-  height: 4px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: inline-block;
-}
+.dot { width: 4px; height: 4px; background-color: #fff; border-radius: 50%; display: inline-block; }
 
-.card-action {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
+.card-action { display: flex; justify-content: flex-end; margin-top: 20px; }
 
 .btn-circle {
   background-color: white;
@@ -180,15 +125,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--blue-right);
+  color: var(--service-card-bg);
   font-size: 1.5rem;
   cursor: pointer;
   transition: transform 0.2s;
 }
+.btn-circle:hover { transform: scale(1.1); }
 
 .services-tag {
   text-align: center;
-  color: var(--blue-right);
+  color: var(--service-card-bg);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -200,8 +146,8 @@
 .artisans-banner {
   max-width: 900px;
   margin: 60px auto 0;
-  background-color: var(--blue-right);
-  border-radius: 30px;
+  background-color: var(--service-card-bg);
+  border-radius: 24px;
   padding: 50px 60px;
   display: flex;
   flex-direction: column;
@@ -210,26 +156,12 @@
   gap: 12px;
 }
 
-.artisans-banner-text {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-}
-
-.artisans-banner-sub {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.8);
-  margin: 0;
-}
-
+.artisans-banner-text { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: #fff; margin: 0; }
+.artisans-banner-sub { font-size: 1.1rem; color: rgba(255,255,255,0.8); margin: 0; }
 .artisans-banner-btn {
   margin-top: 10px;
   background-color: #fff;
-  color: var(--blue-right);
-  font-family: 'Public Sans', sans-serif;
+  color: var(--service-card-bg);
   font-weight: 700;
   font-size: 1rem;
   padding: 14px 32px;
@@ -237,27 +169,21 @@
   text-decoration: none;
   transition: transform 0.2s;
 }
-
-.artisans-banner-btn:hover {
-  transform: scale(1.05);
-}
-
-
-
-.btn-circle:hover {
-  transform: scale(1.1);
-}
+.artisans-banner-btn:hover { transform: scale(1.05); }
 
 /* Mobile */
 @media (max-width: 768px) {
   .card-content { flex-direction: column; }
   .card-left, .card-right { width: 100%; }
   .card-left { height: 80px; padding: 20px; }
-  .artisans-banner {
-    padding: 40px 30px;
-  }
-  
-  .artisans-banner-text {
-    font-size: 1.5rem;
-  }
+  .card-right { padding: 24px; }
+  .artisans-banner { padding: 36px 24px; }
+  .artisans-banner-text { font-size: 1.4rem; }
+  .artisans-banner-sub { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .services-section { padding: 40px 16px; }
+  .closed-header { font-size: 1.1rem; }
+  .card-title { font-size: 1.4rem; }
 }
