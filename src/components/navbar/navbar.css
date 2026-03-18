@@ -206,7 +206,16 @@ body {
   }
 
   .navbar.scrolled {
+    padding: 15px 30px;
+  }
+
+  .navbar.scrolled {
     background: #fff6e4;
+  }
+
+  .navbar-right {
+    position: relative;
+    z-index: 2000;
   }
 
   .burger {
