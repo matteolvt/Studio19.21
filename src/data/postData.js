@@ -1,5 +1,23 @@
 export const posts = [
   {
+    id: 11,
+    slug: "vitesse-chargement-site-web-core-web-vitals",
+    title: "Core Web Vitals : pourquoi la vitesse de votre site est devenue un enjeu business",
+    category: "Développement web",
+    excerpt: "LCP, INP, CLS... Ces métriques Google impactent directement votre référencement et vos conversions.",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=60&fm=webp",
+    date: "2026-03-24",
+  },
+  {
+    id: 10,
+    slug: "intelligence-artificielle-outil-developpeur-web",
+    title: "L'IA, meilleur ami ou pire ennemi du développeur web ?",
+    category: "Développement web",
+    excerpt: "ChatGPT, Copilot, Cursor... L'IA a bouleversé le quotidien des devs. On fait le point.",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=60&fm=webp",
+    date: "2026-03-24",
+  },
+  {
     id: 9,
     slug: "vitesse-chargement-site-web-pourquoi-ca-compte",
     title: "Vitesse de chargement : pourquoi votre site lent vous fait perdre des clients",
