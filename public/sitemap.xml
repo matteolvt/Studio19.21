@@ -28,6 +28,11 @@
     <lastmod>2026-03-25</lastmod>
   </url>
   <url>
+    <loc>https://www.studio1921.fr/valide</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-03-25</lastmod>
+  </url>
+  <url>
     <loc>https://www.studio1921.fr/mentions-legales</loc>
     <priority>0.8</priority>
     <lastmod>2026-03-25</lastmod>
@@ -107,6 +112,33 @@
     <image:image>
       <image:loc>https://www.studio1921.fr/images/projectpics/Landing/NeonBeauty_hero.webp</image:loc>
       <image:caption>AXIOM BEAUTY</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.studio1921.fr/projets/cavea-wine-bar</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-03-25</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/Restaurant/Cavea_hero.webp</image:loc>
+      <image:caption>CAVEA</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.studio1921.fr/projets/comptoir-azur</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-03-25</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/BarTabac/ComptoirAzur_hero.webp</image:loc>
+      <image:caption>Comptoir Azur</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.studio1921.fr/projets/lecomptoirrouge</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-03-25</lastmod>
+    <image:image>
+      <image:loc>https://www.studio1921.fr/images/projectpics/BarVin/LeComptoirRouge_hero.webp</image:loc>
+      <image:caption>Le Comptoir Rouge</image:caption>
     </image:image>
   </url>
   <url>
