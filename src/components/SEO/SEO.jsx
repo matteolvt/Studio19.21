@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import PropTypes from "prop-types";
 import React from "react";
 
-const SEO = ({ title, description, image, url }) => {
+const SEO = ({ title, description, image, url, noindex }) => {
   const canonicalUrl = url || (typeof window !== "undefined" 
   ? `${window.location.origin}${window.location.pathname}`
   : "https://www.studio1921.fr");
@@ -11,8 +11,9 @@ const SEO = ({ title, description, image, url }) => {
     <Helmet>
       {/* Titre et description */}
       <title>{title}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
       <link rel="canonical" href={canonicalUrl} />
       <script src="https://analytics.ahrefs.com/analytics.js" data-key="u6wNQ2hPAsq3az5BMAurKg" async></script>
 
@@ -38,6 +39,7 @@ SEO.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string,
   url: PropTypes.string,
+  noindex: PropTypes.bool,
 };
 
 export default SEO;

@@ -47,8 +47,8 @@ function HomePage() {
   return (
     <div className="homepage">
       <SEO
-        title="Studio1921 | Création de sites web pour artisans à Lyon"
-        description="Studio1921, agence web spécialisée dans la création de sites internet pour artisans"
+        title="Studio1921 | Agence web Lyon – Création de sites pour artisans"
+        description="Studio1921, agence web lyonnaise spécialisée dans la création de sites vitrine sur mesure pour artisans et PME. Design soigné, SEO optimisé, livraison rapide. Devis gratuit."
       />
       <Navbar />
       <HeroSection />
