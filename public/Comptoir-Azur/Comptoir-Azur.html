@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comptoir Azur – Bar Tabac • 14 Rue du Chariot d'Or · Lyon 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Josefin+Sans:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bleu: #1e4d7b;
+    --bleu-fonce: #163a5f;
+    --bleu-petrole: #1a5276;
+    --bleu-clair: #2e86c1;
+    --bleu-pale: #d6e8f7;
+    --creme: #faf7f2;
+    --blanc: #ffffff;
+    --or: #c9a84c;
+    --or-clair: #e8c97a;
+    --or-pale: #f5e6c0;
+    --brique: #a0522d;
+    --brique-pale: #f0e0d6;
+    --texte: #2c3e50;
+    --texte-light: #5d6d7e;
+    --bordure: rgba(30,77,123,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--creme);
+    color: var(--texte);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── GEO PATTERN SVG BACKGROUND ─── */
+  .geo-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .geo-bg svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.04;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: transparent;
+    transition: all 0.4s;
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav.scrolled {
+    background: rgba(250,247,242,0.97);
+    padding: 14px 48px;
+    box-shadow: 0 1px 0 var(--bordure), 0 4px 20px rgba(30,77,123,0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-diamond {
+    width: 28px; height: 28px;
+    background: var(--bleu);
+    transform: rotate(45deg);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-diamond::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: var(--or);
+    transform: rotate(0deg);
+  }
+
+  .nav-logo-text {
+    font-family: 'Poiret One', cursive;
+    font-size: 1.4rem;
+    color: var(--bleu-fonce);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bleu-fonce);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--or); }
+
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border: 1.5px solid currentColor;
+    transition: all 0.2s;
+  }
+
+  .nav-status.open { color: #27ae60; border-color: #27ae60; }
+  .nav-status.closed { color: #c0392b; border-color: #c0392b; }
+
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .burger span { width: 24px; height: 1.5px; background: var(--bleu-fonce); transition: 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--bleu-fonce);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Art Déco geometric overlay */
+  .hero-deco {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Large diamond shape right side */
+  .hero-deco::before {
+    content: '';
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 65vw;
+    height: 65vw;
+    max-width: 800px;
+    max-height: 800px;
+    border: 1px solid rgba(201,168,76,0.2);
+    background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, rgba(30,77,123,0.1) 100%);
+  }
+
+  .hero-deco::after {
+    content: '';
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 50vw;
+    height: 50vw;
+    max-width: 620px;
+    max-height: 620px;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+
+  /* Horizontal art déco lines */
+  .hero-lines {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 48px;
+    pointer-events: none;
+  }
+
+  .hero-line {
+    height: 1px;
+    background: rgba(201,168,76,0.2);
+  }
+
+  .hero-line:nth-child(2) { width: 60%; }
+  .hero-line:nth-child(3) { width: 30%; }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px 80px;
+    max-width: 800px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    animation: fadeUp 0.8s 0.2s both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--or);
+    flex-shrink: 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-title {
+    font-family: 'Poiret One', cursive;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    color: var(--blanc);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    animation: fadeUp 0.8s 0.4s both;
+  }
+
+  .hero-title .cristal {
+    color: var(--or);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.6s both;
+  }
+
+  .hero-tagline {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    max-width: 520px;
+    animation: fadeUp 0.8s 0.7s both;
+  }
+
+  .hero-tagline em {
+    font-style: normal;
+    color: var(--or-clair);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.9s both;
+  }
+
+  .btn-or {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--or);
+    color: var(--bleu-fonce);
+    padding: 14px 32px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+
+  .btn-or:hover {
+    background: var(--or-clair);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 13px 32px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s;
+  }
+
+  .btn-ghost:hover { border-color: var(--or); color: var(--or); }
+
+  /* Status hero badge */
+  .hero-status-badge {
+    position: absolute;
+    right: 48px;
+    bottom: 48px;
+    z-index: 2;
+    text-align: center;
+    animation: fadeUp 0.8s 1s both;
+  }
+
+  .badge-outer {
+    width: 130px;
+    height: 130px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .badge-outer::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 50%;
+  }
+
+  .badge-inner {
+    text-align: center;
+  }
+
+  .badge-dot-large {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin: 0 auto 6px;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  .badge-dot-large.open { background: #2ecc71; box-shadow: 0 0 12px rgba(46,204,113,0.5); }
+  .badge-dot-large.closed { background: #e74c3c; box-shadow: 0 0 12px rgba(231,76,60,0.5); }
+
+  .badge-text-status {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .badge-text-status.open { color: #2ecc71; }
+  .badge-text-status.closed { color: #e74c3c; }
+
+  .badge-text-hours {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  /* ─── SERVICES ─── */
+  #services {
+    background: var(--blanc);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Art Déco corner ornament */
+  #services::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background:
+      linear-gradient(135deg, transparent 49%, var(--bleu-pale) 50%) top left / 40px 40px,
+      linear-gradient(225deg, transparent 49%, var(--bleu-pale) 50%) top right / 40px 40px;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+  }
+
+  .services-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .section-eyebrow::before,
+  .section-eyebrow::after {
+    content: '◆';
+    font-size: 0.5rem;
+    color: var(--or);
+  }
+
+  .section-title {
+    font-family: 'Poiret One', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--bleu-fonce);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .deco-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .deco-line span {
+    width: 60px;
+    height: 1px;
+    background: var(--or);
+  }
+
+  .deco-line i {
+    width: 8px; height: 8px;
+    background: var(--or);
+    transform: rotate(45deg);
+    display: inline-block;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--bordure);
+  }
+
+  .service-card {
+    background: var(--creme);
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--or);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:hover {
+    background: var(--blanc);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(30,77,123,0.1);
+  }
+
+  /* Corner diamond decoration */
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 24px; height: 24px;
+    border: 1px solid rgba(201,168,76,0.3);
+    transform: rotate(45deg);
+    transition: border-color 0.3s;
+  }
+
+  .service-card:hover::after { border-color: var(--or); }
+
+  .service-icon {
+    width: 56px; height: 56px;
+    background: var(--bleu-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover .service-icon { background: var(--bleu); }
+
+  .service-icon::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid rgba(30,77,123,0.15);
+    transform: rotate(45deg);
+  }
+
+  .service-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bleu-fonce);
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--texte-light);
+    font-weight: 300;
+  }
+
+  .service-items {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-item {
+    font-size: 0.82rem;
+    color: var(--bleu);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .service-item::before {
+    content: '—';
+    color: var(--or);
+    font-size: 0.7rem;
+  }
+
+  /* ─── ESPRIT ─── */
+  #esprit {
+    background: var(--bleu-fonce);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #esprit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(90deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 60px);
+    pointer-events: none;
+  }
+
+  /* Large diamond bg shape */
+  #esprit::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 700px;
+    height: 700px;
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+
+  .esprit-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .esprit-text .section-eyebrow {
+    justify-content: flex-start;
+    color: var(--or);
+  }
+
+  .esprit-text .section-eyebrow::before,
+  .esprit-text .section-eyebrow::after { display: none; }
+
+  .esprit-text .section-eyebrow::before {
+    display: block;
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--or);
+  }
+
+  .esprit-text .section-title {
+    color: var(--blanc);
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  .esprit-text p {
+    font-size: 1rem;
+    line-height: 1.95;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .esprit-text p strong {
+    color: var(--or-clair);
+    font-weight: 400;
+  }
+
+  .esprit-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .fact-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 28px 28px 28px 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .fact-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--or);
+  }
+
+  .fact-item:hover { background: rgba(255,255,255,0.07); }
+
+  .fact-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .fact-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 6px;
+  }
+
+  .fact-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── INFOS PRATIQUES ─── */
+  #infos {
+    background: var(--creme);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle geo pattern in bg */
+  #infos::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 30 L30 55 L5 30 Z' fill='none' stroke='%231e4d7b' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .infos-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .infos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 64px;
+  }
+
+  /* HOURS */
+  .infos-block {
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    padding: 40px;
+    position: relative;
+  }
+
+  .infos-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bleu-fonce), var(--bleu-clair));
+  }
+
+  .infos-block-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--bleu-fonce);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .infos-block-title span { opacity: 0.4; font-weight: 300; }
+  .infos-block-title .icon { font-size: 1rem; }
+
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid var(--bordure);
+  }
+
+  .hours-table tr:last-child { border-bottom: none; }
+
+  .hours-table tr.today {
+    background: var(--bleu-pale);
+  }
+
+  .hours-table td {
+    padding: 12px 0;
+    font-size: 0.9rem;
+  }
+
+  .hours-table .day {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--texte);
+  }
+
+  .hours-table tr.today .day { color: var(--bleu); }
+
+  .hours-table .time {
+    text-align: right;
+    font-weight: 700;
+    color: var(--bleu-fonce);
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .hours-table .closed {
+    text-align: right;
+    color: #aaa;
+    font-style: italic;
+    font-size: 0.82rem;
+  }
+
+  .today-badge {
+    display: inline-block;
+    background: var(--bleu);
+    color: var(--blanc);
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* MAP */
+  .map-embed {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    border: 1px solid var(--bordure);
+    margin-bottom: 20px;
+  }
+
+  .map-embed iframe {
+    width: 100%; height: 100%;
+    border: none;
+    filter: saturate(0.6) brightness(1.05);
+  }
+
+  .address-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .address-text {
+    font-size: 1rem;
+    color: var(--texte);
+    line-height: 1.7;
+  }
+
+  .address-text strong {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--bleu-fonce);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .address-metro {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--bleu);
+    background: var(--bleu-pale);
+    padding: 5px 12px;
+  }
+
+  .btn-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 12px 22px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .btn-directions:hover { background: var(--or); color: var(--bleu-fonce); }
+
+  /* CONTACT */
+  .contact-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 24px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 160px;
+    justify-content: center;
+  }
+
+  .contact-btn.phone {
+    background: var(--bleu-fonce);
+    color: var(--blanc);
+  }
+  .contact-btn.phone:hover { background: var(--bleu-petrole); box-shadow: 0 4px 16px rgba(30,77,123,0.25); }
+
+  .contact-btn.google {
+    background: transparent;
+    color: var(--bleu-fonce);
+    border: 1.5px solid var(--bleu-fonce);
+  }
+  .contact-btn.google:hover { background: var(--bleu-pale); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bleu-fonce);
+    padding: 60px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--or), var(--or-clair), var(--or));
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .footer-logo-mark {
+    width: 36px; height: 36px;
+    background: var(--or);
+    transform: rotate(45deg);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .footer-logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: var(--bleu-fonce);
+    transform: rotate(0deg);
+  }
+
+  .footer-logo-text {
+    font-family: 'Poiret One', cursive;
+    font-size: 1.6rem;
+    color: var(--blanc);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .footer-logo-text span { color: var(--or); }
+
+  .footer-center {
+    text-align: center;
+  }
+
+  .footer-address {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    line-height: 1.8;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
+  .social-icon {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.3s;
+  }
+
+  .social-icon:hover { border-color: var(--or); color: var(--or); background: rgba(201,168,76,0.08); }
+
+  .footer-legals {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .legal-text {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+
+  .legal-text strong {
+    color: rgba(255,255,255,0.4);
+    font-weight: 700;
+  }
+
+  .footer-copy {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    white-space: nowrap;
+  }
+
+  /* ─── FADE UP ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .nav-status { display: none; }
+
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(250,247,242,0.99);
+      padding: 80px 32px 40px;
+      gap: 28px;
+      z-index: 150;
+      border-bottom: 3px solid var(--or);
+      box-shadow: 0 8px 32px rgba(30,77,123,0.1);
+    }
+
+    .nav-links a { font-size: 1.1rem; }
+
+    .hero-inner { padding: 100px 24px 120px; }
+    .hero-status-badge { right: 24px; bottom: 32px; }
+
+    #services { padding: 70px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 36px 28px; }
+
+    #esprit { padding: 70px 24px; }
+    .esprit-inner { grid-template-columns: 1fr; gap: 48px; }
+
+    #infos { padding: 70px 24px; }
+    .infos-grid { grid-template-columns: 1fr; gap: 32px; }
+    .infos-block { padding: 28px; }
+
+    footer { padding: 48px 24px 28px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-social { justify-content: center; }
+    .footer-legals { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-ctas { flex-direction: column; }
+    .hero-deco::before, .hero-deco::after { display: none; }
+    .contact-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-diamond"></div>
+    <span class="nav-logo-text">Comptoir Azur</span>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#esprit">Notre Esprit</a></li>
+    <li><a href="#infos">Horaires & Accès</a></li>
+  </ul>
+
+  <div class="nav-status" id="navStatus">
+    <div class="status-dot"></div>
+    <span id="navStatusText">—</span>
+  </div>
+
+  <div class="burger" id="burger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-lines">
+    <div class="hero-line"></div>
+    <div class="hero-line"></div>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Bar · Tabac · FDJ · Presse — Lyon 4</div>
+    <h1 class="hero-title">
+      Comptoir<br><span class="cristal">Azur</span>
+    </h1>
+    <p class="hero-subtitle">14 Rue du Chariot d'Or</p>
+    <p class="hero-tagline">
+      Le <em>cœur battant</em> de la Grande Rue.<br>
+      Votre buraliste, votre café du matin,<br>
+      votre coin de quartier depuis toujours.
+    </p>
+    <div class="hero-ctas">
+      <a href="#infos" class="btn-or">⏰ Horaires & Accès</a>
+      <a href="#services" class="btn-ghost">Nos Services</a>
+    </div>
+  </div>
+
+  <div class="hero-status-badge">
+    <div class="badge-outer">
+      <div class="badge-inner">
+        <div class="badge-dot-large" id="heroDot"></div>
+        <div class="badge-text-status" id="heroStatusText">—</div>
+        <div class="badge-text-hours" id="heroHoursText">Vérification…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Ce qu'on propose</div>
+      <h2 class="section-title">Nos Services</h2>
+      <div class="deco-line"><span></span><i></i><span></span></div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">☕</div>
+        <div class="service-title">Bar & Terrasse</div>
+        <p class="service-desc">Un café fumant, une limonade au soleil ou un apéro entre voisins — la terrasse de la Grande Rue vous attend.</p>
+        <div class="service-items">
+          <div class="service-item">Cafés, expressos, cappuccinos</div>
+          <div class="service-item">Boissons fraîches & softs</div>
+          <div class="service-item">Apéritifs & bières</div>
+          <div class="service-item">Terrasse ensoleillée</div>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">🚬</div>
+        <div class="service-title">Tabac & Vapotage</div>
+        <p class="service-desc">Un large choix de tabacs, cigarettes, cigares et produits de vapotage pour tous les besoins.</p>
+        <div class="service-items">
+          <div class="service-item">Toutes les marques de cigarettes</div>
+          <div class="service-item">Cigares & tabac à rouler</div>
+          <div class="service-item">Cigarettes électroniques & e-liquides</div>
+          <div class="service-item">Accessoires & recharges</div>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">🎲</div>
+        <div class="service-title">FDJ & Presse</div>
+        <p class="service-desc">Votre point de vente officiel Française des Jeux, avec journaux et magazines frais chaque matin.</p>
+        <div class="service-items">
+          <div class="service-item">Loto, Euromillions, jeux de tirage</div>
+          <div class="service-item">Jeux de grattage</div>
+          <div class="service-item">Journaux & magazines du jour</div>
+          <div class="service-item">Timbres & services postaux</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPRIT -->
+<section id="esprit">
+  <div class="esprit-inner">
+    <div class="esprit-text fade-up">
+      <div class="section-eyebrow">Notre Âme</div>
+      <h2 class="section-title">L'Esprit<br>Village</h2>
+      <p>
+        À la Croix-Rousse, on ne passe pas au Comptoir Azur — on <strong>y revient</strong>. Depuis sa rénovation soignée, ce bar-tabac de quartier est devenu bien plus qu'un commerce de proximité : c'est un lieu de vie.
+      </p>
+      <p>
+        L'esthétique Art Déco — <strong>la devanture bleu pétrole, les miroirs, le carrelage géométrique</strong> — a transformé un bistrot populaire en une adresse dont on est fier. Et pourtant, l'esprit reste le même : <strong>convivial, accessible, et chaleureux.</strong>
+      </p>
+      <p>
+        Des habitués du café du matin aux joueurs du soir, en passant par les touristes en terrasse, tout le monde trouve sa place ici.
+      </p>
+    </div>
+
+    <div class="esprit-facts fade-up">
+      <div class="fact-item">
+        <div class="fact-icon">✨</div>
+        <div>
+          <div class="fact-title">Rénové avec soin</div>
+          <div class="fact-desc">Une décoration Art Déco authentique : sol carrelé géométrique, miroirs, menuiseries bleues emblématiques.</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-icon">💛</div>
+        <div>
+          <div class="fact-title">Accueil réputé</div>
+          <div class="fact-desc">Un service convivial et des prix accessibles qui font la réputation du lieu sur toute la Croix-Rousse.</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-icon">🌞</div>
+        <div>
+          <div class="fact-title">Terrasse ensoleillée</div>
+          <div class="fact-desc">Profitez du soleil de la Grande Rue dans un cadre soigné, loin des terrasses bondées du plateau.</div>
+        </div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-icon">📍</div>
+        <div>
+          <div class="fact-title">Au cœur du plateau</div>
+          <div class="fact-desc">14 Rue du Chariot d'Or — la rue la plus vivante de la Croix-Rousse, à deux pas du marché et des commerces.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section id="infos">
+  <div class="infos-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Tout ce qu'il faut savoir</div>
+      <h2 class="section-title">Infos Pratiques</h2>
+      <div class="deco-line"><span></span><i></i><span></span></div>
+    </div>
+
+    <div class="infos-grid">
+      <!-- HORAIRES -->
+      <div class="infos-block fade-up">
+        <div class="infos-block-title">
+          <span class="icon">⏰</span>
+          Horaires d'Ouverture
+          <span id="currentStatus">— vérification</span>
+        </div>
+
+        <table class="hours-table" id="hoursTable">
+          <tr id="row-1">
+            <td class="day">Lundi</td>
+            <td class="time">07h00 – 20h00</td>
+          </tr>
+          <tr id="row-2">
+            <td class="day">Mardi</td>
+            <td class="time">07h00 – 20h00</td>
+          </tr>
+          <tr id="row-3">
+            <td class="day">Mercredi</td>
+            <td class="time">07h00 – 20h00</td>
+          </tr>
+          <tr id="row-4">
+            <td class="day">Jeudi</td>
+            <td class="time">07h00 – 20h00</td>
+          </tr>
+          <tr id="row-5">
+            <td class="day">Vendredi</td>
+            <td class="time">07h00 – 21h00</td>
+          </tr>
+          <tr id="row-6">
+            <td class="day">Samedi</td>
+            <td class="time">08h00 – 21h00</td>
+          </tr>
+          <tr id="row-0">
+            <td class="day">Dimanche</td>
+            <td class="time">08h30 – 18h00</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- MAP + CONTACT -->
+      <div class="fade-up">
+        <div class="infos-block" style="margin-bottom:24px;">
+          <div class="infos-block-title">
+            <span class="icon">📍</span>
+            Localisation
+          </div>
+
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=14+Rue+du+Chariot+d'Or+69004+Lyon&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <div class="address-block">
+            <div>
+              <div class="address-text">
+                <strong>14 Rue du Chariot d'Or</strong>
+                69004 Lyon — Plateau de la Croix-Rousse
+                <br>
+                <span class="address-metro">🚇 Métro C — Croix-Rousse</span>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=14+Rue+du+Chariot+d'Or+69004+Lyon" target="_blank" class="btn-directions">
+              🗺️ Itinéraire
+            </a>
+          </div>
+        </div>
+
+        <div class="infos-block">
+          <div class="infos-block-title">
+            <span class="icon">📞</span>
+            Nous Contacter
+          </div>
+          <div class="contact-row">
+            <a href="tel:+33912345678" class="contact-btn phone">
+              📞 Appeler le bar
+            </a>
+            <a href="https://g.page/ComptoirAzur/review" target="_blank" class="contact-btn google">
+              ⭐ Avis Google
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">
+      <div class="footer-logo-mark"></div>
+      <div class="footer-logo-text">Comptoir <span>Azur</span></div>
+    </a>
+
+    <div class="footer-center">
+      <div class="footer-address">
+        14 Rue du Chariot d'Or · 69004 Lyon<br>
+        Lun–Ven 07h00–20h00 · Sam 08h00–21h00 · Dim 08h30–18h00
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="#" class="social-icon" title="Facebook">f</a>
+        <a href="#" class="social-icon" title="Instagram">ig</a>
+        <a href="https://g.page/ComptoirAzur" target="_blank" class="social-icon" title="Google">g</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-legals">
+    <p class="legal-text">
+      <strong>Avertissements légaux :</strong>
+      La vente de tabac est interdite aux mineurs de moins de 18 ans. L'abus d'alcool est dangereux pour la santé, consommez avec modération.
+      Jouer comporte des risques : endettement, dépendance, isolement. Appelez le <strong>09 74 75 13 13</strong> (appel non surtaxé).
+    </p>
+    <div class="footer-copy">© 2026 Comptoir Azur</div>
+  </div>
+</footer>
+
+<script>
+  // ─── NAV ───
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // ─── SMOOTH SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 70, behavior: 'smooth' });
+    });
+  });
+
+  // ─── FADE UP ───
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // ─── OPEN/CLOSED LOGIC ───
+  const HOURS = {
+    1: { open: [7,   0], close: [20, 30] }, // Lundi
+    2: { open: [7,   0], close: [20, 30] }, // Mardi
+    3: { open: [7,   0], close: [20, 30] }, // Mercredi
+    4: { open: [7,   0], close: [20, 30] }, // Jeudi
+    5: { open: [7,   0], close: [20, 30] }, // Vendredi
+    6: { open: [8,   0], close: [19, 30] }, // Samedi
+    0: null,                                  // Dimanche — fermé
+  };
+
+  function checkStatus() {
+    // Use French local time
+    const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Paris' }));
+    const day = now.getDay();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    const totalMin = h * 60 + m;
+
+    const schedule = HOURS[day];
+    let isOpen = false;
+
+    if (schedule) {
+      const openMin  = schedule.open[0]  * 60 + schedule.open[1];
+      const closeMin = schedule.close[0] * 60 + schedule.close[1];
+      isOpen = totalMin >= openMin && totalMin < closeMin;
+    }
+
+    // Hero badge
+    const dot  = document.getElementById('heroDot');
+    const text = document.getElementById('heroStatusText');
+    const sub  = document.getElementById('heroHoursText');
+    const navS = document.getElementById('navStatus');
+    const navT = document.getElementById('navStatusText');
+    const cur  = document.getElementById('currentStatus');
+
+    if (isOpen) {
+      dot.className  = 'badge-dot-large open';
+      text.className = 'badge-text-status open';
+      text.textContent = 'Ouvert';
+      const closeH = `${schedule.close[0]}h${schedule.close[1].toString().padStart(2,'0')}`;
+      sub.textContent  = `Ferme à ${closeH}`;
+      navS.className   = 'nav-status open';
+      navT.textContent = 'Ouvert';
+      cur.textContent  = '· Ouvert maintenant';
+      cur.style.color  = '#27ae60';
+    } else {
+      dot.className  = 'badge-dot-large closed';
+      text.className = 'badge-text-status closed';
+      text.textContent = 'Fermé';
+
+      // Find next opening
+      let next = '';
+      for (let i = 1; i <= 7; i++) {
+        const nd  = (day + i) % 7;
+        const nsc = HOURS[nd];
+        if (nsc) { next = `Ouvre ${i === 1 ? 'demain' : 'dans ' + i + 'j'} à ${nsc.open[0]}h${nsc.open[1].toString().padStart(2,'0')}`; break; }
+      }
+      sub.textContent  = next;
+      navS.className   = 'nav-status closed';
+      navT.textContent = 'Fermé';
+      cur.textContent  = '· Fermé actuellement';
+      cur.style.color  = '#c0392b';
+    }
+
+    // Highlight today's row
+    const rowMap = { 0: 'row-0', 1: 'row-1', 2: 'row-2', 3: 'row-3', 4: 'row-4', 5: 'row-5', 6: 'row-6' };
+    const todayRow = document.getElementById(rowMap[day]);
+    if (todayRow) {
+      todayRow.classList.add('today');
+      const dayCell = todayRow.querySelector('.day');
+      if (dayCell) {
+        const badge = document.createElement('span');
+        badge.className = 'today-badge';
+        badge.textContent = "Aujourd'hui";
+        dayCell.appendChild(badge);
+      }
+    }
+  }
+
+  checkStatus();
+  setInterval(checkStatus, 60000);
+</script>
+</body>
+</html>

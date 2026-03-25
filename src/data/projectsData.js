@@ -406,9 +406,156 @@ export const projectsData = [
       live: "/NeonBeauty/NeonBeauty.html"
     }
   },
-
   {
     id: 9,
+    navbarTheme: 'light',
+    slug: "cavea-wine-bar",
+    title: "CAVEA",
+    tagline: "Site vitrine immersif pour une cave à manger contemporaine.",
+    year: "2026",
+    image: "/images/projectpics/Restaurant/Cavea_hero.webp",
+    categoryIds: ["vitrine", "restaurant"],
+    client: "CAVEA — Lyon",
+    role: "Designer & Développeur Web",
+    timeline: "1 semaine",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    description: "Site vitrine immersif pour une cave à manger contemporaine. L'identité visuelle repose sur une palette bordeaux et or, associée à une typographie élégante et une mise en page éditoriale. L'objectif est de retranscrire une ambiance chaleureuse et premium tout en facilitant la réservation.",
+    challenge: "Créer une expérience visuelle immersive sans compromettre les performances. L'enjeu était d'intégrer des animations fluides, un système d’onglets dynamique et une navigation claire sur tous les supports.",
+    process: {
+      text: "Le projet s'appuie sur une direction artistique inspirée des établissements gastronomiques : couleurs profondes, contrastes maîtrisés et typographies serif. Les interactions (scroll reveal, tabs, header dynamique) ont été développées en JavaScript vanilla pour garantir légèreté et fluidité.",
+      images: [
+        "/images/projectpics/Restaurant/Cavea_hero.webp",
+        "/images/projectpics/Restaurant/Cavea_carte.webp"
+      ]
+    },
+    websitePages: [
+      { id: 'hero', title: "Accueil", image: "/images/projectpics/Restaurant/Cavea_hero.webp" },
+      { id: 'carte', title: "Carte", image: "/images/projectpics/Restaurant/Cavea_carte.webp" },
+      { id: 'galerie', title: "Galerie", image: "/images/projectpics/Restaurant/Cavea_galerie.webp" },
+      { id: 'contact', title: "Contact", image: "/images/projectpics/Restaurant/Cavea_contact.webp" }
+    ],
+    features: [
+      {
+        title: "Direction Artistique Élégante",
+        description: "Palette bordeaux et or, typographies raffinées et mise en page éditoriale pour une immersion premium.",
+        image: "/images/projectpics/Restaurant/Cavea_hero.webp"
+      },
+      {
+        title: "Système d’Onglets Dynamique",
+        description: "Navigation fluide entre les sections de la carte avec transitions animées.",
+        image: "/images/projectpics/Restaurant/Cavea_carte.webp"
+      },
+      {
+        title: "Animations & UX",
+        description: "Effets scroll reveal, header dynamique et interactions subtiles pour enrichir l’expérience utilisateur.",
+        image: "/images/projectpics/Restaurant/Cavea_contact.webp"
+     }
+    ],
+    links: {
+      live: "/Cavea/Cavea.html"
+    }
+  },
+  {
+  id: 10,
+  navbarTheme: 'light',
+  slug: "comptoir-azur",
+  title: "Comptoir Azur",
+  tagline: "Site vitrine pour un bar-tabac de quartier à Lyon 4.",
+  year: "2026",
+  image: "/images/projectpics/BarTabac/ComptoirAzur_hero.webp",
+  categoryIds: ["vitrine", "bar-tabac"],
+  client: "Comptoir Azur — Lyon",
+  role: "Designer & Développeur Web",
+  timeline: "1 semaine",
+  techStack: ["HTML", "CSS", "JavaScript"],
+  description: "Site vitrine pour un bar-tabac de quartier, combinant Bar, Tabac, FDJ et Presse. L'identité visuelle repose sur des tons bleu pétrole et un style Art Déco, recréant l'ambiance chaleureuse et conviviale du lieu.",
+  challenge: "Transmettre l’atmosphère unique d’un bar de quartier rénové en Art Déco, tout en intégrant un affichage dynamique des horaires et un système de navigation fluide.",
+  process: {
+    text: "Le projet s'appuie sur une direction artistique Art Déco : couleurs bleu pétrole, miroirs, carrelage géométrique et typographie chaleureuse. Les interactions JavaScript incluent le badge Ouvert/Fermé, scroll reveal et navigation responsive, pour une expérience fluide sur tous les supports.",
+    images: [
+      "/images/projectpics/BarTabac/ComptoirAzur_hero.webp",
+      "/images/projectpics/BarTabac/ComptoirAzur_services.webp"
+    ]
+  },
+  websitePages: [
+    { id: 'hero', title: "Accueil", image: "/images/projectpics/BarTabac/ComptoirAzur_hero.webp" },
+    { id: 'services', title: "Nos Services", image: "/images/projectpics/BarTabac/ComptoirAzur_services.webp" },
+    { id: 'esprit', title: "Notre Esprit", image: "/images/projectpics/BarTabac/ComptoirAzur_esprit.webp" },
+    { id: 'infos', title: "Infos Pratiques", image: "/images/projectpics/BarTabac/ComptoirAzur_contact.webp" }
+  ],
+  features: [
+    {
+      title: "Identité Visuelle Art Déco",
+      description: "Palette bleu pétrole, miroirs et carrelage géométrique pour recréer l'ambiance du bar.",
+      image: "/images/projectpics/BarTabac/ComptoirAzur_hero.webp"
+    },
+    {
+      title: "Affichage Dynamique",
+      description: "Badge Ouvert/Fermé et horaires interactifs pour informer les clients en temps réel.",
+      image: "/images/projectpics/BarTabac/ComptoirAzur_services.webp"
+    },
+    {
+      title: "Navigation et UX Fluides",
+      description: "Scroll reveal, animations subtiles et responsive design pour une expérience agréable sur tous les écrans.",
+      image: "/images/projectpics/BarTabac/ComptoirAzur_contact.webp"
+    }
+  ],
+  links: {
+    live: "/Comptoir-Azur/Comptoir-Azur.html"
+  }
+},
+{
+  id: 11,
+  navbarTheme: 'light',
+  slug: "lecomptoirrouge",
+  title: "Le Comptoir Rouge",
+  tagline: "Site vitrine pour un bar à vin & cave à manger à Lyon 2.",
+  year: "2026",
+  image: "/images/projectpics/BarVin/LeComptoirRouge_hero.webp",
+  categoryIds: ["vitrine", "bar-restaurant"],
+  client: "Le Comptoir Rouge — Lyon",
+  role: "Designer & Développeur Web",
+  timeline: "1 semaine",
+  techStack: ["HTML", "CSS", "JavaScript"],
+  description: "Site vitrine immersif pour un bar à vin et cave à manger. L’identité visuelle repose sur des couleurs chaudes (brique, bois, beige) et un style élégant et contemporain, mettant en valeur l’ambiance conviviale et raffinée du lieu.",
+  challenge: "Transmettre l’atmosphère d’un bar à vin chaleureux et contemporain avec des briques apparentes et mobilier patiné, tout en proposant une navigation fluide et responsive et un affichage clair des cartes de vins et tapas.",
+  process: {
+    text: "Le projet s’inspire de l’esthétique industrielle et chaleureuse : briques apparentes, comptoir en bois patiné et palette de couleurs terreuses. Les animations incluent scroll reveal, hover subtil sur la carte des vins et boutons dynamiques pour une expérience fluide sur desktop et mobile.",
+    images: [
+      "/images/projectpics/BarVin/LeComptoirRouge_hero.webp",
+      "/images/projectpics/BarVin/LeComptoirRouge_ambiance.webp",
+      "/images/projectpics/BarVin/LeComptoirRouge_carte.webp"
+    ]
+  },
+  websitePages: [
+    { id: 'hero', title: "Accueil", image: "/images/projectpics/BarVin/LeComptoirRouge_hero.webp" },
+    { id: 'ambiance', title: "L'Esprit", image: "/images/projectpics/BarVin/LeComptoirRouge_ambiance.webp" },
+    { id: 'carte', title: "La Cave", image: "/images/projectpics/BarVin/LeComptoirRouge_carte.webp" },
+    { id: 'contact', title: "Contact & Réservation", image: "/images/projectpics/BarVin/LeComptoirRouge_contact.webp" }
+  ],
+  features: [
+    {
+      title: "Direction Artistique Chaleureuse",
+      description: "Palette brique, bois et beige pour retranscrire l’ambiance conviviale et élégante du bar.",
+      image: "/images/projectpics/BarVin/LeComptoirRouge_hero.webp"
+    },
+    {
+      title: "Carte Interactive",
+      description: "Vins, bulles, tapas et assortiments présentés de manière lisible avec hover et animations légères.",
+      image: "/images/projectpics/BarVin/LeComptoirRouge_carte.webp"
+    },
+    {
+      title: "Animations & UX",
+      description: "Scroll reveal, hover subtil et responsive design pour une expérience immersive sur tous les écrans.",
+      image: "/images/projectpics/BarVin/LeComptoirRouge_ambiance.webp"
+    }
+  ],
+  links: {
+    live: "/LeComptoirRouge/LeComptoirRouge.html"
+  }
+},
+  {
+    id: 12,
     navbarTheme: 'light',
     slug: "immersive-3d-portfolio",
     title: "Portfolio Immersif 3D",
