@@ -30,7 +30,7 @@ const HeroSection = () => {
         </button>
       </div>
       <div className="hero-mac">
-        <img src={heroMac} alt="Macbook" />
+        <img src={heroMac} alt="Aperçu d'un site web pour artisan créé par Studio1921, agence web à Lyon" />
       </div>
     </section>
   );
