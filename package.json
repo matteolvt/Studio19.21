@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --ext .js,.jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "sitemap": "node generate-sitemap.js",
-    "postbuild": "react-snap"
+    "sitemap": "node generate-sitemap.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -44,40 +43,6 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
-    "react-snap": "^1.23.0",
     "vite": "^7.2.4"
-  },
-  "reactSnap": {
-    "source": "dist",
-    "destinationDir": "dist",
-    "include": [
-      "/",
-      "/about",
-      "/services",
-      "/projets",
-      "/blog",
-      "/contact",
-      "/mentions-legales",
-      "/blog/comment-creer-un-site-ecommerce-performant",
-      "/blog/les-bases-du-developpement-web-moderne",
-      "/blog/pourquoi-un-site-vitrine-est-essentiel",
-      "/blog/pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026",
-      "/blog/site-web-artisan-erreurs-a-eviter",
-      "/blog/refonte-site-web-quand-et-pourquoi",
-      "/blog/comment-choisir-son-agence-web",
-      "/blog/seo-local-artisan-etre-trouve-sur-google",
-      "/blog/vitesse-chargement-site-web-pourquoi-ca-compte",
-      "/blog/intelligence-artificielle-outil-developpeur-web",
-      "/blog/vitesse-chargement-site-web-core-web-vitals"
-    ],
-    "exclude": [
-      "/fournil-emile/Fournil.html",
-      "/FournilHonore",
-      "/LeBackstage", 
-      "/Saigon"
-    ],
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "inlineCss": false,
-    "skipThirdPartyRequests": true
   }
 }
