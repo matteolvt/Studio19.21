@@ -1,5 +1,23 @@
 export const posts = [
   {
+    id: 13,
+    slug: "eco-conception-web-performance-durable-pme",
+    title: "Éco-conception web : Pourquoi un site plus 'vert' est aussi un site plus performant en 2026",
+    category: "Développement web",
+    excerpt: "Le guide complet sur la sobriété numérique : comment réduire l'empreinte carbone de votre site tout en boostant votre SEO, votre vitesse et vos conversions.",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fm=webp",
+    date: "2026-04-07",
+  },
+  {
+    id: 12,
+    slug: "guide-complet-strategie-digitale-2026-pme-artisan",
+    title: "Le Guide Ultime de la Stratégie Digitale 2026 : Comment faire décoller votre entreprise (Artisans & PME)",
+    category: "Conseils",
+    excerpt: "3000 mots pour tout comprendre : de la performance technique à l'IA, en passant par le SEO local et la conversion. Le manuel complet pour dominer votre marché cette année.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=75&fm=webp",
+    date: "2026-04-07",
+  },
+  {
     id: 11,
     slug: "vitesse-chargement-site-web-core-web-vitals",
     title: "Core Web Vitals : pourquoi la vitesse de votre site est devenue un enjeu business",
