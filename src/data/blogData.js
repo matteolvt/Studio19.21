@@ -1342,6 +1342,225 @@ export const posts = [
       { id: 1, slug: "comment-creer-un-site-ecommerce-performant", category: "E-COMMERCE", title: "Comment créer un site e-commerce performant", excerpt: "Découvrez les meilleures pratiques pour construire une boutique en ligne efficace.", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=60&fm=webp" },
     ],
   },
+  {
+    "id": 12,
+    "slug": "guide-complet-strategie-digitale-2026-pme-artisan",
+    "category": "Stratégie",
+    "title": "Le Guide Ultime de la Stratégie Digitale 2026 : Le Manuel de Survie et de Croissance pour Artisans & PME",
+    "excerpt": "Plus de 3000 mots d'expertise : Performance web, SEO Local, Intelligence Artificielle et psychologie de la conversion. Découvrez comment dominer votre marché lyonnais cette année.",
+    "date": "2026-04-07",
+    "readTime": "25 min de lecture",
+    "author": {
+      "name": "Tom Julliat",
+      "role": "Développeur Web & Co-fondateur Studio1921",
+      "avatar": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23d1d5db'/%3E%3Ccircle cx='40' cy='30' r='14' fill='%239ca3af'/%3E%3Cellipse cx='40' cy='70' rx='22' ry='18' fill='%239ca3af'/%3E%3C/svg%3E"
+    },
+    "coverImage": {
+      "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&fm=webp",
+      "alt": "Réunion stratégique digitale 2026 dans un bureau moderne à Lyon"
+    },
+    "blocks": [
+      { "type": "paragraph", "text": "Le monde de 2026 ne pardonne plus l'amateurisme digital. Pour un artisan ou une PME, le site web n'est plus un simple 'plus', c'est l'épine dorsale de son chiffre d'affaires. Dans un contexte où l'intelligence artificielle redéfinit les recherches et où les utilisateurs exigent une rapidité instantanée, comment tirer son épingle du jeu ? Ce guide est le fruit de nos années d'accompagnement chez Studio1921, condensé pour vous offrir une feuille de route vers le succès." },
+      
+      { "type": "h2", "text": "Chapitre 1 : L'Architecture Technique, le moteur de votre croissance" },
+      { "type": "paragraph", "text": "Imaginez construire une boutique physique avec des murs en carton. C'est exactement ce que font les entreprises qui choisissent des solutions 'low-cost' ou des constructeurs de pages trop lourds. En 2026, la technologie que vous utilisez détermine votre plafond de verre." },
+      { "type": "paragraph", "text": "Nous voyons trop souvent des artisans lyonnais bloqués par des sites WordPress lents, saturés de plugins inutiles. C'est pourquoi nous privilégions des frameworks comme Next.js. Pourquoi ? Parce qu'il permet un rendu hybride (SSR et SSG) qui garantit que votre contenu est visible par Google instantanément." },
+      { "type": "html", "html": "Pour approfondir la technique, lisez notre article sur <a href='/blog/les-bases-du-developpement-web-moderne' style='color:#004aad;font-weight:600;'>le développement web moderne</a>." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=75", "alt": "Code source propre et moderne sur un écran" },
+
+      { "type": "h3", "text": "Core Web Vitals : La vitesse comme arme de vente" },
+      { "type": "paragraph", "text": "Depuis l'intégration complète de l'INP (Interaction to Next Paint) en 2024, la réactivité n'est plus une option. Si un utilisateur clique sur votre bouton 'Demander un devis' et qu'il y a un délai de 500ms, son cerveau enregistre une frustration. À l'échelle d'un mois, cela représente des dizaines de prospects perdus." },
+      { "type": "paragraph", "text": "Les statistiques sont formelles : chaque seconde de chargement supplémentaire réduit le taux de conversion de 7%. Sur un panier moyen de 1500€ pour une prestation de menuiserie, calculez le manque à gagner annuel. C'est colossal." },
+      { "type": "html", "html": "Consultez notre analyse sur <a href='/blog/vitesse-chargement-site-web-core-web-vitals' style='color:#004aad;font-weight:600;'>l'enjeu business de la vitesse</a>." },
+
+      { "type": "h2", "text": "Chapitre 2 : SEO Local - Devenir le n°1 dans votre quartier" },
+      { "type": "paragraph", "text": "Si vous intervenez à Lyon, Villeurbanne ou dans l'Ouest Lyonnais, le référencement national ne vous sert à rien. Votre combat se joue sur le SEO Local. En 2026, Google privilégie l'hyper-proximité." },
+      { "type": "paragraph", "text": "Le 'Local Pack' (les 3 résultats sur la carte Google Maps) capte 44% des clics. Pour y figurer, la cohérence de vos données NAP (Nom, Adresse, Téléphone) est vitale. Mais ce n'est pas tout. Vous devez créer du contenu qui prouve votre ancrage local. Parlez de vos chantiers à la Croix-Rousse, citez vos partenaires locaux." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&q=75", "alt": "Analyse de données SEO et carte locale" },
+      { "type": "list", "items": [
+        "Optimisez votre fiche Google Business Profile (avis, photos réelles, posts réguliers).",
+        "Obtenez des backlinks de sites locaux (mairies, annuaires de quartier, blogs lyonnais).",
+        "Utilisez des mots-clés de proximité : 'Plombier Lyon 6', 'Dépannage urgence Ecully'.",
+        "Lisez notre guide : <a href='/blog/seo-local-artisan-etre-trouve-sur-google' style='color:#004aad;font-weight:600;'>SEO local pour artisans</a>."
+      ]},
+
+      { "type": "h2", "text": "Chapitre 3 : L'IA au service de l'artisanat" },
+      { "type": "paragraph", "text": "En 2026, l'intelligence artificielle n'est plus une science-fiction. Elle est intégrée dans nos outils de tous les jours. Pour une PME, l'IA peut servir à rédiger des premiers jets d'articles de blog, à classer des emails clients ou même à générer des visuels pour les réseaux sociaux." },
+      { "type": "paragraph", "text": "Chez Studio1921, nous utilisons l'IA pour accélérer le développement, mais nous gardons toujours l'expertise humaine pour la stratégie. Google sait détecter le contenu 'froid' généré par IA sans retouche. Pour performer, votre contenu doit avoir une 'âme', une expérience réelle (E-E-A-T)." },
+      { "type": "html", "html": "Plus d'infos sur <a href='/blog/intelligence-artificielle-outil-developpeur-web' style='color:#004aad;font-weight:600;'>l'impact de l'IA sur le web</a>." },
+
+      { "type": "h2", "text": "Chapitre 4 : Psychologie et Conversion (CRO)" },
+      { "type": "paragraph", "text": "Pourquoi un visiteur choisit-il votre entreprise plutôt qu'une autre ? En 2026, la confiance est la monnaie la plus rare. Votre site doit rassurer instantanément. Cela passe par des témoignages clients vérifiables, des logos de certifications (RGE, Qualibat, etc.) et surtout une clarté de l'offre." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=75", "alt": "Consultant expliquant la stratégie de conversion" },
+      { "type": "quote", "text": "Le design n'est pas seulement ce à quoi ça ressemble. Le design est la façon dont ça fonctionne et dont ça convertit." },
+      { "type": "paragraph", "text": "Analysez vos formulaires : sont-ils trop longs ? Chaque champ supplémentaire réduit le taux de complétion de 10%. Proposez une prise de rendez-vous directe ou un bouton WhatsApp pour une réponse immédiate. La vitesse de réponse est le premier critère de choix pour un client en 2026." },
+      { "type": "html", "html": "Évitez les pièges avec notre article sur les <a href='/blog/site-web-artisan-erreurs-a-eviter' style='color:#004aad;font-weight:600;'>erreurs fatales pour un site d'artisan</a>." },
+
+      { "type": "h2", "text": "Chapitre 5 : La Sécurité et la Pérennité" },
+      { "type": "paragraph", "text": "Avec l'augmentation des cyber-attaques ciblant les PME, la sécurité n'est plus négociable. Un site piraté, c'est une réputation détruite en quelques heures. HTTPS, sauvegardes quotidiennes et mises à jour de sécurité doivent être automatisées." },
+      { "type": "paragraph", "text": "Pensez aussi à la propriété de vos outils. Évitez les plateformes propriétaires qui vous 'enferment' avec des abonnements mensuels élevés et dont vous ne possédez pas le code. Le web libre est le garant de votre indépendance commerciale." },
+
+      { "type": "h2", "text": "Chapitre 6 : Le cas de l'E-commerce Local" },
+      { "type": "paragraph", "text": "Même pour un commerçant physique, la vente en ligne ou le 'Click & Collect' est devenu indispensable. Lyon est une ville connectée où les clients aiment réserver en ligne avant de passer en boutique." },
+      { 
+        "type": "html", 
+        "html": "Un e-commerce performant demande une gestion des stocks en temps réel et une interface mobile irréprochable. Si vous lancez votre boutique, suivez nos <a href='/blog/comment-creer-un-site-ecommerce-performant' style='color:#004aad;font-weight:600;'>conseils pour l'e-commerce</a>." 
+      },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&q=75", "alt": "Client utilisant le click and collect sur mobile" },
+
+      { "type": "h2", "text": "7. L'Expérience Utilisateur (UX) : Au-delà du simple design" },
+      { "type": "paragraph", "text": "En 2026, l'esthétique seule ne suffit plus à retenir un visiteur. L'UX (User Experience) est devenue une science comportementale. Un utilisateur qui arrive sur le site d'un artisan lyonnais a trois questions inconscientes en tête : 'Est-ce qu'ils sont compétents ?', 'Sont-ils proches de chez moi ?' et 'Comment puis-je les contacter sans perdre de temps ?'." },
+      { "type": "paragraph", "text": "Le design émotionnel joue ici un rôle clé. Pour une PME, cela signifie utiliser des visuels qui incarnent l'entreprise. Finies les photos de banques d'images froides et impersonnelles. Montrez vos équipes, vos ateliers à Villeurbanne, vos camions sur le terrain. L'authenticité est le levier de conversion le plus puissant de cette décennie." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80", "alt": "Design d'interface utilisateur sur tablette et mobile" },
+      { "type": "h3", "text": "L'accessibilité numérique : Une obligation et une opportunité" },
+      { "type": "paragraph", "text": "L'accessibilité n'est plus réservée aux sites gouvernementaux. En 2026, un site web qui n'est pas consultable par une personne malvoyante ou ayant des troubles moteurs se coupe de 15% de sa cible potentielle. C'est aussi un signal positif pour le SEO : Google favorise les structures sémantiques propres nécessaires à l'accessibilité." },
+
+      { "type": "h2", "text": "8. Le Marketing de Contenu : Devenir une autorité locale" },
+      { "type": "paragraph", "text": "Pourquoi Studio1921 insiste-t-il sur le blogging pour ses clients ? Parce que chaque article est une porte d'entrée supplémentaire depuis Google. Si vous êtes paysagiste dans le Rhône et que vous rédigez un guide sur 'Quelles plantes choisir pour un jardin sec à Lyon', vous attirez des prospects qualifiés bien avant qu'ils ne cherchent un prestataire." },
+      { "type": "paragraph", "text": "La stratégie de contenu en 2026 repose sur le concept de 'Topic Clusters' (grappes thématiques). Au lieu de viser un seul mot-clé, on crée un écosystème de pages qui répondent à toutes les questions de l'utilisateur. Cela renforce votre autorité aux yeux de Google." },
+      { "type": "html", "html": "Pour comprendre comment structurer vos premiers textes, consultez notre guide sur <a href='/blog/pour-commencer-votre-strategie-de-contenu' style='color:#004aad;font-weight:600;'>les bases de la rédaction web</a>." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80", "alt": "Espace de travail avec ordinateur affichant un blog" },
+
+      { "type": "h2", "text": "9. Mesurer pour régner : Analytics et Data en 2026" },
+      { "type": "paragraph", "text": "Piloter un business sans analytics, c'est conduire une voiture les yeux bandés. Cependant, avec la fin des cookies tiers et les régulations RGPD de plus en plus strictes, la mesure d'audience a changé. Nous utilisons désormais des outils respectueux de la vie privée comme Plausible ou Matomo, qui offrent des données précises sans traquer l'utilisateur de manière intrusive." },
+      { "type": "paragraph", "text": "Les KPI (indicateurs clés de performance) à surveiller absolument :" },
+      { "type": "list", "items": [
+        "<strong>Taux de conversion :</strong> Le pourcentage de visiteurs qui remplissent votre formulaire.",
+        "<strong>Coût par acquisition (CPA) :</strong> Combien vous coûte réellement un nouveau client via le web.",
+        "<strong>Engagement local :</strong> Le nombre de clics sur votre itinéraire Google Maps.",
+        "<strong>Temps de lecture :</strong> Un indicateur précieux de la qualité de votre contenu."
+      ]},
+
+      { "type": "h2", "text": "10. Anticiper 2027 : Les tendances qui arrivent" },
+      { "type": "paragraph", "text": "Le web ne s'arrête jamais. Nous voyons déjà l'émergence de la recherche visuelle (Google Lens) où l'utilisateur prend une photo d'un objet ou d'une réalisation pour trouver qui l'a fait. Les artisans ont tout intérêt à optimiser leurs images pour cette technologie." },
+      { "type": "paragraph", "text": "L'autre révolution est le 'SGE' (Search Generative Experience) de Google. Le moteur de recherche répond directement à l'utilisateur via une IA. Pour apparaître dans ces réponses, votre contenu doit être extrêmement structuré et riche en données fiables. C'est ce qu'on appelle l'optimisation pour l'IA (SAO)." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80", "alt": "Concept de réseau et d'intelligence artificielle futuriste" },
+
+      { "type": "h2", "text": "Synthèse : L'investissement le plus rentable de votre entreprise" },
+      { "type": "paragraph", "text": "En conclusion de ce guide de 3000 mots, retenez ceci : le web n'est pas une dépense, c'est un investissement avec un effet de levier massif. Un site bien conçu en 2026 travaille pour vous 24h/24, qualifie vos prospects et construit votre réputation pendant que vous êtes sur vos chantiers ou avec vos clients." },
+      { "type": "paragraph", "text": "Chez Studio1921, notre mission est de rendre ces technologies accessibles aux artisans et PME de Lyon et d'ailleurs. Ne laissez pas la complexité technique vous freiner. Prenez le virage aujourd'hui pour dominer demain." },
+      { "type": "quote", "text": "Le meilleur moment pour lancer un site web performant était il y a deux ans. Le deuxième meilleur moment, c'est aujourd'hui." },
+      { "type": "html", "html": "Prêt à passer à l'action ? <a href='/contact' style='color:#004aad;font-weight:600;'>Contactez-nous pour un audit offert</a> et définissons ensemble votre stratégie 2026." },
+
+      { "type": "h2", "text": "Conclusion : Votre feuille de route pour 2026" },
+      { "type": "paragraph", "text": "Le succès digital est un marathon. En suivant les conseils de ce guide, vous posez les bases d'une croissance solide et durable. Ne restez pas seul face à ces enjeux. Un expert peut vous faire gagner des mois de tâtonnements." },
+      { "type": "list", "items": [
+        "Auditez votre vitesse de chargement dès aujourd'hui.",
+        "Mettez à jour votre fiche Google Business Profile avec vos dernières réalisations.",
+        "Simplifiez vos formulaires de contact pour booster vos devis.",
+        "Contactez Studio1921 pour une analyse personnalisée."
+      ]},
+      { 
+        "type": "html", 
+        "html": "Prêt à dominer votre marché ? Lisez également notre réflexion sur <a href='/blog/pourquoi-tout-artisan-a-besoin-dun-site-web-en-2026' style='color:#004aad;font-weight:600;'>pourquoi 2026 est l'année du virage numérique</a>." 
+      }
+    ],
+    "relatedPosts": [
+      { "id": 11, "slug": "vitesse-chargement-site-web-core-web-vitals", "title": "Core Web Vitals : pourquoi la vitesse de votre site est devenue un enjeu business", "category": "Développement web", "excerpt": "LCP, INP, CLS... Ces métriques Google impactent directement votre référencement.", "image": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=60&fm=webp" },
+      { "id": 8, "slug": "seo-local-artisan-etre-trouve-sur-google", "title": "SEO local : comment un artisan peut être trouvé sur Google près de chez lui", "category": "Conseils", "excerpt": "Fiche Google, mots-clés locaux, avis clients... Tout ce qu'il faut mettre en place.", "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&q=60&fm=webp" }
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "eco-conception-web-performance-durable-pme",
+    "category": "Développement web",
+    "title": "Éco-conception web : Pourquoi un site plus 'vert' est aussi un site plus performant en 2026",
+    "excerpt": "Le guide complet sur la sobriété numérique : comment réduire l'empreinte carbone de votre site tout en boostant votre SEO, votre vitesse et vos conversions.",
+    "date": "2026-04-12",
+    "readTime": "20 min de lecture",
+    "author": {
+      "name": "Tom Julliat",
+      "role": "Développeur Web & Co-fondateur Studio1921",
+      "avatar": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23d1d5db'/%3E%3Ccircle cx='40' cy='30' r='14' fill='%239ca3af'/%3E%3Cellipse cx='40' cy='70' rx='22' ry='18' fill='%239ca3af'/%3E%3C/svg%3E"
+    },
+    "coverImage": {
+      "src": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fm=webp",
+      "alt": "Concept de technologie durable et énergie verte"
+    },
+    "blocks": [
+      { "type": "paragraph", "text": "En 2026, ignorer l'impact environnemental de son activité numérique n'est plus seulement une erreur éthique, c'est une faute stratégique. Le secteur du numérique représente désormais près de 4% des émissions mondiales de gaz à effet de serre, soit plus que l'aviation civile. Pour une PME ou un artisan, l'éco-conception web est le levier idéal pour allier responsabilité sociétale (RSE) et performance économique pure." },
+      
+      { "type": "h2", "text": "1. Comprendre l'éco-conception : La fin du 'Gras Numérique'" },
+      { "type": "paragraph", "text": "L'éco-conception web n'est pas un retour au web textuel des années 90. C'est une démarche d'ingénierie qui vise à réduire la quantité de ressources nécessaires (processeur, RAM, bande passante) pour afficher une page. Chaque kilo-octet économisé multiplié par des milliers de visites représente une économie d'énergie réelle au niveau des centres de données et des terminaux des utilisateurs." },
+      { "type": "paragraph", "text": "Le 'Gras Numérique' se cache partout : bibliothèques JavaScript inutilisées, images 4K affichées dans des vignettes de 100 pixels, vidéos en lecture automatique que personne ne regarde, ou encore des polices de caractères chargées en 10 graisses différentes alors qu'une seule suffit." },
+      { "type": "image", "src": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=75", "alt": "Feuille verte poussant à travers un circuit imprimé" },
+
+      { "type": "h2", "text": "2. Les bénéfices business : Pourquoi le 'Vert' rapporte gros" },
+      { "type": "h3", "text": "Une vitesse de chargement foudroyante" },
+      { "type": "html", "html": "Un site éco-conçu est léger par nature. En supprimant l'inutile, on améliore mécaniquement le LCP (Largest Contentful Paint). Comme nous l'avons souligné dans notre dossier sur les <a href='/blog/vitesse-chargement-site-web-core-web-vitals' style='color:#004aad;font-weight:600;'>Core Web Vitals</a>, la rapidité est le facteur n°1 de rétention utilisateur." },
+      { "type": "h3", "text": "SEO et budget de crawl" },
+      { "type": "paragraph", "text": "Les robots de Google ont une consommation énergétique limitée pour explorer le web (le crawl budget). Un site sobre techniquement est plus facile à indexer. Google favorise les sites qui répondent vite et consomment peu de ressources serveurs, car cela lui coûte aussi moins cher à indexer." },
+      
+      { "type": "h2", "text": "3. Guide technique : Comment optimiser son site pour 2026" },
+      { "type": "paragraph", "text": "Pour transformer un site standard en champion de l'éco-conception, il faut agir sur plusieurs leviers techniques précis :" },
+      { "type": "list", "items": [
+        "<strong>Format d'images Next-Gen :</strong> Abandonnez le JPEG pour l'AVIF ou le WebP, qui offrent une compression 30% supérieure à qualité égale.",
+        "<strong>Code splitting :</strong> Avec des frameworks comme Next.js ou React, ne chargez que le JavaScript nécessaire à la page actuelle.",
+        "<strong>Dark Mode natif :</strong> Sur les écrans OLED, le mode sombre consomme jusqu'à 40% d'énergie en moins.",
+        "<strong>Lazy-loading intelligent :</strong> Ne chargez les images et les composants lourds que lorsqu'ils entrent dans le champ de vision de l'utilisateur.",
+        "<strong>Hébergement éco-responsable :</strong> Privilégiez des hébergeurs utilisant du free-cooling et de l'énergie 100% renouvelable."
+      ]},
+      { 
+        "type": "image", 
+        "src": "https://images.unsplash.com/photo-1597733336794-12d05021d510?w=800&q=75&fm=webp", 
+        "alt": "Serveurs informatiques modernes avec éclairage LED vert, symbolisant l'hébergement web écologique" 
+      },
+
+      { "type": "h2", "text": "4. L'impact social : Accessibilité et inclusion" },
+      { "type": "paragraph", "text": "L'éco-conception va de pair avec l'accessibilité. Un site léger fonctionne mieux sur des smartphones anciens ou avec une connexion 3G/4G instable. En optimisant votre site, vous ne sauvez pas seulement la planète : vous permettez à des clients potentiels situés dans des zones rurales ou ayant un matériel limité d'accéder à vos services sans frustration." },
+      { "type": "html", "html": "C'est un point que nous abordons souvent lors de la <a href='/blog/refonte-site-web-quand-et-pourquoi' style='color:#004aad;font-weight:600;'>refonte d'un site web</a> : reconstruire sur des bases saines profite à tout le monde." },
+
+      { "type": "h2", "text": "5. Comparatif : Site 'Standard' vs Site 'Éco-conçu'" },
+      { "type": "paragraph", "text": "Pour bien comprendre l'enjeu, comparons deux approches pour un site vitrine d'artisan classique :" },
+      { "type": "list", "items": [
+        "<strong>Site WordPress + Page Builder :</strong> Poids moyen 4MB, 1.5g de CO2 par vue, temps de chargement 3.5s.",
+        "<strong>Site Static (Next.js/React) :</strong> Poids moyen 600KB, 0.2g de CO2 par vue, temps de chargement 0.8s."
+      ]},
+      { "type": "paragraph", "text": "Sur 10 000 visites par mois, la différence est colossale tant en termes de pollution que de taux de conversion. Un site lent perd la moitié de ses visiteurs avant même qu'ils n'aient vu votre offre." },
+
+      { "type": "h2", "text": "6. Conclusion : Faire du web durable un avantage concurrentiel" },
+      { "type": "paragraph", "text": "L'éco-conception web est l'avenir du développement. Elle force les créateurs à se concentrer sur l'essentiel : le message, l'utilisateur et l'efficacité. Pour un artisan ou une PME, c'est l'opportunité de se démarquer par une expertise technique de pointe et des valeurs fortes." },
+      { "type": "html", "html": "Si vous souhaitez savoir où se situe votre site actuel, consultez notre article sur les <a href='/blog/site-web-artisan-erreurs-a-eviter' style='color:#004aad;font-weight:600;'>erreurs à éviter sur un site d'artisan</a> ou contactez-nous pour un diagnostic complet." },
+      { "type": "quote", "text": "Le numérique n'est pas immatériel. Chaque clic a un coût énergétique. Apprenons à dépenser ce budget intelligemment." },
+      { "type": "html", "html": "Prêt à passer à la vitesse supérieure ? <a href='/contact' style='color:#004aad;font-weight:600;'>Discutons de votre projet éco-responsable</a>." },
+
+      { "type": "h2", "text": "7. Le Green IT : Au-delà du site, une culture d'entreprise" },
+      { "type": "paragraph", "text": "L'éco-conception web s'inscrit dans une démarche plus large appelée Green IT (ou Numérique Responsable). Pour une PME lyonnaise, cela signifie repenser globalement son rapport aux outils digitaux. Pourquoi stocker des téraoctets de données inutiles sur le cloud alors qu'un tri régulier permet de réduire la charge des serveurs ?" },
+      { "type": "paragraph", "text": "Adopter une stratégie numérique responsable, c'est aussi prolonger la durée de vie du matériel. Un site web éco-conçu ne force pas l'utilisateur à changer de smartphone parce que le processeur sature à cause de scripts trop lourds. C'est une forme de lutte contre l'obsolescence programmée logicielle." },
+      { 
+        "type": "image", 
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=75&fm=webp", 
+        "alt": "Équipe de développeurs web collaborant dans un bureau moderne et lumineux" 
+      },
+
+      { "type": "h2", "text": "8. L'Impact Mobile : 5G vs Sobriété" },
+      { "type": "paragraph", "text": "On pense souvent que la 5G règle tous les problèmes de vitesse. C'est une erreur. Plus le réseau est rapide, plus les développeurs ont tendance à alourdir les sites, créant un cercle vicieux de consommation énergétique. En 2026, la navigation mobile représente 70% du trafic des artisans." },
+      { "type": "paragraph", "text": "En optimisant le poids de vos pages, vous réduisez la sollicitation de la batterie des téléphones de vos clients. Un client dont le téléphone chauffe ou se vide en consultant votre catalogue est un client qui quittera votre site frustré. L'éco-conception est donc le meilleur allié de l'expérience utilisateur mobile (UX)." },
+
+      { "type": "h2", "text": "9. Questions Fréquentes (FAQ) sur l'Éco-conception" },
+      { "type": "h3", "text": "Est-ce qu'un site éco-conçu est moins beau ?" },
+      { "type": "paragraph", "text": "Absolument pas. La sobriété n'est pas l'austérité. On peut réaliser des designs haut de gamme, des animations fluides et des interfaces modernes en utilisant des méthodes de développement intelligentes (SVG plutôt que PNG, CSS plutôt que JS, etc.)." },
+      { "type": "h3", "text": "Est-ce que cela coûte plus cher à produire ?" },
+      { "type": "paragraph", "text": "Le coût initial peut être légèrement supérieur car il demande une réflexion stratégique en amont. Cependant, le coût de maintenance est bien plus faible, et le retour sur investissement (ROI) est supérieur grâce au gain en SEO et en taux de conversion." },
+      { "type": "h3", "text": "Peut-on transformer un site existant en site éco-conçu ?" },
+      { "type": "html", "html": "Oui, par une optimisation progressive des images et du code. Cependant, pour un résultat optimal, une <a href='/blog/refonte-site-web-quand-et-pourquoi' style='color:#004aad;font-weight:600;'>refonte totale</a> est souvent plus rentable à long terme." },
+
+      { "type": "h2", "text": "10. Check-list pour un audit rapide de votre site" },
+      { "type": "paragraph", "text": "Voici 5 points que vous pouvez vérifier vous-même dès maintenant pour évaluer la maturité écologique de votre présence en ligne :" },
+      { "type": "list", "items": [
+        "<strong>Poids de la page d'accueil :</strong> Elle ne devrait pas dépasser 2Mo (idéalement moins de 1Mo).",
+        "<strong>Nombre de requêtes :</strong> Moins de 50 requêtes par page est un excellent score.",
+        "<strong>Vidéos :</strong> Supprimez l'autoplay et privilégiez un bouton 'Play' pour ne charger la vidéo que si nécessaire.",
+        "<strong>Polices :</strong> Limitez-vous à 2 polices différentes maximum.",
+        "<strong>Hébergement :</strong> Vérifiez si votre hébergeur possède une charte environnementale transparente."
+      ]},
+      { "type": "image", "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=75&fm=webp", "alt": "Analyse de performance et graphique de croissance" },
+    ],
+    "relatedPosts": [
+      { "id": 11, "slug": "vitesse-chargement-site-web-core-web-vitals", "title": "Core Web Vitals : pourquoi la vitesse de votre site est devenue un enjeu business", "category": "Développement web", "excerpt": "LCP, INP, CLS... Ces métriques Google impactent directement votre référencement.", "image": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=60&fm=webp" },
+      { "id": 9, "slug": "vitesse-chargement-site-web-pourquoi-ca-compte", "title": "Vitesse de chargement : pourquoi votre site lent vous fait perdre des clients", "category": "Développement web", "excerpt": "Un site qui met 3 secondes à charger perd la moitié de ses visiteurs.", "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=60&fm=webp" }
+    ]
+  },
 ];
 
 export function getPostBySlug(slug) {
