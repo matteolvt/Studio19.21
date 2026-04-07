@@ -253,7 +253,7 @@ export const projectsData = [
 
   {
     id: 6,
-    navbarTheme: 'light',
+    navbarTheme: 'dark',
     slug: "sucretoile",
     title: "SucrÉtoile",
     tagline: "Landing page festive et colorée pour une créatrice de gâteaux sur-mesure.",
