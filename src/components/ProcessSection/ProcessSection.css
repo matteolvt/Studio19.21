@@ -1,68 +1,45 @@
-/* src/components/services/ProcessSection.css */
-
 .process-section {
-  padding: 100px 20px;
+  padding: clamp(60px, 10vw, 100px) 20px;
   max-width: 1200px;
   margin: 0 auto;
-  border-top: 1px solid #E5E5E5;
+  border-top: 1px solid var(--process-border);
   margin-top: 60px;
 }
 
-.process-section h2 { 
-  font-size: 2.5rem; 
-  margin-bottom: 60px;
-  color: #1A1A1A; 
+.process-section h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 50px;
+  color: var(--text-primary);
 }
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 40px;
 }
 
-.process-step { 
-  position: relative; 
-}
+.process-step { position: relative; }
 
 .step-number {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 4rem;
-  color: #031fd0;
+  font-size: clamp(3rem, 5vw, 4rem);
+  color: var(--text-blue);
   font-weight: 700;
   display: block;
   margin-bottom: 10px;
   line-height: 1;
 }
 
-.process-step h4 { 
-  font-size: 1.2rem; 
-  margin-bottom: 10px; 
+.process-step h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
   font-weight: 700;
-  color: #1A1A1A; 
+  color: var(--text-primary);
 }
 
-.process-step p { 
-  color: #666666; 
-  font-size: 0.95rem; 
-  line-height: 1.5; 
-}
+.process-step p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
 @media (max-width: 768px) {
-
-
-  .process-section h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 35px;
-    font-weight: 700;
-  }
-  .process-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: 1fr; 
-  }
-
-
+  .process-section h2 { text-align: center; font-size: 1.4rem; margin-bottom: 30px; }
+  .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
 }

@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
-// import Snowfall from "react-snowfall";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import HomePage from "./pages/homepage/homepage";
-import Projets from "./pages/projets/projets";
-import Services from "./pages/services/services";
-import Appointment from "./pages/appointment/appointment";
-import About from "./pages/about/about";
 import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
 import PageTransition from "./components/PageTransition/PageTransition";
 import Preloader from "./components/Preloader/Preloader";
-import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
-import NotFoundPage from "./pages/NotFound/NotFoundPage";
-import AppointmentSuccess from "./components/AppointmentSuccess.jsx/AppointmentSuccess";
-import MentionsLegalesPage from "./pages/MentionsLegales/MentionsLegales";
-import Blog from "./pages/Blog/Blog";
-import BlogDetailPage from "./pages/BlogDetail/BlogDetails";
+import SEO from "./components/SEO/SEO";
+
+// Lazy loading pour tout sauf la homepage
+const Projets = lazy(() => import("./pages/projets/projets"));
+const Services = lazy(() => import("./pages/services/services"));
+const Appointment = lazy(() => import("./pages/appointment/appointment"));
+const About = lazy(() => import("./pages/about/about"));
+const ProjectDetails = lazy(() => import("./pages/ProjectDetails/ProjectDetails"));
+const NotFoundPage = lazy(() => import("./pages/NotFound/NotFoundPage"));
+const AppointmentSuccess = lazy(() => import("./components/AppointmentSuccess.jsx/AppointmentSuccess"));
+const MentionsLegalesPage = lazy(() => import("./pages/MentionsLegales/MentionsLegales"));
+const Blog = lazy(() => import("./pages/Blog/Blog"));
+const BlogDetailPage = lazy(() => import("./pages/BlogDetail/BlogDetails"));
 
 function App() {
   const location = useLocation();
@@ -25,11 +27,9 @@ function App() {
   useEffect(() => {
     if (location.pathname === "/") {
       setShowSplash(true);
-
       const timer = setTimeout(() => {
         setShowSplash(false);
       }, 800);
-
       return () => clearTimeout(timer);
     } else {
       setShowSplash(false);

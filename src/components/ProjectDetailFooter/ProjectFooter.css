@@ -1,7 +1,7 @@
 /* ProjectFooter.css */
 
 .project-footer {
-  background-color: #FFF6E4;
+  background-color: var(--bg-primary);
   padding: 80px 20px 120px; /* Padding bas plus grand pour aérer avant le footer global */
   display: flex;
   flex-direction: column;
@@ -25,11 +25,11 @@
   letter-spacing: 1px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 1px solid #031FD0;
+  border: 1px solid var(--brand-blue);
 }
 
 .btn-primary {
-  background-color: #031FD0;
+  background-color: var(--brand-blue);
   color: #fff;
 }
 
@@ -40,7 +40,7 @@
 
 .btn-outline {
   background-color: transparent;
-  color: #031FD0;
+  color: var(--brand-blue);
 }
 
 .btn-outline:hover {
@@ -61,7 +61,7 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #666;
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
@@ -123,3 +123,16 @@
   .next-title { font-size: 2rem; }
   .next-project-card { height: 300px; }
 }
+/* Dark mode */
+html[data-theme="dark"] .project-features,
+html[data-theme="dark"] .project-footer,
+html[data-theme="dark"] .project-overview,
+html[data-theme="dark"] .project-process,
+html[data-theme="dark"] .project-results {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4 { color: var(--text-primary); }
+html[data-theme="dark"] p { color: var(--text-secondary); }

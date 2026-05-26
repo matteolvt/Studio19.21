@@ -4,15 +4,16 @@
   gap: 10px;
   max-width: 680px;
   margin: 48px auto 0;
-  padding: 28px 32px;
-  border-top: 1px solid #e0d8cc;
+  padding: 24px 24px;
+  border-top: 1px solid var(--article-border);
   font-family: "Helvetica Neue", Arial, sans-serif;
+  flex-wrap: wrap;
 }
 
 .sb-label {
   font-size: 13px;
   font-weight: 600;
-  color: #6b6b7b;
+  color: var(--text-muted);
   margin-right: 4px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -20,18 +21,15 @@
 
 .sb-btn {
   background: transparent;
-  border: 1px solid #e0d8cc;
+  border: 1px solid var(--article-border);
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 13px;
-  color: #1a1a2e;
+  color: var(--article-heading);
   cursor: pointer;
   text-decoration: none;
   font-family: "Helvetica Neue", Arial, sans-serif;
   transition: border-color 0.15s, color 0.15s;
 }
 
-.sb-btn:hover {
-  border-color: #1a2f8f;
-  color: #1a2f8f;
-}
+.sb-btn:hover { border-color: var(--article-link); color: var(--article-link); }

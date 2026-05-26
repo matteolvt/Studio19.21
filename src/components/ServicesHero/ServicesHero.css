@@ -1,14 +1,12 @@
-/* src/components/services/ServicesHero.css */
-
 .service-hero {
-  padding: 180px 20px 80px; /* Aligné sur ton nouveau padding */
+  padding: clamp(120px, 15vw, 180px) 20px clamp(40px, 6vw, 80px);
   max-width: 1200px;
   margin: 0 auto;
-  text-align: left; /* Aligné à gauche comme Projets */
+  text-align: left;
 }
 
 .service-hero .subtitle {
-  color: #2B4CFF;
+  color: var(--text-blue);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -18,34 +16,24 @@
 }
 
 .service-hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
   margin-bottom: 30px;
   max-width: 800px;
-  color: #1A1A1A;
-  font-weight: 400; /* Assure le côté élégant/fin */
+  color: var(--text-primary);
+  font-weight: 400;
 }
 
-.service-hero .italic {
-  font-style: italic;
-  font-family: "Playfair Display", serif;
-  color: #031FD0;
-}
+.service-hero .italic { font-style: italic; color: var(--text-blue); }
 
 .service-hero .hero-text {
-  color: #666666;
-  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.6;
   max-width: 600px;
 }
 
-@media (max-width: 768px) {
-  .service-hero {
-    padding: 180px 20px 60px;
-  }
-  
-  .service-hero h1 { 
-    font-size: 2.5rem; 
-  }
+@media (max-width: 600px) {
+  .service-hero { padding: 120px 16px 40px; }
 }

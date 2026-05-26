@@ -1,8 +1,8 @@
 /* ProjectProcess.css */
 
 .project-process {
-  background-color: #FFF6E4; /* Ton fond crème */
-  color: #1a1a1a;
+  background-color: var(--bg-primary); /* Ton fond crème */
+  color: var(--text-primary);
   padding: 120px 20px;
   position: relative;
   overflow: hidden; /* Pour éviter que les décalages ne cassent la page */
@@ -29,7 +29,7 @@
   top: 10px;
   bottom: 10px;
   width: 3px;
-  background-color: #031FD0; /* Bleu Roi */
+  background-color: var(--brand-blue); /* Bleu Roi */
 }
 
 .process-label {
@@ -37,7 +37,7 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #031FD0;
+  color: var(--brand-blue);
   font-weight: 700;
   display: block;
   margin-bottom: 20px;
@@ -101,7 +101,7 @@
 .image-caption {
   font-family: 'Public Sans', sans-serif;
   font-size: 0.85rem;
-  color: #031FD0;
+  color: var(--brand-blue);
   margin-top: 20px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -115,7 +115,7 @@
   display: block;
   width: 40px;
   height: 1px;
-  background-color: #031FD0;
+  background-color: var(--brand-blue);
   opacity: 0.5;
 }
 
@@ -135,3 +135,16 @@
     margin-top: 0;
   }
 }
+/* Dark mode */
+html[data-theme="dark"] .project-features,
+html[data-theme="dark"] .project-footer,
+html[data-theme="dark"] .project-overview,
+html[data-theme="dark"] .project-process,
+html[data-theme="dark"] .project-results {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4 { color: var(--text-primary); }
+html[data-theme="dark"] p { color: var(--text-secondary); }

@@ -1,8 +1,8 @@
 /* ProjectDetailOverview.css */
 
 .project-overview {
-  background-color: #FFF6E4; /* Ton fond crème */
-  color: #1a1a1a; /* Texte sombre (pas noir pur) pour le confort */
+  background-color: var(--bg-primary); /* Ton fond crème */
+  color: var(--text-primary); /* Texte sombre (pas noir pur) pour le confort */
   padding: 120px 20px;
   border-bottom: 1px solid rgba(3, 31, 208, 0.1); /* Séparateur bleu très subtil */
 }
@@ -25,7 +25,7 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #031FD0; /* Ton Bleu Roi */
+  color: var(--brand-blue); /* Ton Bleu Roi */
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
@@ -65,7 +65,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #031FD0; /* Bleu Roi */
+  color: var(--brand-blue); /* Bleu Roi */
   font-weight: 700;
 }
 
@@ -73,7 +73,7 @@
   font-family: 'Public Sans', sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 /* --- Stack Technique (Tags) --- */
@@ -91,15 +91,15 @@
   font-size: 0.85rem;
   padding: 6px 12px;
   border: 1px solid rgba(3, 31, 208, 0.3); /* Bordure bleue fine */
-  color: #031FD0; /* Texte bleu */
+  color: var(--brand-blue); /* Texte bleu */
   border-radius: 4px;
   background-color: transparent;
   transition: all 0.3s ease;
 }
 
 .tech-tag:hover {
-  background-color: #031FD0;
-  color: #FFF6E4; /* Texte crème au survol */
+  background-color: var(--brand-blue);
+  color: var(--bg-primary); /* Texte crème au survol */
 }
 
 /* --- Responsive --- */
@@ -114,7 +114,20 @@
   }
   
   .overview-meta {
-    border-left: 2px solid #031FD0;
+    border-left: 2px solid var(--brand-blue);
     padding-left: 24px;
   }
 }
+/* Dark mode */
+html[data-theme="dark"] .project-features,
+html[data-theme="dark"] .project-footer,
+html[data-theme="dark"] .project-overview,
+html[data-theme="dark"] .project-process,
+html[data-theme="dark"] .project-results {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4 { color: var(--text-primary); }
+html[data-theme="dark"] p { color: var(--text-secondary); }

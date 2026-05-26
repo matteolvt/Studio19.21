@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au Pot de Vin | Lyon 2 - Bar & Cave à Manger</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bar: {
+                            base: '#1a1816',    /* Noir chaud */
+                            brick: '#9c3628',   /* Rouge brique exact */
+                            wood: '#d4b08c',    /* Bois comptoir */
+                            steel: '#2d2a28',   /* Gris foncé */
+                            paper: '#e8e6e3',   /* Blanc cassé */
+                            muted: '#9ca3af'    /* Gris lecture */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #1a1816; color: #e8e6e3; }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .btn-brick {
+            background-color: #9c3628;
+            transition: all 0.3s ease;
+        }
+        .btn-brick:hover {
+            background-color: transparent;
+            color: #9c3628;
+            outline: 1px solid #9c3628;
+        }
+
+        .text-glow { text-shadow: 0 0 20px rgba(212, 176, 140, 0.15); }
+    </style>
+</head>
+<body class="antialiased relative">
+    
+    <div id="preloader" class="fixed inset-0 bg-bar-base z-[100] flex items-center justify-center transition-opacity duration-700 pointer-events-none">
+        <span class="font-serif text-bar-wood text-2xl md:text-3xl tracking-widest animate-pulse">
+            LE COMPTOIR <span class="italic text-bar-brick">ROUGE</span>
+        </span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-6 border-b border-white/5 bg-bar-base/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl md:text-3xl font-bold tracking-tight text-white group">
+                LE COMPTOIR <span class="italic text-bar-brick group-hover:text-bar-wood transition-colors">ROUGE</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-12 text-xs font-sans font-bold tracking-[0.2em] uppercase items-center text-bar-wood">
+                <a href="#ambiance" class="hover:text-white transition-colors py-2">L'Esprit</a>
+                <a href="#carte" class="hover:text-white transition-colors py-2">La Cave</a>
+                <a href="#reserver" class="btn-brick text-white px-8 py-3 rounded-sm">Réserver</a>
+            </div>
+            
+            <div class="md:hidden space-y-1.5 cursor-pointer p-2">
+                <div class="w-6 h-0.5 bg-bar-wood"></div>
+                <div class="w-6 h-0.5 bg-bar-wood"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Vin rouge versé" 
+                 class="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-t from-bar-base via-bar-base/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">
+            <div class="reveal delay-100">
+                <span class="font-serif italic text-bar-wood text-xl md:text-2xl mb-4 block text-glow">Lyon 2 &bull; Ainay</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-8xl leading-[0.9] mb-8 reveal delay-200 text-white drop-shadow-2xl">
+                L'élégance <br>
+                <span class="italic text-bar-brick">authentique.</span>
+            </h1>
+            <p class="font-sans text-bar-paper/80 max-w-lg mx-auto mb-12 text-lg font-light reveal delay-300 leading-relaxed">
+                Briques apparentes, comptoir patiné et vins vivants.<br>
+                Le rendez-vous des amateurs de vin, rue de la Charité.
+            </p>
+            <div class="reveal delay-500 flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#reserver" class="bg-bar-brick text-white px-10 py-4 rounded-sm font-sans text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-bar-base transition-all shadow-lg shadow-bar-brick/20">
+                    Réserver une table
+                </a>
+                <a href="#carte" class="text-xs font-sans tracking-widest uppercase text-bar-wood hover:text-white border-b border-bar-wood/30 hover:border-white pb-1 transition-all">
+                    Découvrir la carte
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="ambiance" class="py-24 px-6 md:px-12 bg-bar-base relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight text-white">
+                    Sous la mezzanine,<br><span class="italic text-bar-brick">le temps s'arrête.</span>
+                </h2>
+                <div class="w-20 h-1 bg-bar-wood mb-8 opacity-50"></div>
+                <div class="prose prose-invert prose-lg text-bar-paper/70 font-light font-sans">
+                    <p class="mb-6">
+                        L'architecture du lieu donne le ton : murs rouge terracotta, hauteur sous plafond industrielle et mobilier chiné. 
+                        <strong>Le Comptoir Rouge</strong>, c'est ce mélange entre le loft moderne et le bouchon lyonnais.
+                    </p>
+                    <p>
+                        Installez-vous au comptoir en bois clair pour discuter avec l'équipe, ou prenez de la hauteur sur la mezzanine pour plus d'intimité. Ici, la lumière est tamisée, mais les verres sont toujours pleins.
+                    </p>
+                </div>
+            </div>
+            <div class="relative reveal delay-200">
+                <div class="absolute -top-4 -left-4 w-full h-full border-2 border-bar-brick/30 rounded-sm z-0"></div>
+                <div class="relative z-10 aspect-[4/5] overflow-hidden bg-bar-steel rounded-sm group">
+                    <img src="https://plus.unsplash.com/premium_photo-1742946947361-087da4e10c9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Intérieur de bar avec nombreuses bouteilles" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="carte" class="py-24 bg-[#151312]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-bar-wood font-sans text-xs tracking-[0.3em] uppercase font-bold block mb-4">La Carte</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white">À Boire & À Manger</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16">
+                
+                <div class="reveal delay-100">
+                    <h3 class="font-serif text-2xl text-bar-brick italic mb-8 border-b border-white/10 pb-4">Les Rouges</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Pinot Noir Domaine Rouge</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Léger et fruité</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">6,50 €</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Merlot des Alpes</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Épicé et rond</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">7,00 €</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Côte Du Rhône Tradition</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Le Mas</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">6,80 €</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="font-serif text-2xl text-bar-brick italic mt-12 mb-8 border-b border-white/10 pb-4">Les Blancs</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Chardonnay Domaine Clair</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Fruité et minéral</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">6,00 €</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Vermentino du Sud</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Léger et aromatique</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">6,50 €</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reveal delay-200">
+                    <h3 class="font-serif text-2xl text-bar-brick italic mb-8 border-b border-white/10 pb-4">À Grignoter</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Planche Mixte</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Fromages & Charcuteries (Pour 2-3)</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">27,00 €</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Sélection Fine</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Fromages affinés</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">20,00 €</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="font-serif text-2xl text-bar-brick italic mt-12 mb-8 border-b border-white/10 pb-4">Bulles & Divers</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Champagne Rouge & Fils</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">Brut Tradition</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">13,00 €</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group cursor-default border-b border-white/5 pb-2">
+                            <div>
+                                <span class="text-white text-lg font-serif block group-hover:text-bar-wood transition-colors">Bières Artisanales</span>
+                                <span class="text-sm text-bar-muted font-sans font-light">De la région</span>
+                            </div>
+                            <span class="text-bar-wood font-mono">4,00 €</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-16 reveal delay-300">
+                <p class="text-bar-muted text-sm italic mb-4">* Prix au verre. Demandez la carte complète pour les bouteilles.</p>
+                <a href="#" class="inline-block border border-bar-wood text-bar-wood px-6 py-3 text-xs uppercase tracking-widest hover:bg-bar-wood hover:text-bar-base transition-all">
+                    Télécharger le menu PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-bar-base pt-20 pb-10 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
+            <div>
+                <span class="font-serif text-3xl block text-white mb-2">Le Comptoir Rouge</span>
+                <p class="text-bar-wood text-xs uppercase tracking-widest">Bar à vin & Cave à manger</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-16 font-sans text-sm font-light text-bar-paper/80">
+                <div>
+                    <span class="block text-white font-bold mb-1">Nous trouver</span>
+                    27 Rue du Petit Pont, Lyon 2<br>Métro Bellecour
+                </div>
+                <div>
+                    <span class="block text-white font-bold mb-1">Horaires</span>
+                    Mar-Jeu : 17h00 - 23h00<br>Ven-Sam : 17h00 - 01h00<br>Dim-Lun : Fermé
+                </div>
+                <div>
+                    <span class="block text-white font-bold mb-1">Contact</span>
+                    06 12 34 56 78<br>contact@comptoir-rouge.fr
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-center md:text-left text-xs text-bar-muted">
+            &copy; 2026 Le Comptoir Rouge. L'abus d'alcool est dangereux pour la santé.
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelectorAll('header .reveal').forEach(el => el.classList.add('active'));
+                    preloader.style.display = 'none'; // Clean up
+                }, 500);
+            }, 800);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

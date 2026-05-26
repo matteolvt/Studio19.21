@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXIOM BEAUTY — Lyon 3</title>
+<meta name="description" content="Beauty for the bold. Studio de style à Lyon 6. Nails. Eyes. Brows. Skin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,900&family=Share+Tech+Mono&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════
+   ROOT & BASE
+═══════════════════════════════════ */
+:root {
+  --noir:        #070709;
+  --noir2:       #0d0d10;
+  --chrome1:     #e8e8ec;
+  --chrome2:     #b8bcc8;
+  --chrome3:     #8890a4;
+  --neon:        #39ff6e;
+  --neon2:       #00ffaa;
+  --neon-dim:    rgba(57,255,110,0.15);
+  --neon-glow:   0 0 20px rgba(57,255,110,0.6), 0 0 60px rgba(57,255,110,0.2);
+  --chrome-grad: linear-gradient(135deg, #ffffff 0%, #c8ccd8 20%, #8890a4 40%, #e0e4f0 60%, #b0b8cc 80%, #ffffff 100%);
+  --metal-grad:  linear-gradient(180deg, #d0d4e0 0%, #888ca0 30%, #f0f0f8 50%, #707480 70%, #c8ccd8 100%);
+  --border-c:    rgba(200,204,216,0.15);
+  --border-n:    rgba(57,255,110,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--noir);
+  color: var(--chrome2);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* ═══ GRAIN OVERLAY ═══ */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ═══ SCANLINES ═══ */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+}
+
+/* ═══ CUSTOM CURSOR ═══ */
+.cursor-dot {
+  position: fixed; width: 6px; height: 6px;
+  background: var(--neon); border-radius: 50%;
+  pointer-events: none; z-index: 10000;
+  transform: translate(-50%,-50%);
+  box-shadow: var(--neon-glow);
+  transition: width 0.2s, height 0.2s;
+}
+.cursor-ring {
+  position: fixed; width: 28px; height: 28px;
+  border: 1px solid var(--neon); border-radius: 50%;
+  pointer-events: none; z-index: 10000;
+  transform: translate(-50%,-50%);
+  transition: all 0.1s ease;
+  opacity: 0.6;
+}
+@media (max-width: 768px) { .cursor-dot, .cursor-ring { display: none; } body { cursor: auto; } }
+
+/* ═══════════════════════════════════
+   CHROME TEXT EFFECT
+═══════════════════════════════════ */
+.chrome-text {
+  background: var(--chrome-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: chrome-shift 4s ease-in-out infinite;
+}
+
+@keyframes chrome-shift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+.metal-text {
+  background: var(--metal-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ GLITCH EFFECT ═══ */
+@keyframes glitch1 {
+  0%,100% { clip-path: inset(0 0 95% 0); transform: translateX(0); }
+  20%      { clip-path: inset(30% 0 50% 0); transform: translateX(-4px); }
+  40%      { clip-path: inset(70% 0 10% 0); transform: translateX(4px); }
+  60%      { clip-path: inset(10% 0 80% 0); transform: translateX(-2px); }
+  80%      { clip-path: inset(50% 0 30% 0); transform: translateX(2px); }
+}
+@keyframes glitch2 {
+  0%,100% { clip-path: inset(50% 0 30% 0); transform: translateX(0); }
+  20%      { clip-path: inset(10% 0 70% 0); transform: translateX(4px); }
+  40%      { clip-path: inset(80% 0 5%  0); transform: translateX(-4px); }
+  60%      { clip-path: inset(40% 0 40% 0); transform: translateX(3px); }
+  80%      { clip-path: inset(0%  0 90% 0); transform: translateX(-3px); }
+}
+
+.glitch-wrap { position: relative; display: inline-block; }
+.glitch-wrap::before,
+.glitch-wrap::after {
+  content: attr(data-text);
+  position: absolute; top: 0; left: 0; right: 0;
+  overflow: hidden; pointer-events: none;
+}
+.glitch-wrap::before {
+  color: #0ff; opacity: 0;
+  animation: glitch1 3.5s infinite;
+  text-shadow: -2px 0 #0ff;
+}
+.glitch-wrap::after {
+  color: #f0f; opacity: 0;
+  animation: glitch2 3.5s 0.1s infinite;
+  text-shadow: 2px 0 #f0f;
+}
+.glitch-wrap:hover::before,
+.glitch-wrap:hover::after { opacity: 1; }
+
+/* ═══════════════════════════════════
+   NAV
+═══════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  padding: 20px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.4s;
+  mix-blend-mode: normal;
+}
+nav.scrolled {
+  background: rgba(7,7,9,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-c);
+  padding: 14px 40px;
+}
+
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem; font-weight: 900;
+  letter-spacing: 4px; text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.nav-logo .dis { color: var(--neon); text-shadow: var(--neon-glow); }
+.nav-logo .love { color: var(--chrome1); }
+
+.nav-center {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-center a {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--chrome3); text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-center a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px; background: var(--neon);
+  transform: scaleX(0); transition: transform 0.25s;
+}
+.nav-center a:hover { color: var(--neon); }
+.nav-center a:hover::after { transform: scaleX(1); }
+
+.nav-book {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--noir); background: var(--neon);
+  padding: 10px 24px; text-decoration: none;
+  transition: all 0.25s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.nav-book:hover {
+  background: white;
+  box-shadow: var(--neon-glow);
+}
+
+.burger { display: none; flex-direction: column; gap: 4px; cursor: crosshair; }
+.burger span { width: 22px; height: 1.5px; background: var(--chrome2); display: block; transition: all 0.3s; }
+
+/* Full screen menu */
+#fullMenu {
+  display: none; position: fixed; inset: 0; z-index: 490;
+  background: rgba(7,7,9,0.98);
+  backdrop-filter: blur(30px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 20px;
+}
+#fullMenu.open { display: flex; }
+#fullMenu a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem); font-weight: 900;
+  letter-spacing: 6px; text-transform: uppercase;
+  color: var(--chrome1); text-decoration: none;
+  transition: color 0.2s; line-height: 0.95;
+}
+#fullMenu a:hover { color: var(--neon); text-shadow: var(--neon-glow); }
+#fullMenu .close-btn {
+  position: absolute; top: 24px; right: 36px;
+  font-size: 2rem; background: none; border: none;
+  cursor: crosshair; color: var(--chrome3);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* ═══════════════════════════════════
+   MARQUEE
+═══════════════════════════════════ */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border-c);
+  border-bottom: 1px solid var(--border-c);
+  padding: 10px 0;
+  background: rgba(57,255,110,0.03);
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee-scroll 22s linear infinite;
+  width: max-content;
+}
+.marquee-track.reverse { animation-direction: reverse; animation-duration: 18s; }
+
+.marquee-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--chrome3); padding: 0 40px;
+  white-space: nowrap;
+}
+.marquee-item.neon { color: var(--neon); }
+.marquee-sep { color: var(--chrome3); opacity: 0.3; }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════
+   HERO
+═══════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 120px 40px 60px;
+}
+
+/* Chrome grid background */
+.hero-grid-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(200,204,216,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,204,216,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Radial spotlight */
+.hero-light {
+  position: absolute;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(57,255,110,0.06) 0%, transparent 65%);
+  top: -200px; right: -200px; pointer-events: none; z-index: 1;
+  animation: pulse-light 5s ease-in-out infinite;
+}
+.hero-light2 {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,204,216,0.04) 0%, transparent 65%);
+  bottom: -100px; left: -100px; pointer-events: none; z-index: 1;
+}
+@keyframes pulse-light {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.1); }
+}
+
+.hero-content { position: relative; z-index: 5; max-width: 1000px; }
+
+.hero-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--neon); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+  animation: fadeIn 0.8s 0.2s both;
+}
+.hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--neon); }
+
+h1.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(5rem, 14vw, 14rem);
+  font-weight: 900; line-height: 0.88;
+  text-transform: uppercase; letter-spacing: -2px;
+  margin-bottom: 32px;
+  animation: fadeIn 0.8s 0.35s both;
+}
+
+.hero-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem; letter-spacing: 2px;
+  color: var(--chrome3); margin-bottom: 48px;
+  max-width: 520px; line-height: 1.8;
+  animation: fadeIn 0.8s 0.5s both;
+}
+.hero-sub span { color: var(--neon); }
+
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeIn 0.8s 0.65s both;
+}
+
+.btn-neon {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--noir); background: var(--neon);
+  padding: 16px 40px; text-decoration: none;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  position: relative; overflow: hidden;
+  animation: btn-pulse 3s ease-in-out infinite;
+}
+.btn-neon:hover {
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+.btn-neon::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: white; opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-neon:hover::before { opacity: 0.15; }
+
+@keyframes btn-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(57,255,110,0); }
+  50%      { box-shadow: 0 0 20px 4px rgba(57,255,110,0.25); }
+}
+
+.btn-outline-chrome {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--chrome1); background: transparent;
+  padding: 15px 36px; text-decoration: none;
+  border: 1px solid var(--border-c);
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+}
+.btn-outline-chrome:hover { border-color: var(--chrome1); background: rgba(200,204,216,0.08); }
+
+/* Hero visual — chrome balls / shapes */
+.hero-visual {
+  position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+  z-index: 3; display: flex; flex-direction: column; gap: 20px;
+  animation: fadeIn 1s 0.8s both;
+}
+
+.chrome-ball {
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff, #c0c4d0 30%, #606880 60%, #2a2e3a 100%);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset -4px -4px 20px rgba(0,0,0,0.4), inset 4px 4px 12px rgba(255,255,255,0.3);
+  animation: float 6s ease-in-out infinite;
+}
+.cb1 { width: 180px; height: 180px; }
+.cb2 { width: 100px; height: 100px; align-self: flex-end; animation-delay: 1.5s; }
+.cb3 { width: 60px; height: 60px; animation-delay: 3s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-16px) rotate(5deg); }
+}
+
+/* Stat counter */
+.hero-stats {
+  position: absolute; bottom: 40px; left: 40px; right: 40px; z-index: 5;
+  display: flex; gap: 0;
+  border-top: 1px solid var(--border-c);
+  padding-top: 24px;
+  animation: fadeIn 0.8s 1s both;
+}
+.stat-item {
+  flex: 1; padding: 0 32px 0 0; border-right: 1px solid var(--border-c); margin-right: 32px;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.5rem; font-weight: 900; color: var(--neon);
+  line-height: 1; text-shadow: var(--neon-glow);
+}
+.stat-label { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--chrome3); margin-top: 4px; }
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* ═══════════════════════════════════
+   SECTION HEADERS
+═══════════════════════════════════ */
+.section-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--neon); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before { content: '//'; color: var(--chrome3); }
+
+h2.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 900; text-transform: uppercase;
+  line-height: 0.88; letter-spacing: -1px;
+  margin-bottom: 64px;
+}
+
+/* ═══════════════════════════════════
+   SERVICES / CLAWS
+═══════════════════════════════════ */
+#services {
+  padding: 120px 40px;
+  position: relative; overflow: hidden;
+}
+
+/* Chrome horizontal line across */
+#services::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--chrome2), transparent);
+  opacity: 0.2;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  padding: 40px 32px;
+  border: 1px solid var(--border-c);
+  background: var(--noir2);
+  transition: all 0.35s;
+  position: relative; overflow: hidden;
+  cursor: crosshair;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(57,255,110,0.04) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.35s;
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover { border-color: var(--border-n); transform: translateY(-4px); }
+.service-card:hover .sc-name { color: var(--neon); text-shadow: var(--neon-glow); }
+
+/* Top accent line */
+.service-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--neon), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s;
+}
+.service-card:hover::after { transform: scaleX(1); }
+
+.sc-num {
+  font-size: 0.55rem; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--chrome3); margin-bottom: 20px;
+  font-family: 'Share Tech Mono', monospace;
+}
+.sc-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.8rem; font-weight: 900; text-transform: uppercase;
+  color: var(--chrome1); line-height: 0.9; letter-spacing: 1px;
+  margin-bottom: 16px; transition: all 0.35s;
+}
+.sc-tagline { font-size: 0.68rem; color: var(--chrome3); letter-spacing: 1.5px; line-height: 1.7; margin-bottom: 24px; }
+.sc-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem; font-weight: 700; color: var(--neon);
+  letter-spacing: 2px;
+}
+.sc-price-from { font-size: 0.55rem; letter-spacing: 3px; color: var(--chrome3); display: block; margin-top: 2px; }
+
+.sc-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+.sc-list li {
+  font-size: 0.65rem; letter-spacing: 1px; color: var(--chrome3);
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 8px; border-bottom: 1px solid rgba(200,204,216,0.06);
+}
+.sc-list li span { color: var(--chrome2); font-weight: 400; }
+.sc-list li .price { color: var(--neon); }
+
+/* Featured card */
+.service-card.featured {
+  background: linear-gradient(145deg, #0f1012, #141618);
+  border-color: rgba(57,255,110,0.2);
+  grid-row: span 2;
+}
+.service-card.featured .sc-name { font-size: 3.5rem; }
+
+/* ═══════════════════════════════════
+   MARQUEE BANNER
+═══════════════════════════════════ */
+.marquee-section { padding: 0; margin: 0; }
+
+/* ═══════════════════════════════════
+   HALL OF FAME / GALLERY
+═══════════════════════════════════ */
+#gallery {
+  padding: 120px 40px;
+  background: var(--noir2);
+  position: relative;
+}
+
+.gallery-intro {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 48px; gap: 32px; flex-wrap: wrap;
+}
+
+/* Surveillance grid layout */
+.cctv-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 3px;
+}
+
+.cctv-cell {
+  position: relative; overflow: hidden;
+  background: #0a0a0c;
+  cursor: crosshair;
+}
+
+.cctv-cell:hover .cctv-overlay { opacity: 1; }
+.cctv-cell:hover .cctv-img { transform: scale(1.06); filter: brightness(0.7) saturate(0.5); }
+
+.cctv-img {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.5s ease;
+  background-size: cover; background-position: center;
+}
+
+/* Color palette for placeholder cells */
+.ci1 { background: linear-gradient(145deg, #1a1a20, #0d0d12); }
+.ci2 { background: linear-gradient(145deg, #141418, #0a0a0d); }
+.ci3 { background: linear-gradient(145deg, #101014, #0d0d10); }
+.ci4 { background: linear-gradient(145deg, #181818, #101012); }
+.ci5 { background: linear-gradient(145deg, #0e0e12, #090910); }
+
+/* Chrome effect on placeholder images */
+.ci-inner {
+  font-size: 3rem; opacity: 0.06;
+  background: var(--chrome-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cctv-cell.large .ci-inner { font-size: 5rem; }
+
+/* CCTV UI overlay */
+.cctv-overlay {
+  position: absolute; inset: 0; z-index: 3;
+  background: rgba(7,7,9,0.85);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: flex-end;
+  padding: 20px;
+}
+
+/* Corner brackets */
+.cctv-brackets {
+  position: absolute; inset: 8px; z-index: 2;
+  pointer-events: none;
+}
+.cctv-brackets::before, .cctv-brackets::after {
+  content: '';
+  position: absolute; width: 14px; height: 14px;
+}
+.cctv-brackets::before { top: 0; left: 0; border-top: 1px solid var(--neon); border-left: 1px solid var(--neon); }
+.cctv-brackets::after  { bottom: 0; right: 0; border-bottom: 1px solid var(--neon); border-right: 1px solid var(--neon); }
+
+.cctv-id { font-size: 0.5rem; letter-spacing: 3px; color: var(--neon); margin-bottom: 4px; }
+.cctv-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: white; letter-spacing: 2px; }
+
+/* REC indicator */
+.rec-dot {
+  position: absolute; top: 12px; right: 12px; z-index: 4;
+  display: flex; align-items: center; gap: 5px;
+  font-size: 0.5rem; letter-spacing: 3px; color: rgba(255,60,60,0.9);
+}
+.rec-dot::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #ff3c3c;
+  animation: rec-blink 1.4s ease-in-out infinite;
+}
+@keyframes rec-blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Wide / tall cells */
+.cctv-cell.wide { grid-column: span 2; }
+.cctv-cell.tall { grid-row: span 2; }
+
+.insta-cta { margin-top: 32px; text-align: center; }
+.btn-ghost-neon {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--neon); text-decoration: none;
+  border: 1px solid var(--border-n); padding: 14px 36px;
+  transition: all 0.3s;
+}
+.btn-ghost-neon:hover { background: var(--neon-dim); box-shadow: var(--neon-glow); }
+
+/* ═══════════════════════════════════
+   SQUAD / TEAM
+═══════════════════════════════════ */
+#squad {
+  padding: 120px 40px;
+  position: relative; overflow: hidden;
+}
+
+.squad-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; margin-top: 64px;
+}
+
+.squad-card {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--border-c);
+  background: var(--noir2);
+  transition: all 0.4s; cursor: crosshair;
+}
+.squad-card:hover { border-color: var(--border-n); }
+.squad-card:hover .sq-visual { filter: brightness(0.6) saturate(0.3); }
+.squad-card:hover .sq-hover { opacity: 1; }
+.squad-card:hover .sq-name { color: var(--neon); text-shadow: var(--neon-glow); }
+
+.sq-visual {
+  height: 300px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem;
+  transition: filter 0.4s;
+  position: relative;
+}
+.sqv1 { background: linear-gradient(160deg, #1a1a20, #0a0a0d); }
+.sqv2 { background: linear-gradient(160deg, #141418, #080a0d); }
+.sqv3 { background: linear-gradient(160deg, #131316, #0d0d10); }
+.sqv4 { background: linear-gradient(160deg, #18161a, #0a080d); }
+
+.sq-visual-inner { opacity: 0.07; }
+
+/* Corner decoration */
+.sq-corner {
+  position: absolute; top: 10px; right: 10px;
+  width: 10px; height: 10px;
+  border-top: 1px solid var(--neon); border-right: 1px solid var(--neon);
+}
+
+.sq-hover {
+  position: absolute; inset: 0;
+  background: rgba(7,7,9,0.8);
+  opacity: 0; transition: opacity 0.4s;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; text-align: center;
+}
+.sq-hover-bio { font-size: 0.68rem; color: var(--chrome2); line-height: 1.7; letter-spacing: 0.5px; }
+
+.sq-info { padding: 20px 22px 24px; }
+.sq-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem; font-weight: 700; text-transform: uppercase;
+  color: var(--chrome1); letter-spacing: 2px; transition: all 0.3s;
+  margin-bottom: 2px;
+}
+.sq-role { font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--neon); }
+.sq-spec { font-size: 0.62rem; color: var(--chrome3); margin-top: 6px; }
+
+/* ═══════════════════════════════════
+   BOOKING / GET APPOINTED
+═══════════════════════════════════ */
+#booking {
+  padding: 120px 40px;
+  background: var(--noir2);
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+
+#booking::before {
+  content: '';
+  position: absolute;
+  width: 900px; height: 900px;
+  border: 1px solid rgba(57,255,110,0.04);
+  border-radius: 50%; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring-pulse 4s ease-in-out infinite;
+}
+#booking::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border: 1px solid rgba(57,255,110,0.06);
+  border-radius: 50%; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring-pulse 4s 1s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%,100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.5; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+.booking-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+
+.booking-eyebrow {
+  font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--neon); margin-bottom: 24px;
+}
+h2.booking-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: 900; text-transform: uppercase;
+  line-height: 0.85; letter-spacing: -2px;
+  margin-bottom: 32px;
+}
+
+.booking-sub { font-size: 0.8rem; color: var(--chrome3); letter-spacing: 2px; margin-bottom: 56px; line-height: 1.8; }
+
+/* BIG CTA button */
+.btn-book-big {
+  display: inline-flex; align-items: center; gap: 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase;
+  color: var(--noir); background: var(--neon);
+  padding: 24px 60px; text-decoration: none;
+  clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+  transition: all 0.3s;
+  position: relative; overflow: hidden;
+  animation: bigbtn-pulse 2.5s ease-in-out infinite;
+}
+.btn-book-big:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 40px rgba(57,255,110,0.8), 0 0 100px rgba(57,255,110,0.3);
+}
+
+@keyframes bigbtn-pulse {
+  0%,100% { box-shadow: 0 0 20px rgba(57,255,110,0.3); }
+  50%      { box-shadow: 0 0 40px rgba(57,255,110,0.6), 0 0 80px rgba(57,255,110,0.2); }
+}
+
+/* Methods */
+.booking-methods {
+  display: flex; justify-content: center; gap: 16px; margin-top: 40px; flex-wrap: wrap;
+}
+.book-method {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--chrome3); text-decoration: none;
+  border: 1px solid var(--border-c); padding: 12px 20px;
+  transition: all 0.25s;
+}
+.book-method:hover { border-color: var(--neon); color: var(--neon); }
+
+/* ═══════════════════════════════════
+   INSTAGRAM WALL
+═══════════════════════════════════ */
+#insta {
+  padding: 120px 40px;
+}
+
+.insta-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 48px; gap: 24px; flex-wrap: wrap;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.insta-cell {
+  position: relative; overflow: hidden;
+  aspect-ratio: 1; cursor: crosshair;
+  background: var(--noir2);
+}
+.insta-cell:hover .ic-overlay { opacity: 1; }
+.insta-cell:hover .ic-img { transform: scale(1.08); filter: contrast(1.1) saturate(0.4); }
+
+.ic-img {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; transition: all 0.4s;
+}
+.ii1 { background: linear-gradient(145deg, #111114, #090a0d); }
+.ii2 { background: linear-gradient(145deg, #0e0f12, #080809); }
+.ii3 { background: linear-gradient(145deg, #131315, #0a0a0c); }
+.ii4 { background: linear-gradient(145deg, #101012, #080809); }
+.ii5 { background: linear-gradient(145deg, #0f0f11, #090a0c); }
+.ii6 { background: linear-gradient(145deg, #121214, #0a0a0b); }
+.ii7 { background: linear-gradient(145deg, #0e0e10, #090909); }
+.ii8 { background: linear-gradient(145deg, #111113, #08080a); }
+.ii9 { background: linear-gradient(145deg, #0f0f12, #09090b); }
+.ii10 { background: linear-gradient(145deg, #121212, #0a0a0a); }
+
+.ic-inner { opacity: 0.05; font-size: 2.5rem; }
+
+.ic-overlay {
+  position: absolute; inset: 0;
+  background: rgba(7,7,9,0.8);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.ic-type { font-size: 0.48rem; letter-spacing: 3px; text-transform: uppercase; color: var(--neon); }
+.ic-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: white; letter-spacing: 1px; text-align: center; }
+
+/* ═══════════════════════════════════
+   CONTACT / INFOS
+═══════════════════════════════════ */
+#contact {
+  padding: 120px 40px;
+  background: var(--noir2);
+  border-top: 1px solid var(--border-c);
+}
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 32px; margin-top: 48px; }
+
+.ci-row { display: flex; gap: 14px; align-items: flex-start; }
+.ci-icon { font-size: 0.9rem; flex-shrink: 0; padding-top: 3px; }
+.ci-label { font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--neon); margin-bottom: 4px; }
+.ci-val { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--chrome1); text-decoration: none; display: block; transition: color 0.2s; text-transform: uppercase; letter-spacing: 2px; }
+a.ci-val:hover { color: var(--neon); }
+.ci-sub { font-size: 0.6rem; color: var(--chrome3); letter-spacing: 1px; margin-top: 3px; }
+
+.hours-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-c); }
+.hours-label { font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--neon); margin-bottom: 16px; }
+.hours-list { display: flex; flex-direction: column; }
+.h-row {
+  display: flex; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid rgba(200,204,216,0.05);
+  font-size: 0.7rem; letter-spacing: 1px;
+}
+.h-row:last-child { border-bottom: none; }
+.h-day { color: var(--chrome3); }
+.h-time { color: var(--chrome2); }
+.h-closed { color: rgba(200,204,216,0.2); font-style: italic; }
+.h-today { background: rgba(57,255,110,0.05); padding: 10px 8px; margin: 0 -8px; border-bottom: none; }
+.h-today .h-day { color: var(--neon); }
+.h-today .h-time { color: var(--neon); }
+
+.contact-map-col {}
+.map-frame { width: 100%; height: 300px; overflow: hidden; filter: grayscale(1) invert(1) brightness(0.5) hue-rotate(90deg); }
+.map-frame iframe { width: 100%; height: 100%; border: none; }
+
+.transport-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.ttag {
+  font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase;
+  padding: 6px 12px; border: 1px solid var(--border-c); color: var(--chrome3);
+}
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+footer {
+  background: var(--noir);
+  padding: 60px 40px 32px;
+  border-top: 1px solid var(--border-c);
+}
+
+.footer-inner {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 40px; flex-wrap: wrap;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-c);
+  margin-bottom: 24px;
+}
+
+.footer-logo-big {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.5rem; font-weight: 900;
+  letter-spacing: 4px; text-transform: uppercase; text-decoration: none;
+  display: block; margin-bottom: 8px; line-height: 1;
+}
+.footer-logo-big .dis { color: var(--neon); }
+.footer-logo-big .love { color: var(--chrome1); }
+
+.footer-tagline { font-size: 0.62rem; color: var(--chrome3); letter-spacing: 2px; }
+
+.footer-col h4 { font-size: 0.5rem; letter-spacing: 5px; text-transform: uppercase; color: var(--neon); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 0.68rem; color: var(--chrome3); text-decoration: none; letter-spacing: 1px; margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--chrome1); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 0.55rem; color: rgba(200,204,216,0.15); letter-spacing: 2px; text-transform: uppercase; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 0.55rem; color: rgba(200,204,216,0.2); text-decoration: none; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--chrome2); }
+
+/* ═══════════════════════════════════
+   SCROLL ANIMATIONS
+═══════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal:nth-child(2){transition-delay:0.1s}.reveal:nth-child(3){transition-delay:0.18s}.reveal:nth-child(4){transition-delay:0.26s}.reveal:nth-child(5){transition-delay:0.34s}.reveal:nth-child(6){transition-delay:0.42s}
+
+/* ═══════════════════════════════════
+   DISTORTION SCROLL EFFECT
+═══════════════════════════════════ */
+.distort-on-scroll { transition: filter 0.3s; }
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 1100px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-center { display: none; }
+  .nav-book { display: none; }
+  .burger { display: flex; }
+
+  #hero { padding: 100px 24px 80px; }
+  .hero-visual { display: none; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; bottom: 24px; left: 24px; right: 24px; }
+  .stat-item { border-right: none; flex: 0 0 auto; }
+
+  #services, #gallery, #squad, #booking, #insta, #contact { padding: 80px 24px; }
+
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .service-card.featured { grid-row: span 1; }
+
+  .cctv-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .cctv-cell.wide { grid-column: span 1; }
+
+  .squad-grid { grid-template-columns: 1fr 1fr; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-inner { flex-direction: column; gap: 32px; }
+
+  body { padding-bottom: 0; }
+}
+
+@media (max-width: 600px) {
+  h1.hero-title { font-size: 4.5rem; letter-spacing: -1px; }
+  .hero-ctas { flex-direction: column; align-items: flex-start; }
+  .services-grid { grid-template-columns: 1fr; }
+  .squad-grid { grid-template-columns: 1fr 1fr; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  .cctv-grid { grid-template-columns: 1fr; }
+  h2.section-title { font-size: 3.5rem; }
+  h2.booking-title { font-size: 4rem; }
+  .btn-book-big { font-size: 1.2rem; padding: 20px 40px; letter-spacing: 4px; }
+  .booking-methods { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ══ FULL SCREEN MENU ══ -->
+<div id="fullMenu">
+  <button class="close-btn" onclick="toggleMenu()">[ CLOSE ]</button>
+  <a href="#services" onclick="toggleMenu()" class="glitch-wrap" data-text="CLAWS">CLAWS</a>
+  <a href="#gallery" onclick="toggleMenu()" class="glitch-wrap" data-text="HALL OF FAME">HALL OF FAME</a>
+  <a href="#squad" onclick="toggleMenu()" class="glitch-wrap" data-text="THE SQUAD">THE SQUAD</a>
+  <a href="#booking" onclick="toggleMenu()" class="glitch-wrap" data-text="BOOKING">BOOKING</a>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo"><span class="dis">DIS</span><span class="love">LOVE</span></a>
+  <ul class="nav-center">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#squad">Squad</a></li>
+    <li><a href="#booking">Booking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">Get Appointed</a>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-light"></div>
+  <div class="hero-light2"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">STUDIO · LYON 6 · EST. 2024</div>
+    <h1 class="hero-title">
+      <span class="glitch-wrap chrome-text" data-text="BEAUTY">BEAUTY</span><br>
+      <span class="glitch-wrap" data-text="FOR THE" style="color:var(--chrome3);font-size:0.55em;">FOR THE</span><br>
+      <span class="glitch-wrap" data-text="BOLD." style="color:var(--neon);text-shadow:var(--neon-glow);">BOLD.</span>
+    </h1>
+    <p class="hero-sub">
+      Not your average beauty salon.<br>
+      <span>Nails. Eyes. Brows. Skin.</span> — On your terms.
+    </p>
+    <div class="hero-ctas">
+      <a href="#booking" class="btn-neon">Get Appointed →</a>
+      <a href="#services" class="btn-outline-chrome">See Services</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="chrome-ball cb1"></div>
+    <div class="chrome-ball cb2"></div>
+    <div class="chrome-ball cb3"></div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" data-target="500">0</div>
+      <div class="stat-label">Clients/Mois</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="4">0</div>
+      <div class="stat-label">Artists</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="98" data-suffix="%">0%</div>
+      <div class="stat-label">Satisfaction</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="font-size:1.4rem;letter-spacing:1px;">★★★★★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MARQUEE 1 ══ -->
+<div class="marquee-section">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">CLAWS</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">EYES ONLY</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">GRILLZ &amp; GEMS</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">BROW GAME</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">CHROME NAILS</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">LYON 6</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">CLAWS</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">EYES ONLY</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">GRILLZ &amp; GEMS</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">BROW GAME</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">CHROME NAILS</span><span class="marquee-item neon">✦</span>
+      <span class="marquee-item">LYON 6</span><span class="marquee-item neon">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="section-tag reveal">PRESTATIONS</div>
+  <h2 class="section-title reveal"><span class="chrome-text">OUR</span><br>SERVICES.</h2>
+
+  <div class="services-grid">
+    <!-- CLAWS -->
+    <div class="service-card featured reveal">
+      <div class="sc-num">01 — NAILS</div>
+      <div class="sc-name">CLAWS</div>
+      <div class="sc-tagline">Ongles. Griffes. Extensions. Chrome. Gel. Semi-permanent. Nail Art de compétition ou de sortie — c'est pareil ici.</div>
+      <div class="sc-price">à partir de 45€
+        <span class="sc-price-from">STILETTOS / COFFIN / SQUARE / ROUND</span>
+      </div>
+      <ul class="sc-list">
+        <li><span>Manucure + Semi-Perm</span> <span class="price">65€</span></li>
+        <li><span>Pose Gel Couleur</span> <span class="price">80€</span></li>
+        <li><span>Extensions Acrylique</span> <span class="price">95€</span></li>
+        <li><span>Chrome Mirror Effect</span> <span class="price">+20€</span></li>
+        <li><span>Nail Art complexe</span> <span class="price">+30–60€</span></li>
+        <li><span>Manucure Homme</span> <span class="price">45€</span></li>
+      </ul>
+    </div>
+
+    <!-- EYES -->
+    <div class="service-card reveal">
+      <div class="sc-num">02 — REGARD</div>
+      <div class="sc-name">EYES<br>ONLY</div>
+      <div class="sc-tagline">Extensions, volume, couleur. Ton regard avant même que tu parles.</div>
+      <div class="sc-price">85€
+        <span class="sc-price-from">VOLUME RUSSE / MEGA VOLUME / COLORED</span>
+      </div>
+      <ul class="sc-list">
+        <li><span>Extensions Volume Russe</span> <span class="price">85€</span></li>
+        <li><span>Remplissage 2-3 sem.</span> <span class="price">55€</span></li>
+        <li><span>Lifting + Teinture</span> <span class="price">60€</span></li>
+        <li><span>Cils Colorés</span> <span class="price">+20€</span></li>
+      </ul>
+    </div>
+
+    <!-- BROWS -->
+    <div class="service-card reveal">
+      <div class="sc-num">03 — SOURCILS</div>
+      <div class="sc-name">BROW<br>GAME</div>
+      <div class="sc-tagline">Architecture. Laminage. Teinture. Shaping à la pince. Des sourcils qui font le travail.</div>
+      <div class="sc-price">55€
+        <span class="sc-price-from">LAMINAGE / TEINTURE / DESIGN</span>
+      </div>
+      <ul class="sc-list">
+        <li><span>Laminage Sourcils</span> <span class="price">55€</span></li>
+        <li><span>Teinture + Épilation</span> <span class="price">35€</span></li>
+        <li><span>Design Only</span> <span class="price">18€</span></li>
+        <li><span>Sourcils Homme</span> <span class="price">22€</span></li>
+      </ul>
+    </div>
+
+    <!-- GRILLZ -->
+    <div class="service-card reveal">
+      <div class="sc-num">04 — SOURIRE</div>
+      <div class="sc-name">GRILLZ<br>&amp; GEMS</div>
+      <div class="sc-tagline">Strass dentaires. Nail gems. Piercing aesthetic. Le détail qui fait la différence.</div>
+      <div class="sc-price">15€
+        <span class="sc-price-from">GEMS / STRASS / BRILLANTS DENTAIRES</span>
+      </div>
+      <ul class="sc-list">
+        <li><span>Strass Dentaire</span> <span class="price">15€</span></li>
+        <li><span>Gems sur ongles (x5)</span> <span class="price">20€</span></li>
+        <li><span>Full set gems</span> <span class="price">45€</span></li>
+      </ul>
+    </div>
+
+    <!-- SKIN -->
+    <div class="service-card reveal">
+      <div class="sc-num">05 — PEAU</div>
+      <div class="sc-name">SKIN<br>LAB</div>
+      <div class="sc-tagline">Soin visage anti-acné, hydratation, éclat. Pour Hommes aussi. Pas de complexe ici.</div>
+      <div class="sc-price">70€
+        <span class="sc-price-from">SOIN VISAGE / PEELING / HYDRATION</span>
+      </div>
+      <ul class="sc-list">
+        <li><span>Soin Visage Éclat</span> <span class="price">70€</span></li>
+        <li><span>Soin Anti-Acné</span> <span class="price">75€</span></li>
+        <li><span>Soin Visage Homme</span> <span class="price">65€</span></li>
+        <li><span>LED Chromothérapie</span> <span class="price">40€</span></li>
+      </ul>
+    </div>
+
+    <!-- PÉDICURE -->
+    <div class="service-card reveal">
+      <div class="sc-num">06 — FEET</div>
+      <div class="sc-name">FOOT<br>WORK</div>
+      <div class="sc-tagline">Parce que les pieds aussi méritent le traitement de choc. Pédicure complète + Art.</div>
+      <div class="sc-price">50€
+        <span class="sc-price-from">PÉDICURE / SEMI-PERM / NAIL ART</span>
+      </div>
+      <ul class="sc-list">
+        <li><span>Pédicure + Semi-perm</span> <span class="price">65€</span></li>
+        <li><span>Semi-perm Seul</span> <span class="price">40€</span></li>
+        <li><span>Pédicure Classique</span> <span class="price">50€</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MARQUEE 2 ══ -->
+<div class="marquee-section">
+  <div class="marquee-wrap">
+    <div class="marquee-track reverse">
+      <span class="marquee-item neon">STILETTOS</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">COFFIN NAILS</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">CHROME MIRROR</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">Y2K AESTHETIC</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">BOLD IS THE NORM</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">STILETTOS</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">COFFIN NAILS</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">CHROME MIRROR</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">Y2K AESTHETIC</span><span class="marquee-item">—</span>
+      <span class="marquee-item neon">BOLD IS THE NORM</span><span class="marquee-item">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GALLERY / HALL OF FAME ══ -->
+<section id="gallery">
+  <div class="gallery-intro">
+    <div>
+      <div class="section-tag reveal">GALERIE</div>
+      <h2 class="section-title reveal" style="margin-bottom:0;">HALL OF<br><span class="chrome-text">FAME.</span></h2>
+    </div>
+    <a href="https://instagram.com" target="_blank" class="btn-ghost-neon reveal">@axiombeauty_lyon →</a>
+  </div>
+
+  <div class="cctv-grid">
+    <div class="cctv-cell tall ci1 distort-on-scroll reveal">
+      <div class="cctv-img ci1"><div class="ci-inner">💅</div></div>
+      <div class="rec-dot">REC</div>
+      <div class="cctv-brackets"></div>
+      <div class="cctv-overlay">
+        <div class="cctv-id">CAM_01 // STUDIO_A</div>
+        <div class="cctv-title">Chrome Stilettos</div>
+      </div>
+    </div>
+    <div class="cctv-cell ci2 reveal">
+      <div class="cctv-img ci2"><div class="ci-inner">👄</div></div>
+      <div class="rec-dot">REC</div>
+      <div class="cctv-brackets"></div>
+      <div class="cctv-overlay">
+        <div class="cctv-id">CAM_02</div>
+        <div class="cctv-title">Gems Session</div>
+      </div>
+    </div>
+    <div class="cctv-cell ci3 reveal">
+      <div class="cctv-img ci3"><div class="ci-inner">👁</div></div>
+      <div class="rec-dot">REC</div>
+      <div class="cctv-brackets"></div>
+      <div class="cctv-overlay">
+        <div class="cctv-id">CAM_03</div>
+        <div class="cctv-title">Volume Russe Coloré</div>
+      </div>
+    </div>
+    <div class="cctv-cell wide ci4 reveal">
+      <div class="cctv-img ci4"><div class="ci-inner">✨</div></div>
+      <div class="rec-dot">REC</div>
+      <div class="cctv-brackets"></div>
+      <div class="cctv-overlay">
+        <div class="cctv-id">CAM_04 // PANORAMIC</div>
+        <div class="cctv-title">Nail Art Complexe — Avant / Après</div>
+      </div>
+    </div>
+    <div class="cctv-cell ci5 reveal">
+      <div class="cctv-img ci5"><div class="ci-inner">🔮</div></div>
+      <div class="rec-dot">REC</div>
+      <div class="cctv-brackets"></div>
+      <div class="cctv-overlay">
+        <div class="cctv-id">CAM_05</div>
+        <div class="cctv-title">Mirror Effect</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insta-cta">
+    <a href="https://instagram.com" target="_blank" class="btn-ghost-neon">Voir tout le feed Instagram →</a>
+  </div>
+</section>
+
+<!-- ══ SQUAD ══ -->
+<section id="squad">
+  <div class="section-tag reveal">L'ÉQUIPE</div>
+  <h2 class="section-title reveal">THE<br><span class="chrome-text">SQUAD.</span></h2>
+
+  <div class="squad-grid">
+    <div class="squad-card reveal">
+      <div class="sq-visual sqv1">
+        <div class="sq-visual-inner">👑</div>
+        <div class="sq-corner"></div>
+      </div>
+      <div class="sq-hover">
+        <div class="sq-hover-bio">"Chaque ongle est une toile. Je travaille sur les tiens depuis 6 ans. Stilettos et Chrome — c'est ma signature."</div>
+      </div>
+      <div class="sq-info">
+        <div class="sq-name">LÉA</div>
+        <div class="sq-role">Queen of Nail Art</div>
+        <div class="sq-spec">Chrome / Stilettos / Nail Design</div>
+      </div>
+    </div>
+
+    <div class="squad-card reveal">
+      <div class="sq-visual sqv2">
+        <div class="sq-visual-inner">⚡</div>
+        <div class="sq-corner"></div>
+      </div>
+      <div class="sq-hover">
+        <div class="sq-hover-bio">"Je façonne des regards. Volume Russe, coloré, naturel — whatever you need. Tes cils parlent avant toi."</div>
+      </div>
+      <div class="sq-info">
+        <div class="sq-name">MAYA</div>
+        <div class="sq-role">Lash Queen</div>
+        <div class="sq-spec">Volume Russe / Colored Lash / Lifting</div>
+      </div>
+    </div>
+
+    <div class="squad-card reveal">
+      <div class="sq-visual sqv3">
+        <div class="sq-visual-inner">🎯</div>
+        <div class="sq-corner"></div>
+      </div>
+      <div class="sq-hover">
+        <div class="sq-hover-bio">"Les sourcils changent tout. Architecture, symétrie, caractère. Je transforme ton visage en 30 minutes."</div>
+      </div>
+      <div class="sq-info">
+        <div class="sq-name">TOM</div>
+        <div class="sq-role">Brow Master</div>
+        <div class="sq-spec">Laminage / Architecture / Men's Grooming</div>
+      </div>
+    </div>
+
+    <div class="squad-card reveal">
+      <div class="sq-visual sqv4">
+        <div class="sq-visual-inner">✦</div>
+        <div class="sq-corner"></div>
+      </div>
+      <div class="sq-hover">
+        <div class="sq-hover-bio">"La peau d'abord. Tout le reste suit. Soins visage high-tech pour hommes et femmes sans complexe."</div>
+      </div>
+      <div class="sq-info">
+        <div class="sq-name">ZOEY</div>
+        <div class="sq-role">Skin Specialist</div>
+        <div class="sq-spec">Soins Visage / LED / Anti-Acné</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOOKING ══ -->
+<section id="booking">
+  <div class="booking-inner">
+    <div class="booking-eyebrow reveal">— STEP INTO THE STUDIO —</div>
+    <h2 class="booking-title reveal"><span class="chrome-text">GET</span><br>APPOINT<span style="color:var(--neon);">ED.</span></h2>
+    <p class="booking-sub reveal">On confirme par SMS sous 2h.<br>Première visite = 15 min de consultation offerte.</p>
+    <div class="reveal">
+      <a href="https://www.planity.com" target="_blank" class="btn-book-big">
+        BOOK NOW ↗
+      </a>
+    </div>
+    <div class="booking-methods reveal">
+      <a href="tel:+33481093752" class="book-method">📞 Appel Direct</a>
+      <a href="https://instagram.com" target="_blank" class="book-method">📸 Instagram DM</a>
+      <a href="https://wa.me/33XXXXXXXXX" class="book-method">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSTAGRAM WALL ══ -->
+<section id="insta">
+  <div class="insta-header">
+    <div>
+      <div class="section-tag reveal">LIVE FEED</div>
+      <h2 class="section-title reveal" style="margin-bottom:0;">INSTA<br><span class="chrome-text">WALL.</span></h2>
+    </div>
+    <a href="https://instagram.com" target="_blank" class="btn-ghost-neon reveal">Follow @axiombeauty_lyon</a>
+  </div>
+
+  <div class="insta-grid">
+    <div class="insta-cell reveal"><div class="ic-img ii1"><div class="ic-inner">💅</div></div><div class="ic-overlay"><div class="ic-type">Nails</div><div class="ic-tag">Chrome Coffin</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii2"><div class="ic-inner">👁</div></div><div class="ic-overlay"><div class="ic-type">Eyes</div><div class="ic-tag">Volume Russe</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii3"><div class="ic-inner">✦</div></div><div class="ic-overlay"><div class="ic-type">Nail Art</div><div class="ic-tag">Y2K Set</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii4"><div class="ic-inner">💎</div></div><div class="ic-overlay"><div class="ic-type">Gems</div><div class="ic-tag">Dental Gem</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii5"><div class="ic-inner">🔮</div></div><div class="ic-overlay"><div class="ic-type">Mirror</div><div class="ic-tag">Silver Chrome</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii6"><div class="ic-inner">⚡</div></div><div class="ic-overlay"><div class="ic-type">Brows</div><div class="ic-tag">Laminage #1</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii7"><div class="ic-inner">🌙</div></div><div class="ic-overlay"><div class="ic-type">Nails</div><div class="ic-tag">Black Stiletto</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii8"><div class="ic-inner">🫦</div></div><div class="ic-overlay"><div class="ic-type">Gems</div><div class="ic-tag">Full Gem Set</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii9"><div class="ic-inner">✨</div></div><div class="ic-overlay"><div class="ic-type">Skin</div><div class="ic-tag">Glow Session</div></div></div>
+    <div class="insta-cell reveal"><div class="ic-img ii10"><div class="ic-inner">🎯</div></div><div class="ic-overlay"><div class="ic-type">Eyes</div><div class="ic-tag">Colored Lash</div></div></div>
+  </div>
+</section>
+
+<!-- ══ MARQUEE 3 ══ -->
+<div class="marquee-section">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">NOT YOUR AVERAGE SALON</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">LYON 6</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">AXIOM BEAUTY</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">BEAUTY FOR THE BOLD</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">NOT YOUR AVERAGE SALON</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">LYON 6</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">AXIOM BEAUTY</span><span class="marquee-item neon"> ✦ </span>
+      <span class="marquee-item">BEAUTY FOR THE BOLD</span><span class="marquee-item neon"> ✦ </span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="section-tag reveal">NOUS TROUVER</div>
+  <h2 class="section-title reveal">CONTACT<br><span class="chrome-text">&amp; ACCESS.</span></h2>
+
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info">
+        <div class="ci-row reveal">
+          <span class="ci-icon">📍</span>
+          <div>
+            <div class="ci-label">Adresse</div>
+            <span class="ci-val">27 Rue de la Bourse, Lyon 3e</span>
+            <div class="ci-sub">Quartier Brotteaux / Part-Dieu</div>
+          </div>
+        </div>
+        <div class="ci-row reveal">
+          <span class="ci-icon">📞</span>
+          <div>
+            <div class="ci-label">Téléphone</div>
+            <a href="tel:+33481093752" class="ci-val">04 81 09 37 52</a>
+            <div class="ci-sub">Mar–Sam · 10h–20h</div>
+          </div>
+        </div>
+        <div class="ci-row reveal">
+          <span class="ci-icon">📸</span>
+          <div>
+            <div class="ci-label">Instagram</div>
+            <a href="https://instagram.com" target="_blank" class="ci-val">@axiombeauty_lyon</a>
+          </div>
+        </div>
+        <div class="ci-row reveal">
+          <span class="ci-icon">📧</span>
+          <div>
+            <div class="ci-label">Email</div>
+            <a href="mailto:contact@axiombeauty-lyon.fr" class="ci-val">contact@axiombeauty-lyon.fr</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-section reveal">
+        <div class="hours-label">// HORAIRES</div>
+        <div class="hours-list">
+          <div class="h-row"><span class="h-day">LUNDI</span><span class="h-closed">FERMÉ</span></div>
+          <div class="h-row"><span class="h-day">MARDI</span><span class="h-time">10H00 — 20H00</span></div>
+          <div class="h-row"><span class="h-day">MERCREDI</span><span class="h-time">10H00 — 20H00</span></div>
+          <div class="h-row"><span class="h-day">JEUDI</span><span class="h-time">10H00 — 21H00</span></div>
+          <div class="h-row"><span class="h-day">VENDREDI</span><span class="h-time">10H00 — 21H00</span></div>
+          <div class="h-row"><span class="h-day">SAMEDI</span><span class="h-time">09H00 — 19H00</span></div>
+          <div class="h-row"><span class="h-day">DIMANCHE</span><span class="h-closed">FERMÉ</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-map-col reveal">
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.4!2d4.849!3d45.763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ebfe3e1dd60d%3A0x8e2fbf5b9ef6e4de!2sLyon%206e%2C%20Lyon!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="transport-tags">
+        <div class="ttag">🚇 MÉTRO FOCH (A)</div>
+        <div class="ttag">🚌 BUS C14</div>
+        <div class="ttag">🚲 VÉLO'V</div>
+        <div class="ttag">🅿️ PARKING</div>
+      </div>
+      <div style="margin-top:20px;padding:20px;border:1px solid var(--border-n);background:rgba(57,255,110,0.03);">
+        <div style="font-size:0.52rem;letter-spacing:4px;text-transform:uppercase;color:var(--neon);margin-bottom:6px;">// NOTE</div>
+        <div style="font-size:0.7rem;color:var(--chrome3);line-height:1.8;">Walk-ins bienvenus selon disponibilité. Réservation recommandée pour les créneaux du soir et du samedi.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="footer-logo-big"><span class="dis">DIS</span><span class="love">LOVE</span></a>
+      <div class="footer-tagline">// BEAUTY FOR THE BOLD · LYON 6 · EST. 2024</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">CLAWS — Ongles</a>
+      <a href="#services">EYES ONLY — Cils</a>
+      <a href="#services">BROW GAME — Sourcils</a>
+      <a href="#services">GRILLZ &amp; GEMS</a>
+      <a href="#services">SKIN LAB — Visage</a>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <a href="#gallery">Hall of Fame</a>
+      <a href="#squad">The Squad</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Suivre</h4>
+      <a href="#">📸 Instagram</a>
+      <a href="#">💬 WhatsApp</a>
+      <a href="#">★ Google Avis</a>
+      <a href="#">🎁 Carte Cadeau</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 AXIOM BEAUTY · LYON 3E · ALL RIGHTS RESERVED</div>
+    <div class="footer-legal">
+      <a href="#">MENTIONS LÉGALES</a>
+      <a href="#">RGPD</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── CURSOR ── */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+function animCursor() {
+  if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
+  rx += (mx - rx) * 0.14;
+  ry += (my - ry) * 0.14;
+  if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+
+document.querySelectorAll('a, button, .service-card, .squad-card, .cctv-cell').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (dot) { dot.style.width = '12px'; dot.style.height = '12px'; }
+    if (ring) { ring.style.width = '44px'; ring.style.height = '44px'; ring.style.opacity = '1'; }
+  });
+  el.addEventListener('mouseleave', () => {
+    if (dot) { dot.style.width = '6px'; dot.style.height = '6px'; }
+    if (ring) { ring.style.width = '28px'; ring.style.height = '28px'; ring.style.opacity = '0.6'; }
+  });
+});
+
+/* ── NAV ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── MENU ── */
+function toggleMenu() {
+  document.getElementById('fullMenu').classList.toggle('open');
+}
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + pageYOffset - 80, behavior: 'smooth' }); }
+  });
+});
+
+/* ── INTERSECTION OBSERVER ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animCounter(el, target, suffix) {
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current + (suffix || '');
+    if (current >= target) clearInterval(timer);
+  }, 35);
+}
+
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      animCounter(el, target, suffix);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+/* ── TODAY HIGHLIGHT ── */
+const days = ['DIMANCHE','LUNDI','MARDI','MERCREDI','JEUDI','VENDREDI','SAMEDI'];
+const today = days[new Date().getDay()];
+document.querySelectorAll('.h-row').forEach(row => {
+  if (row.querySelector('.h-day')?.textContent === today) row.classList.add('h-today');
+});
+
+/* ── SCROLL DISTORTION on gallery cells ── */
+window.addEventListener('scroll', () => {
+  const cells = document.querySelectorAll('.distort-on-scroll');
+  cells.forEach(cell => {
+    const rect = cell.getBoundingClientRect();
+    const vy = window.innerHeight / 2;
+    const dist = (rect.top + rect.height / 2 - vy) / vy;
+    const skew = dist * 2.5;
+    const scale = 1 - Math.abs(dist) * 0.02;
+    cell.style.transform = `skewY(${skew}deg) scaleX(${scale})`;
+  });
+});
+
+/* ── GLITCH RANDOM TRIGGER ── */
+setInterval(() => {
+  const glitches = document.querySelectorAll('.glitch-wrap');
+  const pick = glitches[Math.floor(Math.random() * glitches.length)];
+  if (pick) {
+    pick.style.setProperty('--glitch-active', '1');
+    pick.classLList.add('glitch-on');
+    setTimeout(() => {
+      pick.style.setProperty('--glitch-active', '0');
+      pick.classList.remove('glitch-on');
+    }, 300);
+  }
+}, 4000);
+</script>
+</body>
+</html>

@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Beauty Salon · Manucure Russe · Lyon 6</title>
+<meta name="description" content="Salon de beauté premium à Lyon 2. Manucure Russe, Nail Art, Cils & Sourcils. Réservez votre soin d'exception.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --blanc:      #ffffff;
+  --creme:      #fdf9f6;
+  --rose-pale:  #faf0ed;
+  --rose:       #e8b4a8;
+  --rose-fonce: #d4876e;
+  --nude:       #f0e4dc;
+  --sauge:      #8fa68b;
+  --sauge-pale: #dce8da;
+  --terracotta: #c2705a;
+  --brun:       #2e1f18;
+  --brun-doux:  #5c3d30;
+  --texte:      #3a2820;
+  --texte-doux: #8a6e62;
+  --or:         #c8956c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--blanc);
+  color: var(--texte);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ══ NAV ══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 400;
+  padding: 28px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(253,249,246,0.97);
+  backdrop-filter: blur(12px);
+  padding: 18px 60px;
+  border-bottom: 1px solid rgba(232,180,168,0.3);
+  box-shadow: 0 2px 30px rgba(46,31,24,0.04);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 400;
+  color: var(--brun); text-decoration: none;
+  letter-spacing: 2px;
+}
+.nav-logo span { color: var(--terracotta); font-style: italic; }
+
+.nav-links {
+  display: flex; gap: 36px; list-style: none; align-items: center;
+}
+.nav-links a {
+  font-size: 0.72rem; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--texte-doux); text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--terracotta); }
+
+.nav-rdv {
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--blanc); background: var(--terracotta);
+  padding: 12px 28px; text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.3s;
+  border: 1.5px solid var(--terracotta);
+}
+.nav-rdv:hover { background: transparent; color: var(--terracotta); }
+
+.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.burger span { width: 22px; height: 1.5px; background: var(--brun); transition: all 0.3s; display: block; }
+
+/* ══ STICKY MOBILE ══ */
+.sticky-rdv {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 450;
+  background: var(--terracotta);
+  color: white; text-align: center;
+  padding: 18px; font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none;
+}
+@media (max-width: 768px) { .sticky-rdv { display: block; } }
+
+/* ══ HERO ══ */
+#hero {
+  min-height: 100vh;
+  background: var(--creme);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Organic blob decoration */
+#hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,180,168,0.25) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(143,166,139,0.15) 0%, transparent 70%);
+  bottom: 0; left: 30%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 64px 80px 80px;
+  position: relative; z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--nude); color: var(--terracotta);
+  font-size: 0.62rem; font-weight: 500; letter-spacing: 2.5px;
+  text-transform: uppercase; padding: 8px 18px;
+  border-radius: 30px; margin-bottom: 32px;
+  width: fit-content;
+  animation: fadeUp 1s 0.2s both;
+}
+.hero-badge::before { content: '✿'; font-size: 0.7rem; }
+
+h1.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 400; color: var(--brun);
+  line-height: 1.1; letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  animation: fadeUp 1s 0.35s both;
+}
+h1.hero-title em {
+  font-style: italic; color: var(--terracotta);
+  font-weight: 400;
+}
+
+.hero-slogan {
+  font-size: 1rem; font-weight: 300;
+  color: var(--texte-doux); line-height: 1.8;
+  margin-bottom: 48px; max-width: 380px;
+  animation: fadeUp 1s 0.5s both;
+}
+
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 1s 0.65s both;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--terracotta); color: white;
+  padding: 16px 36px; border-radius: 30px;
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none; transition: all 0.35s;
+  border: 1.5px solid var(--terracotta);
+}
+.btn-primary:hover { background: transparent; color: var(--terracotta); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--brun-doux);
+  padding: 15px 30px; border-radius: 30px;
+  font-size: 0.75rem; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none; transition: all 0.35s;
+  border: 1.5px solid rgba(92,61,48,0.25);
+}
+.btn-outline:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+/* Stats strip */
+.hero-stats {
+  display: flex; gap: 0;
+  margin-top: 60px;
+  animation: fadeUp 1s 0.8s both;
+}
+.stat-item {
+  padding: 0 32px 0 0;
+  border-right: 1px solid var(--nude);
+  margin-right: 32px;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 400;
+  color: var(--terracotta); line-height: 1;
+}
+.stat-label {
+  font-size: 0.65rem; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--texte-doux); margin-top: 4px;
+}
+
+/* Hero right */
+.hero-right {
+  position: relative; overflow: hidden;
+}
+
+.hero-photo-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #e8c8b8 0%, #d4a898 40%, #c09080 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hero-photo-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  opacity: 0.15; text-align: center;
+}
+.ph-emoji { font-size: 8rem; }
+.ph-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--brun); letter-spacing: 3px; }
+
+/* Floating cards */
+.hero-card-specialty {
+  position: absolute; top: 80px; left: -20px;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(46,31,24,0.12);
+  animation: fadeUp 1s 1s both;
+  z-index: 5;
+}
+.hcs-icon { font-size: 1.4rem; margin-bottom: 6px; }
+.hcs-label { font-size: 0.5rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--texte-doux); margin-bottom: 3px; }
+.hcs-value { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: var(--brun); }
+
+.hero-card-rating {
+  position: absolute; bottom: 100px; right: 32px;
+  background: var(--brun);
+  padding: 16px 22px; border-radius: 14px;
+  display: flex; align-items: center; gap: 14px;
+  animation: fadeUp 1s 1.2s both; z-index: 5;
+}
+.rating-stars { color: #f5c842; font-size: 0.75rem; letter-spacing: 2px; }
+.rating-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: white; font-weight: 400; line-height: 1; }
+.rating-sub { font-size: 0.58rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+
+/* Petal decoration */
+.hero-petal {
+  position: absolute; bottom: 40px; left: 40px;
+  font-size: 4rem; opacity: 0.08;
+  animation: float 6s ease-in-out infinite;
+  z-index: 1;
+}
+.hero-petal2 {
+  position: absolute; top: 160px; right: 40px;
+  font-size: 2.5rem; opacity: 0.06;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(5deg); } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* ══ SERVICES / TARIFS ══ */
+#tarifs {
+  background: var(--blanc);
+  padding: 130px 80px;
+  position: relative; overflow: hidden;
+}
+
+/* Decorative flower */
+#tarifs::before {
+  content: '❀';
+  position: absolute; top: 60px; right: 80px;
+  font-size: 12rem; opacity: 0.03;
+  color: var(--terracotta); pointer-events: none;
+  font-family: serif;
+}
+
+.section-label {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--sauge); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 28px; height: 1.5px;
+  background: var(--sauge); flex-shrink: 0;
+  border-radius: 2px;
+}
+
+h2.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+  font-weight: 400; color: var(--brun);
+  line-height: 1.05; margin-bottom: 64px;
+}
+h2.section-title em { font-style: italic; color: var(--terracotta); }
+
+/* Tabs */
+.tarif-tabs {
+  display: flex; gap: 0; margin-bottom: 48px;
+  border-bottom: 2px solid var(--nude);
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 14px 28px;
+  font-size: 0.68rem; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--texte-doux); background: transparent;
+  border: none; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px; white-space: nowrap;
+  transition: all 0.3s;
+  font-family: 'Jost', sans-serif;
+}
+.tab-btn:hover { color: var(--brun); }
+.tab-btn.active { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Service items */
+.service-list { display: flex; flex-direction: column; }
+
+.service-item {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--nude);
+  transition: all 0.3s;
+}
+.service-item:first-child { border-top: 1px solid var(--nude); }
+.service-item:hover { background: var(--rose-pale); padding-left: 16px; padding-right: 16px; margin-left: -16px; margin-right: -16px; border-radius: 12px; border-color: transparent; }
+
+.si-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 400; color: var(--brun);
+  margin-bottom: 4px;
+}
+.si-desc { font-size: 0.8rem; color: var(--texte-doux); font-weight: 300; line-height: 1.6; }
+.si-duration {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.6rem; font-weight: 400; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--sauge); margin-top: 6px;
+}
+.si-duration::before { content: '◷'; font-size: 0.7rem; }
+
+.si-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 400; color: var(--terracotta);
+  white-space: nowrap; text-align: right;
+}
+.si-price span { font-size: 0.85rem; color: var(--texte-doux); font-family: 'Jost', sans-serif; font-weight: 300; }
+
+/* Info box */
+.info-box {
+  background: var(--sauge-pale);
+  border-left: 3px solid var(--sauge);
+  padding: 36px 40px;
+  margin: 48px 0;
+  border-radius: 0 16px 16px 0;
+}
+.info-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 400; font-style: italic;
+  color: var(--brun); margin-bottom: 12px;
+}
+.info-box p {
+  font-size: 0.87rem; color: var(--brun-doux);
+  line-height: 1.9; font-weight: 300;
+}
+
+/* Nail Art cards */
+.nail-art-levels {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-top: 48px;
+}
+.nal-card {
+  padding: 36px; border-radius: 20px;
+  transition: transform 0.3s;
+}
+.nal-card:hover { transform: translateY(-6px); }
+.nal-card.level1 { background: var(--rose-pale); border: 1.5px solid var(--rose); }
+.nal-card.level2 { background: var(--brun); }
+
+.nal-level {
+  font-size: 0.55rem; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 10px;
+}
+.nal-card.level2 .nal-level { color: var(--rose); }
+
+.nal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 400; color: var(--brun);
+  margin-bottom: 10px;
+}
+.nal-card.level2 .nal-title { color: white; }
+
+.nal-desc { font-size: 0.8rem; color: var(--texte-doux); line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
+.nal-card.level2 .nal-desc { color: rgba(255,255,255,0.45); }
+
+.nal-examples { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.nal-tag {
+  font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 1px; padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(194,112,90,0.3);
+  color: var(--terracotta);
+}
+.nal-card.level2 .nal-tag { border-color: rgba(232,180,168,0.3); color: var(--rose); }
+
+.nal-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; }
+.nal-card.level1 .nal-price { color: var(--terracotta); }
+.nal-card.level2 .nal-price { color: white; }
+.nal-price-sub { font-size: 0.68rem; color: var(--texte-doux); margin-top: 4px; }
+.nal-card.level2 .nal-price-sub { color: rgba(255,255,255,0.3); }
+
+/* ══ PORTFOLIO ══ */
+#portfolio {
+  background: var(--creme);
+  padding: 130px 80px;
+  overflow: hidden;
+}
+
+.portfolio-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 48px;
+  gap: 32px; flex-wrap: wrap;
+}
+
+.portfolio-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.filter-pill {
+  font-size: 0.65rem; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 9px 22px; border-radius: 25px;
+  border: 1.5px solid var(--nude);
+  color: var(--texte-doux); background: transparent;
+  cursor: pointer; transition: all 0.25s;
+  font-family: 'Jost', sans-serif;
+}
+.filter-pill:hover { border-color: var(--rose); color: var(--terracotta); }
+.filter-pill.active { background: var(--terracotta); color: white; border-color: var(--terracotta); }
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 12px;
+}
+.insta-item {
+  position: relative; overflow: hidden;
+  cursor: pointer; border-radius: 16px;
+  transition: all 0.4s;
+}
+.insta-item.tall { grid-row: span 2; }
+.insta-item.wide { grid-column: span 2; }
+
+.insta-item:hover .insta-overlay { opacity: 1; }
+.insta-item:hover .insta-img { transform: scale(1.05); }
+
+.insta-img {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ip1 { background: linear-gradient(145deg, #e8d0c0, #d4b8a4); }
+.ip2 { background: linear-gradient(145deg, #3a2828, #5a3a30); }
+.ip3 { background: linear-gradient(145deg, #f0e0d4, #e0ccc0); }
+.ip4 { background: linear-gradient(145deg, #c8a890, #b09478); }
+.ip5 { background: linear-gradient(145deg, #f4ece4, #e8d8cc); }
+.ip6 { background: linear-gradient(145deg, #4a3030, #7a5048); }
+.ip7 { background: linear-gradient(145deg, #d4c0b4, #c0ac9c); }
+.ip8 { background: linear-gradient(145deg, #e8d4c4, #d4c0a8); }
+
+.ip-emoji { font-size: 3.5rem; opacity: 0.12; }
+
+.insta-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(46,31,24,0.85) 100%);
+  opacity: 0; transition: opacity 0.35s;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: flex-end;
+  padding: 24px;
+}
+.io-tag { font-size: 0.52rem; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); margin-bottom: 4px; }
+.io-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: white; line-height: 1.3; }
+
+.insta-filter-tag {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-size: 0.52rem; font-weight: 400; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 5px 12px;
+  background: rgba(255,255,255,0.9); color: var(--texte-doux);
+  border-radius: 20px;
+}
+
+.insta-cta { margin-top: 36px; text-align: center; }
+.btn-insta {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.72rem; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--brun); text-decoration: none;
+  border: 1.5px solid var(--nude);
+  padding: 14px 30px; border-radius: 30px;
+  transition: all 0.3s;
+}
+.btn-insta:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+/* ══ SALON ══ */
+#salon {
+  background: var(--blanc);
+  padding: 130px 0;
+  overflow: hidden;
+}
+
+.salon-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.salon-photo-col {
+  background: var(--nude);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 600px;
+}
+.salon-photo-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #e8d4c0, #d4b8a0);
+  display: flex; align-items: center; justify-content: center;
+}
+.salon-photo-ph { font-size: 10rem; opacity: 0.06; }
+
+/* Decorative circles on photo */
+.salon-deco-circle {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.sdc1 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.sdc2 { width: 450px; height: 450px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.salon-content {
+  padding: 80px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.salon-body {
+  font-size: 0.95rem; line-height: 2;
+  color: var(--texte-doux); font-weight: 300;
+  margin-bottom: 48px;
+}
+
+.team-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 40px;
+}
+.team-card {
+  padding: 22px; border-radius: 16px;
+  border: 1.5px solid var(--nude);
+  transition: all 0.3s;
+}
+.team-card:hover { border-color: var(--rose); background: var(--rose-pale); }
+
+.team-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--nude); margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.team-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 400; color: var(--brun); margin-bottom: 2px;
+}
+.team-role { font-size: 0.6rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); }
+.team-spec { font-size: 0.73rem; color: var(--texte-doux); margin-top: 6px; font-style: italic; }
+
+.marques-strip { padding-top: 28px; border-top: 1.5px solid var(--nude); }
+.marques-label { font-size: 0.55rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--texte-doux); margin-bottom: 14px; }
+.marques-logos { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.marque-tag {
+  font-size: 0.68rem; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--texte-doux); padding: 7px 14px; border-radius: 20px;
+  border: 1px solid var(--nude);
+  transition: all 0.2s;
+}
+.marque-tag:hover { border-color: var(--rose); color: var(--terracotta); }
+
+/* ══ RÉSERVATION ══ */
+#rdv {
+  background: linear-gradient(160deg, var(--brun) 0%, #4a2d22 100%);
+  padding: 130px 80px;
+  position: relative; overflow: hidden;
+}
+#rdv::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(232,180,168,0.08) 0%, transparent 70%);
+  top: -100px; right: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rdv-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 90px; align-items: start;
+  position: relative; z-index: 1;
+}
+
+.rdv-content .section-label { color: var(--rose); }
+.rdv-content .section-label::before { background: var(--rose); }
+.rdv-content .section-title { color: white; }
+.rdv-content .section-title em { color: var(--rose); }
+
+.rdv-desc { font-size: 0.9rem; line-height: 2; color: rgba(255,255,255,0.4); font-weight: 300; margin: 24px 0 40px; }
+
+.rdv-methods { display: flex; flex-direction: column; gap: 10px; }
+.rdv-method {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  text-decoration: none; transition: all 0.3s;
+}
+.rdv-method:hover { background: rgba(232,180,168,0.1); border-color: rgba(232,180,168,0.25); }
+.rdv-method.primary { border-color: rgba(194,112,90,0.5); }
+
+.rdm-icon { font-size: 1.1rem; flex-shrink: 0; }
+.rdm-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); margin-bottom: 2px; }
+.rdm-value { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-style: italic; color: white; }
+.rdm-arrow { margin-left: auto; color: rgba(255,255,255,0.25); font-size: 0.9rem; transition: all 0.25s; }
+.rdv-method:hover .rdm-arrow { color: var(--rose); transform: translateX(4px); }
+
+/* Consignes */
+.rdv-consignes {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 40px; border-radius: 20px;
+}
+.rdv-consignes h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 400; color: white;
+  margin-bottom: 28px; font-style: italic;
+}
+.consigne-list { display: flex; flex-direction: column; gap: 20px; }
+.consigne-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.consigne-item:last-child { border-bottom: none; padding-bottom: 0; }
+.consigne-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(194,112,90,0.2); border: 1px solid rgba(194,112,90,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 500; color: var(--rose);
+  flex-shrink: 0;
+}
+.consigne-text { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; }
+.consigne-text strong { color: rgba(255,255,255,0.8); font-weight: 400; }
+
+/* ══ FAQ ══ */
+#faq { background: var(--creme); padding: 120px 80px; }
+.faq-inner { max-width: 820px; margin: 0 auto; }
+.faq-list { display: flex; flex-direction: column; margin-top: 64px; }
+
+.faq-item { border-bottom: 1.5px solid var(--nude); overflow: hidden; }
+.faq-item:first-child { border-top: 1.5px solid var(--nude); }
+
+.faq-question {
+  width: 100%; background: transparent; border: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 0; cursor: pointer; text-align: left; gap: 20px;
+  font-family: 'Jost', sans-serif;
+}
+.faq-q-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 400; color: var(--brun);
+}
+.faq-question:hover .faq-q-text { color: var(--terracotta); }
+
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--nude); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; color: var(--terracotta);
+  font-size: 1.1rem; line-height: 1;
+}
+.faq-icon::after { content: '+'; }
+.faq-item.open .faq-icon { background: var(--terracotta); color: white; }
+.faq-item.open .faq-icon::after { content: '×'; }
+
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer-text { font-size: 0.87rem; color: var(--texte-doux); line-height: 1.9; font-weight: 300; padding-bottom: 24px; }
+
+/* ══ CONTACT ══ */
+#contact { background: var(--blanc); padding: 120px 80px; }
+
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-details { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+
+.cd-row { display: flex; gap: 14px; align-items: flex-start; }
+.cd-icon { font-size: 1rem; line-height: 1.9; flex-shrink: 0; }
+.cd-label { font-size: 0.55rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--sauge); margin-bottom: 4px; }
+.cd-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-style: italic; color: var(--brun);
+  text-decoration: none; display: block; transition: color 0.2s;
+}
+a.cd-value:hover { color: var(--terracotta); }
+.cd-sub { font-size: 0.73rem; color: var(--texte-doux); font-weight: 300; margin-top: 3px; line-height: 1.5; }
+
+.contact-hours { margin-top: 36px; padding-top: 28px; border-top: 1.5px solid var(--nude); }
+.ch-label { font-size: 0.55rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--sauge); margin-bottom: 16px; }
+.ch-list { display: flex; flex-direction: column; }
+.ch-row {
+  display: flex; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid rgba(240,228,220,0.7);
+  font-size: 0.82rem;
+}
+.ch-row:last-child { border-bottom: none; }
+.ch-day { color: var(--texte-doux); font-weight: 300; }
+.ch-time { color: var(--brun); font-weight: 400; }
+.ch-closed { color: var(--nude); font-style: italic; }
+.ch-today { background: var(--rose-pale); padding: 10px 12px; border-radius: 8px; margin: 2px 0; border-bottom: none !important; }
+
+.contact-map { display: flex; flex-direction: column; gap: 16px; }
+.map-frame { width: 100%; height: 300px; overflow: hidden; border-radius: 16px; }
+.map-frame iframe { width: 100%; height: 100%; border: none; filter: saturate(0.8); }
+
+.transport-info { display: flex; gap: 10px; flex-wrap: wrap; }
+.transport-tag {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.68rem; font-weight: 300; letter-spacing: 0.5px;
+  color: var(--texte-doux); padding: 7px 14px;
+  border: 1px solid var(--nude); border-radius: 20px;
+}
+
+.info-note {
+  padding: 18px 22px; background: var(--sauge-pale);
+  border-left: 3px solid var(--sauge); border-radius: 0 12px 12px 0;
+  font-size: 0.82rem; color: var(--brun-doux); line-height: 1.7; font-weight: 300;
+}
+.info-note-label { font-size: 0.55rem; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sauge); margin-bottom: 5px; }
+
+/* ══ FOOTER ══ */
+footer {
+  background: var(--brun);
+  padding: 64px 80px 36px;
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232,180,168,0.4), transparent);
+}
+
+.footer-inner {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 40px; flex-wrap: wrap;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 28px;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 400; color: white;
+  text-decoration: none; letter-spacing: 2px; display: block; margin-bottom: 6px;
+}
+.footer-logo span { color: var(--rose); font-style: italic; }
+.footer-tagline { font-style: italic; font-size: 0.8rem; color: rgba(255,255,255,0.25); font-weight: 200; }
+
+.footer-col h4 { font-size: 0.52rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 0.78rem; color: rgba(255,255,255,0.3); text-decoration: none; font-weight: 300; margin-bottom: 8px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255,255,255,0.7); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 0.6rem; color: rgba(255,255,255,0.12); letter-spacing: 1px; text-transform: uppercase; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 0.6rem; color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.45); }
+
+/* ══ ANIMATIONS ══ */
+.fu { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.fu.visible { opacity: 1; transform: translateY(0); }
+.fu:nth-child(2){transition-delay:0.1s}.fu:nth-child(3){transition-delay:0.2s}.fu:nth-child(4){transition-delay:0.3s}
+
+/* ══ MOBILE NAV ══ */
+#mobileNav {
+  display: none; position: fixed; inset: 0; z-index: 490;
+  background: rgba(253,249,246,0.98);
+  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+}
+#mobileNav.open { display: flex; }
+#mobileNav a {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 400; color: var(--brun);
+  text-decoration: none; transition: color 0.2s;
+}
+#mobileNav a:hover { color: var(--terracotta); }
+#mobileNav .close-btn {
+  position: absolute; top: 28px; right: 32px;
+  font-size: 1.8rem; background: none; border: none;
+  cursor: pointer; color: var(--texte-doux);
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 1024px) {
+  nav { padding: 18px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links, .nav-rdv { display: none; }
+  .burger { display: flex; }
+
+  #hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 110px 28px 60px; }
+  .hero-right { min-height: 50vh; }
+  .hero-card-specialty { left: 20px; }
+
+  #tarifs, #portfolio, #rdv, #faq, #contact { padding: 80px 24px; }
+  .nail-art-levels { grid-template-columns: 1fr; }
+
+  .insta-grid { grid-template-columns: 1fr 1fr; }
+  .insta-item.wide { grid-column: span 1; }
+
+  .salon-inner { grid-template-columns: 1fr; }
+  .salon-photo-col { min-height: 260px; }
+  .salon-content { padding: 60px 28px; }
+
+  .rdv-inner { grid-template-columns: 1fr; gap: 48px; }
+  .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+
+  footer { padding: 48px 24px 28px; }
+  .footer-inner { flex-direction: column; gap: 28px; }
+}
+
+@media (max-width: 600px) {
+  h1.hero-title { font-size: 2.6rem; }
+  .hero-ctas { flex-direction: column; }
+  .hero-stats { gap: 0; }
+  .stat-item { padding-right: 20px; margin-right: 20px; }
+  .insta-grid { grid-template-columns: 1fr; }
+  .insta-item.tall { grid-row: span 1; }
+  .team-grid { grid-template-columns: 1fr; }
+  body { padding-bottom: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY RDV MOBILE -->
+<a href="#rdv" class="sticky-rdv">✿ Prendre Rendez-vous</a>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Luna<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#tarifs">Soins & Tarifs</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#salon">Le Salon</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#rdv" class="nav-rdv">Réserver →</a>
+  <div class="burger" id="burger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobileNav">
+  <button class="close-btn" onclick="toggleMobileNav()">✕</button>
+  <a href="#tarifs" onclick="toggleMobileNav()">Soins & Tarifs</a>
+  <a href="#portfolio" onclick="toggleMobileNav()">Portfolio</a>
+  <a href="#salon" onclick="toggleMobileNav()">Le Salon</a>
+  <a href="#faq" onclick="toggleMobileNav()">FAQ</a>
+  <a href="#contact" onclick="toggleMobileNav()">Contact</a>
+  <a href="#rdv" onclick="toggleMobileNav()" style="color:var(--terracotta);">Réserver →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Lyon 6 · Part-Dieu · Salon Premium</div>
+    <h1 class="hero-title">
+      L'art<br>
+      de la <em>manucure</em><br>
+      parfaite.
+    </h1>
+    <p class="hero-slogan">
+      Un soin minutieux des mains et des ongles, dans un espace doux et serein au cœur de Lyon.
+    </p>
+    <div class="hero-ctas">
+      <a href="#rdv" class="btn-primary">Prendre Rendez-vous</a>
+      <a href="#tarifs" class="btn-outline">Voir les soins</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">4.6</div>
+        <div class="stat-label">Google ★★★★★</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Clientes fidèles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3 ans</div>
+        <div class="stat-label">D'expertise</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-bg">
+      <div class="hero-photo-placeholder">
+        <div class="ph-emoji">💅</div>
+        <div class="ph-text">Photo ambiance salon</div>
+      </div>
+    </div>
+    <div class="hero-petal">🌸</div>
+    <div class="hero-petal2">✿</div>
+    <div class="hero-card-specialty">
+      <div class="hcs-icon">💅</div>
+      <div class="hcs-label">Spécialité</div>
+      <div class="hcs-value">Manucure Russe</div>
+    </div>
+    <div class="hero-card-rating">
+      <div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-sub">Google Reviews</div>
+      </div>
+      <div class="rating-num">4.6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TARIFS ══ -->
+<section id="tarifs">
+  <div class="section-label fu">Carte des Soins</div>
+  <h2 class="section-title fu">Nos <em>Prestations</em><br>& Tarifs</h2>
+
+  <div class="tarif-tabs fu">
+    <button class="tab-btn active" onclick="switchTab('manucure', this)">Manucure</button>
+    <button class="tab-btn" onclick="switchTab('pedicure', this)">Pédicure</button>
+    <button class="tab-btn" onclick="switchTab('cils', this)">Cils & Sourcils</button>
+    <button class="tab-btn" onclick="switchTab('soins', this)">Soins</button>
+  </div>
+
+  <!-- MANUCURE -->
+  <div class="tab-panel active" id="tab-manucure">
+    <div class="service-list">
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Manucure Russe Classique</div>
+          <div class="si-desc">Soin minutieux des cuticules à la fraise, mise en forme, vernis classique.</div>
+          <div class="si-duration">75 – 90 min</div>
+        </div>
+        <div class="si-price">55€<span> / séance</span></div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Manucure Russe + Semi-Permanent</div>
+          <div class="si-desc">Soin complet des cuticules + pose semi-permanent OPI ou The Gel Bottle.</div>
+          <div class="si-duration">90 – 120 min</div>
+        </div>
+        <div class="si-price">75€<span> / séance</span></div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Semi-Permanent Seul</div>
+          <div class="si-desc">Sans soin cuticules, pour les habituées du salon.</div>
+          <div class="si-duration">60 min</div>
+        </div>
+        <div class="si-price">45€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Pose Gel / Extensions</div>
+          <div class="si-desc">Gel monophasique, allongement ou remodelage. Finition parfaite.</div>
+          <div class="si-duration">120 – 150 min</div>
+        </div>
+        <div class="si-price">90€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Remplissage Gel</div>
+          <div class="si-desc">Remplissage à 3 semaines. Retouche cuticules incluse.</div>
+          <div class="si-duration">90 min</div>
+        </div>
+        <div class="si-price">65€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Dépose Semi-Permanent</div>
+          <div class="si-desc">Dépose douce, sans abîmer la plaque naturelle.</div>
+          <div class="si-duration">30 min</div>
+        </div>
+        <div class="si-price">15€</div>
+      </div>
+    </div>
+
+    <div class="info-box fu">
+      <h3>Qu'est-ce que la Manucure Russe ?</h3>
+      <p>
+        La manucure russe est une technique née en Russie et Ukraine. Contrairement à la manucure classique qui pousse les cuticules à l'eau, la technique russe utilise des fraises rotatives de haute précision pour éliminer les peaux mortes <em>à sec</em>. Le résultat est net, durable et sans blessures — la garantie d'un travail d'artisane, pas d'une onglerie rapide.
+      </p>
+    </div>
+
+    <div class="nail-art-levels">
+      <div class="nal-card level1 fu">
+        <div class="nal-level">Nail Art · Niveau 1</div>
+        <div class="nal-title">Simplicité Élégante</div>
+        <div class="nal-desc">French micro, dégradé nude, monochromatique avec accent, Hailey Bieber nails.</div>
+        <div class="nal-examples">
+          <span class="nal-tag">French Micro</span>
+          <span class="nal-tag">Baby Boomer</span>
+          <span class="nal-tag">Dégradé Nude</span>
+          <span class="nal-tag">Accent Simple</span>
+        </div>
+        <div class="nal-price">+ 15 – 25€</div>
+        <div class="nal-price-sub">en supplément du soin</div>
+      </div>
+      <div class="nal-card level2 fu">
+        <div class="nal-level">Nail Art · Niveau 2</div>
+        <div class="nal-title">Création Complexe</div>
+        <div class="nal-desc">Motifs géométriques, floraux, aquarelle, chrome, designs Pinterest & TikTok.</div>
+        <div class="nal-examples">
+          <span class="nal-tag">Floraux 3D</span>
+          <span class="nal-tag">Géométrie</span>
+          <span class="nal-tag">Aquarelle</span>
+          <span class="nal-tag">Chrome Mirror</span>
+        </div>
+        <div class="nal-price">+ 35 – 60€</div>
+        <div class="nal-price-sub">selon complexité</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÉDICURE -->
+  <div class="tab-panel" id="tab-pedicure">
+    <div class="service-list">
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Pédicure Complète + Semi-Permanent</div>
+          <div class="si-desc">Soin des pieds, cuticules, mise en forme, vernis semi-permanent.</div>
+          <div class="si-duration">75 min</div>
+        </div>
+        <div class="si-price">65€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Semi-Permanent Orteil Seul</div>
+          <div class="si-desc">Application semi-permanent sans soin complet.</div>
+          <div class="si-duration">45 min</div>
+        </div>
+        <div class="si-price">40€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Pédicure Classique</div>
+          <div class="si-desc">Soin hydratant, lime, vernis classique.</div>
+          <div class="si-duration">60 min</div>
+        </div>
+        <div class="si-price">45€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CILS & SOURCILS -->
+  <div class="tab-panel" id="tab-cils">
+    <div class="service-list">
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Extension Cils — Volume Russe</div>
+          <div class="si-desc">Technique fan volume, résultat naturel à dramatique selon souhait.</div>
+          <div class="si-duration">120 – 150 min</div>
+        </div>
+        <div class="si-price">85€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Remplissage Cils (2-3 semaines)</div>
+          <div class="si-desc">Comblement des espaces. Même volume que la pose initiale.</div>
+          <div class="si-duration">75 min</div>
+        </div>
+        <div class="si-price">55€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Lifting & Teinture Cils</div>
+          <div class="si-desc">Courbe semi-permanente, teinture noire intense. Mascara inutile.</div>
+          <div class="si-duration">60 min</div>
+        </div>
+        <div class="si-price">60€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Design Sourcils (Laminage)</div>
+          <div class="si-desc">Laminage, teinture, épilation à la pince. Sourcils structurés 6 semaines.</div>
+          <div class="si-duration">60 min</div>
+        </div>
+        <div class="si-price">55€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Épilation Sourcils Seule</div>
+          <div class="si-desc">Mise en forme à la pince, tracé personnalisé.</div>
+          <div class="si-duration">20 min</div>
+        </div>
+        <div class="si-price">18€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOINS -->
+  <div class="tab-panel" id="tab-soins">
+    <div class="service-list">
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Soin Paraffine Mains</div>
+          <div class="si-desc">Bain de paraffine hydratant, gants chauffants. Peau de bébé garantie.</div>
+          <div class="si-duration">30 min</div>
+        </div>
+        <div class="si-price">+ 20€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Massage des Mains</div>
+          <div class="si-desc">Massage relaxant à l'huile, inclus dans la manucure russe sur demande.</div>
+          <div class="si-duration">15 min</div>
+        </div>
+        <div class="si-price">+ 10€</div>
+      </div>
+      <div class="service-item">
+        <div class="si-left">
+          <div class="si-name">Dépose + Soin Réparateur</div>
+          <div class="si-desc">Dépose douce + masque nourrissant pour plaques fragilisées.</div>
+          <div class="si-duration">45 min</div>
+        </div>
+        <div class="si-price">30€</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PORTFOLIO ══ -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-label fu">Nos Créations</div>
+      <h2 class="section-title fu" style="margin-bottom:0;">Portfolio<br><em>Instagram</em></h2>
+    </div>
+    <div class="portfolio-filters fu">
+      <button class="filter-pill active" onclick="filterPortfolio('all', this)">Tout voir</button>
+      <button class="filter-pill" onclick="filterPortfolio('nude', this)">Nude</button>
+      <button class="filter-pill" onclick="filterPortfolio('nailart', this)">Nail Art</button>
+      <button class="filter-pill" onclick="filterPortfolio('avant-apres', this)">Avant/Après</button>
+    </div>
+  </div>
+
+  <div class="insta-grid">
+    <div class="insta-item tall ip1 fu" data-cat="nude">
+      <div class="insta-img"><div class="ip-emoji">💅</div></div>
+      <div class="insta-filter-tag">Nude</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Manucure Russe</div>
+        <div class="io-title">Beige Rosé Naturel — French Micro</div>
+      </div>
+    </div>
+    <div class="insta-item ip2 fu" data-cat="nailart">
+      <div class="insta-img"><div class="ip-emoji">🎨</div></div>
+      <div class="insta-filter-tag">Nail Art</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Nail Art N.2</div>
+        <div class="io-title">Chrome Miroir Noir</div>
+      </div>
+    </div>
+    <div class="insta-item ip3 fu" data-cat="nude">
+      <div class="insta-img"><div class="ip-emoji">🤍</div></div>
+      <div class="insta-filter-tag">Nude</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Semi-Permanent</div>
+        <div class="io-title">Hailey Bieber Nails — Glazed Donut</div>
+      </div>
+    </div>
+    <div class="insta-item wide ip4 fu" data-cat="avant-apres">
+      <div class="insta-img"><div class="ip-emoji">✨</div></div>
+      <div class="insta-filter-tag">Avant / Après</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Transformation</div>
+        <div class="io-title">Résultat Manucure Russe — Cuticules nettoyées</div>
+      </div>
+    </div>
+    <div class="insta-item ip5 fu" data-cat="nude">
+      <div class="insta-img"><div class="ip-emoji">🌸</div></div>
+      <div class="insta-filter-tag">Nude</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Baby Boomer</div>
+        <div class="io-title">Dégradé Rose Poudré</div>
+      </div>
+    </div>
+    <div class="insta-item ip6 fu" data-cat="nailart">
+      <div class="insta-img"><div class="ip-emoji">🌺</div></div>
+      <div class="insta-filter-tag">Nail Art</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Nail Art N.2</div>
+        <div class="io-title">Floraux 3D Aquarelle</div>
+      </div>
+    </div>
+    <div class="insta-item ip7 fu" data-cat="nude">
+      <div class="insta-img"><div class="ip-emoji">🍵</div></div>
+      <div class="insta-filter-tag">Nude</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Gel Naturel</div>
+        <div class="io-title">Taupe Parisien — Finition Matte</div>
+      </div>
+    </div>
+    <div class="insta-item ip8 fu" data-cat="avant-apres">
+      <div class="insta-img"><div class="ip-emoji">👁</div></div>
+      <div class="insta-filter-tag">Avant / Après</div>
+      <div class="insta-overlay">
+        <div class="io-tag">Lifting Cils</div>
+        <div class="io-title">Avant / Après — Volume Russe</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insta-cta">
+    <a href="https://instagram.com/lunabeauty_lyon6" target="_blank" class="btn-insta">
+      📸 Voir tout le portfolio · @lunabeauty_lyon6
+    </a>
+  </div>
+</section>
+
+<!-- ══ SALON ══ -->
+<section id="salon">
+  <div class="salon-inner">
+    <div class="salon-photo-col">
+      <div class="salon-photo-bg">
+        <div class="salon-photo-ph">🌸</div>
+      </div>
+      <div class="salon-deco-circle sdc1"></div>
+      <div class="salon-deco-circle sdc2"></div>
+    </div>
+    <div class="salon-content">
+      <div class="section-label fu">Notre Univers</div>
+      <h2 class="section-title fu">Le <em>Salon</em><br>Luna Beauty</h2>
+      <p class="salon-body fu">
+        Niché au cœur de Lyon 2, Luna Beauty est un espace pensé pour le soin, la précision et la sérénité. Chaque détail a été conçu pour que vous repartiez avec des ongles impeccables — et l'envie de revenir.
+        <br><br>
+        Nos techniciennes sont formées aux techniques est-européennes de manucure russe. La stérilisation du matériel est rigoureuse, les produits utilisés sont haut de gamme et vegan.
+      </p>
+
+      <div class="team-grid fu">
+        <div class="team-card">
+          <div class="team-avatar">💅</div>
+          <div class="team-name">Luna</div>
+          <div class="team-role">Master Nail Artist</div>
+          <div class="team-spec">Manucure Russe · Nail Art complexe</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">✨</div>
+          <div class="team-name">Anastasia</div>
+          <div class="team-role">Nail & Beauty Artist</div>
+          <div class="team-spec">Extensions Gel · Cils & Sourcils</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👁</div>
+          <div class="team-name">Lena</div>
+          <div class="team-role">Beauty Specialist</div>
+          <div class="team-spec">Volume Russe · Laminage</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">🌸</div>
+          <div class="team-name">Sofia</div>
+          <div class="team-role">Nail Artist</div>
+          <div class="team-spec">Semi-Permanent · Pédicure</div>
+        </div>
+      </div>
+
+      <div class="marques-strip fu">
+        <div class="marques-label">Produits utilisés</div>
+        <div class="marques-logos">
+          <span class="marque-tag">OPI</span>
+          <span class="marque-tag">The Gel Bottle</span>
+          <span class="marque-tag">Cuccio</span>
+          <span class="marque-tag">CND Shellac</span>
+          <span class="marque-tag">🌿 Vegan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RÉSERVATION ══ -->
+<section id="rdv">
+  <div class="rdv-inner">
+    <div class="rdv-content">
+      <div class="section-label">Prise de Rendez-vous</div>
+      <h2 class="section-title">Réservez<br>votre <em>soin.</em></h2>
+      <p class="rdv-desc">Choisissez le mode qui vous convient. Nous confirmons votre rendez-vous par SMS sous 2h.</p>
+      <div class="rdv-methods">
+        <a href="https://www.planity.com" target="_blank" class="rdv-method primary">
+          <span class="rdm-icon">📅</span>
+          <div>
+            <div class="rdm-label">Réservation en ligne</div>
+            <div class="rdm-value">Planity — Disponibilités en temps réel</div>
+          </div>
+          <span class="rdm-arrow">→</span>
+        </a>
+        <a href="tel:+33752183491" class="rdv-method">
+          <span class="rdm-icon">📞</span>
+          <div>
+            <div class="rdm-label">Par téléphone</div>
+            <div class="rdm-value">07 52 18 34 91 · Mar–Sam 9h–19h</div>
+          </div>
+          <span class="rdm-arrow">→</span>
+        </a>
+        <a href="https://instagram.com/lunabeauty_lyon6" target="_blank" class="rdv-method">
+          <span class="rdm-icon">📸</span>
+          <div>
+            <div class="rdm-label">Via Instagram DM</div>
+            <div class="rdm-value">@lunabeauty_lyon6 · réponse rapide</div>
+          </div>
+          <span class="rdm-arrow">→</span>
+        </a>
+        <a href="https://wa.me/33752183491" class="rdv-method">
+          <span class="rdm-icon">💬</span>
+          <div>
+            <div class="rdm-label">WhatsApp</div>
+            <div class="rdm-value">Message direct — nous répondons vite</div>
+          </div>
+          <span class="rdm-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="rdv-consignes">
+      <h3>Avant votre rendez-vous</h3>
+      <div class="consigne-list">
+        <div class="consigne-item">
+          <div class="consigne-num">1</div>
+          <div class="consigne-text"><strong>Venez les ongles nus.</strong> Déposez votre vernis ou gel avant, ou prévoyez 20 min supplémentaires pour la dépose (en supplément).</div>
+        </div>
+        <div class="consigne-item">
+          <div class="consigne-num">2</div>
+          <div class="consigne-text"><strong>Prévoyez 15 min d'avance</strong> pour le premier rendez-vous — un formulaire santé vous sera remis.</div>
+        </div>
+        <div class="consigne-item">
+          <div class="consigne-num">3</div>
+          <div class="consigne-text"><strong>Sauvegardez vos inspirations</strong> Pinterest / Instagram — cela nous aide à créer exactement ce que vous imaginez.</div>
+        </div>
+        <div class="consigne-item">
+          <div class="consigne-num">4</div>
+          <div class="consigne-text"><strong>Annulation 24h à l'avance</strong> demandée. Au-delà, un acompte de 20€ sera retenu.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="section-label fu">Questions Fréquentes</div>
+    <h2 class="section-title fu">Ce que vous<br>nous <em>demandez.</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Combien de temps dure un semi-permanent ?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Avec la technique de manucure russe, le semi-permanent tient 3 à 4 semaines sans écaillage. La préparation minutieuse de la plaque et le nettoyage des cuticules à sec sont les clés de cette longévité.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Comment enlever le semi-permanent à la maison ?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Nous vous déconseillons fortement de l'enlever vous-même. Venez en salon pour une dépose douce (15€, 30 min). Si nécessaire : limage léger de la surface brillante, cotons imbibés d'acétone sous film alimentaire 15 minutes, retirer doucement avec un bâtonnet en bois.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Acceptez-vous les clients masculins ?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Absolument ! Luna Beauty accueille tout le monde. Nous proposons des soins adaptés pour les hommes : mise en forme, cuticules, vernis mat ou "buff" (brillant naturel).</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Quelle est la différence entre Gel et Semi-Permanent ?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Le semi-permanent est un vernis qui sèche sous UV/LED — il ne renforce pas l'ongle. Le gel est une résine dure qui crée une structure. Le gel est plus solide, idéal si vos ongles cassent. Le semi-permanent est plus léger, parfait pour un look naturel.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Est-ce que la manucure russe fait mal ?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Non — entre les mains d'une technicienne formée, la manucure russe ne doit pas faire mal. Les fraises sont utilisées avec précision et douceur pour éviter toute blessure.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Proposez-vous des bons cadeaux ?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Oui ! Les bons cadeaux sont disponibles en salon ou sur demande par WhatsApp. Valables 6 mois pour tous les soins de la carte. Contactez-nous pour un bon personnalisé.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="section-label fu">Nous trouver</div>
+  <h2 class="section-title fu">Contact<br><em>& Accès</em></h2>
+
+  <div class="contact-layout">
+    <div>
+      <div class="contact-details">
+        <div class="cd-row">
+          <span class="cd-icon">📍</span>
+          <div>
+            <div class="cd-label">Adresse</div>
+            <span class="cd-value">14 Rue Auguste Comte, 69006 Lyon</span>
+            <div class="cd-sub">Part-Dieu · Quartier Préfecture</div>
+          </div>
+        </div>
+        <div class="cd-row">
+          <span class="cd-icon">📞</span>
+          <div>
+            <div class="cd-label">Téléphone</div>
+            <a href="tel:+33752183491" class="cd-value">07 52 18 34 91</a>
+            <div class="cd-sub">Mardi – Samedi · 9h – 19h</div>
+          </div>
+        </div>
+        <div class="cd-row">
+          <span class="cd-icon">📧</span>
+          <div>
+            <div class="cd-label">Email</div>
+            <a href="mailto:contact@lunabeauty-lyon.fr" class="cd-value">contact@lunabeauty-lyon.fr</a>
+          </div>
+        </div>
+        <div class="cd-row">
+          <span class="cd-icon">📸</span>
+          <div>
+            <div class="cd-label">Instagram</div>
+            <a href="https://instagram.com/lunabeauty_lyon6" target="_blank" class="cd-value">@lunabeauty_lyon6</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-hours">
+        <div class="ch-label">Horaires d'ouverture</div>
+        <div class="ch-list">
+          <div class="ch-row"><span class="ch-day">Lundi</span><span class="ch-closed">Fermé</span></div>
+          <div class="ch-row"><span class="ch-day">Mardi</span><span class="ch-time">9h00 – 19h00</span></div>
+          <div class="ch-row"><span class="ch-day">Mercredi</span><span class="ch-time">9h00 – 19h00</span></div>
+          <div class="ch-row"><span class="ch-day">Jeudi</span><span class="ch-time">9h00 – 20h00</span></div>
+          <div class="ch-row"><span class="ch-day">Vendredi</span><span class="ch-time">9h00 – 20h00</span></div>
+          <div class="ch-row"><span class="ch-day">Samedi</span><span class="ch-time">9h00 – 18h00</span></div>
+          <div class="ch-row"><span class="ch-day">Dimanche</span><span class="ch-closed">Fermé</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-map">
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.5!2d4.8357!3d45.7640!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQ1JzUwLjQiTiA0wrA1MCcwOC41IkU!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="transport-info">
+        <div class="transport-tag">🚇 Métro Part-Dieu (B)</div>
+        <div class="transport-tag">🅿️ Parking Part-Dieu</div>
+        <div class="transport-tag">🚲 Vélo'v disponible</div>
+        <div class="transport-tag">🚌 Bus C9, C11</div>
+      </div>
+      <div class="info-note">
+        <div class="info-note-label">Bon à savoir</div>
+        Interphone au nom de Luna Beauty. 2e étage, ascenseur disponible. Accessible PMR.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="footer-logo">Luna<span>.</span></a>
+      <div class="footer-tagline">L'excellence du détail au cœur de Lyon.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Soins</h4>
+      <a href="#tarifs">Manucure Russe</a>
+      <a href="#tarifs">Semi-Permanent & Gel</a>
+      <a href="#tarifs">Extensions Cils</a>
+      <a href="#tarifs">Design Sourcils</a>
+      <a href="#tarifs">Nail Art</a>
+    </div>
+    <div class="footer-col">
+      <h4>Salon</h4>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#salon">L'Équipe</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact & Accès</a>
+      <a href="#rdv">Prendre RDV</a>
+    </div>
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+      <a href="https://instagram.com/lunabeauty_lyon6" target="_blank">📸 Instagram</a>
+      <a href="https://wa.me/33752183491">💬 WhatsApp</a>
+      <a href="#">⭐ Avis Google</a>
+      <a href="#">🎁 Carte Cadeau</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Luna Beauty Salon · Lyon 2e · Tous droits réservés</div>
+    <div class="footer-legal">
+      <a href="#">Mentions légales</a>
+      <a href="#">RGPD</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile nav
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 72, behavior: 'smooth' }); }
+  });
+});
+
+// Tabs
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Portfolio filter
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.insta-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+      item.style.opacity = '0';
+      setTimeout(() => { item.style.opacity = '1'; item.style.transition = 'opacity 0.4s'; }, 10);
+    } else {
+      item.style.opacity = '0';
+      setTimeout(() => { item.style.display = 'none'; }, 400);
+    }
+  });
+}
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// Today highlight
+const days = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+const today = days[new Date().getDay()];
+document.querySelectorAll('.ch-row').forEach(row => {
+  if (row.querySelector('.ch-day')?.textContent === today) row.classList.add('ch-today');
+});
+
+// Fade up
+const fuEls = document.querySelectorAll('.fu');
+const fuObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); fuObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+fuEls.forEach(el => fuObserver.observe(el));
+</script>
+
+</body>
+</html>

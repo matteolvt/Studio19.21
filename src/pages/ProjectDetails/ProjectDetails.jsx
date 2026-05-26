@@ -28,9 +28,9 @@ function ProjectDetails() {
       <ProjectDetailOverview project={project} />
       <ProjectProcess project={project} />
       <ProjectPagesSlider project={project} />
+      <ProjectFooter project={project} nextProject={nextProject} />
       <ProjectFeatures project={project} />
       <ProjectResults project={project} />
-      <ProjectFooter project={project} nextProject={nextProject} />
       <Footer />
     </div>
   );
