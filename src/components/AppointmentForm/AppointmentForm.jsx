@@ -29,7 +29,7 @@ export default function AppointmentForm({
 
   const onSubmit = e => {
     e.preventDefault();
-    handleSubmit(() => navigate("/validé"));
+    handleSubmit(() => navigate("/valide"));
   };
 
   return (
